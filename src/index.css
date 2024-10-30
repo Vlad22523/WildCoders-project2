@@ -82,3 +82,47 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+html[data-theme="light"] {
+  --background-sidebar: 255, 255, 255; /* #FFFFFF */
+  --background-header: 252, 252, 252; /* #FCFCFC */
+  --background-mainboard: 246, 246, 247; /* #F6F6F7 */
+  --text-color-sidebar-and-header: 22, 22, 22; /* #161616 */
+  --text-color-mainboard: 22, 22, 22; /* #161616 */
+  --button-create-board: 190, 219, 176; /* #BEDBB0 */
+  --button-add-column: 22, 22, 22; /* #161616 */
+  --button-color-modal: 190, 219, 176; /* #BEDBB0 */
+}
+
+html[data-theme="dark"] {
+  --background-sidebar: 18, 18, 18; /* #121212 */
+  --background-header: 22, 22, 22; /* #161616 */
+  --background-mainboard: 31, 31, 31; /* #1F1F1F */
+  --text-color-sidebar-and-header: 255, 255, 255; /* #FFFFFF */
+  --text-color-mainboard: 255, 255, 255; /* #FFFFFF */
+  --button-create-board: 190, 219, 176; /* #BEDBB0 */
+  --button-add-column: 255, 255, 255; /* #FFFFFF */
+  --button-color-modal: 190, 219, 176; /* #BEDBB0 */
+}
+
+html[data-theme="violet"] {
+  --background-sidebar: 82, 85, 188; /* #5255BC */
+  --background-header: 255, 255, 255; /* #FFFFFF */
+  --background-mainboard: 236, 237, 253; /* #ECEDFD */
+  --text-color-sidebar-and-header: 255, 255, 255; /* #FFFFFF */
+  --text-color-mainboard: 22, 22, 22; /* #161616 */
+  --button-create-board: 184, 188, 253; /* #B8BCFD */
+  --button-add-column: 82, 85, 188; /* #5255BC */
+  --button-color-modal: 82, 85, 188; /* #5255BC */
+}
+
+/*
+Використання змінних кольорів:
+
+color: rgb(var(--var-text))
+
+Якщо потрібна прозорість:
+
+color: rgba(var(--var-text), 0.1)
+
+*/
