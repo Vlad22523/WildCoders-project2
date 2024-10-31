@@ -49,13 +49,15 @@ function App() {
               <HomePage />
             </PrivateRoute>
           }
-          />
-          <Route
-            path="/home/:boardId" element={
-              <PrivateRoute>
+        />
+        <Route
+          path="/home/:boardId"
+          element={
+            <PrivateRoute>
               <ScreensPage />
             </PrivateRoute>
-             } />
+          }
+        />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

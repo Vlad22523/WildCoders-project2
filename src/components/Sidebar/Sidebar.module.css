@@ -8,15 +8,25 @@
 }
 
 .svg_logo {
-  background-color: rgb(var(--background-logo));
-  border-radius: 8px;
+  fill: rgb(var(--logo));
 }
 
 .logo_link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: rgb(var(--text-color-sidebar-and-header));
+  font-weight: 600;
 }
 
-.use {
-  fill: rgb(var(--logo));
+.logo_container {
+  background-color: rgb(var(--background-logo));
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 768px) {

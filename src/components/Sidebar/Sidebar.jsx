@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import s from "./Sidebar.module.css";
 import { selectIsOpenSidebar } from "../../redux/sidebar/selectors";
 import { useRef } from "react";
+import SvgIcon from "../../hooks/SvgIcon.jsx";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
@@ -10,14 +11,15 @@ const Sidebar = () => {
   return (
     <aside ref={sidebarRef} className={`${s.side} ${isOpen ? s.open : ""}`}>
       <a className={s.logo_link} href="/home">
-        <svg className={s.svg_logo} width="32" height="32">
-          <use
-            className={s.use}
-            width="12"
+        <div className={s.logo_container}>
+          <SvgIcon
+            name="icon-logo"
+            width="15"
             height="16"
-            href="/src/images/icons.svg#icon-logo"
-          ></use>
-        </svg>
+            className={s.svg_logo}
+          />
+        </div>
+        Task Pro
       </a>
     </aside>
   );
