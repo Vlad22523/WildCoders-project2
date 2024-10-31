@@ -6,4 +6,12 @@
 
 .burger_menu {
   display: none;
+  z-index: 10;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .burger_menu {
+    display: block;
+  }
 }
