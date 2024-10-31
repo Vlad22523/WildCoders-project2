@@ -1,0 +1,14 @@
+.wrapper{
+padding: 10px 24px ;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.title{
+    font-family: "Poppins", sans-serif;
+    color: rgb(var(--text-color-mainboard));
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+}

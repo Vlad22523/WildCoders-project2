@@ -1,0 +1,118 @@
+.container{
+    position: relative;
+}
+
+.button{
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: transparent;
+    border: none;
+}
+
+.title{
+    font-family: "Poppins", sans-serif;
+    color: rgba(var(--text-color-mainboard), 0.8);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+}
+
+.icon{
+    stroke: rgba(var(--text-color-mainboard), 0.8);
+    fill: transparent;
+}
+
+.filtersModal{
+    border-radius: 8px;
+    position: fixed;
+    right: 24px;
+    padding: 24px;
+background-color: rgb(var(--background-modal-filters));
+}
+
+.modalTitle{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    color: rgb(var(--text-color-mainboard));
+}
+
+.btnClose{
+border: none;
+background-color: transparent;
+}
+
+.iconClose{
+    transform: rotate(45deg);
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    stroke: rgb(var(--text-color-mainboard));
+}
+
+.formLabel{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    color: rgb(var(--text-color-mainboard));
+}
+
+.radioBtn{
+    display: none;
+}
+
+.formOptions{
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        letter-spacing: -0.02em;
+    color: rgba(22, 22, 22, 0.5);
+}
+
+.formOptions::before{
+display: block;
+    content: '';
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 8px;
+    transition: background-color 0.3s;
+    color: #4a90e2;
+}
+
+.optionWithoutPriority::before{
+    color: rgba(22, 22, 22, 0.3);
+    background-color: rgba(22, 22, 22, 0.3);
+}
+
+.optionLow::before{
+    color: #8fa1d0;       ;
+    background-color: #8fa1d0;;
+}
+
+.optionMedium::before{
+    color: #e09cb5;
+background-color: #e09cb5;
+}
+
+.optionHigh::before{
+    color: #bedbb0;
+background-color: #bedbb0;
+}
+
+.selected{
+        color: #161616;
+
+}
+
+.selected::before{
+    transform: scale(0.8);
+    border: 2px solid white;
+    box-shadow: 0px 0px 0px 2px currentColor;
+}
