@@ -22,16 +22,18 @@ a:hover {
   color: #535bf2;
 }
 
-p{
+p {
   margin: 0;
 }
 
 body {
+  font-family: "Poppins", sans-serif;
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
+  font-weight: 400;
 }
 
 ul {
@@ -72,8 +74,7 @@ html[data-theme="light"] {
   --button-create-board: 190, 219, 176; /* #BEDBB0 */
   --button-add-column: 22, 22, 22; /* #161616 */
   --button-color-modal: 190, 219, 176; /* #BEDBB0 */
-  --background-modal-filters: 252, 252, 252 /*#FCFCFC */
-   
+  --background-modal-filters: 252, 252, 252; /*#FCFCFC */
 }
 
 html[data-theme="dark"] {
@@ -99,11 +100,11 @@ html[data-theme="violet"] {
   --background-mainboard: 236, 237, 253; /* #ECEDFD */
   --text-color-sidebar-and-header: 255, 255, 255; /* #FFFFFF */
   --text-color-mainboard: 22, 22, 22; /* #161616 */
-  --button-color-mainboard: 255, 255, 255 /* #FFFFFF */
+  --button-color-mainboard: 255, 255, 255; /* #FFFFFF */
   --button-create-board: 184, 188, 253; /* #B8BCFD */
   --button-add-column: 82, 85, 188; /* #5255BC */
   --button-color-modal: 82, 85, 188; /* #5255BC */
-  --background-modal-filters:252, 252, 252 /*#FCFCFC */
+  --background-modal-filters: 252, 252, 252; /*#FCFCFC */
 }
 
 /*
