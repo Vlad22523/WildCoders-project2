@@ -9,7 +9,16 @@ const Sidebar = () => {
 
   return (
     <aside ref={sidebarRef} className={`${s.side} ${isOpen ? s.open : ""}`}>
-      <h2>Sidebar</h2>
+      <a className={s.logo_link} href="/home">
+        <svg className={s.svg_logo} width="32" height="32">
+          <use
+            className={s.use}
+            width="12"
+            height="16"
+            href="/src/images/icons.svg#icon-logo"
+          ></use>
+        </svg>
+      </a>
     </aside>
   );
 };
