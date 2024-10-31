@@ -67,11 +67,12 @@ background-color: transparent;
 }
 
 .formOptions{
+    cursor: pointer;
     font-family: "Poppins", sans-serif;
         font-weight: 400;
         font-size: 12px;
         letter-spacing: -0.02em;
-        color: #161616;
+    color: rgba(22, 22, 22, 0.5);
 }
 
 .formOptions::before{
@@ -106,13 +107,12 @@ background-color: #bedbb0;
 }
 
 .selected{
-    color: rgba(22, 22, 22, 0.5);
+        color: #161616;
 
 }
 
 .selected::before{
-    width: 8px;
-        height: 8px;
-        border: 2px solid currentColor;
-        padding: 12px;
+    transform: scale(0.8);
+    border: 2px solid white;
+    box-shadow: 0px 0px 0px 2px currentColor;
 }
