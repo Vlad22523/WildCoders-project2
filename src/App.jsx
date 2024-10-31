@@ -7,11 +7,8 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import { PrivateRoute } from "./routes/privateRoute.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import WelcomePage from "./pages/WelcomePage/WelcomePage.jsx";
-<<<<<<< HEAD
 import ScreensPage from "./components/ScreensPage/ScreensPage.jsx";
-=======
 import Auth from "./components/Auth/Auth.jsx";
->>>>>>> master
 
 function App() {
   const isRefreshing = useSelector(selectIsRefresh);

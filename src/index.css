@@ -22,6 +22,10 @@ a:hover {
   color: #535bf2;
 }
 
+h1, h2, h3, h4{
+  margin: 0;
+}
+
 p{
   margin: 0;
 }
@@ -41,6 +45,7 @@ ul {
 }
 
 button {
+  padding: 0;
   cursor: pointer;
 }
 

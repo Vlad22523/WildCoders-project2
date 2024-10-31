@@ -1,11 +1,13 @@
-import { useState } from "react";
-import SvgIcon from "../SvgIcon/SvgIcon.jsx";
+import { useRef, useState } from "react";
+import SvgIcon from "../../hooks/SvgIcon.jsx";
 import s from "./Filters.module.css";
 import { Formik, Form, Field } from 'formik';
+import { CSSTransition } from "react-transition-group";
 
 const Filters = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const nodeRef = useRef(null);
   
   const initialValues = {
     filterOption: '',
@@ -20,15 +22,22 @@ const Filters = () => {
       <div className={s.wrapper}>
         <button type="button" className={s.button} onClick={toggleModal}>
           <SvgIcon name="icon-filter" width="16" height="16" className={s.icon} />
-          <h2 className={s.title}>Filters</h2>
+          <p className={s.title}>Filters</p>
         </button>
       </div>
-      {isModalOpen && (
-        <div className={s.filtersModal}>
-          <p className={s.modalTitle}>Filters</p>
+      <CSSTransition
+        in={isModalOpen}
+        nodeRef={nodeRef}
+        timeout={1000}
+        classNames="modal"
+        unmountOnExit
+      >
+      <div className={s.filtersModal}>
+          <h2 className={s.modalTitle}>Filters</h2>
           <button className={s.btnClose} type="button" onClick={toggleModal}>
             <SvgIcon name="icon-plus" width="18" height="18" className={s.iconClose} />
           </button>
+          <div className={s.line}></div>
           <Formik
             initialValues={initialValues}
             onSubmit={(values) => {
@@ -38,7 +47,16 @@ const Filters = () => {
             {({ setFieldValue, values }) => (
               <Form>
                 <div role="group" aria-labelledby="radio-group">
-                  <h3 className={s.formLabel}>Label color</h3>
+                  <div className={s.filtersWrapper}>
+                    <h3 className={s.formLabel}>Label color</h3>
+                    <button
+                    type="button"
+                    className={s.resetButton}
+                    onClick={() => handleReset(setFieldValue)}
+                  >
+                    Show all
+                  </button>
+                  </div>
                   <label className={`${s.formOptions} ${s.optionWithoutPriority} ${values.filterOption === 'without-priority' ? s.selected : ''}`}>
                     <Field
                       type="radio"
@@ -80,20 +98,12 @@ const Filters = () => {
                     High
                   </label>
                 </div>
-                <button
-                  type="button"
-                  className={s.resetButton}
-                  onClick={() => handleReset(setFieldValue)}
-                >
-                  Reset Filters
-                </button>
               </Form>
             )}
           </Formik>
         </div>
-      )}
-    </div>
-  );
+      </CSSTransition>
+    </div> )
 };
 
 export default Filters;

@@ -1,5 +1,5 @@
 import HeaderDashboard from "../HeaderDashboard/HeaderDashboard.jsx";
-import SvgIcon from "../SvgIcon/SvgIcon.jsx";
+import SvgIcon from "../../hooks/SvgIcon.jsx";
 import s from "./ScreensPage.module.css";
 
 const ScreensPage = () => {
