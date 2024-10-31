@@ -1,0 +1,9 @@
+.header {
+  width: 100%;
+  background-color: aqua;
+  height: 60px;
+}
+
+.burger_menu {
+  display: none;
+}
