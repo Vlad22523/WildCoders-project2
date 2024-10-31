@@ -5,7 +5,7 @@ import s from "./ScreensPage.module.css";
 const ScreensPage = () => {
 
   const isBoardCreated = true;
-  const isColumnCreated = false;
+  // const isColumnCreated = false;
 
   return <main className={s.main}>
     <HeaderDashboard />
