@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
 import s from "./Filters.module.css";
 import { Formik, Form, Field } from 'formik';
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition, Transition, TransitionGroup } from "react-transition-group";
 
 const Filters = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
@@ -25,14 +25,19 @@ const Filters = () => {
           <p className={s.title}>Filters</p>
         </button>
       </div>
-      <CSSTransition
-        in={isModalOpen}
-        nodeRef={nodeRef}
-        timeout={300}
-        classNames="modal"
-        unmountOnExit
+      <TransitionGroup>
+      {isModalOpen && <CSSTransition
+          in={isModalOpen}
+        key="filtersModal"
+        timeout={500}
+        classNames={s.filtersModal}
+        onEntering={console.log('onEntering')}
+        onEntered={console.log('onEntered')}
+        onExiting={console.log('onExiting')}
+          onExit={console.log('onExit')}
+          unmountOnExit
       >
-      <div className={s.filtersModal}>
+        <div className={s.filtersModal}>
           <h2 className={s.modalTitle}>Filters</h2>
           <button className={s.btnClose} type="button" onClick={toggleModal}>
             <SvgIcon name="icon-plus" width="18" height="18" className={s.iconClose} />
@@ -102,7 +107,9 @@ const Filters = () => {
             )}
           </Formik>
         </div>
-      </CSSTransition>
+      </CSSTransition> }
+        </TransitionGroup>
+        
     </div> )
 };
 
