@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import { PrivateRoute } from "./routes/privateRoute.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import WelcomePage from "./pages/WelcomePage/WelcomePage.jsx";
+import ScreensPage from "./components/ScreensPage/ScreensPage.jsx";
 
 function App() {
   const isRefreshing = useSelector(selectIsRefresh);
@@ -56,7 +57,13 @@ function App() {
               <HomePage />
             </PrivateRoute>
           }
-        />
+          />
+          <Route
+            path="/home/:boardId" element={
+              <PrivateRoute>
+              <ScreensPage />
+            </PrivateRoute>
+             } />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
