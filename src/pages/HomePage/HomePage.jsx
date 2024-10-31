@@ -1,5 +1,5 @@
 import Header from "../../components/Header/Header.jsx";
-import ScreenPage from "../../components/ScreenPage/ScreenPage.jsx";
+import ScreenPage from "../../components/ScreensPage/ScreensPage.jsx";
 import Sidebar from "../../components/Sidebar/Sidebar.jsx";
 import s from "./HomePage.module.css";
 
