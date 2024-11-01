@@ -1,0 +1,146 @@
+.welcomePage {
+    width: 100%;
+    height: 100vh;
+    background: rgb(190,219,176);
+    background: linear-gradient(0deg, rgba(190,219,176,1) 10%, rgba(248,251,246,1) 49%, rgba(255,255,255,1) 91%);
+}
+
+.welcomeContent {
+    max-width: 375px;
+    width: 100%;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taskPro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding-bottom: 24px;
+}
+
+.welcomeImage {
+    width: 124px;
+    height: 124px;
+    margin-bottom: 14px;
+}
+
+.logoContainer {
+    background-color: rgb(var(--background-logo));
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svgLogo {
+    fill: rgb(var(--logo));
+}
+
+.welcomeHeader {
+    color: #161616;
+    font-family: Poppins;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -1.12px;
+    text-align: center;
+}
+
+.welcomeText {
+    color: #161616;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.28em;
+    letter-spacing: -0.01em;
+    padding-bottom: 48px;
+}
+
+.welcomeRegBtn {
+    border-radius: 8px;
+    background: #161616;
+    max-width: 335px;
+    width: 100%;
+    padding: 14px 0px;
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+}
+
+.welcomeLogBtn {
+    text-decoration: none;
+    color: #161616;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+/* ===============MEDIA 768============== */
+
+@media screen and (min-width: 768px) {
+    .welcomePage {
+        padding: 0px;
+    }
+
+    .welcomeContent {
+        width: 473px;
+    }
+
+    .welcomeImage {
+        width: 162px;
+        height: 162px;
+        margin-bottom: 14px;
+    }
+
+    .logoContainer {
+        width: 48px;
+        height: 48px;
+    }
+
+    .svgLogo {
+        fill: rgb(var(--logo));
+        width: 24px;
+        height: 28px;
+    }
+
+    .welcomeHeader {
+        font-size: 40px;
+        letter-spacing: -0.04em;
+    }
+
+    .welcomeText {
+        letter-spacing: -0.02em;
+    }
+    
+    .welcomeRegBtn {
+        width: 344px;
+    }
+    
+}
+
+/* ===============MEDIA 1440============== */
+
+@media screen and (min-width: 1440px) {
+    .welcomeImage {
+        margin-bottom: 24px;
+    }
+
+    .welcomeHeader {
+        font-size: 40px;
+    }
+}

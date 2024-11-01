@@ -63,6 +63,7 @@ img {
 
 html[data-theme="light"] {
   --logo: 255, 255, 255; /* #FFFFFF */
+  --background-gradient: 190, 219, 176; /* #BEDBB0 */
   --background-logo: 31, 31, 31; /* #1F1F1F */
   --background-sidebar: 255, 255, 255; /* #FFFFFF */
   --background-header: 252, 252, 252; /* #FCFCFC */
