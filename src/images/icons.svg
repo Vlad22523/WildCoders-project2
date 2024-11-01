@@ -1,5 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
-  <defs>
     <symbol id="icon-arrow-circle-broken-right" viewBox="0 0 32 32">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" d="M4.45 9.333A13.328 13.328 0 0 1 16 2.666c7.364 0 13.333 5.97 13.333 13.333S23.363 29.332 16 29.332a13.329 13.329 0 0 1-11.55-6.667"/>
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" d="M16 21.333 21.333 16 16 10.667M2.667 16h18.667"/>
@@ -60,5 +59,13 @@
      <symbol id="icon-menu-01" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" d="M4 16h24M4 8h24M4 24h24"/>
     </symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 30 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.8235" d="M7.529 12.235l7.529 7.529 7.529-7.529"></path>
+    </symbol>
+    <symbol id="icon-user" viewBox="0 0 32 32">
+<path fill="#f6f6f7" style="fill: var(--color1, #f6f6f7)" d="M3.765 0h24.471c2.079 0 3.765 1.686 3.765 3.765v24.471c0 2.079-1.686 3.765-3.765 3.765h-24.471c-2.079 0-3.765-1.686-3.765-3.765v-24.471c0-2.079 1.686-3.765 3.765-3.765z"></path>
+<path fill="#fff" style="fill: var(--color2, #fff)" d="M21.49 14.745c0 2.946-2.388 5.333-5.333 5.333s-5.333-2.388-5.333-5.333c0-2.946 2.388-5.333 5.333-5.333s5.333 2.388 5.333 5.333z"></path>
+<path fill="#fff" style="fill: var(--color2, #fff)" d="M29.060 32.853c0-1.723-0.339-3.429-0.999-5.020s-1.626-3.038-2.844-4.256c-1.218-1.218-2.664-2.184-4.256-2.844s-3.297-0.999-5.020-0.999c-1.723 0-3.429 0.339-5.020 0.999s-3.038 1.626-4.256 2.844c-1.218 1.218-2.184 2.664-2.844 4.256s-0.999 3.297-0.999 5.020h26.237z"></path>
+</symbol>
   </defs>
 </svg>
