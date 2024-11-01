@@ -2,7 +2,7 @@
 padding: 10px 24px ;
 display: flex;
 align-items: center;
-justify-content: space-between;
+justify-content: right;
 }
 
 .title{
@@ -11,4 +11,12 @@ justify-content: space-between;
     font-weight: 500;
     font-size: 18px;
     letter-spacing: -0.02em;
+}
+
+.visible{
+justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    
 }

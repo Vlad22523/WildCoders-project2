@@ -15,17 +15,52 @@ const ScreensPage = () => {
         }`}
       >
         {isBoardCreated ? (
-          <button className={s.button} type="button">
-            <div className={s.svgWrapper}>
-              <SvgIcon
-                name="icon-plus"
-                width="14"
-                height="14"
-                className={s.icon}
-              />
-            </div>
-            <span className={s.buttonSpan}>Add another column</span>
-          </button>
+          <div className={s.columnWrapper}>
+            <button className={s.button} type="button">
+              <div className={s.svgWrapper}>
+                <SvgIcon
+                  name="icon-plus"
+                  width="14"
+                  height="14"
+                  className={s.icon}
+                />
+              </div>
+              <span className={s.buttonSpan}>Add another column</span>
+            </button> 
+            <button className={s.button} type="button">
+              <div className={s.svgWrapper}>
+                <SvgIcon
+                  name="icon-plus"
+                  width="14"
+                  height="14"
+                  className={s.icon}
+                />
+              </div>
+              <span className={s.buttonSpan}>Add another column</span>
+            </button>
+            <button className={s.button} type="button">
+              <div className={s.svgWrapper}>
+                <SvgIcon
+                  name="icon-plus"
+                  width="14"
+                  height="14"
+                  className={s.icon}
+                />
+              </div>
+              <span className={s.buttonSpan}>Add another column</span>
+            </button>
+            <button className={s.button} type="button">
+              <div className={s.svgWrapper}>
+                <SvgIcon
+                  name="icon-plus"
+                  width="14"
+                  height="14"
+                  className={s.icon}
+                />
+              </div>
+              <span className={s.buttonSpan}>Add another column</span>
+            </button>
+          </div>
         ) : (
           <p className={s.text}>
             Before starting your project, it is essential{" "}

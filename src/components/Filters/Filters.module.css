@@ -26,52 +26,18 @@
 }
 
 .filtersModal {
+    width: 300px;
     border-radius: 8px;
     position: fixed;
     right: 24px;
     padding: 24px;
     background-color: rgb(var(--background-modal-filters));
-    /* animation: showModal 1s forwards; */
-    
+    animation: showModal 1s forwards;
 }
 
-.filtersModal-enter-active{
-    animation: showModal .5s forwards;
-}
 
-.modalHide{
-    animation: showModal 1s reverse;
-    }
-
-/* .modalShow {
-    border-radius: 8px;
-        position: fixed;
-        right: 24px;
-        padding: 24px;
-        background-color: rgb(var(--background-modal-filters));
-
-}
-
-.modalHide {
-    animation: fade-in 1s forwards;
-} */
-
-/* .filtersModal {
-    transform: scale(0.5);
-    transition: 1s;
-    border-radius: 8px;
-    position: fixed;
-    top: 45px;
-    right: -50px;
-    padding: 24px;
-    background-color: rgb(var(--background-modal-filters));
-}
-
-.filtersModal.active{
-    transform: scale(1);
-    top: 100px;
-right: 24px;
-} */
+.filtersModal.exiting{
+    animation: hideModal .5s forwards;}
 
 
 @keyframes showModal {
@@ -84,6 +50,21 @@ right: 24px;
     }
     100%{
         transform: translateY(0);
+    }
+}
+
+@keyframes hideModal {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(150px);
     }
 }
 
@@ -100,6 +81,7 @@ right: 24px;
     display: flex;
     justify-content: space-between;
     gap: 130px;
+    margin-bottom: 14px;
 }
 
 .line {
@@ -154,7 +136,12 @@ right: 24px;
     color: rgba(22, 22, 22, 0.5);
     display: flex;
     gap: 8px;
+    margin-bottom: 8px;
 
+}
+
+.formOptions:not(:last-child){
+    margin-bottom: 8px;
 }
 
 .formOptions::before {
