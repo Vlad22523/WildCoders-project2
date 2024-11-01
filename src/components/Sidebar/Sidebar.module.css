@@ -41,6 +41,7 @@
 }
 
 .create_title {
+  color: rgb(var(--text-color-sidebar-and-header));
   width: 76px;
   font-size: 14px;
   font-weight: 500;
@@ -143,6 +144,7 @@
     font-size: 16px;
     font-weight: 500;
     margin: 0;
+    color: rgb(var(--text-color-sidebar-and-header));
   }
 }
 
@@ -161,6 +163,7 @@
   background-color: rgb(var(--needhelpplatform));
   border-radius: 8px;
   cursor: pointer;
+  position: relative;
 }
 
 .side_help_span {
@@ -171,8 +174,8 @@
   background-color: rgb(var(--needhelpplatform));
   padding: 10px 20px 20px 20px;
   border-radius: 8px;
-  left: 24px;
-  bottom: 130px;
+
+  top: -246px;
   transition: all 200ms ease-in-out;
   span {
     color: rgb(var(--logonameplatform));
@@ -229,5 +232,12 @@
     background-color: rgb(21, 21, 21, 0.7);
     width: 100%;
     height: 100vh;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .side {
+    width: 225px;
+    padding: 14px;
   }
 }
