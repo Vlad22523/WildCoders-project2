@@ -79,6 +79,10 @@ html[data-theme="light"] {
   --svglogout: 190, 219, 176; /* #BEDBB0 */
   --needhelpplatform: 246, 246, 247; /* #F6F6F7 */
   --logonameplatform: 190, 219, 176; /* #BEDBB0 */
+  --mainboard-scrollbar-thumb: 232, 232, 232, 1;   /*#E8E8E8 */
+  --mainboard-scrollbar-track: 255, 255, 255;/* #FFFFFF */
+  --button-add-column-text:22, 22, 22; /* #161616 */
+  --icon-plus-add-card: 255, 255, 255; /* #FFFFFF */
 }
 
 html[data-theme="dark"] {
@@ -99,6 +103,10 @@ html[data-theme="dark"] {
   --svglogout: 190, 219, 176; /* #BEDBB0 */
   --needhelpplatform: 31, 31, 31; /* #1F1F1F */
   --logonameplatform: 190, 219, 176; /* #BEDBB0 */
+  --mainboard-scrollbar-thumb: 255, 255, 255, 0.1; /*#FFFFFF */
+  --mainboard-scrollbar-track: 22, 22, 22; /* #161616 */
+  --button-add-column-text: 22, 22, 22; /* #161616 */
+  --icon-plus-add-card: 255, 255, 255; /* #FFFFFF */
 }
 
 html[data-theme="violet"] {
@@ -119,6 +127,10 @@ html[data-theme="violet"] {
   --svglogout: 255, 255, 255, 0.5; /* #FFFFFF */
   --needhelpplatform: 236, 237, 253, 0.6; /* #ECEDFD */
   --logonameplatform: 82, 85, 188; /* #5255BC */
+  --mainboard-scrollbar-thumb: 184, 188, 253, 1; /*#B8BCFD */
+  --mainboard-scrollbar-track: 255, 255, 255; /* #FFFFFF */
+  --button-add-column-text: 255, 255, 255; /* #FFFFFF */
+  --icon-plus-add-card:22, 22, 22; /* #161616 */
 }
 
 /*

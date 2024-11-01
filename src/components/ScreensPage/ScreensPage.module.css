@@ -1,22 +1,68 @@
 .main {
-  width: 100vw;
-  height: 100%;
   background-color: rgb(var(--background-mainboard));
   margin: 0;
+  width: 100%;
+  max-width: 375px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 10px 24px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
 
 .mainWrapper{
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  flex: 1;
   display: flex;
   padding: 0 20px;
-  overflow: scroll;
 }
 
-.columnWrapper{
+.columnContainer{
+  width: 100%;
+  height: 90%;
   display: flex;
   gap: 34px;
+  flex-direction: row;
+  overflow-x: auto
 }
+
+.columnContainer::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+/* Фон полосы прокрутки */
+.columnContainer::-webkit-scrollbar-track {
+  background-color: rgba(var(--mainboard-scrollbar-track));
+  border-radius: 12px;
+}
+
+/* Ползунок (Thumb) */
+.columnContainer::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--mainboard-scrollbar-thumb));
+  /* Основной цвет ползунка */
+  border-radius: 12px;
+  /* Радиус ползунка */
+}
+
+/* Ползунок при наведении */
+.columnContainer::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+  /* Цвет ползунка при наведении */
+}
+
 
 .noBoard{
 justify-content: center;
@@ -29,9 +75,10 @@ justify-content: center;
 }
 
 .button{
+  flex-shrink: 0;
   max-height: 56px;
   padding: 14px 0;
-  width: 334px;
+  width: calc(100vw - 40px);
   border: none;
   border-radius: 8px;
   background-color: rgb(var(--button-color-mainboard));
@@ -39,11 +86,12 @@ justify-content: center;
   gap: 8px;
   justify-content: center;
   align-items: center;
+  white-space: nowrap;
 
 }
 
-.svgWrapper{
- width: 28px;
+.svgWrapper {
+  width: 28px;
   height: 28px;
   background-color: rgb(var(--text-color-mainboard));
   border-radius: 6px;
@@ -51,6 +99,52 @@ justify-content: center;
   align-items: center;
   justify-content: center;
 }
+
+.columnWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.buttonColumn{
+  padding: 18px 20px;
+  justify-content: space-between;
+
+}
+
+.buttonColumnAdd{
+  
+  background-color: rgb(var(--button-color-modal));
+}
+
+.buttonAddCard{
+  font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+  color: rgb(var(--button-add-column-text));
+}
+
+.svgWrapperAddCard{
+  background-color: rgb(var(--button-add-column-text));
+
+}
+
+.svgWrapperColumn{
+  display: flex;
+  gap: 8px;
+
+}
+
+.iconColumn{
+  stroke: rgba(var(--text-color-mainboard), 0.5);
+  fill: transparent;
+}
+
+.iconAddCard{
+  stroke: rgb(var(--icon-plus-add-card));
+}
+
+
 
 .buttonSpan{
 font-weight: 500;
@@ -79,10 +173,29 @@ font-weight: 500;
 
 }
 
+@media (min-width: 375px) {
+  .button{
+    width: 334px;
+  }
+}
+
 @media (min-width: 768px) {
+  .main{
+    max-width: 768px;
+  }
+    .button{
+      width: 334px;
+    }
   .text{
   max-width: 486px;
   }
 
+}
+
+@media (min-width: 1440px) {
+
+  .main {
+      max-width: 1180px;
+    }
 }
 

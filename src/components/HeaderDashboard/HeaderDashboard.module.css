@@ -1,8 +1,8 @@
 .wrapper{
-padding: 10px 24px ;
-display: flex;
-align-items: center;
+    display: flex;
+width: 100%;
 justify-content: right;
+align-items: center;
 }
 
 .title{
@@ -15,8 +15,4 @@ justify-content: right;
 
 .visible{
 justify-content: space-between;
-}
-
-@media (min-width: 768px) {
-    
 }

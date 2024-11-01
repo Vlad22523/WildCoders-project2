@@ -133,10 +133,9 @@
     font-weight: 400;
     font-size: 12px;
     letter-spacing: -0.02em;
-    color: rgba(22, 22, 22, 0.5);
+    color: rgba(var(--text-color-mainboard), 0.5);
     display: flex;
     gap: 8px;
-    margin-bottom: 8px;
 
 }
 
@@ -155,15 +154,13 @@
 }
 
 .optionWithoutPriority::before {
-    color: rgba(22, 22, 22, 0.3);
-    background-color: rgba(22, 22, 22, 0.3);
+    color: rgba(var(--text-color-mainboard), 0.3);
+    background-color: rgba(var(--text-color-mainboard), 0.3);
 }
 
 .optionLow::before {
     color: #8fa1d0;
-    ;
     background-color: #8fa1d0;
-    ;
 }
 
 .optionMedium::before {
@@ -177,12 +174,12 @@
 }
 
 .selected {
-    color: #161616;
+    color: rgb(var(--text-color-mainboard));
 
 }
 
 .selected::before {
     transform: scale(0.8);
-    border: 2px solid white;
+    border: 2px solid rgb(var(--background-modal-filters));
     box-shadow: 0px 0px 0px 2px currentColor;
 }
