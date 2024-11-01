@@ -1,0 +1,152 @@
+.container {
+  max-width: 350px;
+  max-height: 433px;
+  border-radius: 8px;
+  background: #fcfcfc;
+  border: 1px solid #161616;
+  padding: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.containerTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.title {
+  color: #161616;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+}
+.closeButton {
+  background: transparent;
+  width: 18px;
+  height: 18px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+
+.input {
+  display: flex;
+  width: 302px;
+  padding: 14px 18px;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+  color: #161616;
+  font-size: 14px;
+  letter-spacing: -0.28px;
+  opacity: 0.4;
+  outline: none;
+}
+
+.input:active,
+.input:hover,
+.input:focus {
+  opacity: 1;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 1px;
+  padding: 0 18px;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.containerError {
+  margin-bottom: 24px;
+}
+
+.iconContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+h3 {
+  color: #161616;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+  margin: 0;
+  margin-bottom: 14px;
+}
+
+.button {
+  display: flex;
+  width: 302px;
+  padding: 10px 0px 11px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #bedbb0;
+  color: #161616;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+  margin-top: 24px;
+  gap: 8px;
+  outline: none;
+  border: none;
+}
+
+.button:active,
+.button:hover,
+.button:focus {
+  background: #9dc888;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.iconButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #161616;
+  border-radius: 4px;
+  padding: 7px;
+}
+.button:focus,
+.closeButton:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.backgroundContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-right: 40px;
+}
+
+.backgroundImages {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: none;
+}
+
+.activeBackground {
+  border: 1px solid blue;
+}
+
+.iconBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f6f7;
+  border-radius: 6px;
+  padding: 6px;
+  stroke: #161616;
+  stroke-opacity: 0.1;
+}
