@@ -18,8 +18,13 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
+
+h1, h2, h3, h4{
+  margin: 0;
+}
+
+p{
+  margin: 0;
 }
 
 body {
@@ -38,6 +43,7 @@ ul {
 }
 
 button {
+  padding: 0;
   cursor: pointer;
 }
 
@@ -47,74 +53,84 @@ img {
   height: auto;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
 
 html[data-theme="light"] {
+  --logo: 255, 255, 255; /* #FFFFFF */
+  --background-gradient: 190, 219, 176; /* #BEDBB0 */
+  --background-logo: 31, 31, 31; /* #1F1F1F */
   --background-sidebar: 255, 255, 255; /* #FFFFFF */
   --background-header: 252, 252, 252; /* #FCFCFC */
   --background-mainboard: 246, 246, 247; /* #F6F6F7 */
   --text-color-sidebar-and-header: 22, 22, 22; /* #161616 */
   --text-color-mainboard: 22, 22, 22; /* #161616 */
+  --button-color-mainboard: 255, 255, 255; /* #FFFFFF */
   --button-create-board: 190, 219, 176; /* #BEDBB0 */
   --button-add-column: 22, 22, 22; /* #161616 */
   --button-color-modal: 190, 219, 176; /* #BEDBB0 */
+  --background-modal-filters: 252, 252, 252; /*#FCFCFC */
+  --svg-plus: 18, 18, 18; /* #121212 */
+  --background-hover-board: 246, 246, 247; /* #F6F6F7 */
+  --svglogout: 190, 219, 176; /* #BEDBB0 */
+  --needhelpplatform: 246, 246, 247; /* #F6F6F7 */
+  --logonameplatform: 190, 219, 176; /* #BEDBB0 */
+  --mainboard-scrollbar-thumb: 232, 232, 232, 1;   /*#E8E8E8 */
+  --mainboard-scrollbar-track: 255, 255, 255;/* #FFFFFF */
+  --button-add-column-text:22, 22, 22; /* #161616 */
+  --icon-plus-add-card: 255, 255, 255; /* #FFFFFF */
 }
 
 html[data-theme="dark"] {
+  --logo: 255, 255, 255; /* #FFFFFF */
+  --background-logo: 31, 31, 31; /* #1F1F1F */
   --background-sidebar: 18, 18, 18; /* #121212 */
   --background-header: 22, 22, 22; /* #161616 */
   --background-mainboard: 31, 31, 31; /* #1F1F1F */
   --text-color-sidebar-and-header: 255, 255, 255; /* #FFFFFF */
   --text-color-mainboard: 255, 255, 255; /* #FFFFFF */
+  --button-color-mainboard: 18, 18, 18; /* #121212 */
   --button-create-board: 190, 219, 176; /* #BEDBB0 */
   --button-add-column: 255, 255, 255; /* #FFFFFF */
   --button-color-modal: 190, 219, 176; /* #BEDBB0 */
+  --background-modal-filters: 21, 21, 21; /* #151515 */
+  --svg-plus: 18, 18, 18; /* #121212 */
+  --background-hover-board: 31, 31, 31; /* #1F1F1F */
+  --svglogout: 190, 219, 176; /* #BEDBB0 */
+  --needhelpplatform: 31, 31, 31; /* #1F1F1F */
+  --logonameplatform: 190, 219, 176; /* #BEDBB0 */
+  --mainboard-scrollbar-thumb: 255, 255, 255, 0.1; /*#FFFFFF */
+  --mainboard-scrollbar-track: 22, 22, 22; /* #161616 */
+  --button-add-column-text: 22, 22, 22; /* #161616 */
+  --icon-plus-add-card: 255, 255, 255; /* #FFFFFF */
 }
 
 html[data-theme="violet"] {
+  --logo: 82, 85, 188; /* #5255BC */
+  --background-logo: 236, 237, 253; /* #ECEDFD */
   --background-sidebar: 82, 85, 188; /* #5255BC */
   --background-header: 255, 255, 255; /* #FFFFFF */
   --background-mainboard: 236, 237, 253; /* #ECEDFD */
   --text-color-sidebar-and-header: 255, 255, 255; /* #FFFFFF */
   --text-color-mainboard: 22, 22, 22; /* #161616 */
+  --button-color-mainboard: 255, 255, 255; /* #FFFFFF */
   --button-create-board: 184, 188, 253; /* #B8BCFD */
   --button-add-column: 82, 85, 188; /* #5255BC */
   --button-color-modal: 82, 85, 188; /* #5255BC */
+  --background-modal-filters: 252, 252, 252; /*#FCFCFC */
+  --svg-plus: 255, 255, 255; /* #FFFFFF */
+  --background-hover-board: 255, 255, 255, 0.5; /* #FFFFFF */
+  --svglogout: 255, 255, 255, 0.5; /* #FFFFFF */
+  --needhelpplatform: 175, 176, 227; /* #ECEDFD */
+  --logonameplatform: 82, 85, 188; /* #5255BC */
+  --mainboard-scrollbar-thumb: 184, 188, 253, 1; /*#B8BCFD */
+  --mainboard-scrollbar-track: 255, 255, 255; /* #FFFFFF */
+  --button-add-column-text: 255, 255, 255; /* #FFFFFF */
+  --icon-plus-add-card:22, 22, 22; /* #161616 */
 }
 
 /*
