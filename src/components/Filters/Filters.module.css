@@ -25,15 +25,51 @@
     fill: transparent;
 }
 
-.filtersModal{
+.filtersModal {
+    width: 300px;
     border-radius: 8px;
     position: fixed;
     right: 24px;
     padding: 24px;
-background-color: rgb(var(--background-modal-filters));
+    background-color: rgb(var(--background-modal-filters));
+    animation: showModal 1s forwards;
 }
 
-.modalTitle{
+
+.filtersModal.exiting{
+    animation: hideModal .5s forwards;}
+
+
+@keyframes showModal {
+    0%{
+        opacity: 0;
+        transform: translateX(150px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes hideModal {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(150px);
+    }
+}
+
+
+.modalTitle {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -41,20 +77,45 @@ background-color: rgb(var(--background-modal-filters));
     color: rgb(var(--text-color-mainboard));
 }
 
-.btnClose{
-border: none;
-background-color: transparent;
+.filtersWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 130px;
+    margin-bottom: 14px;
 }
 
-.iconClose{
-    transform: rotate(45deg);
+.line {
+    width: 100%;
+    border-top: 1px solid rgba(var(--text-color-mainboard), 0.1);
+    margin: 14px 0;
+}
+
+.resetButton {
+    font-family: "Poppins", sans-serif;
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+    letter-spacing: -0.02em;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: rgba(var(--text-color-mainboard), 0.5);
+}
+
+.btnClose {
     position: absolute;
     top: 14px;
     right: 14px;
+    border: none;
+    background-color: transparent;
+}
+
+.iconClose {
+    transform: rotate(45deg);
+
     stroke: rgb(var(--text-color-mainboard));
 }
 
-.formLabel{
+.formLabel {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 14px;
@@ -62,57 +123,63 @@ background-color: transparent;
     color: rgb(var(--text-color-mainboard));
 }
 
-.radioBtn{
+.radioBtn {
     display: none;
 }
 
-.formOptions{
+.formOptions {
     cursor: pointer;
     font-family: "Poppins", sans-serif;
-        font-weight: 400;
-        font-size: 12px;
-        letter-spacing: -0.02em;
-    color: rgba(22, 22, 22, 0.5);
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: -0.02em;
+    color: rgba(var(--text-color-mainboard), 0.5);
+    display: flex;
+    gap: 8px;
+
 }
 
-.formOptions::before{
-display: block;
+.formOptions:not(:last-child){
+    margin-bottom: 8px;
+}
+
+.formOptions::before {
+    display: block;
     content: '';
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    margin-right: 8px;
     transition: background-color 0.3s;
     color: #4a90e2;
 }
 
-.optionWithoutPriority::before{
-    color: rgba(22, 22, 22, 0.3);
-    background-color: rgba(22, 22, 22, 0.3);
+.optionWithoutPriority::before {
+    color: rgba(var(--text-color-mainboard), 0.3);
+    background-color: rgba(var(--text-color-mainboard), 0.3);
 }
 
-.optionLow::before{
-    color: #8fa1d0;       ;
-    background-color: #8fa1d0;;
+.optionLow::before {
+    color: #8fa1d0;
+    background-color: #8fa1d0;
 }
 
-.optionMedium::before{
+.optionMedium::before {
     color: #e09cb5;
-background-color: #e09cb5;
+    background-color: #e09cb5;
 }
 
-.optionHigh::before{
+.optionHigh::before {
     color: #bedbb0;
-background-color: #bedbb0;
+    background-color: #bedbb0;
 }
 
-.selected{
-        color: #161616;
+.selected {
+    color: rgb(var(--text-color-mainboard));
 
 }
 
-.selected::before{
+.selected::before {
     transform: scale(0.8);
-    border: 2px solid white;
+    border: 2px solid rgb(var(--background-modal-filters));
     box-shadow: 0px 0px 0px 2px currentColor;
 }
