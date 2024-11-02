@@ -2,13 +2,14 @@ import { useSelector } from "react-redux";
 import { selectIsLoggedIn, selectIsRefresh } from "./redux/auth/selectors.js";
 import Loader from "./components/Loader/Loader.jsx";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { PublicRoute } from "./routes/publicRoute.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
-import { PrivateRoute } from "./routes/privateRoute.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import WelcomePage from "./pages/WelcomePage/WelcomePage.jsx";
 import ScreensPage from "./components/ScreensPage/ScreensPage.jsx";
 import Auth from "./components/Auth/Auth.jsx";
+import { Toaster } from "react-hot-toast";
+import { PublicRoute } from "./routes/PublicRoute.jsx";
+import { PrivateRoute } from "./routes/PrivateRoute.jsx";
 
 function App() {
   const isRefreshing = useSelector(selectIsRefresh);
@@ -18,6 +19,7 @@ function App() {
     <Loader />
   ) : (
     <>
+      <Toaster />
       <Routes>
         <Route
           path="/"

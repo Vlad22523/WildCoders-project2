@@ -1,185 +1,181 @@
-.container{
-    position: relative;
+.container {
+  position: relative;
 }
 
-.button{
-    padding: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: transparent;
-    border: none;
+.button {
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  border: none;
 }
 
-.title{
-    font-family: "Poppins", sans-serif;
-    color: rgba(var(--text-color-mainboard), 0.8);
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: -0.02em;
+.title {
+  font-family: "Poppins", sans-serif;
+  color: rgba(var(--text-color-mainboard), 0.8);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
 }
 
-.icon{
-    stroke: rgba(var(--text-color-mainboard), 0.8);
-    fill: transparent;
+.icon {
+  stroke: rgba(var(--text-color-mainboard), 0.8);
+  fill: transparent;
 }
 
 .filtersModal {
-    width: 300px;
-    border-radius: 8px;
-    position: fixed;
-    right: 24px;
-    padding: 24px;
-    background-color: rgb(var(--background-modal-filters));
-    animation: showModal 1s forwards;
+  width: 300px;
+  border-radius: 8px;
+  position: fixed;
+  right: 24px;
+  padding: 24px;
+  background-color: rgb(var(--background-modal-filters));
+  animation: showModal 1s forwards;
 }
 
-
-.filtersModal.exiting{
-    animation: hideModal .5s forwards;}
-
+.filtersModal.exiting {
+  animation: hideModal 0.5s forwards;
+}
 
 @keyframes showModal {
-    0%{
-        opacity: 0;
-        transform: translateX(150px);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes hideModal {
-    0% {
-        opacity: 0;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
 
-    50% {
-        opacity: 1;
-    }
+  50% {
+    opacity: 1;
+  }
 
-    100% {
-        transform: translateX(150px);
-    }
+  100% {
+    transform: translateX(150px);
+  }
 }
 
-
 .modalTitle {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    letter-spacing: -0.02em;
-    color: rgb(var(--text-color-mainboard));
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: rgb(var(--text-color-mainboard));
 }
 
 .filtersWrapper {
-    display: flex;
-    justify-content: space-between;
-    gap: 130px;
-    margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 130px;
+  margin-bottom: 14px;
 }
 
 .line {
-    width: 100%;
-    border-top: 1px solid rgba(var(--text-color-mainboard), 0.1);
-    margin: 14px 0;
+  width: 100%;
+  border-top: 1px solid rgba(var(--text-color-mainboard), 0.1);
+  margin: 14px 0;
 }
 
 .resetButton {
-    font-family: "Poppins", sans-serif;
-    background-color: transparent;
-    border: none;
-    font-size: 12px;
-    letter-spacing: -0.02em;
-    text-decoration: underline;
-    text-decoration-skip-ink: none;
-    color: rgba(var(--text-color-mainboard), 0.5);
+  font-family: "Poppins", sans-serif;
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: rgba(var(--text-color-mainboard), 0.5);
 }
 
 .btnClose {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    border: none;
-    background-color: transparent;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  background-color: transparent;
 }
 
 .iconClose {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 
-    stroke: rgb(var(--text-color-mainboard));
+  stroke: rgb(var(--text-color-mainboard));
 }
 
 .formLabel {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    color: rgb(var(--text-color-mainboard));
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: rgb(var(--text-color-mainboard));
 }
 
 .radioBtn {
-    display: none;
+  display: none;
 }
 
 .formOptions {
-    cursor: pointer;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    letter-spacing: -0.02em;
-    color: rgba(var(--text-color-mainboard), 0.5);
-    display: flex;
-    gap: 8px;
-
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  color: rgba(var(--text-color-mainboard), 0.5);
+  display: flex;
+  gap: 8px;
 }
 
-.formOptions:not(:last-child){
-    margin-bottom: 8px;
+.formOptions:not(:last-child) {
+  margin-bottom: 8px;
 }
 
 .formOptions::before {
-    display: block;
-    content: '';
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    transition: background-color 0.3s;
-    color: #4a90e2;
+  display: block;
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  color: #4a90e2;
 }
 
 .optionWithoutPriority::before {
-    color: rgba(var(--text-color-mainboard), 0.3);
-    background-color: rgba(var(--text-color-mainboard), 0.3);
+  color: rgba(var(--text-color-mainboard), 0.3);
+  background-color: rgba(var(--text-color-mainboard), 0.3);
 }
 
 .optionLow::before {
-    color: #8fa1d0;
-    background-color: #8fa1d0;
+  color: #8fa1d0;
+  background-color: #8fa1d0;
 }
 
 .optionMedium::before {
-    color: #e09cb5;
-    background-color: #e09cb5;
+  color: #e09cb5;
+  background-color: #e09cb5;
 }
 
 .optionHigh::before {
-    color: #bedbb0;
-    background-color: #bedbb0;
+  color: #bedbb0;
+  background-color: #bedbb0;
 }
 
 .selected {
-    color: rgb(var(--text-color-mainboard));
-
+  color: rgb(var(--text-color-mainboard));
 }
 
 .selected::before {
-    transform: scale(0.8);
-    border: 2px solid rgb(var(--background-modal-filters));
-    box-shadow: 0px 0px 0px 2px currentColor;
+  transform: scale(0.8);
+  border: 2px solid rgb(var(--background-modal-filters));
+  box-shadow: 0px 0px 0px 2px currentColor;
 }

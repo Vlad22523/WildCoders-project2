@@ -2,7 +2,6 @@
   background-color: rgb(var(--background-mainboard));
   margin: 0;
   width: 100%;
-  max-width: 375px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -20,8 +19,7 @@
   justify-content: right;
 }
 
-
-.mainWrapper{
+.mainWrapper {
   width: 100%;
   height: 100vh;
   flex: 1;
@@ -29,13 +27,13 @@
   padding: 0 20px;
 }
 
-.columnContainer{
+.columnContainer {
   width: 100%;
   height: 90%;
   display: flex;
   gap: 34px;
   flex-direction: row;
-  overflow-x: auto
+  overflow-x: auto;
 }
 
 .columnContainer::-webkit-scrollbar {
@@ -51,7 +49,7 @@
 
 /* Ползунок (Thumb) */
 .columnContainer::-webkit-scrollbar-thumb {
-    background-color: rgb(var(--mainboard-scrollbar-thumb));
+  background-color: rgb(var(--mainboard-scrollbar-thumb));
   /* Основной цвет ползунка */
   border-radius: 12px;
   /* Радиус ползунка */
@@ -63,18 +61,17 @@
   /* Цвет ползунка при наведении */
 }
 
-
-.noBoard{
-justify-content: center;
+.noBoard {
+  justify-content: center;
   align-items: center;
 }
 
-.boardCreated{
+.boardCreated {
   justify-content: start;
   align-items: baseline;
 }
 
-.button{
+.button {
   flex-shrink: 0;
   max-height: 56px;
   padding: 14px 0;
@@ -87,7 +84,6 @@ justify-content: center;
   justify-content: center;
   align-items: center;
   white-space: nowrap;
-
 }
 
 .svgWrapper {
@@ -100,64 +96,58 @@ justify-content: center;
   justify-content: center;
 }
 
-.columnWrapper{
+.columnWrapper {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.buttonColumn{
+.buttonColumn {
   padding: 18px 20px;
   justify-content: space-between;
-
 }
 
-.buttonColumnAdd{
-  
+.buttonColumnAdd {
   background-color: rgb(var(--button-color-modal));
 }
 
-.buttonAddCard{
+.buttonAddCard {
   font-weight: 500;
-    font-size: 14px;
-    letter-spacing: -0.02em;
+  font-size: 14px;
+  letter-spacing: -0.02em;
   color: rgb(var(--button-add-column-text));
 }
 
-.svgWrapperAddCard{
+.svgWrapperAddCard {
   background-color: rgb(var(--button-add-column-text));
-
 }
 
-.svgWrapperColumn{
+.svgWrapperColumn {
   display: flex;
   gap: 8px;
-
 }
 
-.iconColumn{
+.iconColumn {
   stroke: rgba(var(--text-color-mainboard), 0.5);
   fill: transparent;
 }
 
-.iconAddCard{
+.iconAddCard {
   stroke: rgb(var(--icon-plus-add-card));
 }
 
-
-
-.buttonSpan{
-font-weight: 500;
+.buttonSpan {
+  font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
   color: rgb(var(--text-color-mainboard));
 }
 
-.icon{
+.icon {
   stroke: rgb(var(--button-color-mainboard));
 }
 
-.text{
+.text {
   width: 100%;
   max-width: 335px;
   font-family: "Poppins", sans-serif;
@@ -168,34 +158,30 @@ font-weight: 500;
   color: rgba(var(--text-color-mainboard), 0.7);
 }
 
-.linkCreate{
+.linkCreate {
   color: rgb(var(--button-create-board));
-
 }
 
 @media (min-width: 375px) {
-  .button{
+  .button {
     width: 334px;
   }
 }
 
 @media (min-width: 768px) {
-  .main{
+  .main {
     max-width: 768px;
   }
-    .button{
-      width: 334px;
-    }
-  .text{
-  max-width: 486px;
+  .button {
+    width: 334px;
   }
-
+  .text {
+    max-width: 486px;
+  }
 }
 
 @media (min-width: 1440px) {
-
   .main {
-      max-width: 1180px;
-    }
+    max-width: 1180px;
+  }
 }
-

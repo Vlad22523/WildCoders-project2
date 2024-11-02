@@ -6,7 +6,7 @@ export const PublicRoute = ({ children }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const location = useLocation();
   if (isLoggedIn) {
-    return <Navigate to={location?.state ?? "/"} />;
+    return <Navigate to={location?.state ?? "/home"} />;
   }
   return children;
 };
