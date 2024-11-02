@@ -15,7 +15,7 @@ const Login = () => {
 
   const isLoggedIn = useSelector(selectIsLoggedIn);
   if (isLoggedIn) {
-    return <Navigate to="/" />;
+    return <Navigate to="/home" />;
   }
   return (
     <div className={s.logPage}>

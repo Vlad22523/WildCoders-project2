@@ -1,11 +1,14 @@
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import s from "./RegisterForm.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { registerThunk } from "../../redux/auth/operations.js";
+import { selectIsLoggedIn } from "../../redux/auth/selectors.js";
+import { Navigate } from "react-router-dom";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const initialValues = {
     name: "",
@@ -30,6 +33,10 @@ const RegisterForm = () => {
       .max(64, "Too Long!")
       .required("Required"),
   });
+
+  if (isLoggedIn) {
+    return <Navigate to="/home" />;
+  }
 
   return (
     <>

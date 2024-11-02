@@ -104,16 +104,18 @@ const Sidebar = () => {
             Task Pro
           </a>
           <h3 className={s.under_logo}>My boards</h3>
-          <div className={s.create_container}>
-            <h2 className={s.create_title}>Create a new board</h2>
-            <button className={s.create_button}>
-              <SvgIcon
-                name="icon-plus"
-                width="20"
-                height="20"
-                className={s.icon}
-              />
-            </button>
+          <div className={s.create_top_container}>
+            <div className={s.create_container}>
+              <h2 className={s.create_title}>Create a new board</h2>
+              <button className={s.create_button}>
+                <SvgIcon
+                  name="icon-plus"
+                  width="20"
+                  height="20"
+                  className={s.icon}
+                />
+              </button>
+            </div>
           </div>
 
           <ul className={s.board_list}>
@@ -149,8 +151,10 @@ const Sidebar = () => {
           <div className={s.side_help}>
             <div className={s.side_help_span}>
               <img src="/src/images/plant.png" width="57" height="78" alt="" />
-              If you need help with <span>TaskPro</span>, check out our support
-              resources or reach out to our customer support team.
+              <p>
+                If you need help with <span>TaskPro</span>, check out our
+                support resources or reach out to our customer support team.
+              </p>
             </div>
             <div className={s.side_help_text}>
               <SvgIcon name="icon-help-circle" width="20" height="20" />
