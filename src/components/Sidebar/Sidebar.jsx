@@ -39,7 +39,7 @@ const Sidebar = () => {
     },
     {
       boardId: "8",
-      title: "sdsfds",
+      title: "qwdadw",
       icon: "icon-logo",
     },
     {

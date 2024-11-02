@@ -2,7 +2,7 @@
   min-width: 260px;
   background-color: rgb(var(--background-sidebar));
   height: 100vh;
-  z-index: 5;
+  z-index: 100;
   transition: left 200ms ease-in-out;
   padding: 24px;
   display: flex;
