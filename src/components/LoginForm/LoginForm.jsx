@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import s from "./LoginForm.module.css";
 import { useDispatch } from "react-redux";
-import { loginThunk } from "../../redux/auth/operations";
+import { loginThunk } from "../../redux/auth/operations.js";
 
 const LoginForm = () => {
   const initialValues = {

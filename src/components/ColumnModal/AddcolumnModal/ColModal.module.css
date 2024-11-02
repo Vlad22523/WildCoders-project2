@@ -1,5 +1,6 @@
 .overlay {
   position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
   right: 0;
@@ -19,7 +20,7 @@
   max-width: 90%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
-  border: 1px, ;
+  border: 1px;
 }
 
 .header {
@@ -83,17 +84,17 @@
   margin-top: 24px;
 }
 
-.svgWrapper{
+.svgWrapper {
   width: 28px;
-   height: 28px;
-   background-color: rgb(var(--text-color-mainboard));
-   border-radius: 6px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   margin-right: 8px;
- }
+  height: 28px;
+  background-color: rgb(var(--text-color-mainboard));
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
 
-.icon{
+.icon {
   stroke: rgb(var(--button-color-mainboard));
 }
