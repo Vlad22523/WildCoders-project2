@@ -22,7 +22,7 @@
 }
 
 .header_down.rotated {
-  transform: rotate(-90deg);
+  transform: rotate(180deg);
   
 }
 
@@ -51,7 +51,7 @@
   display: inline-flex;
   align-items: center;
   margin-left: auto;
-  
+  cursor: pointer;
 }
 
 .header_avatar {
@@ -62,12 +62,13 @@
   display: inline-flex;
   align-items: center;
   padding-left: 14px;
+  cursor: pointer;
 }
 
 .modalOverlay {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 45px;
+  right: 85px;
   background-color: rgb(var(--background-header));
   width: 100px;
   height: 107px;
@@ -84,10 +85,16 @@
     font-size: 14px;
     letter-spacing: -0.02em;
     color: #161616;
+    cursor: pointer;
+}
+
+.selected {
+  color: #bedbb0; 
 }
 
 .theme_choise:hover {
-    color: #bedbb0;
+  font-weight: 500;
+  font-size: 15px;
 }
 
 .modalContent {
