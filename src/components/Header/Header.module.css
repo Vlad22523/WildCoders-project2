@@ -22,7 +22,9 @@
 }
 
 .header_down.rotated {
-  transform: rotate(-90deg);
+
+  transform: rotate(180deg);
+
 }
 
 .header_theme {
@@ -49,6 +51,7 @@
   display: inline-flex;
   align-items: center;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .header_avatar {
@@ -59,12 +62,13 @@
   display: inline-flex;
   align-items: center;
   padding-left: 14px;
+  cursor: pointer;
 }
 
 .modalOverlay {
   position: fixed;
-  top: 40px;
-  right: 50px;
+  top: 45px;
+  right: 85px;
   background-color: rgb(var(--background-header));
   width: 100px;
   height: 107px;
@@ -77,14 +81,21 @@
 }
 
 .theme_choise {
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  color: #161616;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    color: #161616;
+    cursor: pointer;
+}
+
+.selected {
+  color: #bedbb0; 
 }
 
 .theme_choise:hover {
-  color: #bedbb0;
+  font-weight: 500;
+  font-size: 15px;
+
 }
 
 .modalContent {
