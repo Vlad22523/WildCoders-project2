@@ -1,10 +1,15 @@
 import HeaderDashboard from "../HeaderDashboard/HeaderDashboard.jsx";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
 import s from "./ScreensPage.module.css";
+import AddColumnModal from "../ColumnModal/AddcolumnModal/addColumnModal.jsx";
+import { useState } from 'react';
 
 const ScreensPage = () => {
   const isBoardCreated = true;
-  // const isColumnCreated = false;
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
   return (
     <main className={s.main}>
@@ -48,7 +53,7 @@ const ScreensPage = () => {
                 <span className={s.buttonAddCard}>Add another card</span>
               </button>
             </div> 
-            <button className={s.button} type="button">
+            <button onClick={openModal} className={s.button} type="button">
               <div className={s.svgWrapper}>
                 <SvgIcon
                   name="icon-plus"
@@ -69,6 +74,7 @@ const ScreensPage = () => {
             collaboration among team members.
           </p>
         )}
+        <AddColumnModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
     </main>
   );
