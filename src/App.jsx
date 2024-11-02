@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage/HomePage.jsx";
 import WelcomePage from "./pages/WelcomePage/WelcomePage.jsx";
 import ScreensPage from "./components/ScreensPage/ScreensPage.jsx";
 import Auth from "./components/Auth/Auth.jsx";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const isRefreshing = useSelector(selectIsRefresh);
@@ -18,6 +19,7 @@ function App() {
     <Loader />
   ) : (
     <>
+      <Toaster />
       <Routes>
         <Route
           path="/"
