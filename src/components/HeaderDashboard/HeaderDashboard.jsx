@@ -3,11 +3,11 @@ import s from "./HeaderDashboard.module.css"
 
 const HeaderDashboard = () => {
   const isBoardCreated = true;
+
   return (
-      <div className={s.wrapper}>{isBoardCreated && <p className={s.title}>Name of board</p>}
-          <Filters/>
-    </div>
-  )
+    <div className={`${s.wrapper} ${isBoardCreated ? s.visible : ''}`}>{isBoardCreated && <p className={s.title}>Name of board</p>}
+      <Filters />
+    </div>)
 }
 
-export default HeaderDashboard
+  export default HeaderDashboard;

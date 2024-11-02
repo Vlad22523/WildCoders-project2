@@ -22,8 +22,9 @@
 }
 
 .header_down.rotated {
+
   transform: rotate(180deg);
-  
+
 }
 
 .header_theme {
@@ -31,11 +32,10 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  
 }
 
 .header_down {
-  stroke-width: 1.50px;
+  stroke-width: 1.5px;
   stroke: rgba(22, 22, 22, 0.8);
 }
 
@@ -95,6 +95,7 @@
 .theme_choise:hover {
   font-weight: 500;
   font-size: 15px;
+
 }
 
 .modalContent {
@@ -112,5 +113,4 @@
   .header {
     justify-content: space-between;
   }
-  }
-
+}
