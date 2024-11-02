@@ -5,7 +5,7 @@
   background-color: rgb(var(--background-header));
   display: flex;
   justify-content: right;
-  padding: 18px 20px;
+  padding: 18px 24px;
   align-items: center;
 }
 
@@ -22,9 +22,7 @@
 }
 
 .header_down.rotated {
-
   transform: rotate(180deg);
-
 }
 
 .header_theme {
@@ -81,21 +79,20 @@
 }
 
 .theme_choise {
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    color: #161616;
-    cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #161616;
+  cursor: pointer;
 }
 
 .selected {
-  color: #bedbb0; 
+  color: #bedbb0;
 }
 
 .theme_choise:hover {
   font-weight: 500;
   font-size: 15px;
-
 }
 
 .modalContent {
@@ -112,5 +109,17 @@
 
   .header {
     justify-content: space-between;
+    padding: 18px 32px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .header {
+    padding: 14px 20px;
+  }
+
+  .header_menu {
+    width: 24px;
+    height: 24px;
   }
 }

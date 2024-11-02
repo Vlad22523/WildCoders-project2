@@ -8,7 +8,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isIconRotated, setIsIconRotated] = useState(false);
-  const [selectedTheme, setSelectedTheme] = useState("Light"); 
+  const [selectedTheme, setSelectedTheme] = useState("Light");
   const modalRef = useRef(null);
   const buttonRef = useRef(null);
 
@@ -41,7 +41,7 @@ const Header = () => {
   }, [isModalOpen]);
 
   const handleThemeSelect = (theme) => {
-    setSelectedTheme(theme); 
+    setSelectedTheme(theme);
   };
 
   return (
@@ -52,8 +52,8 @@ const Header = () => {
       >
         <SvgIcon
           name="icon-menu-01"
-          width="24"
-          height="24"
+          width="32"
+          height="32"
           className={s.header_menu}
         />
       </button>
@@ -85,19 +85,25 @@ const Header = () => {
         <div className={s.modalOverlay}>
           <div className={s.modalContent} ref={modalRef}>
             <p
-              className={`${s.theme_choise} ${selectedTheme === "Light" ? s.selected : ""}`}
+              className={`${s.theme_choise} ${
+                selectedTheme === "Light" ? s.selected : ""
+              }`}
               onClick={() => handleThemeSelect("Light")}
             >
               Light
             </p>
             <p
-              className={`${s.theme_choise} ${selectedTheme === "Dark" ? s.selected : ""}`}
+              className={`${s.theme_choise} ${
+                selectedTheme === "Dark" ? s.selected : ""
+              }`}
               onClick={() => handleThemeSelect("Dark")}
             >
               Dark
             </p>
             <p
-              className={`${s.theme_choise} ${selectedTheme === "Violet" ? s.selected : ""}`}
+              className={`${s.theme_choise} ${
+                selectedTheme === "Violet" ? s.selected : ""
+              }`}
               onClick={() => handleThemeSelect("Violet")}
             >
               Violet
