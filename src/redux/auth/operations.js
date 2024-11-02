@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { mongoApi, setToken } from "../../config/mongo.js";
+import { clearToken, mongoApi, setToken } from "../../config/mongo.js";
 import toast from "react-hot-toast";
 
 export const registerThunk = createAsyncThunk(
@@ -12,7 +12,8 @@ export const registerThunk = createAsyncThunk(
       toast.success("Registration successful!");
       return data.data;
     } catch (error) {
-      toast.error(`${error.message}`);
+      const errorMessage = error.response?.data?.data.message || error.message;
+      toast.error(errorMessage);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -27,8 +28,21 @@ export const loginThunk = createAsyncThunk(
       setToken(data.data.accessToken);
       return data.data;
     } catch (error) {
-      toast.error(`${error.message}`);
+      const errorMessage = error.response?.data?.data.message || error.message;
+      toast.error(errorMessage);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
+export const logoutThunk = createAsyncThunk("logout", async (_, thunkAPI) => {
+  try {
+    await mongoApi.post("auth/logout");
+    toast.success(`Logout successfull!`);
+    clearToken();
+  } catch (error) {
+    const errorMessage = error.response?.data?.data.message || error.message;
+    toast.error(errorMessage);
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});

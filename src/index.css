@@ -19,11 +19,14 @@ a {
   text-decoration: inherit;
 }
 
-h1, h2, h3, h4{
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
 }
 
-p{
+p {
   margin: 0;
 }
 
@@ -54,6 +57,14 @@ img {
   height: auto;
 }
 
+.loader {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -80,9 +91,9 @@ html[data-theme="light"] {
   --svglogout: 190, 219, 176; /* #BEDBB0 */
   --needhelpplatform: 246, 246, 247; /* #F6F6F7 */
   --logonameplatform: 190, 219, 176; /* #BEDBB0 */
-  --mainboard-scrollbar-thumb: 232, 232, 232, 1;   /*#E8E8E8 */
-  --mainboard-scrollbar-track: 255, 255, 255;/* #FFFFFF */
-  --button-add-column-text:22, 22, 22; /* #161616 */
+  --mainboard-scrollbar-thumb: 232, 232, 232, 1; /*#E8E8E8 */
+  --mainboard-scrollbar-track: 255, 255, 255; /* #FFFFFF */
+  --button-add-column-text: 22, 22, 22; /* #161616 */
   --icon-plus-add-card: 255, 255, 255; /* #FFFFFF */
 }
 
@@ -131,7 +142,7 @@ html[data-theme="violet"] {
   --mainboard-scrollbar-thumb: 184, 188, 253, 1; /*#B8BCFD */
   --mainboard-scrollbar-track: 255, 255, 255; /* #FFFFFF */
   --button-add-column-text: 255, 255, 255; /* #FFFFFF */
-  --icon-plus-add-card:22, 22, 22; /* #161616 */
+  --icon-plus-add-card: 22, 22, 22; /* #161616 */
 }
 
 /*

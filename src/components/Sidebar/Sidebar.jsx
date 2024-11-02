@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
 import { closeSidebar } from "../../redux/sidebar/slice.js";
 import { NavLink } from "react-router-dom";
+import { logoutThunk } from "../../redux/auth/operations.js";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
@@ -156,7 +157,10 @@ const Sidebar = () => {
               Need help?
             </div>
           </div>
-          <button className={s.side_logout_btn}>
+          <button
+            onClick={() => dispatch(logoutThunk())}
+            className={s.side_logout_btn}
+          >
             <SvgIcon
               name="icon-logout"
               width="32"
