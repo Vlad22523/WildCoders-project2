@@ -45,42 +45,42 @@ export const BoardForm = ({ isEditMode, onSubmit, setFormOpen }) => {
               {({ field }) => (
                 <>
                   <IconRadioButton
-                    iconId="icon-icon-1-square"
+                    iconId="icon-1-square"
                     field={field}
                     value="square"
                   />
                   <IconRadioButton
-                    iconId="icon-icon-2-star"
+                    iconId="icon-2-star"
                     field={field}
                     value="star"
                   />
                   <IconRadioButton
-                    iconId="icon-icon-3-circle"
+                    iconId="icon-3-circle"
                     field={field}
                     value="circle"
                   />
                   <IconRadioButton
-                    iconId="icon-icon-4-puzzle"
+                    iconId="icon-4-puzzle"
                     field={field}
                     value="puzzle"
                   />
                   <IconRadioButton
-                    iconId="icon-icon-5-cube"
+                    iconId="icon-5-cube"
                     field={field}
                     value="cube"
                   />
                   <IconRadioButton
-                    iconId="icon-icon-6-lightning"
+                    iconId="icon-6-lightning"
                     field={field}
                     value="lightning"
                   />
                   <IconRadioButton
-                    iconId="icon-icon-7-colors"
+                    iconId="icon-7-colors"
                     field={field}
                     value="colors"
                   />
                   <IconRadioButton
-                    iconId="icon-icon-8-hexagon"
+                    iconId="icon-8-hexagon"
                     field={field}
                     value="hexagon"
                   />

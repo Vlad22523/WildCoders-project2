@@ -156,18 +156,22 @@ const Sidebar = () => {
                       <span>{board.title}</span>
                     </div>
                     <div className={s.board_svg_container}>
-                      <SvgIcon
-                        name="icon-pencil"
-                        width="16"
-                        height="16"
-                        className={s.board_svg}
-                      />
-                      <SvgIcon
-                        name="icon-trash"
-                        width="16"
-                        height="16"
-                        className={s.board_svg}
-                      />
+                      <button onClick={() => setFormOpen(true)}>
+                        <SvgIcon
+                          name="icon-pencil"
+                          width="16"
+                          height="16"
+                          className={s.board_svg}
+                        />
+                      </button>
+                      <button>
+                        <SvgIcon
+                          name="icon-trash"
+                          width="16"
+                          height="16"
+                          className={s.board_svg}
+                        />
+                      </button>
                     </div>
                   </div>
                 </NavLink>
