@@ -1,8 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect, useRef } from "react";
 import s from "./Header.module.css";
 import { toggleSidebar } from "../../redux/sidebar/slice.js";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
+import { selectUser } from "../../redux/auth/selectors.js";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const Header = () => {
   const [selectedTheme, setSelectedTheme] = useState("Light");
   const modalRef = useRef(null);
   const buttonRef = useRef(null);
+  const user = useSelector(selectUser);
 
   const handleModalToggle = () => {
     setIsModalOpen((prev) => !prev);
@@ -71,13 +73,8 @@ const Header = () => {
         />
       </div>
       <div className={s.select_user}>
-        <p className={s.header_user}>user</p>
-        <SvgIcon
-          name="icon-user"
-          width="32"
-          height="32"
-          className={s.header_avatar}
-        />
+        <p className={s.header_user}>{user.name}</p>
+        <img width="32" height="32" src={user.photo} alt="avatar" />
       </div>
 
       {/* Модальне вікно */}

@@ -26,27 +26,28 @@
 }
 
 .header_theme {
-  color: rgba(22, 22, 22, 0.8);
+  color: rgb(var(--text-color-mainboard), 0.8);
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
 }
 
 .header_down {
+  transition: all 100ms ease-in-out;
   stroke-width: 1.5px;
-  stroke: rgba(22, 22, 22, 0.8);
+  stroke: rgb(var(--text-color-mainboard), 0.8);
 }
 
 .header_user {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #161616;
-  margin-right: 8px;
+  color: rgb(var(--text-color-mainboard));
 }
 
 .select_theme {
-  display: inline-flex;
+  display: flex;
+  gap: 4px;
   align-items: center;
   margin-left: auto;
   cursor: pointer;
@@ -57,10 +58,15 @@
 }
 
 .select_user {
-  display: inline-flex;
+  gap: 8px;
+  display: flex;
   align-items: center;
-  padding-left: 14px;
+  margin-left: 14px;
   cursor: pointer;
+  img {
+    border-radius: 8px;
+    object-fit: cover;
+  }
 }
 
 .modalOverlay {
@@ -116,6 +122,7 @@
 @media screen and (max-width: 375px) {
   .header {
     padding: 14px 20px;
+    height: 60px;
   }
 
   .header_menu {
