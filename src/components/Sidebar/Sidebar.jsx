@@ -1,15 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import s from "./Sidebar.module.css";
-import { selectIsOpenSidebar } from "../../redux/sidebar/selectors";
-import { useEffect, useRef } from "react";
+import { selectIsOpenSidebar } from "../../redux/sidebar/selectors.js";
+import { useEffect, useRef, useState } from "react";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
 import { closeSidebar } from "../../redux/sidebar/slice.js";
 import { NavLink } from "react-router-dom";
+import { BoardForm } from "../BoardForm/BoardForm.jsx";
+import { addBoard } from "../../redux/boards/slice.js";
+import { Backdrop } from "../Backdrop/Backdrop.jsx";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
+  const [isFormOpen, setFormOpen] = useState(false);
+
+  const handleCreateBoard = (values) => {
+    dispatch(addBoard(values));
+    setFormOpen(false);
+  };
 
   const arr = [
     {
@@ -105,7 +114,10 @@ const Sidebar = () => {
           <h3 className={s.under_logo}>My boards</h3>
           <div className={s.create_container}>
             <h2 className={s.create_title}>Create a new board</h2>
-            <button className={s.create_button}>
+            <button
+              onClick={() => setFormOpen(true)}
+              className={s.create_button}
+            >
               <SvgIcon
                 name="icon-plus"
                 width="20"
@@ -114,6 +126,18 @@ const Sidebar = () => {
               />
             </button>
           </div>
+          {isFormOpen && (
+            <>
+              <Backdrop onClick={() => setFormOpen(false)} />
+              <div className={s.modal}>
+                <BoardForm
+                  isEditMode={false}
+                  onSubmit={handleCreateBoard}
+                  setFormOpen={setFormOpen}
+                />
+              </div>
+            </>
+          )}
 
           <ul className={s.board_list}>
             {arr.map((board) => (

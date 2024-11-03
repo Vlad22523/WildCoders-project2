@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { IconRadioButton } from "../ IconRadioButton/ IconRadioButton";
 import { BackgroundRadioButton } from "../BackgroundRadioButton/BackgroundRadioButton";
 
-export const BoardForm = ({ isEditMode, onSubmit }) => {
+export const BoardForm = ({ isEditMode, onSubmit, setFormOpen }) => {
   const validationSchema = Yup.object({
     title: Yup.string()
       .min(3, "Min 3 characters")
@@ -25,9 +25,13 @@ export const BoardForm = ({ isEditMode, onSubmit }) => {
             <h2 className={s.title}>
               {isEditMode ? "Edit board" : "New board"}
             </h2>
-            <button type="button" className={s.closeButton}>
+            <button
+              type="button"
+              onClick={() => setFormOpen(false)}
+              className={s.closeButton}
+            >
               <svg width="18" height="18">
-                <use href={`/public/images/icons.svg#icon-close`} />
+                <use href={`/src/images/icons.svg#icon-close`} />
               </svg>
             </button>
           </div>
@@ -103,7 +107,7 @@ export const BoardForm = ({ isEditMode, onSubmit }) => {
           </div>
           <button className={s.button} type="submit">
             <svg className={s.iconButton} width="28" height="28">
-              <use href={`/public/images/icons.svg#icon-plus`} />
+              <use href={`/src/images/icons.svg#icon-plus`} />
             </svg>
             {isEditMode ? "Update" : "Create"}
           </button>
