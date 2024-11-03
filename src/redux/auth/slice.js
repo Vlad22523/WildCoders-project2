@@ -4,6 +4,7 @@ import {
   loginThunk,
   logoutThunk,
   registerThunk,
+  saveThemeThunk,
 } from "./operations.js";
 
 const initialState = {
@@ -57,6 +58,15 @@ const slice = createSlice({
       })
       .addCase(fetchUserThunk.rejected, (state, action) => {
         state.user = action.payload;
+        state.loader = false;
+      })
+      .addCase(saveThemeThunk.rejected, (state) => {
+        state.loader = false;
+      })
+      .addCase(saveThemeThunk.pending, (state) => {
+        state.loader = true;
+      })
+      .addCase(saveThemeThunk.fulfilled, (state) => {
         state.loader = false;
       });
   },

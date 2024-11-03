@@ -4,12 +4,12 @@ import s from "./Header.module.css";
 import { toggleSidebar } from "../../redux/sidebar/slice.js";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
 import { selectUser } from "../../redux/auth/selectors.js";
+import { fetchUserThunk, saveThemeThunk } from "../../redux/auth/operations.js";
 
 const Header = () => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isIconRotated, setIsIconRotated] = useState(false);
-  const [selectedTheme, setSelectedTheme] = useState("Light");
   const modalRef = useRef(null);
   const buttonRef = useRef(null);
   const user = useSelector(selectUser);
@@ -42,8 +42,9 @@ const Header = () => {
     };
   }, [isModalOpen]);
 
-  const handleThemeSelect = (theme) => {
-    setSelectedTheme(theme);
+  const handleThemeSelect = async (theme) => {
+    await dispatch(saveThemeThunk(theme));
+    dispatch(fetchUserThunk());
   };
 
   return (
@@ -81,30 +82,36 @@ const Header = () => {
       {isModalOpen && (
         <div className={s.modalOverlay}>
           <div className={s.modalContent} ref={modalRef}>
-            <p
-              className={`${s.theme_choise} ${
-                selectedTheme === "Light" ? s.selected : ""
-              }`}
-              onClick={() => handleThemeSelect("Light")}
-            >
-              Light
-            </p>
-            <p
-              className={`${s.theme_choise} ${
-                selectedTheme === "Dark" ? s.selected : ""
-              }`}
-              onClick={() => handleThemeSelect("Dark")}
-            >
-              Dark
-            </p>
-            <p
-              className={`${s.theme_choise} ${
-                selectedTheme === "Violet" ? s.selected : ""
-              }`}
-              onClick={() => handleThemeSelect("Violet")}
-            >
-              Violet
-            </p>
+            <label className={s.theme_choice}>
+              <input
+                type="radio"
+                name="theme"
+                value="Light"
+                checked={user.theme === "light"}
+                onChange={() => handleThemeSelect("light")}
+              />
+              <p className={s.theme_text}>Light</p>
+            </label>
+            <label className={s.theme_choice}>
+              <input
+                type="radio"
+                name="theme"
+                value="Dark"
+                checked={user.theme === "dark"}
+                onChange={() => handleThemeSelect("dark")}
+              />
+              <p className={s.theme_text}>Dark</p>
+            </label>
+            <label className={s.theme_choice}>
+              <input
+                type="radio"
+                name="theme"
+                value="Violet"
+                checked={user.theme === "violet"}
+                onChange={() => handleThemeSelect("violet")}
+              />
+              <p className={s.theme_text}>Violet</p>
+            </label>
           </div>
         </div>
       )}

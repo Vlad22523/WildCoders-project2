@@ -60,8 +60,26 @@ export const fetchUserThunk = createAsyncThunk(
       const { data } = await mongoApi.get("auth/user", {
         withCredentials: true,
       });
-      toast.success(`user successfull!`);
       return data.data;
+    } catch (error) {
+      const errorMessage = error.response?.data?.data.message || error.message;
+      toast.error(errorMessage);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const saveThemeThunk = createAsyncThunk(
+  "saveTheme",
+  async (theme, thunkAPI) => {
+    try {
+      await mongoApi.patch(
+        "auth/user",
+        { theme },
+        {
+          withCredentials: true,
+        }
+      );
     } catch (error) {
       const errorMessage = error.response?.data?.data.message || error.message;
       toast.error(errorMessage);
