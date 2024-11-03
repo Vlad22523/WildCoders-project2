@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginThunk, logoutThunk, registerThunk } from "./operations.js";
+import { fetchUserThunk, loginThunk, logoutThunk, registerThunk } from "./operations.js";
 
 const initialState = {
   isRefreshing: false,
   isLoggedIn: false,
   token: null,
   loader: false,
+  user: {}
 };
 
 const slice = createSlice({
@@ -37,6 +38,9 @@ const slice = createSlice({
       })
       .addCase(logoutThunk.fulfilled, () => {
         return initialState;
+      })
+      .addCase(fetchUserThunk.pending, (state, action) => {
+        state.user = action.payload;
       });
   },
 });

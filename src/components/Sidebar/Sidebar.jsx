@@ -9,6 +9,7 @@ import { logoutThunk } from "../../redux/auth/operations.js";
 import { BoardForm } from "../BoardForm/BoardForm.jsx";
 import { addBoard } from "../../redux/boards/slice.js";
 import { Backdrop } from "../Backdrop/Backdrop.jsx";
+import { fetchUserThunk, logoutThunk } from "../../redux/auth/operations.js";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
@@ -20,6 +21,10 @@ const Sidebar = () => {
     dispatch(addBoard(values));
     setFormOpen(false);
   };
+
+  useEffect(() => {
+    dispatch(fetchUserThunk());
+  }, [dispatch]);
 
   const arr = [
     {
