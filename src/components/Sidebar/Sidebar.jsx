@@ -5,12 +5,16 @@ import { useEffect, useRef } from "react";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
 import { closeSidebar } from "../../redux/sidebar/slice.js";
 import { NavLink } from "react-router-dom";
-import { logoutThunk } from "../../redux/auth/operations.js";
+import { fetchUserThunk, logoutThunk } from "../../redux/auth/operations.js";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
+
+  useEffect(() => {
+    dispatch(fetchUserThunk());
+ }, [dispatch])
 
   const arr = [
     {
