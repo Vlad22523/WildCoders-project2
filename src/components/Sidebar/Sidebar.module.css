@@ -104,10 +104,43 @@
 }
 
 .board_item {
+  position: relative;
+  transition: background-color 200ms ease-in-out;
 }
 
 .board_item:hover {
   background-color: rgb(var(--background-hover-board));
+}
+
+.active {
+  background-color: rgb(var(--background-hover-board));
+  display: block;
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  width: 4px;
+  background-color: rgb(var(--border-board-color));
+}
+
+.active .board_item_title {
+  color: rgb(var(--text-color-sidebar-and-header));
+}
+
+.active .board_item_svg {
+  fill: rgb(var(--text-color-sidebar-and-header));
+}
+
+.board_item_title {
+  transition: all 250ms ease-in-out;
+}
+
+.board_item_svg {
+  transition: all 250ms ease-in-out;
 }
 
 .board_title_container {

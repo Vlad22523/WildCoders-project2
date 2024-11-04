@@ -102,6 +102,7 @@ html[data-theme="light"] {
   --button-add-column-text: 22, 22, 22; /* #161616 */
   --icon-plus-add-card: 255, 255, 255; /* #FFFFFF */
   --radio-button: 22, 22, 22; /* #161616 */
+  --border-board-color: 190, 219, 176; /* #BEDBB0 */
 }
 
 html[data-theme="dark"] {
@@ -127,6 +128,7 @@ html[data-theme="dark"] {
   --button-add-column-text: 22, 22, 22; /* #161616 */
   --icon-plus-add-card: 255, 255, 255; /* #FFFFFF */
   --radio-button: 255, 255, 255, 0.5; /* #FFFFFF */
+  --border-board-color: 190, 219, 176; /* #BEDBB0 */
 }
 
 html[data-theme="violet"] {
@@ -152,6 +154,7 @@ html[data-theme="violet"] {
   --button-add-column-text: 255, 255, 255; /* #FFFFFF */
   --icon-plus-add-card: 22, 22, 22; /* #161616 */
   --radio-button: 22, 22, 22; /* #161616 */
+  --border-board-color: 255, 255, 255; /* #FFFFFF */
 }
 
 /*
