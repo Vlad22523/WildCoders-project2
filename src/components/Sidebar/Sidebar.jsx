@@ -6,64 +6,15 @@ import SvgIcon from "../../hooks/SvgIcon.jsx";
 import { closeSidebar } from "../../redux/sidebar/slice.js";
 import { NavLink } from "react-router-dom";
 import { logoutThunk } from "../../redux/auth/operations.js";
+import arr from "./BoardsArr.js";
+
+
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
 
-  const arr = [
-    {
-      boardId: "1",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "3",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "4",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "6",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "7",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "8",
-      title: "qwdadw",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "9",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "10",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "11",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "12",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-  ];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
