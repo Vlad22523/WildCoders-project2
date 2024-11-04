@@ -29,41 +29,37 @@
   width: 300px;
   border-radius: 8px;
   position: fixed;
-  right: 24px;
+  top: 100px;
+  right: 10px;
   padding: 24px;
   background-color: rgb(var(--background-modal-filters));
-  animation: showModal 1s forwards;
+  animation: showModal 1.2s forwards;
 }
 
-.filtersModal.exiting {
-  animation: hideModal 0.5s forwards;
+.exiting {
+  animation: hideModal 1.2s forwards;
 }
 
 @keyframes showModal {
   0% {
     opacity: 0;
-    transform: translateX(150px);
-  }
-  50% {
-    opacity: 1;
+    transform: translateX(300px);
   }
   100% {
+    opacity: 1;
     transform: translateY(0);
   }
 }
 
 @keyframes hideModal {
   0% {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(0);
   }
 
-  50% {
-    opacity: 1;
-  }
-
   100% {
-    transform: translateX(150px);
+    opacity: 0;
+    transform: translateX(300px);
   }
 }
 
@@ -178,4 +174,12 @@
   transform: scale(0.8);
   border: 2px solid rgb(var(--background-modal-filters));
   box-shadow: 0px 0px 0px 2px currentColor;
+}
+
+@media (min-width: 375px) {
+  .filtersModal{
+    right: 24px;
+    top: 108px;
+  }
+  
 }
