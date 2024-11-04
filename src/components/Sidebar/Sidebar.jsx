@@ -7,14 +7,12 @@ import { closeSidebar } from "../../redux/sidebar/slice.js";
 import { NavLink } from "react-router-dom";
 import { logoutThunk } from "../../redux/auth/operations.js";
 import arr from "./BoardsArr.js";
-
-
+import clsx from "clsx";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
-
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -32,8 +30,8 @@ const Sidebar = () => {
     };
   }, [isOpen, dispatch]);
 
-  const activeLink = ({ isActive }) => {
-    return isActive ? `${s.navLink} ${s.activeLink}` : s.navLink;
+  const buildLinkClass = ({ isActive }) => {
+    return clsx(s.link, isActive && s.active);
   };
 
   return (
@@ -72,11 +70,19 @@ const Sidebar = () => {
           <ul className={s.board_list}>
             {arr.map((board) => (
               <li key={board.boardId} className={s.board_item}>
-                <NavLink to={`/board/${board.boardId}`} className={activeLink}>
+                <NavLink
+                  to={`/board/${board.boardId}`}
+                  className={buildLinkClass}
+                >
                   <div className={s.board_list_container}>
                     <div className={s.board_title_container}>
-                      <SvgIcon name={board.icon} width="18" height="18" />
-                      <span>{board.title}</span>
+                      <SvgIcon
+                        name={board.icon}
+                        width="18"
+                        height="18"
+                        className={s.board_item_svg}
+                      />
+                      <span className={s.board_item_title}>{board.title}</span>
                     </div>
                     <div className={s.board_svg_container}>
                       <SvgIcon
