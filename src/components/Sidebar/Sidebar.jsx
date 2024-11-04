@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 import { fetchUserThunk, logoutThunk } from "../../redux/auth/operations.js";
 import { EditBoardForm } from "../EditBoardForm/EditBoardForm.jsx";
 import { CreateBoardForm } from "../CreateBoardForm/CreateBoardForm.jsx";
+import { DeleteBoardForm } from "../DeleteBoardForm/DeleteBoardForm.jsx";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
@@ -17,6 +18,7 @@ const Sidebar = () => {
   const [isFormOpen, setFormOpen] = useState(false);
   const [isEditMode, setEditMode] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState(null);
+  const [isDeleteFormOpen, setDeleteFormOpen] = useState(false);
 
   useEffect(() => {
     dispatch(fetchUserThunk());
@@ -32,6 +34,16 @@ const Sidebar = () => {
     setFormOpen(true);
     setEditMode(true);
     setSelectedBoard(board);
+  };
+
+  const openDeleteForm = (board) => {
+    setDeleteFormOpen(true);
+    setSelectedBoard(board);
+  };
+
+  const closeDeleteForm = () => {
+    setDeleteFormOpen(false);
+    setSelectedBoard(null);
   };
 
   const arr = [
@@ -129,7 +141,10 @@ const Sidebar = () => {
           <div className={s.create_top_container}>
             <div className={s.create_container}>
               <h2 className={s.create_title}>Create a new board</h2>
-              <button onClick={openCreateForm} className={s.create_button}>
+              <button
+                onClick={() => openCreateForm()}
+                className={s.create_button}
+              >
                 <SvgIcon
                   name="icon-plus"
                   width="20"
@@ -175,7 +190,7 @@ const Sidebar = () => {
                           className={s.board_svg}
                         />
                       </button>
-                      <button>
+                      <button onClick={() => openDeleteForm(board)}>
                         <SvgIcon
                           name="icon-trash"
                           width="16"
@@ -190,6 +205,13 @@ const Sidebar = () => {
             ))}
           </ul>
         </div>
+
+        {isDeleteFormOpen && (
+          <div className={s.modal} onClick={(e) => e.stopPropagation()}>
+            <DeleteBoardForm onClose={closeDeleteForm} />
+          </div>
+        )}
+
         <div>
           <div className={s.side_help}>
             <div className={s.side_help_span}>

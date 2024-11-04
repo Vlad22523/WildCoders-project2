@@ -2,7 +2,7 @@
   max-width: 335px;
   height: 433px;
   border-radius: 8px;
-  background: #fcfcfc;
+  background: rgb(var(--background-hover-board));
   padding: 24px;
   margin: auto;
 }
@@ -15,7 +15,7 @@
 }
 
 .title {
-  color: #161616;
+  color: rgb(var(--text-color-sidebar-and-header));
   margin: 0;
   padding: 0;
   font-size: 18px;
@@ -40,9 +40,9 @@
   padding: 14px 18px;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid rgb(var(--button-color-modal));
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-  color: #161616;
+  color: rgb(var(--text-color-sidebar-and-header));
   font-size: 14px;
   letter-spacing: -0.28px;
   background: transparent;
@@ -69,7 +69,7 @@
 }
 
 h3 {
-  color: #161616;
+  color: rgb(var(--text-color-sidebar-and-header));
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.28px;
@@ -108,10 +108,10 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f6f6f7;
+  background-color: rgb(var(--background-mainboard));
   border-radius: 6px;
   padding: 6px;
-  stroke: #161616;
+  stroke: rgb(var(--button-add-column-text));
   stroke-opacity: 0.1;
 }
 
@@ -122,8 +122,8 @@ h3 {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background: #bedbb0;
-  color: #161616;
+  background: rgb(var(--button-color-modal));
+  color: rgb(var(--text-color-sidebar-and-header));
   font-weight: 500;
   letter-spacing: -0.28px;
   margin-top: 24px;
@@ -149,7 +149,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #161616;
+  background-color: rgb(var(--button-add-column-text));
   stroke: white;
   border-radius: 4px;
   padding: 7px;
