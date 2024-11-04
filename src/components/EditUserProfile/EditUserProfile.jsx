@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const EditUserProfile = ({ onClose }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [photo, setPhoto] = useState(null);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible((prevState) => !prevState);
