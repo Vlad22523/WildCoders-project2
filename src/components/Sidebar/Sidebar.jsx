@@ -6,24 +6,33 @@ import SvgIcon from "../../hooks/SvgIcon.jsx";
 import { closeSidebar } from "../../redux/sidebar/slice.js";
 import { NavLink } from "react-router-dom";
 import { fetchUserThunk, logoutThunk } from "../../redux/auth/operations.js";
-import { Backdrop } from "../Backdrop/Backdrop.jsx";
-import { BoardForm } from "../BoardForm/BoardForm.jsx";
-import { addBoard } from "../../redux/boards/slice.js";
+import { EditBoardForm } from "../EditBoardForm/EditBoardForm.jsx";
+import { CreateBoardForm } from "../CreateBoardForm/CreateBoardForm.jsx";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
-  const [isFormOpen, setFormOpen] = useState(false);
 
-  const handleCreateBoard = (values) => {
-    dispatch(addBoard(values));
-    setFormOpen(false);
-  };
+  const [isFormOpen, setFormOpen] = useState(false);
+  const [isEditMode, setEditMode] = useState(false);
+  const [selectedBoard, setSelectedBoard] = useState(null);
 
   useEffect(() => {
     dispatch(fetchUserThunk());
   }, [dispatch]);
+
+  const openCreateForm = () => {
+    setFormOpen(true);
+    setEditMode(false);
+    setSelectedBoard(null);
+  };
+
+  const openEditForm = (board) => {
+    setFormOpen(true);
+    setEditMode(true);
+    setSelectedBoard(board);
+  };
 
   const arr = [
     {
@@ -120,10 +129,7 @@ const Sidebar = () => {
           <div className={s.create_top_container}>
             <div className={s.create_container}>
               <h2 className={s.create_title}>Create a new board</h2>
-              <button
-                onClick={() => setFormOpen(true)}
-                className={s.create_button}
-              >
+              <button onClick={openCreateForm} className={s.create_button}>
                 <SvgIcon
                   name="icon-plus"
                   width="20"
@@ -132,19 +138,24 @@ const Sidebar = () => {
                 />
               </button>
             </div>
-            {isFormOpen && (
-              <>
-                <Backdrop onClick={() => setFormOpen(false)} />
-                <div className={s.modal}>
-                  <BoardForm
-                    isEditMode={false}
-                    onSubmit={handleCreateBoard}
-                    setFormOpen={setFormOpen}
-                  />
-                </div>
-              </>
-            )}
           </div>
+
+          {isFormOpen && (
+            <div className={s.modal}>
+              {isEditMode ? (
+                <EditBoardForm
+                  initialValues={{
+                    title: selectedBoard?.title || "",
+                    shape: selectedBoard?.shape || "square",
+                    background: selectedBoard?.background || "0",
+                  }}
+                  setFormOpen={setFormOpen}
+                />
+              ) : (
+                <CreateBoardForm setFormOpen={setFormOpen} />
+              )}
+            </div>
+          )}
 
           <ul className={s.board_list}>
             {arr.map((board) => (
@@ -156,7 +167,7 @@ const Sidebar = () => {
                       <span>{board.title}</span>
                     </div>
                     <div className={s.board_svg_container}>
-                      <button onClick={() => setFormOpen(true)}>
+                      <button onClick={() => openEditForm(board)}>
                         <SvgIcon
                           name="icon-pencil"
                           width="16"
@@ -193,6 +204,7 @@ const Sidebar = () => {
               Need help?
             </div>
           </div>
+
           <button
             onClick={() => dispatch(logoutThunk())}
             className={s.side_logout_btn}

@@ -1,12 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUserThunk, loginThunk, logoutThunk, registerThunk } from "./operations.js";
+import {
+  fetchUserThunk,
+  loginThunk,
+  logoutThunk,
+  registerThunk,
+} from "./operations.js";
 
 const initialState = {
   isRefreshing: false,
   isLoggedIn: false,
   token: null,
   loader: false,
-  user: {}
+  user: {},
 };
 
 const slice = createSlice({
