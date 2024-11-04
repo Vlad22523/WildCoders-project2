@@ -63,10 +63,18 @@
   box-shadow: rgba(22, 22, 22, 0.08) 0px 4px 16px;
   outline: none;
   border-radius: 8px;
-  color: rgba(192, 192, 192, 0.597);
+  color: rgb(var(--text-color-mainboard));
   transition: 250ms;
   opacity: 0.4;
   margin-top: 24px;
+}
+.field::placeholder {
+  color: rgb(var(--text-color-mainboard));
+}
+.field:focus {
+  color: rgb(50, 50, 50); /* Darker text color */
+  opacity: 1; /* Make the field fully opaque on focus */
+  border-color: #9DC888; /* Optional: change border color on focus */
 }
 
 .button {
@@ -74,13 +82,19 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: #c8e6c9;
+  background-color: rgb(var(--button-color-modal));
   color: black;
   border: none;
   border-radius: 8px;
   padding: 12px 0;
   font-size: 16px;
   margin-top: 24px;
+  transition: background-color 200ms ease;
+}
+
+.button:hover {
+  background-color: #9DC888;
+  transition-delay: 150ms;
 }
 
 .svgWrapper{

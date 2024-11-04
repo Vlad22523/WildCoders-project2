@@ -1,38 +1,44 @@
 import { useState, useEffect } from 'react';
-import s from '../AddcolumnModal/ColModal.module.css';
+import s from '../EditColumnModal/EditModal.module.css';
 import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import { IoClose } from "react-icons/io5";
 
-const AddColumnModal = ({ isOpen, onClose }) => {
+const EditColumnModal = ({ isOpen, onClose, initialTitle }) => {
   const [title, setTitle] = useState('');
 
+  // Update title state when initialTitle changes or when the modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setTitle(initialTitle || ''); // Reset title to initialTitle whenever modal opens
+    }
+  }, [isOpen, initialTitle]);
+
   const handleAdd = () => {
-    // Add column logic here
     console.log('Column added:', title);
-    setTitle('');
+    setTitle(''); // Clear title after adding
     onClose();
   };
 
-// Close modal on Esc key press
-useEffect(() => {
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape') {
+  // Close modal on Esc key press
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
+
+  // Close modal on backdrop click
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
       onClose();
     }
   };
-
-  document.addEventListener('keydown', handleKeyDown);
-  return () => {
-    document.removeEventListener('keydown', handleKeyDown);
-  };
-}, [onClose]);
-
-// Close modal on backdrop click
-const handleBackdropClick = (e) => {
-  if (e.target === e.currentTarget) {
-    onClose();
-  }
-};
 
   if (!isOpen) return null;
 
@@ -40,7 +46,7 @@ const handleBackdropClick = (e) => {
     <div className={s.overlay} onClick={handleBackdropClick}>
       <div className={s.content}>
         <div className={s.header}>
-          <h2 className={s.text}>Add column</h2>
+          <h2 className={s.text}>Edit column</h2>
         </div>
         <button className={s.buttonClose} onClick={onClose}><IoClose className={s.svg}/></button>
         <input
@@ -66,4 +72,4 @@ const handleBackdropClick = (e) => {
   );
 };
 
-export default AddColumnModal;
+export default EditColumnModal;
