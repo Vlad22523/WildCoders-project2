@@ -57,13 +57,6 @@ export const fetchUserThunk = createAsyncThunk(
   "getUser",
   async (_, thunkAPI) => {
     try {
-<<<<<<< HEAD
-      const { user } = await mongoApi.get("auth/user", {
-        withCredentials: true,
-      });
-      toast.success(`user successfull!`);
-      return user;
-=======
       const { data } = await mongoApi.get("auth/user", {
         withCredentials: true,
       });
@@ -87,7 +80,6 @@ export const saveThemeThunk = createAsyncThunk(
           withCredentials: true,
         }
       );
->>>>>>> master
     } catch (error) {
       const errorMessage = error.response?.data?.data.message || error.message;
       toast.error(errorMessage);

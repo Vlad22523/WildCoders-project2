@@ -28,7 +28,6 @@ const Filters = () => {
         <Transition
           in={isModalOpen}
           timeout={300}
-          classNames='filtersModal'
           mountOnEnter
           unmountOnExit
         >
