@@ -26,27 +26,28 @@
 }
 
 .header_theme {
-  color: rgba(22, 22, 22, 0.8);
+  color: rgb(var(--text-color-mainboard), 0.8);
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
 }
 
 .header_down {
+  transition: all 100ms ease-in-out;
   stroke-width: 1.5px;
-  stroke: rgba(22, 22, 22, 0.8);
+  stroke: rgb(var(--text-color-mainboard), 0.8);
 }
 
 .header_user {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #161616;
-  margin-right: 8px;
+  color: rgb(var(--text-color-mainboard));
 }
 
 .select_theme {
-  display: inline-flex;
+  display: flex;
+  gap: 4px;
   align-items: center;
   margin-left: auto;
   cursor: pointer;
@@ -57,47 +58,63 @@
 }
 
 .select_user {
-  display: inline-flex;
+  gap: 8px;
+  display: flex;
   align-items: center;
-  padding-left: 14px;
+  margin-left: 14px;
   cursor: pointer;
+  img {
+    border-radius: 8px;
+    object-fit: cover;
+  }
 }
 
 .modalOverlay {
   position: fixed;
   top: 45px;
   right: 85px;
-  background-color: rgb(var(--background-header));
+  background-color: rgb(var(--background-modal-filters));
   width: 100px;
   height: 107px;
   z-index: 1000;
-  border: 1px solid #bedbb0;
+  border: 1px solid rgb(var(--button-color-modal));
   border-radius: 8px;
   width: 100px;
   height: 107px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.theme_choise {
+.theme_choice {
   font-weight: 400;
+  display: block;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #161616;
+  color: rgb(var(--radio-button));
   cursor: pointer;
+  transition: transform 100ms ease-in-out;
+  input {
+    display: none;
+  }
+}
+
+.theme_choice input[type="radio"]:checked + .theme_text {
+  color: rgb(var(--button-color-modal));
+  transform: scale(1.1);
+}
+
+.theme_choice:hover {
+  transform: scale(1.1);
+}
+
+.modalContent {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .selected {
   color: #bedbb0;
-}
-
-.theme_choise:hover {
-  font-weight: 500;
-  font-size: 15px;
-}
-
-.modalContent {
-  margin-top: 18px;
-  margin-left: 18px;
 }
 
 @media screen and (max-width: 768px) {
@@ -116,6 +133,7 @@
 @media screen and (max-width: 375px) {
   .header {
     padding: 14px 20px;
+    height: 60px;
   }
 
   .header_menu {

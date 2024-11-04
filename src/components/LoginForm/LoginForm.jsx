@@ -11,11 +11,11 @@ const LoginForm = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email("Invalid email").required("Required"),
+    email: Yup.string().email("Invalid email").required("*"),
     password: Yup.string()
       .min(8, "Too Short!")
       .max(64, "Too Long!")
-      .required("Required"),
+      .required("*"),
   });
 
   const dispatch = useDispatch();
@@ -32,23 +32,26 @@ const LoginForm = () => {
         onSubmit={handleSubmit}
       >
         <Form className={s.form}>
-          <div className={s.formItem}>
+          <label>
             <Field
               name="email"
               placeholder="Enter your email"
               className={s.field}
             />
-          </div>
-          <ErrorMessage name="email" component="div" className={s.error} />
-          <div className={s.formItem}>
+
+            <ErrorMessage name="email" component="div" className={s.error} />
+          </label>
+
+          <label>
             <Field
               type="password"
               name="password"
               placeholder="Confirm a password"
               className={s.field}
             />
-          </div>
-          <ErrorMessage name="password" component="div" className={s.error} />
+
+            <ErrorMessage name="password" component="div" className={s.error} />
+          </label>
           <button type="submit" className={s.btn}>
             Log In Now
           </button>

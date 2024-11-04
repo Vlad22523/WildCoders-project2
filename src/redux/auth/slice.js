@@ -4,6 +4,10 @@ import {
   loginThunk,
   logoutThunk,
   registerThunk,
+<<<<<<< HEAD
+=======
+  saveThemeThunk,
+>>>>>>> master
 } from "./operations.js";
 
 const initialState = {
@@ -44,8 +48,34 @@ const slice = createSlice({
       .addCase(logoutThunk.fulfilled, () => {
         return initialState;
       })
+<<<<<<< HEAD
       .addCase(fetchUserThunk.pending, (state, action) => {
         state.user = action.payload;
+=======
+      .addCase(fetchUserThunk.pending, (state) => {
+        state.loader = true;
+      })
+      .addCase(fetchUserThunk.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.loader = false;
+        document.documentElement.setAttribute(
+          "data-theme",
+          action.payload.theme
+        );
+      })
+      .addCase(fetchUserThunk.rejected, (state, action) => {
+        state.user = action.payload;
+        state.loader = false;
+      })
+      .addCase(saveThemeThunk.rejected, (state) => {
+        state.loader = false;
+      })
+      .addCase(saveThemeThunk.pending, (state) => {
+        state.loader = true;
+      })
+      .addCase(saveThemeThunk.fulfilled, (state) => {
+        state.loader = false;
+>>>>>>> master
       });
   },
 });
