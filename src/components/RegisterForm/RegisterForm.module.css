@@ -32,7 +32,7 @@
 
 .error {
   position: absolute;
-  top: 1px;
+  top: 2px;
   right: 7px;
   color: red;
   font-size: 11px;
@@ -76,14 +76,14 @@
   cursor: pointer;
   &::after {
     position: absolute;
-    content: '';
+    content: "";
     top: 8px;
     right: -3px;
     width: 24px;
     height: 1px;
     background: rgba(255, 255, 255, 0.4);
     transform: rotate(45deg);
-    transition: .3s all ease;
+    transition: 0.3s all ease;
     opacity: 1;
   }
 }
@@ -97,9 +97,8 @@
 }
 
 .svgEye {
-  stroke: rgba(255, 255, 255, 0.4);;
+  stroke: rgba(255, 255, 255, 0.4);
 }
-
 
 /* ===============MEDIA 768============== */
 
