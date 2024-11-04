@@ -56,11 +56,15 @@
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.88" d="M16 29.333c7.364 0 13.333-5.97 13.333-13.333S23.363 2.667 16 2.667C8.636 2.667 2.667 8.637 2.667 16S8.637 29.333 16 29.333z"/>
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.88" d="M12.12 12a4.003 4.003 0 0 1 6.834-1.249c.608.722.941 1.637.94 2.582 0 2.667-4 4-4 4M16 22.667h.02"/>
     </symbol>
-     <symbol id="icon-menu-01" viewBox="0 0 32 32">
+    <symbol id="icon-menu-01" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" d="M4 16h24M4 8h24M4 24h24"/>
     </symbol>
     <symbol id="icon-chevron-down" viewBox="0 0 30 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.8235" d="M7.529 12.235l7.529 7.529 7.529-7.529"></path>
+    </symbol>
+    <symbol id="icon-eye" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.3111" d="M1.333 16s5.333-10.667 14.667-10.667 14.667 10.667 14.667 10.667-5.333 10.667-14.667 10.667-14.667-10.667-14.667-10.667z"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.3111" d="M16 20c2.209 0 4-1.791 4-4s-1.791-4-4-4v0c-2.209 0-4 1.791-4 4s1.791 4 4 4v0z"></path>
     </symbol>
     <symbol id="icon-user" viewBox="0 0 32 32">
 <path fill="#f6f6f7" style="fill: var(--color1, #f6f6f7)" d="M3.765 0h24.471c2.079 0 3.765 1.686 3.765 3.765v24.471c0 2.079-1.686 3.765-3.765 3.765h-24.471c-2.079 0-3.765-1.686-3.765-3.765v-24.471c0-2.079 1.686-3.765 3.765-3.765z"></path>

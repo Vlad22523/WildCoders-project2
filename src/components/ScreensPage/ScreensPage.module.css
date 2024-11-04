@@ -159,6 +159,8 @@
 }
 
 .linkCreate {
+  background-color: transparent;
+  border: none;
   color: rgb(var(--button-create-board));
 }
 
@@ -170,18 +172,12 @@
 
 @media (min-width: 768px) {
   .main {
-    max-width: 768px;
+    max-width: 100%;
   }
   .button {
     width: 334px;
   }
   .text {
     max-width: 486px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .main {
-    max-width: 1180px;
   }
 }

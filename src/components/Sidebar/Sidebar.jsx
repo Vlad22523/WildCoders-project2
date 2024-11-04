@@ -9,6 +9,8 @@ import { fetchUserThunk, logoutThunk } from "../../redux/auth/operations.js";
 import { Backdrop } from "../Backdrop/Backdrop.jsx";
 import { BoardForm } from "../BoardForm/BoardForm.jsx";
 import { addBoard } from "../../redux/boards/slice.js";
+import arr from "./BoardsArr.js";
+import clsx from "clsx";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
@@ -24,59 +26,6 @@ const Sidebar = () => {
   useEffect(() => {
     dispatch(fetchUserThunk());
   }, [dispatch]);
-
-  const arr = [
-    {
-      boardId: "1",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "3",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "4",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "6",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "7",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "8",
-      title: "qwdadw",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "9",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "10",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "11",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-    {
-      boardId: "12",
-      title: "sdsfds",
-      icon: "icon-logo",
-    },
-  ];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -94,8 +43,8 @@ const Sidebar = () => {
     };
   }, [isOpen, dispatch]);
 
-  const activeLink = ({ isActive }) => {
-    return isActive ? `${s.navLink} ${s.activeLink}` : s.navLink;
+  const buildLinkClass = ({ isActive }) => {
+    return clsx(s.link, isActive && s.active);
   };
 
   return (
@@ -149,11 +98,19 @@ const Sidebar = () => {
           <ul className={s.board_list}>
             {arr.map((board) => (
               <li key={board.boardId} className={s.board_item}>
-                <NavLink to={`/board/${board.boardId}`} className={activeLink}>
+                <NavLink
+                  to={`/board/${board.boardId}`}
+                  className={buildLinkClass}
+                >
                   <div className={s.board_list_container}>
                     <div className={s.board_title_container}>
-                      <SvgIcon name={board.icon} width="18" height="18" />
-                      <span>{board.title}</span>
+                      <SvgIcon
+                        name={board.icon}
+                        width="18"
+                        height="18"
+                        className={s.board_item_svg}
+                      />
+                      <span className={s.board_item_title}>{board.title}</span>
                     </div>
                     <div className={s.board_svg_container}>
                       <button onClick={() => setFormOpen(true)}>
