@@ -87,3 +87,20 @@ export const saveThemeThunk = createAsyncThunk(
     }
   }
 );
+
+export const updateUserThunk = createAsyncThunk(
+  "updateUser",
+  async (formData, thunkAPI) => {
+    try {
+      const { data } = await mongoApi.patch("auth/user", formData, {
+        withCredentials: true,
+      });
+      toast.success("Profile updated successfully!");
+      return data.data;
+    } catch (error) {
+      const errorMessage = error.response?.data?.data.message || error.message;
+      toast.error(errorMessage);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
