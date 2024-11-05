@@ -2,7 +2,7 @@ import clsx from "clsx";
 import s from "../ IconRadioButton/IconRadioButton.module.css";
 
 export const IconRadioButton = ({ iconId, field, value }) => (
-  <label>
+  <label className={s.input}>
     <input
       type="radio"
       {...field}
