@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import s from "./WelcomePage.module.css";
-import SvgIcon from "../../hooks/SvgIcon.jsx"
+import SvgIcon from "../../hooks/SvgIcon.jsx";
 
 const WelcomePage = () => {
   return (

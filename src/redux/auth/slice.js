@@ -1,11 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginThunk, logoutThunk, registerThunk } from "./operations.js";
+import {
+  fetchUserThunk,
+  loginThunk,
+  logoutThunk,
+  registerThunk,
+  saveThemeThunk,
+} from "./operations.js";
 
 const initialState = {
   isRefreshing: false,
   isLoggedIn: false,
   token: null,
   loader: false,
+  user: {},
 };
 
 const slice = createSlice({
@@ -37,6 +44,30 @@ const slice = createSlice({
       })
       .addCase(logoutThunk.fulfilled, () => {
         return initialState;
+      })
+      .addCase(fetchUserThunk.pending, (state) => {
+        state.loader = true;
+      })
+      .addCase(fetchUserThunk.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.loader = false;
+        document.documentElement.setAttribute(
+          "data-theme",
+          action.payload.theme
+        );
+      })
+      .addCase(fetchUserThunk.rejected, (state, action) => {
+        state.user = action.payload;
+        state.loader = false;
+      })
+      .addCase(saveThemeThunk.rejected, (state) => {
+        state.loader = false;
+      })
+      .addCase(saveThemeThunk.pending, (state) => {
+        state.loader = true;
+      })
+      .addCase(saveThemeThunk.fulfilled, (state) => {
+        state.loader = false;
       });
   },
 });
