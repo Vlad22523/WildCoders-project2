@@ -1,6 +1,6 @@
 .icon {
-  stroke: rgba(22, 22, 22, 0.5);
+  stroke: rgb(var(--text-color-mainboard), 0.5);
 }
 .activeIcon {
-  stroke: #161616;
+  stroke: rgb(var(--text-color-mainboard));
 }
