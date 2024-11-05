@@ -1,11 +1,17 @@
 .main {
   background-color: rgb(var(--background-mainboard));
-  margin: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+}
+
+.mainContainer{
   display: flex;
-  flex-direction: column;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   position: relative;
+  width: 100%;
+    height: 100%;
 }
 
 .header {
@@ -21,7 +27,7 @@
 
 .mainWrapper {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   flex: 1;
   display: flex;
   padding: 0 20px;
@@ -73,6 +79,7 @@
 
 .button {
   flex-shrink: 0;
+  height: 100%;
   max-height: 56px;
   padding: 14px 0;
   width: calc(100vw - 40px);
@@ -151,8 +158,8 @@
   width: 100%;
   max-width: 335px;
   font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  line-height: 1.29;
+  font-size: 12px;
+  line-height: 1.33;
   letter-spacing: -0.02em;
   text-align: center;
   color: rgba(var(--text-color-mainboard), 0.7);
@@ -168,6 +175,9 @@
   .button {
     width: 334px;
   }
+    .text {
+      font-size: 14px;
+      line-height: 1.29;}
 }
 
 @media (min-width: 768px) {
