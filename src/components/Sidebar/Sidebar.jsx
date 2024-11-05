@@ -1,57 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
 import s from "./Sidebar.module.css";
 import { selectIsOpenSidebar } from "../../redux/sidebar/selectors";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
 import { closeSidebar } from "../../redux/sidebar/slice.js";
 import { NavLink } from "react-router-dom";
-
 import { fetchUserThunk, logoutThunk } from "../../redux/auth/operations.js";
-import { EditBoardForm } from "../EditBoardForm/EditBoardForm.jsx";
-import { CreateBoardForm } from "../CreateBoardForm/CreateBoardForm.jsx";
-import { DeleteBoardForm } from "../DeleteBoardForm/DeleteBoardForm.jsx";
-import { logoutThunk } from "../../redux/auth/operations.js";
+
 import arr from "./BoardsArr.js";
 import clsx from "clsx";
-
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
 
-  const [isFormOpen, setFormOpen] = useState(false);
-  const [isEditMode, setEditMode] = useState(false);
-  const [selectedBoard, setSelectedBoard] = useState(null);
-  const [isDeleteFormOpen, setDeleteFormOpen] = useState(false);
-
   useEffect(() => {
     dispatch(fetchUserThunk());
   }, [dispatch]);
-
-  const openCreateForm = () => {
-    setFormOpen(true);
-    setEditMode(false);
-    setSelectedBoard(null);
-  };
-
-  const openEditForm = (board) => {
-    setFormOpen(true);
-    setEditMode(true);
-    setSelectedBoard(board);
-  };
-
-  const openDeleteForm = (board) => {
-    setDeleteFormOpen(true);
-    setSelectedBoard(board);
-  };
-
-  const closeDeleteForm = () => {
-    setDeleteFormOpen(false);
-    setSelectedBoard(null);
-  };
-
-  
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -95,10 +61,7 @@ const Sidebar = () => {
           <div className={s.create_top_container}>
             <div className={s.create_container}>
               <h2 className={s.create_title}>Create a new board</h2>
-              <button
-                onClick={() => openCreateForm()}
-                className={s.create_button}
-              >
+              <button className={s.create_button}>
                 <SvgIcon
                   name="icon-plus"
                   width="20"
@@ -108,23 +71,6 @@ const Sidebar = () => {
               </button>
             </div>
           </div>
-
-          {isFormOpen && (
-            <div className={s.modal}>
-              {isEditMode ? (
-                <EditBoardForm
-                  initialValues={{
-                    title: selectedBoard?.title || "",
-                    shape: selectedBoard?.shape || "square",
-                    background: selectedBoard?.background || "0",
-                  }}
-                  setFormOpen={setFormOpen}
-                />
-              ) : (
-                <CreateBoardForm setFormOpen={setFormOpen} />
-              )}
-            </div>
-          )}
 
           <ul className={s.board_list}>
             {arr.map((board) => (
@@ -144,7 +90,7 @@ const Sidebar = () => {
                       <span className={s.board_item_title}>{board.title}</span>
                     </div>
                     <div className={s.board_svg_container}>
-                      <button onClick={() => openEditForm(board)}>
+                      <button>
                         <SvgIcon
                           name="icon-pencil"
                           width="16"
@@ -152,7 +98,7 @@ const Sidebar = () => {
                           className={s.board_svg}
                         />
                       </button>
-                      <button onClick={() => openDeleteForm(board)}>
+                      <button>
                         <SvgIcon
                           name="icon-trash"
                           width="16"
@@ -167,12 +113,6 @@ const Sidebar = () => {
             ))}
           </ul>
         </div>
-
-        {isDeleteFormOpen && (
-          <div className={s.modal} onClick={(e) => e.stopPropagation()}>
-            <DeleteBoardForm onClose={closeDeleteForm} />
-          </div>
-        )}
 
         <div>
           <div className={s.side_help}>
