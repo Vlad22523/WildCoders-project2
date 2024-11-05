@@ -135,7 +135,7 @@ width:100%;
   color: rgb(var(--button-create-board));
 }
 
-@media (min-width: 375px) {
+@media screen and (min-width: 376px) {
   .button {
     max-width: 334px;
   }
@@ -147,7 +147,7 @@ width:100%;
               max-width: 334px;}
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .main {
     width: calc(100vw - 260px);
       height: calc(100vh - 68px);
