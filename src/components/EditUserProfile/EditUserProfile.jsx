@@ -3,7 +3,6 @@ import s from "./EditUserProfile.module.css";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { IoClose } from "react-icons/io5";
-import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useState } from "react";
 import { updateUserThunk } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
