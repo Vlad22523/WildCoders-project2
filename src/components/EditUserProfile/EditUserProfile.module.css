@@ -1,3 +1,6 @@
+.relativeWrap {
+  position: relative;
+}
 .modal {
   position: fixed;
   top: 50%;
@@ -40,6 +43,12 @@
   height: 68px;
 }
 
+.userPhoto {
+  width: 68px;
+  height: 68px;
+  object-fit: cover;
+}
+
 .photoChooseBtn {
   position: absolute;
   top: 100%;
@@ -68,42 +77,68 @@
   position: relative;
 }
 
-.visibilityToggle {
+.btnShowPassword {
   position: absolute;
-  right: 18px;
   top: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  width: 18px;
-  height: 18px;
-  color: #161616;
-  opacity: 0.4;
-  background-color: transparent;
+  right: 18px;
+  background: none;
   border: none;
+  cursor: pointer;
+  fill: none;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 8px;
+    right: -3px;
+    width: 24px;
+    height: 1px;
+    background: rgba(var(--text-color-mainboard), 0.4);
+    transform: rotate(45deg);
+    transition: 0.3s all ease;
+    opacity: 1;
+  }
+}
+
+.eyeOpen::after {
+  opacity: 0;
+}
+
+.eyeClosed::after {
+  opacity: 1;
+}
+
+.svgEye {
+  stroke: rgba(var(--text-color-mainboard), 0.4);
+  &:hover,
+  &:focus {
+    stroke: rgba(var(--text-color-mainboard), 1);
+  }
+  &:hover .btnShowPassword::after,
+  &:focus .btnShowPassword::after {
+    background: rgba(var(--text-color-mainboard), 1);
+  }
 }
 
 .input {
   background-color: transparent;
-  color: #161616;
+  color: rgba(var(--text-color-mainboard), 0.4);
   font-size: 14px;
   letter-spacing: -0.28px;
   padding: 14px 18px;
   border-radius: 8px;
   border: 1px solid #bedbb0;
   width: 287px;
-  opacity: 0.4;
   &:hover,
   &:focus {
     outline: none;
-    opacity: 1;
+    color: rgba(var(--text-color-mainboard), 1);
   }
 }
 
 .error {
-  margin-left: 10px;
+  position: absolute;
+  bottom: -14px;
+  left: 18px;
   color: red;
   font-size: 10px;
 }

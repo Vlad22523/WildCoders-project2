@@ -5,18 +5,52 @@ import * as Yup from "yup";
 import { IoClose } from "react-icons/io5";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useState } from "react";
+import { updateUserThunk } from "../../redux/auth/operations";
+import { useDispatch } from "react-redux";
+import SvgIcon from "../../hooks/SvgIcon";
 
-const EditUserProfile = ({ onClose }) => {
+const EditUserProfile = ({ user, onClose }) => {
+  const dispatch = useDispatch();
+
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [photo, setPhoto] = useState(null);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [previewPhoto, setPreviewPhoto] = useState(user.photo);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible((prevState) => !prevState);
   };
 
+  const handlePhotoChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedPhoto(file);
+      setPreviewPhoto(URL.createObjectURL(file));
+    }
+  };
+
+  const handleSubmit = async (values) => {
+    try {
+      const formData = new FormData();
+      formData.append("name", values.name);
+      formData.append("email", values.email);
+      formData.append("theme", user.theme);
+      if (values.password) {
+        formData.append("password", values.password);
+      }
+      if (selectedPhoto) {
+        formData.append("photo", selectedPhoto);
+      }
+
+      await dispatch(updateUserThunk(formData));
+      onClose();
+    } catch (err) {
+      console.error("Error during form submission:", err);
+    }
+  };
+
   const initialValues = {
-    name: "",
-    email: "",
+    name: user.name || "",
+    email: user.email || "",
     password: "",
   };
 
@@ -38,31 +72,32 @@ const EditUserProfile = ({ onClose }) => {
 
         <Formik
           initialValues={initialValues}
-          onSubmit={() => {}}
+          onSubmit={handleSubmit}
           validationSchema={validationSchema}
         >
           <Form className={s.form}>
             <div className={s.photoWrapper}>
               <div className={s.photoPreview}>
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBSSpX3hNAqZQ7ME5h5-29zdrC2-XJDH5SRg&s"
+                  className={s.userPhoto}
+                  src={previewPhoto}
                   alt="Photo Preview"
                 />
               </div>
-              <label htmlFor="avatar" className={s.photoChooseBtn}>
+              <label htmlFor="photo" className={s.photoChooseBtn}>
                 +
               </label>
               <input
                 style={{ display: "none" }}
                 type="file"
-                id="avatar"
-                name="avatar"
+                id="photo"
+                name="photo"
                 accept="image/*"
-                onChange={() => {}}
+                onChange={handlePhotoChange}
               />
             </div>
             <div className={s.inputWrap}>
-              <div>
+              <div className={s.relativeWrap}>
                 <Field
                   className={s.input}
                   name="name"
@@ -70,7 +105,7 @@ const EditUserProfile = ({ onClose }) => {
                 />
                 <ErrorMessage name="name" component="div" className={s.error} />
               </div>
-              <div>
+              <div className={s.relativeWrap}>
                 <Field
                   className={s.input}
                   name="email"
@@ -83,7 +118,7 @@ const EditUserProfile = ({ onClose }) => {
                   className={s.error}
                 />
               </div>
-              <div>
+              <div className={s.relativeWrap}>
                 <div className={s.passwordWrap}>
                   <Field
                     className={s.input}
@@ -93,10 +128,17 @@ const EditUserProfile = ({ onClose }) => {
                   />
                   <button
                     type="button"
-                    className={s.visibilityToggle}
                     onClick={togglePasswordVisibility}
+                    className={`${s.btnShowPassword} ${
+                      !isPasswordVisible ? s.eyeOpen : s.eyeClosed
+                    }`}
                   >
-                    {isPasswordVisible ? <FiEyeOff /> : <FiEye />}
+                    <SvgIcon
+                      name="icon-eye"
+                      width="18"
+                      height="18"
+                      className={s.svgEye}
+                    />
                   </button>
                 </div>
                 <ErrorMessage
