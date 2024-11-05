@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import SvgIcon from "../../hooks/SvgIcon.jsx";
 import s from "./Filters.module.css";
 import { Formik, Form, Field } from 'formik';
+import SvgIcon from "../../../hooks/SvgIcon.jsx";
 
 const Filters = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
