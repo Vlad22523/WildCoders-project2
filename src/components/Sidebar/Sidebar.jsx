@@ -12,6 +12,7 @@ import { CreateBoardForm } from "../CreateBoardForm/CreateBoardForm.jsx";
 import { DeleteBoardForm } from "../DeleteBoardForm/DeleteBoardForm.jsx";
 import arr from "./BoardsArr.js";
 import clsx from "clsx";
+import Backdrop from "../Backdrop/Backdrop.jsx";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
@@ -41,6 +42,11 @@ const Sidebar = () => {
   };
 
   const closeDeleteForm = () => {
+    setDeleteFormOpen(false);
+    setSelectedBoard(null);
+  };
+  const closeForms = () => {
+    setFormOpen(false);
     setDeleteFormOpen(false);
     setSelectedBoard(null);
   };
@@ -85,12 +91,12 @@ const Sidebar = () => {
           </a>
           <h3 className={s.under_logo}>My boards</h3>
           <div className={s.create_top_container}>
-            <div className={s.create_container}>
+            <div
+              className={s.create_container}
+              onClick={() => openCreateForm()}
+            >
               <h2 className={s.create_title}>Create a new board</h2>
-              <button
-                onClick={() => openCreateForm()}
-                className={s.create_button}
-              >
+              <button className={s.create_button}>
                 <SvgIcon
                   name="icon-plus"
                   width="20"
@@ -100,7 +106,9 @@ const Sidebar = () => {
               </button>
             </div>
           </div>
-
+          {(isFormOpen || isDeleteFormOpen) && (
+            <Backdrop onClose={closeForms} />
+          )}
           {isFormOpen && (
             <div className={s.modal}>
               {isEditMode ? (
@@ -136,7 +144,10 @@ const Sidebar = () => {
                       <span className={s.board_item_title}>{board.title}</span>
                     </div>
                     <div className={s.board_svg_container}>
-                      <button onClick={() => openEditForm(board)}>
+                      <button
+                        className={s.iconButton}
+                        onClick={() => openEditForm(board)}
+                      >
                         <SvgIcon
                           name="icon-pencil"
                           width="16"
@@ -144,7 +155,10 @@ const Sidebar = () => {
                           className={s.board_svg}
                         />
                       </button>
-                      <button onClick={() => openDeleteForm(board)}>
+                      <button
+                        className={s.iconButton}
+                        onClick={() => openDeleteForm(board)}
+                      >
                         <SvgIcon
                           name="icon-trash"
                           width="16"

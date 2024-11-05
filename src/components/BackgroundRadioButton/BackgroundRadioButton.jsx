@@ -2,7 +2,7 @@ import clsx from "clsx";
 import s from "../BackgroundRadioButton/BackgroundRadioButton.module.css";
 
 export const BackgroundRadioButton = ({ background, field }) => (
-  <label>
+  <label className={s.input}>
     <input
       type="radio"
       {...field}
@@ -11,16 +11,18 @@ export const BackgroundRadioButton = ({ background, field }) => (
       style={{ display: "none" }}
     />
     {background.isSvg ? (
-      <svg
-        width="28"
-        height="28"
-        className={clsx(
-          s.iconBackground,
-          field.value === String(background.id) && s.activeBackground
-        )}
-      >
-        <use href={background.src} />
-      </svg>
+      <div>
+        <svg
+          width="28"
+          height="28"
+          className={clsx(
+            s.iconBackground,
+            field.value === String(background.id) && s.activeBackground
+          )}
+        >
+          <use href="/src/images/icons.svg#icon-no-bg" />
+        </svg>
+      </div>
     ) : (
       <img
         src={background.src}

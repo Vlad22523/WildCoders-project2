@@ -105,6 +105,7 @@ html[data-theme="light"] {
   --radio-button: 22, 22, 22; /* #161616 */
   --border-board-color: 190, 219, 176; /* #BEDBB0 */
   --text-task-descr: 22, 22, 22, 0.7; /* #161616 */
+  --button-background-color: 157, 200, 136, 1; /* #9DC888*/
 }
 
 html[data-theme="dark"] {
@@ -134,6 +135,7 @@ html[data-theme="dark"] {
   --radio-button: 255, 255, 255, 0.5; /* #FFFFFF */
   --border-board-color: 190, 219, 176; /* #BEDBB0 */
   --text-task-descr: 255, 255, 255, 0.5; /* #FFFFFF */
+  --button-background-color: 157, 200, 136, 1; /* #9DC888*/
 }
 
 html[data-theme="violet"] {
@@ -163,6 +165,7 @@ html[data-theme="violet"] {
   --radio-button: 22, 22, 22; /* #161616 */
   --border-board-color: 255, 255, 255; /* #FFFFFF */
   --text-task-descr: 22, 22, 22, 0.7; /* #161616 */
+  --button-background-color: 123, 126, 222, 1; /* #7B7EDE*/
 }
 
 /*

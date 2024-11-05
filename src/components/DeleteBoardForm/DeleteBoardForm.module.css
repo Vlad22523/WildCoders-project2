@@ -22,6 +22,9 @@
   position: absolute;
   top: 5%;
   right: 5%;
+  fill: transparent;
+  transform: rotate(45deg);
+  stroke: rgb(var(--text-color-mainboard));
 }
 
 .title {
@@ -38,8 +41,10 @@
 .containerButton {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 30px;
+  gap: 30px;
+  align-items: center;
 }
 
 .button {
@@ -60,7 +65,7 @@
 .button:active,
 .button:hover,
 .button:focus {
-  background: rgb(var(--button-color-modal));
+  background: rgb(var(--button-background-color));
   transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 

@@ -7,16 +7,20 @@
 }
 
 .activeBackground {
-  border: 1px solid blue;
+  border: 1px solid rgb(var(--button-color-modal));
 }
 
 .iconBackground {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f6f6f7;
+  background-color: rgb(var(--background-hover-board));
   border-radius: 6px;
   padding: 6px;
-  stroke: #161616;
-  stroke-opacity: 0.1;
+  fill: transparent;
+  stroke: rgba(var(--text-color-mainboard), 0.5);
+}
+
+.input {
+  cursor: pointer;
 }

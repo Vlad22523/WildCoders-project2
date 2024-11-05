@@ -32,7 +32,9 @@
   padding: 0;
   outline: none;
   border: none;
-  stroke: rgb(var(--button-color-mainboard));
+  fill: transparent;
+  transform: rotate(45deg);
+  stroke: rgb(var(--text-color-mainboard));
 }
 
 .input {
@@ -99,21 +101,11 @@ h3 {
   object-fit: cover;
   border-radius: 6px;
   border: none;
+  cursor: pointer;
 }
 
 .activeBackground {
   border: 1px solid blue;
-}
-
-.iconBackground {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(var(--background-mainboard));
-  border-radius: 6px;
-  padding: 6px;
-  stroke: rgb(var(--button-add-column-text));
-  stroke-opacity: 0.1;
 }
 
 .button {
@@ -136,7 +128,7 @@ h3 {
 .button:active,
 .button:hover,
 .button:focus {
-  background: rgb(var(--button-color-modal));
+  background: rgb(var(--button-background-color));
   transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 
