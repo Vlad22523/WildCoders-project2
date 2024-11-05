@@ -115,7 +115,7 @@ const Sidebar = () => {
                 <EditBoardForm
                   initialValues={{
                     title: selectedBoard?.title || "",
-                    shape: selectedBoard?.shape || "square",
+                    icon: selectedBoard?.icon || "square",
                     background: selectedBoard?.background || "0",
                   }}
                   setFormOpen={setFormOpen}
