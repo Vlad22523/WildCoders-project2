@@ -8,7 +8,6 @@ import Auth from "./components/Auth/Auth.jsx";
 import { Toaster } from "react-hot-toast";
 import { PublicRoute } from "./routes/PublicRoute.jsx";
 import { PrivateRoute } from "./routes/PrivateRoute.jsx";
-import { lazy } from "react";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 
 function App() {

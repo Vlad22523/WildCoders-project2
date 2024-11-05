@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Header/Header.jsx";
-import ScreenPage from "../../components/ScreensPage/ScreensPage.jsx";
 import Sidebar from "../../components/Sidebar/Sidebar.jsx";
 import s from "./HomePage.module.css";
 import { selectLoader } from "../../redux/auth/selectors.js";
 import Loader from "../../components/Loader/Loader.jsx";
 import { useEffect } from "react";
 import { fetchUserThunk } from "../../redux/auth/operations.js";
+import ScreensPage from "../../components/MainBoard/ScreensPage/ScreensPage.jsx";
 
 const HomePage = () => {
   const loader = useSelector(selectLoader);
@@ -24,7 +24,7 @@ const HomePage = () => {
       <Sidebar />
       <div className={s.content}>
         <Header />
-        <ScreenPage />
+        <ScreensPage />
       </div>
     </div>
   );
