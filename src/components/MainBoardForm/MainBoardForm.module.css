@@ -152,9 +152,6 @@ h3 {
   .container {
     width: 350px;
   }
-
-  .button {
-  }
 }
 
 @media screen and (max-width: 375px) {
