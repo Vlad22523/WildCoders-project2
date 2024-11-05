@@ -1,0 +1,180 @@
+.relativeWrap {
+  position: relative;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  z-index: 100;
+  border-radius: 8px;
+  background: rgb(var(--background-modal-filters));
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.title {
+  color: rgb(var(--text-color-mainboard));
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+  margin-bottom: 24px;
+}
+
+.photoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.photoPreview {
+  border-radius: 8px;
+  overflow: hidden;
+  width: 68px;
+  height: 68px;
+}
+
+.userPhoto {
+  width: 68px;
+  height: 68px;
+  object-fit: cover;
+}
+
+.photoChooseBtn {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #bedbb0;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: rgba(22, 22, 22, 1);
+}
+
+.inputWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.passwordWrap {
+  position: relative;
+}
+
+.btnShowPassword {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  fill: none;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 8px;
+    right: -3px;
+    width: 24px;
+    height: 1px;
+    background: rgba(var(--text-color-mainboard), 0.4);
+    transform: rotate(45deg);
+    transition: 0.3s all ease;
+    opacity: 1;
+  }
+}
+
+.eyeOpen::after {
+  opacity: 0;
+}
+
+.eyeClosed::after {
+  opacity: 1;
+}
+
+.svgEye {
+  stroke: rgba(var(--text-color-mainboard), 0.4);
+  &:hover,
+  &:focus {
+    stroke: rgba(var(--text-color-mainboard), 1);
+  }
+  &:hover .btnShowPassword::after,
+  &:focus .btnShowPassword::after {
+    background: rgba(var(--text-color-mainboard), 1);
+  }
+}
+
+.input {
+  background-color: transparent;
+  color: rgba(var(--text-color-mainboard), 0.4);
+  font-size: 14px;
+  letter-spacing: -0.28px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+  width: 287px;
+  &:hover,
+  &:focus {
+    outline: none;
+    color: rgba(var(--text-color-mainboard), 1);
+  }
+}
+
+.error {
+  position: absolute;
+  bottom: -14px;
+  left: 18px;
+  color: red;
+  font-size: 10px;
+}
+
+.buttonClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.submitBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 287px;
+  padding: 14px;
+  color: #161616;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+  background-color: rgb(var(--button-color-modal));
+  border: none;
+  border-radius: 8px;
+  &:active,
+  &:hover,
+  &:focus {
+    background: #9dc888;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1440px) {
+}

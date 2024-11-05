@@ -49,7 +49,8 @@ function App() {
             <PrivateRoute>
               <HomePage />
             </PrivateRoute>
-          }/> 
+          }
+        />
         <Route
           path="/board/:boardId"
           element={

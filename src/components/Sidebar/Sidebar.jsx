@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
 import { closeSidebar } from "../../redux/sidebar/slice.js";
 import { NavLink } from "react-router-dom";
+
 import { logoutThunk } from "../../redux/auth/operations.js";
 import arr from "./BoardsArr.js";
 import clsx from "clsx";
@@ -104,6 +105,7 @@ const Sidebar = () => {
             ))}
           </ul>
         </div>
+
         <div>
           <div className={s.side_help}>
             <div className={s.side_help_span}>
@@ -118,6 +120,7 @@ const Sidebar = () => {
               Need help?
             </div>
           </div>
+
           <button
             onClick={() => dispatch(logoutThunk())}
             className={s.side_logout_btn}
