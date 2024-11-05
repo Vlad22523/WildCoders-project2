@@ -1,0 +1,6 @@
+.icon {
+  stroke: rgb(var(--text-color-mainboard), 0.5);
+}
+.activeIcon {
+  stroke: rgb(var(--text-color-mainboard));
+}
