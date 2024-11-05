@@ -1,5 +1,5 @@
 import SvgIcon from "../../../hooks/SvgIcon.jsx";
-import Task from "../../Task/Task.jsx";
+import Card from "../Card/Card.jsx";
 import s from "./Column.module.css";
 
 
@@ -25,10 +25,10 @@ const Column = () => {
                 </button>
                 <div className={s.scrollBarTasks}>
                   <div className={s.tasksWrapper}>
-                    <Task />
-                    <Task />
-                    <Task />
-                    <Task />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
                   </div>
                 </div>
                 <button

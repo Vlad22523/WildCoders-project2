@@ -130,7 +130,7 @@ const Sidebar = () => {
             {arr.map((board) => (
               <li key={board.boardId} className={s.board_item}>
                 <NavLink
-                  to={`/board/${board.boardId}`}
+                  to={`/home/${board.boardId}`}
                   className={buildLinkClass}
                 >
                   <div className={s.board_list_container}>
