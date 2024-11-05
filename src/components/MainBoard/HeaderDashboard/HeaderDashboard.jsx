@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import Filters from "../Filters/Filters.jsx"
 import s from "./HeaderDashboard.module.css"
+import Filters from "../Filters/Filters.jsx";
 
 const HeaderDashboard = ({title}) => {
   const { boardId } = useParams();

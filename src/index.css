@@ -57,7 +57,6 @@ img {
 }
 
 .loader {
-  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,12 +95,16 @@ html[data-theme="light"] {
   --svglogout: 190, 219, 176; /* #BEDBB0 */
   --needhelpplatform: 246, 246, 247; /* #F6F6F7 */
   --logonameplatform: 190, 219, 176; /* #BEDBB0 */
-  --mainboard-scrollbar-thumb: 232, 232, 232, 1; /*#E8E8E8 */
-  --mainboard-scrollbar-track: 255, 255, 255; /* #FFFFFF */
+  --mainboard-scrollbar-thumb-x: 232, 232, 232, 1; /*#E8E8E8 */
+  --mainboard-scrollbar-track-x: 255, 255, 255; /* #FFFFFF */
+  --mainboard-scrollbar-thumb-y: 22, 22, 22, 0.1; /* #161616 */
+  --mainboard-scrollbar-track-y: 232, 232, 232, 1; /*#E8E8E8 */
   --button-add-column-text: 22, 22, 22; /* #161616 */
   --icon-plus-add-card: 255, 255, 255; /* #FFFFFF */
   --radio-button: 22, 22, 22; /* #161616 */
   --border-board-color: 190, 219, 176; /* #BEDBB0 */
+  --text-task-descr: 22, 22, 22, 0.7; /* #161616 */
+  --button-background-color: 157, 200, 136, 1; /* #9DC888*/
 }
 
 html[data-theme="dark"] {
@@ -122,12 +125,16 @@ html[data-theme="dark"] {
   --svglogout: 190, 219, 176; /* #BEDBB0 */
   --needhelpplatform: 31, 31, 31; /* #1F1F1F */
   --logonameplatform: 190, 219, 176; /* #BEDBB0 */
-  --mainboard-scrollbar-thumb: 255, 255, 255, 0.1; /*#FFFFFF */
-  --mainboard-scrollbar-track: 22, 22, 22; /* #161616 */
+  --mainboard-scrollbar-thumb-x: 255, 255, 255, 0.1; /*#FFFFFF */
+  --mainboard-scrollbar-track-x: 22, 22, 22; /* #161616 */
+  --mainboard-scrollbar-thumb-y: 18, 18, 18, 1; /* #121212 */
+  --mainboard-scrollbar-track-y: 255, 255, 255, 0.08; /*#FFFFFF */
   --button-add-column-text: 22, 22, 22; /* #161616 */
   --icon-plus-add-card: 255, 255, 255; /* #FFFFFF */
   --radio-button: 255, 255, 255, 0.5; /* #FFFFFF */
   --border-board-color: 190, 219, 176; /* #BEDBB0 */
+  --text-task-descr: 255, 255, 255, 0.5; /* #FFFFFF */
+  --button-background-color: 157, 200, 136, 1; /* #9DC888*/
 }
 
 html[data-theme="violet"] {
@@ -148,12 +155,16 @@ html[data-theme="violet"] {
   --svglogout: 255, 255, 255, 0.5; /* #FFFFFF */
   --needhelpplatform: 175, 176, 227; /* #ECEDFD */
   --logonameplatform: 82, 85, 188; /* #5255BC */
-  --mainboard-scrollbar-thumb: 184, 188, 253, 1; /*#B8BCFD */
-  --mainboard-scrollbar-track: 255, 255, 255; /* #FFFFFF */
+  --mainboard-scrollbar-thumb-x: 184, 188, 253, 1; /*#B8BCFD */
+  --mainboard-scrollbar-track-x: 255, 255, 255; /* #FFFFFF */
+  --mainboard-scrollbar-thumb-y: 184, 188, 253, 1; /*#B8BCFD */
+  --mainboard-scrollbar-track-y: 255, 255, 255, 1; /*#FFFFFF */
   --button-add-column-text: 255, 255, 255; /* #FFFFFF */
   --icon-plus-add-card: 22, 22, 22; /* #161616 */
   --radio-button: 22, 22, 22; /* #161616 */
   --border-board-color: 255, 255, 255; /* #FFFFFF */
+  --text-task-descr: 22, 22, 22, 0.7; /* #161616 */
+  --button-background-color: 123, 126, 222, 1; /* #7B7EDE*/
 }
 
 /*

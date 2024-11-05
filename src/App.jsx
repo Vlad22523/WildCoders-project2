@@ -9,6 +9,7 @@ import { Toaster } from "react-hot-toast";
 import { PublicRoute } from "./routes/PublicRoute.jsx";
 import { PrivateRoute } from "./routes/PrivateRoute.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
+import ScreensPage from "./components/MainBoard/ScreensPage/ScreensPage.jsx";
 
 function App() {
   const isRefreshing = useSelector(selectIsRefresh);
@@ -49,16 +50,16 @@ function App() {
             <PrivateRoute>
               <HomePage />
             </PrivateRoute>
-          }
-        />
+          }>
         <Route
-          path="/board/:boardId"
+          path="/home/:boardId"
           element={
             <PrivateRoute>
-              <HomePage />
+              <ScreensPage />
             </PrivateRoute>
           }
-        />
+            />
+            </Route>
 
         <Route path="*" element={<NotFound />} />
       </Routes>

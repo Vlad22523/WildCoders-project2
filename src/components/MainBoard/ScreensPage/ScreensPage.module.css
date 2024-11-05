@@ -1,17 +1,14 @@
 .main {
   background-color: rgb(var(--background-mainboard));
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: calc(100vh - 60px);
 }
 
 .mainContainer{
-  display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  position: relative;
   width: 100%;
-    height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -22,59 +19,58 @@
   z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: flex-end;
 }
 
 .mainWrapper {
-  width: 100%;
-  height: 100%;
+  width:100%;
+  height: calc(100% - 60px);
   flex: 1;
   display: flex;
-  padding: 0 20px;
+  padding: 0 20px  24px 20px;
+  position: relative;
+}
+
+.scrollbarColumn{
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+    margin-bottom: -10px;
 }
 
 .columnContainer {
   width: 100%;
-  height: 90%;
+  height: 100%;
   display: flex;
   gap: 34px;
-  flex-direction: row;
-  overflow-x: auto;
 }
 
-.columnContainer::-webkit-scrollbar {
+.scrollbarColumn::-webkit-scrollbar {
   width: 12px;
   height: 12px;
 }
 
 /* Фон полосы прокрутки */
-.columnContainer::-webkit-scrollbar-track {
-  background-color: rgba(var(--mainboard-scrollbar-track));
+.scrollbarColumn::-webkit-scrollbar-track {
+  background-color: rgb(var(--mainboard-scrollbar-track-x));
   border-radius: 12px;
 }
 
 /* Ползунок (Thumb) */
-.columnContainer::-webkit-scrollbar-thumb {
-  background-color: rgb(var(--mainboard-scrollbar-thumb));
+.scrollbarColumn::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--mainboard-scrollbar-thumb-x));
   /* Основной цвет ползунка */
   border-radius: 12px;
   /* Радиус ползунка */
 }
 
 /* Ползунок при наведении */
-.columnContainer::-webkit-scrollbar-thumb:hover {
+.scrollbarColumn::-webkit-scrollbar-thumb:hover {
   background-color: #555555;
   /* Цвет ползунка при наведении */
-}
-
-.noBoard {
-  justify-content: center;
-  align-items: center;
-}
-
-.boardCreated {
-  justify-content: start;
-  align-items: baseline;
 }
 
 .button {
@@ -82,7 +78,8 @@
   height: 100%;
   max-height: 56px;
   padding: 14px 0;
-  width: calc(100vw - 40px);
+  width: 100%;
+  max-width: 280px;
   border: none;
   border-radius: 8px;
   background-color: rgb(var(--button-color-mainboard));
@@ -91,6 +88,10 @@
   justify-content: center;
   align-items: center;
   white-space: nowrap;
+  font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    color: rgb(var(--text-color-mainboard));
 }
 
 .svgWrapper {
@@ -103,59 +104,22 @@
   justify-content: center;
 }
 
-.columnWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.buttonColumn {
-  padding: 18px 20px;
-  justify-content: space-between;
-}
-
-.buttonColumnAdd {
-  background-color: rgb(var(--button-color-modal));
-}
-
-.buttonAddCard {
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  color: rgb(var(--button-add-column-text));
-}
-
-.svgWrapperAddCard {
-  background-color: rgb(var(--button-add-column-text));
-}
-
-.svgWrapperColumn {
-  display: flex;
-  gap: 8px;
-}
-
-.iconColumn {
-  stroke: rgba(var(--text-color-mainboard), 0.5);
-  fill: transparent;
-}
-
-.iconAddCard {
-  stroke: rgb(var(--icon-plus-add-card));
-}
-
-.buttonSpan {
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  color: rgb(var(--text-color-mainboard));
-}
 
 .icon {
   stroke: rgb(var(--button-color-mainboard));
 }
 
+.boardCreated {
+  justify-content: start;
+  align-items: baseline;
+}
+
 .text {
-  width: 100%;
+  position: absolute;
+  bottom: 380px;
+    left: 50%;
+    transform: translateX(-50%);
+  width: 88%;
   max-width: 335px;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
@@ -171,23 +135,45 @@
   color: rgb(var(--button-create-board));
 }
 
-@media (min-width: 375px) {
+@media screen and (min-width: 376px) {
+  .mainWrapper {
+      padding: 0 32px 32px 32px;
+    }
+
   .button {
-    width: 334px;
+    max-width: 334px;
   }
     .text {
       font-size: 14px;
       line-height: 1.29;}
+            .columnWrapper {
+              width: 100%;
+              max-width: 334px;}
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .main {
-    max-width: 100%;
-  }
+    width: calc(100vw - 260px);
+      height: calc(100vh - 68px);
+    }
+
+        .mainWrapper {
+          padding: 0 24px 8px 24px;
+        }
+
   .button {
     width: 334px;
   }
   .text {
+    width: 92%;
     max-width: 486px;
+    bottom: 56%;
+      left: 50%;
+      transform: translate(-50%, -50%);
   }
+    .scrollBarTasks {
+      padding-right: 8px;
+      width: calc(100% + 16px);
+      margin-right: -8px;
+    }
 }
