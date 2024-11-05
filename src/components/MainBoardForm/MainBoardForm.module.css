@@ -136,7 +136,7 @@ h3 {
 .button:active,
 .button:hover,
 .button:focus {
-  background: rgb(var(--icon-plus-add-card));
+  background: rgb(var(--button-color-modal));
   transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 

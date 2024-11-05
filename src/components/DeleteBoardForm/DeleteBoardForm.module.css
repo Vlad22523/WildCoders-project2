@@ -25,7 +25,7 @@
 }
 
 .title {
-  color: rgb(var(--text-color-sidebar-and-header));
+  color: rgb(var(--text-color-mainboard));
   margin: 0;
   padding: 0;
   font-size: 16px;
@@ -60,7 +60,7 @@
 .button:active,
 .button:hover,
 .button:focus {
-  background: #9dc888;
+  background: rgb(var(--button-color-modal));
   transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 
