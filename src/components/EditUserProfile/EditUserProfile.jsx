@@ -58,7 +58,13 @@ const EditUserProfile = ({ user, onClose }) => {
       .min(3, "Name must be at least 3 characters")
       .max(15, "Name must be less 15 characters"),
     email: Yup.string().email("Invalid email format"),
-    password: Yup.string().min(6, "Password must be at least 6 characters"),
+    password: Yup.string()
+      .min(8, "Too Short!")
+      .max(64, "Too Long!")
+      .matches(/[A-Z]/, "At least one uppercase letter")
+      .matches(/[a-z]/, "At least one lowercase letter")
+      .matches(/\d/, "At least one number")
+      .matches(/[!@#$%^&*(),.?":{}|<>]/, "At least one special character"),
   });
   return (
     <>
