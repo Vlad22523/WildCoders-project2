@@ -1,14 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import s from "./Sidebar.module.css";
 import { selectIsOpenSidebar } from "../../redux/sidebar/selectors";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
 import { closeSidebar } from "../../redux/sidebar/slice.js";
 import { NavLink } from "react-router-dom";
-import { fetchUserThunk, logoutThunk } from "../../redux/auth/operations.js";
-import { Backdrop } from "../Backdrop/Backdrop.jsx";
-import { BoardForm } from "../BoardForm/BoardForm.jsx";
-import { addBoard } from "../../redux/boards/slice.js";
+
+import { logoutThunk } from "../../redux/auth/operations.js";
 import arr from "./BoardsArr.js";
 import clsx from "clsx";
 
@@ -16,16 +14,6 @@ const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
-  const [isFormOpen, setFormOpen] = useState(false);
-
-  const handleCreateBoard = (values) => {
-    dispatch(addBoard(values));
-    setFormOpen(false);
-  };
-
-  useEffect(() => {
-    dispatch(fetchUserThunk());
-  }, [dispatch]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -69,10 +57,7 @@ const Sidebar = () => {
           <div className={s.create_top_container}>
             <div className={s.create_container}>
               <h2 className={s.create_title}>Create a new board</h2>
-              <button
-                onClick={() => setFormOpen(true)}
-                className={s.create_button}
-              >
+              <button className={s.create_button}>
                 <SvgIcon
                   name="icon-plus"
                   width="20"
@@ -81,18 +66,6 @@ const Sidebar = () => {
                 />
               </button>
             </div>
-            {isFormOpen && (
-              <>
-                <Backdrop onClick={() => setFormOpen(false)} />
-                <div className={s.modal}>
-                  <BoardForm
-                    isEditMode={false}
-                    onSubmit={handleCreateBoard}
-                    setFormOpen={setFormOpen}
-                  />
-                </div>
-              </>
-            )}
           </div>
 
           <ul className={s.board_list}>
@@ -113,22 +86,18 @@ const Sidebar = () => {
                       <span className={s.board_item_title}>{board.title}</span>
                     </div>
                     <div className={s.board_svg_container}>
-                      <button onClick={() => setFormOpen(true)}>
-                        <SvgIcon
-                          name="icon-pencil"
-                          width="16"
-                          height="16"
-                          className={s.board_svg}
-                        />
-                      </button>
-                      <button>
-                        <SvgIcon
-                          name="icon-trash"
-                          width="16"
-                          height="16"
-                          className={s.board_svg}
-                        />
-                      </button>
+                      <SvgIcon
+                        name="icon-pencil"
+                        width="16"
+                        height="16"
+                        className={s.board_svg}
+                      />
+                      <SvgIcon
+                        name="icon-trash"
+                        width="16"
+                        height="16"
+                        className={s.board_svg}
+                      />
                     </div>
                   </div>
                 </NavLink>
@@ -136,6 +105,7 @@ const Sidebar = () => {
             ))}
           </ul>
         </div>
+
         <div>
           <div className={s.side_help}>
             <div className={s.side_help_span}>
@@ -150,6 +120,7 @@ const Sidebar = () => {
               Need help?
             </div>
           </div>
+
           <button
             onClick={() => dispatch(logoutThunk())}
             className={s.side_logout_btn}
