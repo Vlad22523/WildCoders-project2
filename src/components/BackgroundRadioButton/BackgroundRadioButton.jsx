@@ -11,7 +11,7 @@ export const BackgroundRadioButton = ({ background, field }) => (
       style={{ display: "none" }}
     />
     {background.isSvg ? (
-      <div>
+      <div className={s.div_background}>
         <svg
           width="28"
           height="28"

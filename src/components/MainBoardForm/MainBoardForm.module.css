@@ -1,6 +1,6 @@
 .container {
-  max-width: 335px;
-  height: 433px;
+  width: 335px;
+
   border-radius: 8px;
   background: rgb(var(--background-hover-board));
   padding: 24px;
@@ -39,7 +39,7 @@
 
 .input {
   display: flex;
-  width: 287px;
+  width: 100%;
   padding: 14px 18px;
   align-items: center;
   border-radius: 8px;
@@ -104,38 +104,38 @@ h3 {
   cursor: pointer;
 }
 
-.activeBackground {
-  border: 1px solid blue;
-}
-
 .button {
   display: flex;
-  width: 287px;
+  width: 100%;
   padding: 10px 0px 11px 0px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
   background: rgb(var(--button-color-modal));
-  color: rgb(var(--text-color-sidebar-and-header));
+  color: rgb(var(--button-add-column-text));
   font-weight: 500;
   letter-spacing: -0.28px;
   margin-top: 24px;
   gap: 8px;
   outline: none;
   border: none;
+  transition: all 200ms ease-in-out;
 }
 
 .button:active,
 .button:hover,
 .button:focus {
   background: rgb(var(--button-background-color));
-  transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 
 .button:focus,
 .closeButton:focus {
   outline: none;
   box-shadow: none;
+}
+
+.button:hover {
+  transform: rotate(90%);
 }
 
 .iconButton {
@@ -150,14 +150,15 @@ h3 {
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 350px;
-  }
-
-  .input {
-    width: 302px;
+    width: 350px;
   }
 
   .button {
-    width: 302px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    width: 290px;
   }
 }
