@@ -1,0 +1,26 @@
+.backgroundImages {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: none;
+}
+
+.activeBackground {
+  border: 1px solid rgb(var(--button-color-modal));
+}
+
+.iconBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(var(--background-hover-board));
+  border-radius: 6px;
+  padding: 6px;
+  fill: transparent;
+  stroke: rgba(var(--text-color-mainboard), 0.5);
+}
+
+.input {
+  cursor: pointer;
+}
