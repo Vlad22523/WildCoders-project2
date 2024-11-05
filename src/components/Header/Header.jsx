@@ -1,16 +1,29 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect, useRef } from "react";
 import s from "./Header.module.css";
 import { toggleSidebar } from "../../redux/sidebar/slice.js";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
+import { selectUser } from "../../redux/auth/selectors.js";
+import { fetchUserThunk, saveThemeThunk } from "../../redux/auth/operations.js";
+import EditUserProfile from "../EditUserProfile/EditUserProfile.jsx";
 
 const Header = () => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isIconRotated, setIsIconRotated] = useState(false);
-  const [selectedTheme, setSelectedTheme] = useState("Light");
   const modalRef = useRef(null);
   const buttonRef = useRef(null);
+  const user = useSelector(selectUser);
+
+  const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
+
+  const handleEditProfileOpen = () => {
+    setIsEditProfileOpen(true);
+  };
+
+  const handleEditProfileClose = () => {
+    setIsEditProfileOpen(false);
+  };
 
   const handleModalToggle = () => {
     setIsModalOpen((prev) => !prev);
@@ -40,8 +53,9 @@ const Header = () => {
     };
   }, [isModalOpen]);
 
-  const handleThemeSelect = (theme) => {
-    setSelectedTheme(theme);
+  const handleThemeSelect = async (theme) => {
+    await dispatch(saveThemeThunk(theme));
+    dispatch(fetchUserThunk());
   };
 
   return (
@@ -70,44 +84,48 @@ const Header = () => {
           className={`${s.header_down} ${isIconRotated ? s.rotated : ""}`}
         />
       </div>
-      <div className={s.select_user}>
-        <p className={s.header_user}>user</p>
-        <SvgIcon
-          name="icon-user"
-          width="32"
-          height="32"
-          className={s.header_avatar}
-        />
+      <div className={s.select_user} onClick={handleEditProfileOpen}>
+        <p className={s.header_user}>{user.name}</p>
+        <img width="32" height="32" src={user.photo} alt="avatar" />
       </div>
+      {isEditProfileOpen && (
+        <EditUserProfile user={user} onClose={handleEditProfileClose} />
+      )}
 
       {/* Модальне вікно */}
       {isModalOpen && (
         <div className={s.modalOverlay}>
           <div className={s.modalContent} ref={modalRef}>
-            <p
-              className={`${s.theme_choise} ${
-                selectedTheme === "Light" ? s.selected : ""
-              }`}
-              onClick={() => handleThemeSelect("Light")}
-            >
-              Light
-            </p>
-            <p
-              className={`${s.theme_choise} ${
-                selectedTheme === "Dark" ? s.selected : ""
-              }`}
-              onClick={() => handleThemeSelect("Dark")}
-            >
-              Dark
-            </p>
-            <p
-              className={`${s.theme_choise} ${
-                selectedTheme === "Violet" ? s.selected : ""
-              }`}
-              onClick={() => handleThemeSelect("Violet")}
-            >
-              Violet
-            </p>
+            <label className={s.theme_choice}>
+              <input
+                type="radio"
+                name="theme"
+                value="Light"
+                checked={user.theme === "light"}
+                onChange={() => handleThemeSelect("light")}
+              />
+              <p className={s.theme_text}>Light</p>
+            </label>
+            <label className={s.theme_choice}>
+              <input
+                type="radio"
+                name="theme"
+                value="Dark"
+                checked={user.theme === "dark"}
+                onChange={() => handleThemeSelect("dark")}
+              />
+              <p className={s.theme_text}>Dark</p>
+            </label>
+            <label className={s.theme_choice}>
+              <input
+                type="radio"
+                name="theme"
+                value="Violet"
+                checked={user.theme === "violet"}
+                onChange={() => handleThemeSelect("violet")}
+              />
+              <p className={s.theme_text}>Violet</p>
+            </label>
           </div>
         </div>
       )}

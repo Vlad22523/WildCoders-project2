@@ -1,60 +1,65 @@
 .regPage {
-    width: 100%;
-    height: 100vh;
-    background: rgb(190,219,176);
-    background: linear-gradient(0deg, rgba(190,219,176,1) 10%, rgba(248,251,246,1) 49%, rgba(255,255,255,1) 91%);
-    padding: 20px;
+  width: 100%;
+  height: 100vh;
+  background: rgb(190, 219, 176);
+  background: linear-gradient(
+    0deg,
+    rgba(190, 219, 176, 1) 10%,
+    rgba(248, 251, 246, 1) 49%,
+    rgba(255, 255, 255, 1) 91%
+  );
+  padding: 20px;
 }
 
 .regBox {
-    border-radius: 8px;
-    background: #151515;
-    max-width: 335px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 24px;
-    gap: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  border-radius: 8px;
+  background: #151515;
+  max-width: 335px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .nav {
-    display: flex;
-    gap: 14px;
+  display: flex;
+  gap: 14px;
 }
 
 .link {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.30);
-    font-family: Poppins;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: -0.02em;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
 }
 
 .active {
-    text-decoration: none;
-    color: #FFF;
-    font-family: Poppins;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: -0.02em;
+  text-decoration: none;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
 }
 
 /* ===============MEDIA 768============== */
 
 @media screen and (min-width: 768px) {
-    .regBox {
-        max-width: 424px;
-        padding: 40px;
-    }
+  .regBox {
+    max-width: 424px;
+    padding: 40px;
+  }
 }
 
 /* ===============MEDIA 1440============== */
