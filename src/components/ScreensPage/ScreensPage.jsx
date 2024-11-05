@@ -1,23 +1,29 @@
 import HeaderDashboard from "../HeaderDashboard/HeaderDashboard.jsx";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
 import s from "./ScreensPage.module.css";
-import AddColumnModal from "../ColumnModal/AddcolumnModal/addColumnModal.jsx";
+import AddColumnModal from "../ColumnModal/AddcolumnModal/AddColumnModal.jsx";
 import { useState } from "react";
 import arr from "../Sidebar/BoardsArr.js";
 import { useParams } from "react-router-dom";
-
+import ModalCard from "../ModalCard/ModalCard.jsx";
 
 const ScreensPage = () => {
   // const isBoardCreated = true;
   const { boardId } = useParams();
   let boardData;
 
-  if (boardId) { boardData = arr.find((i) => i.boardId === boardId); }
+  if (boardId) {
+    boardData = arr.find((i) => i.boardId === boardId);
+  }
 
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isCardModalOpen, setCardModalOpen] = useState(false);
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
+
+  const openCardModal = () => setCardModalOpen(true);
+  const closeCardModal = () => setCardModalOpen(false);
 
   return (
     <main className={s.main}>
@@ -26,14 +32,15 @@ const ScreensPage = () => {
           <HeaderDashboard title={boardData} />
         </div>
         <div
-          className={`${s.mainWrapper} ${
-            boardId ? s.boardCreated : s.noBoard
-          }`}
+          className={`${s.mainWrapper} ${boardId ? s.boardCreated : s.noBoard}`}
         >
           {boardId ? (
             <div className={s.columnContainer}>
               <div className={s.columnWrapper}>
-                <button className={`${s.button} ${s.buttonColumn}`} type="button">
+                <button
+                  className={`${s.button} ${s.buttonColumn}`}
+                  type="button"
+                >
                   <span className={s.buttonSpan}>To Do</span>
                   <div className={s.svgWrapperColumn}>
                     <SvgIcon
@@ -51,6 +58,7 @@ const ScreensPage = () => {
                   </div>
                 </button>
                 <button
+                  onClick={openCardModal}
                   className={`${s.button} ${s.buttonColumnAdd}`}
                   type="button"
                 >
@@ -80,13 +88,20 @@ const ScreensPage = () => {
           ) : (
             <p className={s.text}>
               Before starting your project, it is essential{" "}
-              <button className={s.linkCreate}>to create a board</button> to visualize
-              and track all the necessary tasks and milestones. This board serves
-              as a powerful tool to organize the workflow and ensure effective
-              collaboration among team members.
+              <button className={s.linkCreate}>to create a board</button> to
+              visualize and track all the necessary tasks and milestones. This
+              board serves as a powerful tool to organize the workflow and
+              ensure effective collaboration among team members.
             </p>
           )}
           <AddColumnModal isOpen={isModalOpen} onClose={closeModal} />
+          {isCardModalOpen && (
+            <ModalCard
+              onClose={closeCardModal}
+              title="Add card"
+              btnName="Add"
+            />
+          )}
         </div>
       </div>
     </main>
