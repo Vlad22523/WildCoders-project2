@@ -27,7 +27,7 @@ export const MainBoardForm = ({
             className={s.closeButton}
           >
             <svg width="18" height="18">
-              <use href={`/src/images/icons.svg#icon-close`} />
+              <use href={`/src/images/icons.svg?t=1730829317287#icon-plus`} />
             </svg>
           </button>
         </div>
@@ -41,42 +41,42 @@ export const MainBoardForm = ({
             {({ field }) => (
               <>
                 <IconRadioButton
-                  iconId="icon-1-square"
+                  iconId="icon-icon-1-square"
                   field={field}
                   value="square"
                 />
                 <IconRadioButton
-                  iconId="icon-2-star"
+                  iconId="icon-icon-2-star"
                   field={field}
                   value="star"
                 />
                 <IconRadioButton
-                  iconId="icon-3-circle"
+                  iconId="icon-icon-3-circle"
                   field={field}
                   value="circle"
                 />
                 <IconRadioButton
-                  iconId="icon-4-puzzle"
+                  iconId="icon-icon-4-pazzle"
                   field={field}
                   value="puzzle"
                 />
                 <IconRadioButton
-                  iconId="icon-5-cube"
+                  iconId="icon-icon-5-cube"
                   field={field}
                   value="cube"
                 />
                 <IconRadioButton
-                  iconId="icon-6-lightning"
+                  iconId="icon-icon-6-lightning"
                   field={field}
                   value="lightning"
                 />
                 <IconRadioButton
-                  iconId="icon-7-colors"
+                  iconId="icon-icon-7-colors"
                   field={field}
                   value="colors"
                 />
                 <IconRadioButton
-                  iconId="icon-8-hexagon"
+                  iconId="icon-icon-8-hexagon"
                   field={field}
                   value="hexagon"
                 />

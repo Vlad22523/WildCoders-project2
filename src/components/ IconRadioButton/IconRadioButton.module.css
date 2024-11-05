@@ -1,6 +1,12 @@
 .icon {
+  fill: transparent;
   stroke: rgb(var(--text-color-mainboard), 0.5);
 }
 .activeIcon {
+  fill: transparent;
   stroke: rgb(var(--text-color-mainboard));
+}
+
+.input {
+  cursor: pointer;
 }
