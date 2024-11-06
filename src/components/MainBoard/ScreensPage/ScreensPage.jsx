@@ -1,5 +1,5 @@
 import s from "./ScreensPage.module.css";
-import AddColumnModal from "../../ColumnModal/AddcolumnModal/addColumnModal.jsx";
+import AddColumnModal from "../../ColumnModal/AddcolumnModal/AddColumnModal.jsx";
 import { useState } from "react";
 import arr from "../../Sidebar/BoardsArr.js";
 import { useParams } from "react-router-dom";

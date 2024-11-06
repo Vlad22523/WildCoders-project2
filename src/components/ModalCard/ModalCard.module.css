@@ -1,0 +1,229 @@
+.overlay {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  background-color: rgb(var(--background-modal-filters));
+  padding: 24px;
+  border-radius: 8px;
+  width: 335px;
+  max-width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border: 1px;
+}
+
+.header {
+  left: 24px;
+  top: 24px;
+  width: auto;
+  height: 27px;
+}
+
+.text {
+  color: rgb(var(--text-color-mainboard));
+  font-family: Poppins, medium;
+  font-size: 18px;
+  margin: 0;
+}
+
+.buttonClose {
+  background-color: transparent;
+  right: 18px;
+  top: 18px;
+  position: absolute;
+  color: rgb(var(--text-color-mainboard));
+  border: none;
+  padding: 0;
+}
+
+.svg {
+  font-size: 18px;
+  stroke: rgb(var(--button-color-mainboard));
+}
+span {
+  color: hsla(0, 0%, 9%, 0.5);
+}
+.label {
+  display: block;
+  margin: 14px 0px 4px;
+  letter-spacing: -0.24px;
+  color: hsla(0, 0%, 9%, 5);
+  font-family: Poppins, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.field {
+  width: 100%;
+  height: 49px;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-family: Poppins, regular;
+  letter-spacing: -0.28px;
+  background-color: rgb(var(--background-mainboard));
+  border: 1px solid rgb(190, 219, 176);
+  box-shadow: rgba(22, 22, 22, 0.08) 0px 4px 16px;
+  outline: none;
+  border-radius: 8px;
+  color: rgba(192, 192, 192, 0.597);
+  transition: 250ms;
+  opacity: 0.4;
+  margin-top: 18px;
+}
+.subtitle {
+  margin: 24px 0px 4px;
+  letter-spacing: -0.24px;
+  color: hsla(0, 0%, 9%, 5);
+  font-family: Poppins, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(var(--button-color-modal));
+  color: #161616;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 24px;
+  &:active,
+  &:hover,
+  &:focus {
+    background: rgb(var(--button-background-color));
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+  }
+}
+
+.svgWrapper {
+  width: 28px;
+  height: 28px;
+  background-color: rgb(var(--text-color-mainboard));
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.icon {
+  stroke: rgb(var(--button-color-mainboard));
+}
+
+.datePickerWrapper {
+  position: relative;
+}
+
+.react-datepicker__input-container {
+  width: 100%;
+}
+
+.react-datepicker__triangle {
+  display: none;
+}
+
+.datePickerWrapper :global(.react-datepicker__month-container) {
+  border: 1px solid rgb(var(--button-color-modal));
+  border-radius: 6px;
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.datePickerWrapper :global(.react-datepicker__header) {
+  background-color: #fff;
+}
+
+.datePickerWrapper :global(.react-datepicker__current-month) {
+  letter-spacing: -0.32px;
+  color: #161616;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.datePickerWrapper :global(.react-datepicker__navigation-icon--next) {
+  background-color: rgb(var(--button-color-modal));
+}
+
+.datePickerWrapper :global(.react-datepicker__day-name) {
+  color: hsla(0, 0%, 9%, 0.5);
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.datePickerWrapper :global(.react-datepicker__day) {
+  transition: background-color 250ms ease-in, color 250ms ease-in;
+  color: #161616;
+  border-radius: 50%;
+  background-color: transparent;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.datePickerWrapper :global(.react-datepicker__day--selected) {
+  color: #fff;
+  background-color: rgb(var(--button-color-modal));
+  border-radius: 50%;
+}
+
+.datePickerWrapper :global(.react-datepicker__day--disabled) {
+  color: hsla(0, 0%, 9%, 0.2);
+}
+
+.datePickerWrapper :global(.react-datepicker__day:hover) {
+  color: #fff;
+  background-color: rgb(var(--button-color-modal));
+}
+
+.datePickerWrapper :global(.react-datepicker__day--disabled:hover) {
+  color: hsla(0, 0%, 9%, 0.2);
+  background-color: transparent;
+}
+.err {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+.spanStyled {
+  letter-spacing: -0.28px;
+  color: rgb(var(--button-background-color));
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.datepicker__input {
+  position: relative;
+  width: 100%;
+  padding: 0px;
+  cursor: pointer;
+  color: rgb(var(--button-background-color));
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: right 65px top 6px;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}
