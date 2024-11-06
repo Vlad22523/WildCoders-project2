@@ -17,7 +17,7 @@ export const BackgroundRadioButton = ({ background, field }) => (
           height="28"
           className={clsx(
             s.iconBackground,
-            field.value === String(background.id) && s.activeBackground
+            field.value === String(background.id) && s.activeBackground,
           )}
         >
           <use href="/src/images/icons.svg#icon-no-bg" />
@@ -29,7 +29,7 @@ export const BackgroundRadioButton = ({ background, field }) => (
         alt={background.alt}
         className={clsx(
           s.backgroundImages,
-          field.value === String(background.id) && s.activeBackground
+          field.value === String(background.id) && s.activeBackground,
         )}
       />
     )}

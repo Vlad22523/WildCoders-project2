@@ -83,13 +83,14 @@ const RegisterForm = () => {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className={`${s.btnShowPassword} ${showPassword ? s.eyeOpen : s.eyeClosed}`}>
-                <SvgIcon
-                  name="icon-eye"
-                  width="18"
-                  height="18"
-                  className={s.svgEye}
-                />
+              className={`${s.btnShowPassword} ${showPassword ? s.eyeOpen : s.eyeClosed}`}
+            >
+              <SvgIcon
+                name="icon-eye"
+                width="18"
+                height="18"
+                className={s.svgEye}
+              />
             </button>
 
             <ErrorMessage name="password" component="div" className={s.error} />

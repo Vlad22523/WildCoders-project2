@@ -62,8 +62,9 @@
 .button:hover,
 .button:focus {
   background: rgb(var(--button-background-color));
-  letter-spacing: 0.8px;
-  transform: scale(1.05);
+  transition:
+    opacity 0.3s ease,
+    max-height 0.3s ease;
 }
 
 .button:focus,

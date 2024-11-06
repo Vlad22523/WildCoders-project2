@@ -8,7 +8,6 @@ import HeaderDashboard from "../HeaderDashboard/HeaderDashboard.jsx";
 import SvgIcon from "../../../hooks/SvgIcon.jsx";
 
 const ScreensPage = () => {
-  // const isBoardCreated = true;
   const { boardId } = useParams();
   let boardData;
 
