@@ -6,6 +6,7 @@ import SvgIcon from "../../hooks/SvgIcon.jsx";
 import { closeSidebar } from "../../redux/sidebar/slice.js";
 import { NavLink } from "react-router-dom";
 import { logoutThunk } from "../../redux/auth/operations.js";
+import { openHelpModal } from "../../redux/needHelp/slice.js";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
@@ -85,6 +86,10 @@ const Sidebar = () => {
     return isActive ? `${s.navLink} ${s.activeLink}` : s.navLink;
   };
 
+  const handleOpenModal = () => {
+    dispatch(openHelpModal());
+  };
+
   return (
     <>
       {isOpen && (
@@ -158,7 +163,13 @@ const Sidebar = () => {
             </div>
             <div className={s.side_help_text}>
               <SvgIcon name="icon-help-circle" width="20" height="20" />
-              Need help?
+              <button
+                className={s.side_helpBtn}
+                type="button"
+                onClick={handleOpenModal}
+              >
+                Need help?
+              </button>
             </div>
           </div>
           <button

@@ -10,10 +10,13 @@ import Auth from "./components/Auth/Auth.jsx";
 import { Toaster } from "react-hot-toast";
 import { PublicRoute } from "./routes/PublicRoute.jsx";
 import { PrivateRoute } from "./routes/PrivateRoute.jsx";
+import { selectIsOpenHelpModal } from "./redux/needHelp/selectors.js";
+import HelpModal from "./components/HelpModal/HelpModal.jsx";
 
 function App() {
   const isRefreshing = useSelector(selectIsRefresh);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isHelpModalOpen = useSelector(selectIsOpenHelpModal);
 
   return isRefreshing ? (
     <Loader />
@@ -63,6 +66,7 @@ function App() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
+      {isHelpModalOpen && <HelpModal />}
     </>
   );
 }

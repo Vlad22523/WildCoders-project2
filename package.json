@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
+    "@vitejs/plugin-react": "^4.3.3",
     "axios": "^1.7.7",
     "clsx": "^2.1.1",
     "formik": "^2.4.6",
@@ -26,6 +27,7 @@
     "react-transition-group": "^4.4.5",
     "redux-persist": "^6.0.0",
     "styled-components": "^6.1.13",
+    "yuo": "^0.0.1",
     "yup": "^1.4.0"
   },
   "devDependencies": {
