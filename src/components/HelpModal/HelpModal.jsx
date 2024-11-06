@@ -23,7 +23,7 @@ const HelpModal = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email("Invalid email").required("*"),
+    email: Yup.string().email("Invalid email").required("Required"),
     comment: Yup.string().required("Required"),
   });
 
