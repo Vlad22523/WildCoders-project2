@@ -60,6 +60,7 @@ const slice = createSlice({
       .addCase(fetchUserThunk.rejected, (state, action) => {
         state.user = action.payload;
         state.loader = false;
+        state.isLoggedIn = false;
       })
       .addCase(saveThemeThunk.rejected, (state) => {
         state.loader = false;
