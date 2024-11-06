@@ -5,30 +5,29 @@ const RadioColored = ({ onRadioChange, currentPriority }) => {
     {
       value: "High",
       radioColor: {
-        static: "var(--radio-label-green-color)",
-        checked: "var(--radio-label-checked-background-color)",
-        additional: "var(--radio-label-checked-background-color)",
+        static: "#bedbb0",
+        checked: "#bedbb0",
       },
     },
     {
       value: "Medium",
       radioColor: {
-        static: "var(--radio-label-pink-color)",
-        checked: "var(--radio-label-checked-background-color)",
+        static: "#e09cb5",
+        checked: "#e09cb5",
       },
     },
     {
       value: "Low",
       radioColor: {
-        static: "var(--radio-label-background-color)",
-        checked: "var(--radio-label-checked-background-color)",
+        static: "#8fa1d0",
+        checked: "#8fa1d0",
       },
     },
     {
       value: "Without",
       radioColor: {
-        static: "var(--radio-label-grey-color)",
-        checked: "var(--radio-label-checked-background-color)",
+        static: "#1616164D",
+        checked: "#1616164D",
       },
     },
   ];

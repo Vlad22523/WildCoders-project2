@@ -20,6 +20,7 @@ const ModalCard = ({
   onClose,
   title: modalTitle,
   btnName,
+  addCard,
   cardTitle = "",
   cardDescription,
   currentPriority = "Without",
@@ -41,7 +42,7 @@ const ModalCard = ({
 
   const handleFormSubmit = (values, { resetForm }) => {
     const { cardTitle: title, cardDescr: description } = values;
-    const formData = {
+    const newCard = {
       title,
       description,
       priority,
@@ -49,8 +50,9 @@ const ModalCard = ({
       column,
     };
 
-    console.log("Form Submitted: ", formData);
+    console.log("Form Submitted: ", newCard);
 
+    addCard(newCard);
     resetForm();
     onClose();
   };
