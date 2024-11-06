@@ -1,8 +1,18 @@
 import { MainBoardForm } from "../MainBoardForm/MainBoardForm.jsx";
 import * as Yup from "yup";
 import s from "../MainBoardForm/MainBoardForm.module.css";
+import { useDispatch } from "react-redux";
+import { createBoardThunk } from "../../redux/boards/operations.js";
 
-export const CreateBoardForm = ({ onSubmit, setFormOpen }) => {
+export const CreateBoardForm = ({ setFormOpen }) => {
+  const dispatch = useDispatch();
+
+  const onSubmit = (data, actions) => {
+    dispatch(createBoardThunk(data));
+    actions.resetForm();
+    setFormOpen(false);
+  };
+
   const validationSchema = Yup.object({
     title: Yup.string()
       .min(3, "Min 3 characters")
@@ -12,7 +22,7 @@ export const CreateBoardForm = ({ onSubmit, setFormOpen }) => {
 
   return (
     <MainBoardForm
-      initialValues={{ title: "", shape: "square", background: "0" }}
+      initialValues={{ title: "", icon: "square", background: "0" }}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
       title="New board"
