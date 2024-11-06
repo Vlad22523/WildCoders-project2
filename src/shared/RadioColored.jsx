@@ -26,8 +26,8 @@ const RadioColored = ({ onRadioChange, currentPriority }) => {
     {
       value: "Without",
       radioColor: {
-        static: "#1616164D",
-        checked: "#1616164D",
+        static: "rgb(var(--text-color-mainboard),0.3)",
+        checked: "rgb(var(--text-color-mainboard),0.3)",
       },
     },
   ];
@@ -60,13 +60,27 @@ const RadioColored = ({ onRadioChange, currentPriority }) => {
                   sx={{
                     width: "14px",
                     height: "14px",
-                    color: "transparent",
+                    color: radioColor.static,
+                    background: radioColor.static,
 
-                    backgroundColor: radioColor.static,
+                    "& .MuiSvgIcon-root": {
+                      fill: radioColor.static,
+                    },
                     "&.Mui-checked": {
-                      color: radioColor.static,
-
-                      backgroundColor: radioColor.checked,
+                      color: radioColor.checked,
+                      background: "transparent",
+                      border: `1px solid ${radioColor.checked}`,
+                    },
+                    "&:before": {
+                      content: '""',
+                      display: "block",
+                      width: "14px",
+                      height: "14px",
+                      borderRadius: "50%",
+                      backgroundColor: radioColor.static,
+                    },
+                    "&.Mui-checked:before": {
+                      backgroundColor: "transparent",
                     },
                   }}
                   disableRipple
