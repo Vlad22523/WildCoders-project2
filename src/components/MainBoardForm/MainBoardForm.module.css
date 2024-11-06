@@ -64,7 +64,9 @@
   font-size: 12px;
   margin-top: 1px;
   padding: 0 18px;
-  transition: opacity 0.3s ease, max-height 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    max-height 0.3s ease;
 }
 
 .containerError {
@@ -126,6 +128,9 @@ h3 {
 .button:hover,
 .button:focus {
   background: rgb(var(--button-background-color));
+  transition:
+    opacity 0.3s ease,
+    max-height 0.3s ease;
 }
 
 .button:focus,

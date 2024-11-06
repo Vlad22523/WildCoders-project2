@@ -1,141 +1,136 @@
 .columnWrapper {
-    width: 100%;
-    max-width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    flex-shrink: 0;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-shrink: 0;
 }
 
-
 .button {
-    height: 100%;
-    max-height: 56px;
-    padding: 14px 0;
-    width: 100%;
-    max-width: 300px;
-    border: none;
-    border-radius: 8px;
-    background-color: rgb(var(--button-color-mainboard));
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    align-items: center;
-    white-space: nowrap;
+  height: 100%;
+  max-height: 56px;
+  padding: 14px 0;
+  width: 100%;
+  max-width: 300px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(var(--button-color-mainboard));
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .svgWrapper {
-    width: 28px;
-    height: 28px;
-    background-color: rgb(var(--text-color-mainboard));
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: rgb(var(--text-color-mainboard));
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-
 .scrollBarTasks {
-    max-height: 100%;
-    overflow-y: scroll;
-    padding-right: 4px;
-    width: calc(100% + 12px);
-    margin-right: -4px;
+  max-height: 100%;
+  overflow-y: scroll;
+  padding-right: 4px;
+  width: calc(100% + 12px);
+  margin-right: -4px;
 }
 
 .tasksWrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    max-height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 100%;
 }
 
-
 .scrollBarTasks::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 /* Фон полосы прокрутки */
 .scrollBarTasks::-webkit-scrollbar-track {
-    background-color: rgba(var(--mainboard-scrollbar-track-y));
-    border-radius: 8px;
+  background-color: rgba(var(--mainboard-scrollbar-track-y));
+  border-radius: 8px;
 }
 
 /* Ползунок (Thumb) */
 .scrollBarTasks::-webkit-scrollbar-thumb {
-    background-color: rgba(var(--mainboard-scrollbar-thumb-y));
-    /* Основной цвет ползунка */
-    border-radius: 8px;
-    /* Радиус ползунка */
+  background-color: rgba(var(--mainboard-scrollbar-thumb-y));
+  /* Основной цвет ползунка */
+  border-radius: 8px;
+  /* Радиус ползунка */
 }
 
 /* Ползунок при наведении */
 .scrollBarTasks::-webkit-scrollbar-thumb:hover {
-    background-color: #555555;
-    /* Цвет ползунка при наведении */
+  background-color: #555555;
+  /* Цвет ползунка при наведении */
 }
 
 .buttonColumn {
-    padding: 18px 20px;
-    justify-content: space-between;
-    font-weight: 500;
-        font-size: 14px;
-        letter-spacing: -0.02em;
-        color: rgb(var(--text-color-mainboard));
+  padding: 18px 20px;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: rgb(var(--text-color-mainboard));
 }
 
 .buttonColumnAdd {
-    background-color: rgb(var(--button-color-modal));
-    font-weight: 500;
-        font-size: 14px;
-        letter-spacing: -0.02em;
-        color: rgb(var(--button-add-column-text));
+  background-color: rgb(var(--button-color-modal));
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: rgb(var(--button-add-column-text));
 }
 
 .svgWrapperAddCard {
-    background-color: rgb(var(--button-add-column-text));
+  background-color: rgb(var(--button-add-column-text));
 }
 
 .svgWrapperColumn {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }
 
 .iconColumn {
-    stroke: rgba(var(--text-color-mainboard), 0.5);
-    fill: transparent;
+  stroke: rgba(var(--text-color-mainboard), 0.5);
+  fill: transparent;
 }
 
 .iconAddCard {
-    stroke: rgb(var(--icon-plus-add-card));
+  stroke: rgb(var(--icon-plus-add-card));
 }
 
-
 .icon {
-    stroke: rgb(var(--button-color-mainboard));
+  stroke: rgb(var(--button-color-mainboard));
 }
 
 @media (min-width: 375px) {
-    .button {
-            max-width: 334px;
-    }
+  .button {
+    max-width: 334px;
+  }
 
-    .columnWrapper {
-        width: 100%;
-        max-width: 334px;
-    }
+  .columnWrapper {
+    width: 100%;
+    max-width: 334px;
+  }
 }
 
 @media (min-width: 768px) {
-    .button {
-    }
+  .button {
+  }
 
-    .scrollBarTasks {
-        padding-right: 8px;
-        width: calc(100% + 16px);
-        margin-right: -8px;
-    }
+  .scrollBarTasks {
+    padding-right: 8px;
+    width: calc(100% + 16px);
+    margin-right: -8px;
+  }
 }

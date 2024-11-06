@@ -17,7 +17,7 @@ export const registerThunk = createAsyncThunk(
       toast.error(errorMessage);
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const loginThunk = createAsyncThunk(
@@ -35,7 +35,7 @@ export const loginThunk = createAsyncThunk(
       toast.error(errorMessage);
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const logoutThunk = createAsyncThunk("logout", async (_, thunkAPI) => {
@@ -65,7 +65,7 @@ export const fetchUserThunk = createAsyncThunk(
       toast.error(errorMessage);
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const saveThemeThunk = createAsyncThunk(
@@ -77,14 +77,14 @@ export const saveThemeThunk = createAsyncThunk(
         { theme },
         {
           withCredentials: true,
-        }
+        },
       );
     } catch (error) {
       const errorMessage = error.response?.data?.data.message || error.message;
       toast.error(errorMessage);
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const updateUserThunk = createAsyncThunk(
@@ -101,5 +101,5 @@ export const updateUserThunk = createAsyncThunk(
       toast.error(errorMessage);
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );

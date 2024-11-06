@@ -4,7 +4,7 @@
   height: calc(100vh - 60px);
 }
 
-.mainContainer{
+.mainContainer {
   width: 100%;
   height: 100%;
   display: flex;
@@ -23,22 +23,22 @@
 }
 
 .mainWrapper {
-  width:100%;
+  width: 100%;
   height: calc(100% - 60px);
   flex: 1;
   display: flex;
-  padding: 0 20px  24px 20px;
+  padding: 0 20px 24px 20px;
   position: relative;
 }
 
-.scrollbarColumn{
+.scrollbarColumn {
   flex: 1;
   width: 100%;
   height: 100%;
   flex-shrink: 0;
-    overflow-x: scroll;
-    padding-bottom: 10px;
-    margin-bottom: -10px;
+  overflow-x: scroll;
+  padding-bottom: 10px;
+  margin-bottom: -10px;
 }
 
 .columnContainer {
@@ -89,9 +89,9 @@
   align-items: center;
   white-space: nowrap;
   font-weight: 500;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    color: rgb(var(--text-color-mainboard));
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: rgb(var(--text-color-mainboard));
 }
 
 .svgWrapper {
@@ -103,7 +103,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 .icon {
   stroke: rgb(var(--button-color-mainboard));
@@ -117,8 +116,8 @@
 .text {
   position: absolute;
   bottom: 380px;
-    left: 50%;
-    transform: translateX(-50%);
+  left: 50%;
+  transform: translateX(-50%);
   width: 88%;
   max-width: 335px;
   font-family: "Poppins", sans-serif;
@@ -137,29 +136,31 @@
 
 @media screen and (min-width: 376px) {
   .mainWrapper {
-      padding: 0 32px 32px 32px;
-    }
+    padding: 0 32px 32px 32px;
+  }
 
   .button {
     max-width: 334px;
   }
-    .text {
-      font-size: 14px;
-      line-height: 1.29;}
-            .columnWrapper {
-              width: 100%;
-              max-width: 334px;}
+  .text {
+    font-size: 14px;
+    line-height: 1.29;
+  }
+  .columnWrapper {
+    width: 100%;
+    max-width: 334px;
+  }
 }
 
 @media screen and (min-width: 769px) {
   .main {
     width: calc(100vw - 260px);
-      height: calc(100vh - 68px);
-    }
+    height: calc(100vh - 68px);
+  }
 
-        .mainWrapper {
-          padding: 0 24px 8px 24px;
-        }
+  .mainWrapper {
+    padding: 0 24px 8px 24px;
+  }
 
   .button {
     width: 334px;
@@ -168,12 +169,12 @@
     width: 92%;
     max-width: 486px;
     bottom: 56%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-    .scrollBarTasks {
-      padding-right: 8px;
-      width: calc(100% + 16px);
-      margin-right: -8px;
-    }
+  .scrollBarTasks {
+    padding-right: 8px;
+    width: calc(100% + 16px);
+    margin-right: -8px;
+  }
 }
