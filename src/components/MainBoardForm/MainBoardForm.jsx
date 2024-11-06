@@ -37,7 +37,7 @@ export const MainBoardForm = ({
         </div>
         <h3>Icons</h3>
         <div className={s.iconContainer}>
-          <Field name="shape">
+          <Field name="icon">
             {({ field }) => (
               <>
                 <IconRadioButton
