@@ -32,10 +32,10 @@
 
 .error {
   position: absolute;
-  top: 5px;
-  right: 10px;
+  top: 2px;
+  right: 7px;
   color: red;
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .btn {
@@ -59,6 +59,45 @@
 .btn:hover {
   transform: scale(1.03);
   letter-spacing: 0.3px;
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.btnShowPassword {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 8px;
+    right: -3px;
+    width: 24px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(45deg);
+    transition: 0.3s all ease;
+    opacity: 1;
+  }
+}
+
+.eyeOpen::after {
+  opacity: 0;
+}
+
+.eyeClosed::after {
+  opacity: 1;
+}
+
+.svgEye {
+  stroke: rgba(255, 255, 255, 0.4);
 }
 
 /* ===============MEDIA 768============== */

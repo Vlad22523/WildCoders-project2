@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import s from '../AddcolumnModal/ColModal.module.css';
+import { useState } from "react";
+import s from "../AddcolumnModal/ColModal.module.css";
 import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import { IoClose } from "react-icons/io5";
 
 const AddColumnModal = ({ isOpen, onClose }) => {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
 
   const handleAdd = () => {
     // Add column logic here
-    console.log('Column added:', title);
-    setTitle('');
+    console.log("Column added:", title);
+    setTitle("");
     onClose();
   };
 
@@ -21,7 +21,9 @@ const AddColumnModal = ({ isOpen, onClose }) => {
         <div className={s.header}>
           <h2 className={s.text}>Add column</h2>
         </div>
-        <button className={s.buttonClose} onClick={onClose}><IoClose className={s.svg}/></button>
+        <button className={s.buttonClose} onClick={onClose}>
+          <IoClose className={s.svg} />
+        </button>
         <input
           type="text"
           placeholder="Title"

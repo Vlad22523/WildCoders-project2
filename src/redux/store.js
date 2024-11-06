@@ -13,6 +13,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { boardsReducer } from "./boards/slice.js";
 import { helpModalReducer } from "./needHelp/slice.js";
 
 const persistConfig = {
@@ -25,6 +26,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
     sidebar: sidebarReducer,
+    boards: boardsReducer,
     helpModal: helpModalReducer,
   },
 

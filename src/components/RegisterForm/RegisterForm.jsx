@@ -5,10 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { registerThunk } from "../../redux/auth/operations.js";
 import { selectIsLoggedIn } from "../../redux/auth/selectors.js";
 import { Navigate } from "react-router-dom";
+import { useState } from "react";
+import SvgIcon from "../../hooks/SvgIcon.jsx";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const [showPassword, setShowPassword] = useState(false);
 
   const initialValues = {
     name: "",
@@ -69,13 +72,26 @@ const RegisterForm = () => {
             <ErrorMessage name="email" component="div" className={s.error} />
           </label>
 
-          <label>
+          <label className={s.passwordWrapper}>
             <Field
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Create a password"
               className={s.field}
             />
+
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className={`${s.btnShowPassword} ${showPassword ? s.eyeOpen : s.eyeClosed}`}
+            >
+              <SvgIcon
+                name="icon-eye"
+                width="18"
+                height="18"
+                className={s.svgEye}
+              />
+            </button>
 
             <ErrorMessage name="password" component="div" className={s.error} />
           </label>

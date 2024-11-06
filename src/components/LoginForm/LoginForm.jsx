@@ -3,8 +3,11 @@ import * as Yup from "yup";
 import s from "./LoginForm.module.css";
 import { useDispatch } from "react-redux";
 import { loginThunk } from "../../redux/auth/operations.js";
+import { useState } from "react";
+import SvgIcon from "../../hooks/SvgIcon.jsx";
 
 const LoginForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const initialValues = {
     email: "",
     password: "",
@@ -42,13 +45,28 @@ const LoginForm = () => {
             <ErrorMessage name="email" component="div" className={s.error} />
           </label>
 
-          <label>
+          <label className={s.passwordWrapper}>
             <Field
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Confirm a password"
               className={s.field}
             />
+
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className={`${s.btnShowPassword} ${
+                showPassword ? s.eyeOpen : s.eyeClosed
+              }`}
+            >
+              <SvgIcon
+                name="icon-eye"
+                width="18"
+                height="18"
+                className={s.svgEye}
+              />
+            </button>
 
             <ErrorMessage name="password" component="div" className={s.error} />
           </label>

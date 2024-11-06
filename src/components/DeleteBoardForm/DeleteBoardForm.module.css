@@ -1,0 +1,79 @@
+.container {
+  width: 335px;
+  height: auto;
+  border-radius: 8px;
+  background: rgb(var(--background-hover-board));
+  padding: 24px;
+  border: 1px solid rgb(var(--button-color-modal));
+  padding: 40px 20px;
+}
+
+.closeButton {
+  background: transparent;
+  width: 18px;
+  height: 18px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  border: none;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  fill: transparent;
+  transform: rotate(45deg);
+  stroke: rgb(var(--text-color-mainboard));
+}
+
+.title {
+  color: rgb(var(--text-color-mainboard));
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+  text-align: center;
+}
+
+.containerButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 30px;
+  align-items: center;
+}
+
+.button {
+  width: 100%;
+  padding: 10px 0px 11px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: rgb(var(--button-color-modal));
+  color: rgb(var(--button-add-column-text));
+  font-weight: 500;
+  letter-spacing: -0.28px;
+  outline: none;
+  border: none;
+  transition: all 200ms ease-in-out;
+}
+
+.button:active,
+.button:hover,
+.button:focus {
+  background: rgb(var(--button-background-color));
+  transform: scale(1.04);
+  letter-spacing: 0.6px;
+}
+
+.button:focus,
+.closeButton:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    width: 290px;
+  }
+}
