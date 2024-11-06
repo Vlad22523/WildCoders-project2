@@ -54,7 +54,7 @@ const slice = createSlice({
         state.loader = false;
         document.documentElement.setAttribute(
           "data-theme",
-          action.payload.theme,
+          action.payload.theme
         );
       })
       .addCase(fetchUserThunk.rejected, (state, action) => {

@@ -56,7 +56,9 @@ const LoginForm = () => {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className={`${s.btnShowPassword} ${showPassword ? s.eyeOpen : s.eyeClosed}`}
+              className={`${s.btnShowPassword} ${
+                showPassword ? s.eyeOpen : s.eyeClosed
+              }`}
             >
               <SvgIcon
                 name="icon-eye"

@@ -15,7 +15,7 @@
   position: sticky;
   top: 0;
   width: 100%;
-  padding: 10px 24px;
+  padding: 10px 20px;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@
   height: calc(100% - 60px);
   flex: 1;
   display: flex;
-  padding: 0 20px 24px 20px;
+  padding: 10px;
   position: relative;
 }
 
@@ -114,12 +114,13 @@
 }
 
 .text {
-  position: absolute;
-  bottom: 380px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 88%;
   max-width: 335px;
+  padding: 0 10px;
+  width: 100%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
   font-family: "Poppins", sans-serif;
   font-size: 12px;
   line-height: 1.33;
@@ -138,11 +139,15 @@
   .mainWrapper {
     padding: 0 32px 32px 32px;
   }
-
+  .header {
+    padding: 10px 32px;
+  }
   .button {
     max-width: 334px;
   }
   .text {
+    max-width: 526px;
+    padding: 0 20px;
     font-size: 14px;
     line-height: 1.29;
   }
@@ -165,13 +170,10 @@
   .button {
     width: 334px;
   }
-  .text {
-    width: 92%;
-    max-width: 486px;
-    bottom: 56%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .header {
+    padding: 10px 24px;
   }
+
   .scrollBarTasks {
     padding-right: 8px;
     width: calc(100% + 16px);

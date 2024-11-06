@@ -10,8 +10,8 @@ import PrivateRoute from "./routes/PrivateRoute.jsx";
 const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage.jsx"));
 const Auth = lazy(() => import("./components/Auth/Auth.jsx"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
-const ScreensPage = lazy(
-  () => import("./components/MainBoard/ScreensPage/ScreensPage.jsx")
+const ScreensPage = lazy(() =>
+  import("./components/MainBoard/ScreensPage/ScreensPage.jsx")
 );
 
 function App() {
