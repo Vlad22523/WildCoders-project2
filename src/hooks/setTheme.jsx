@@ -5,7 +5,7 @@ const defaultTheme = isDarkTheme ? "dark" : "light";
 
 export const useTheme = () => {
   const [theme, setTheme] = useState(
-    localStorage.getItem("app-theme") || defaultTheme
+    localStorage.getItem("app-theme") || defaultTheme,
   );
 
   useLayoutEffect(() => {
