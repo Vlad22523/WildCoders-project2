@@ -57,7 +57,7 @@ span {
   display: block;
   margin: 14px 0px 4px;
   letter-spacing: -0.24px;
-  color: hsla(0, 0%, 9%, 5);
+  color: rgb(var(--text-color-mainboard), 0.5);
   font-family: Poppins, sans-serif;
   font-size: 12px;
   font-weight: 400;
@@ -76,15 +76,22 @@ span {
   box-shadow: rgba(22, 22, 22, 0.08) 0px 4px 16px;
   outline: none;
   border-radius: 8px;
-  color: rgba(192, 192, 192, 0.597);
+  color: rgb(var(--text-color-mainboard));
   transition: 250ms;
   opacity: 0.4;
   margin-top: 18px;
 }
+
+.field:hover,
+.field:focus,
+.field:active {
+  opacity: 1;
+}
+
 .subtitle {
   margin: 24px 0px 4px;
   letter-spacing: -0.24px;
-  color: hsla(0, 0%, 9%, 5);
+  color: rgb(var(--text-color-mainboard), 0.5);
   font-family: Poppins, sans-serif;
   font-size: 12px;
   font-weight: 400;
@@ -103,18 +110,19 @@ span {
   font-size: 14px;
   font-weight: 500;
   margin-top: 24px;
-  &:active,
-  &:hover,
-  &:focus {
-    background: rgb(var(--button-background-color));
-    transition: opacity 0.3s ease, max-height 0.3s ease;
-  }
+  transition: all 200ms ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  letter-spacing: 0.6px;
+  background: rgb(var(--button-background-color));
 }
 
 .svgWrapper {
   width: 28px;
   height: 28px;
-  background-color: rgb(var(--text-color-mainboard));
+  background-color: rgb(var(--button-add-column-text));
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -123,7 +131,7 @@ span {
 }
 
 .icon {
-  stroke: rgb(var(--button-color-mainboard));
+  stroke: rgb(var(--icon-plus-add-card));
 }
 
 .datePickerWrapper {
@@ -142,7 +150,7 @@ span {
   border: 1px solid rgb(var(--button-color-modal));
   border-radius: 6px;
   background-color: #fff;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .datePickerWrapper :global(.react-datepicker__header) {
@@ -152,7 +160,7 @@ span {
 .datePickerWrapper :global(.react-datepicker__current-month) {
   letter-spacing: -0.32px;
   color: #161616;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -163,7 +171,7 @@ span {
 
 .datePickerWrapper :global(.react-datepicker__day-name) {
   color: hsla(0, 0%, 9%, 0.5);
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 500;
 }
@@ -173,7 +181,7 @@ span {
   color: #161616;
   border-radius: 50%;
   background-color: transparent;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 400;
 }
@@ -206,7 +214,7 @@ span {
 .spanStyled {
   letter-spacing: -0.28px;
   color: rgb(var(--button-background-color));
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
