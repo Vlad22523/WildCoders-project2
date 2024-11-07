@@ -147,19 +147,24 @@ span {
 }
 
 .datePickerWrapper :global(.react-datepicker__month-container) {
-  border: 1px solid rgb(var(--button-color-modal));
+  border: 2px solid rgb(var(--button-color-modal));
   border-radius: 6px;
-  background-color: #fff;
+  background-color: rgb(var(--calendar-background));
   font-family: 'Poppins', sans-serif;
+  height: 300px;
+}
+
+.datePickerWrapper :global(.react-datepicker) {
+  border: none;
 }
 
 .datePickerWrapper :global(.react-datepicker__header) {
-  background-color: #fff;
+  background-color: rgb(var(--calendar-background));
 }
 
 .datePickerWrapper :global(.react-datepicker__current-month) {
   letter-spacing: -0.32px;
-  color: #161616;
+  color: rgb(var(--text-color-mainboard));
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -170,7 +175,7 @@ span {
 }
 
 .datePickerWrapper :global(.react-datepicker__day-name) {
-  color: hsla(0, 0%, 9%, 0.5);
+  color: rgb(var(--text-color-mainboard), 0.5);
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -178,7 +183,7 @@ span {
 
 .datePickerWrapper :global(.react-datepicker__day) {
   transition: background-color 250ms ease-in, color 250ms ease-in;
-  color: #161616;
+  color: rgb(var(--text-color-mainboard));
   border-radius: 50%;
   background-color: transparent;
   font-family: 'Poppins', sans-serif;
@@ -187,23 +192,22 @@ span {
 }
 
 .datePickerWrapper :global(.react-datepicker__day--selected) {
-  color: #fff;
+  color: rgb(var(--calendar-date));
   background-color: rgb(var(--button-color-modal));
-  border-radius: 50%;
 }
 
 .datePickerWrapper :global(.react-datepicker__day--disabled) {
-  color: hsla(0, 0%, 9%, 0.2);
+  color: rgb(var(--text-color-mainboard), 0.2);
 }
 
 .datePickerWrapper :global(.react-datepicker__day:hover) {
-  color: #fff;
+  color: rgb(var(--calendar-date));
   background-color: rgb(var(--button-color-modal));
 }
 
 .datePickerWrapper :global(.react-datepicker__day--disabled:hover) {
-  color: hsla(0, 0%, 9%, 0.2);
   background-color: transparent;
+  color: rgb(var(--text-color-mainboard), 0.2);
 }
 .err {
   color: red;

@@ -30,7 +30,7 @@ p {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
@@ -76,7 +76,7 @@ img {
   }
 }
 
-html[data-theme="light"] {
+html[data-theme='light'] {
   --logo: 255, 255, 255; /* #FFFFFF */
   --background-gradient: 190, 219, 176; /* #BEDBB0 */
   --background-logo: 31, 31, 31; /* #1F1F1F */
@@ -105,9 +105,11 @@ html[data-theme="light"] {
   --border-board-color: 190, 219, 176; /* #BEDBB0 */
   --text-task-descr: 22, 22, 22, 0.7; /* #161616 */
   --button-background-color: 157, 200, 136, 1; /* #9DC888*/
+  --calendar-background: 255, 255, 255; /* #FFFFFF */
+  --calendar-date: 22, 22, 22; /* #161616 */
 }
 
-html[data-theme="dark"] {
+html[data-theme='dark'] {
   --logo: 255, 255, 255; /* #FFFFFF */
   --background-logo: 31, 31, 31; /* #1F1F1F */
   --background-sidebar: 18, 18, 18; /* #121212 */
@@ -135,9 +137,11 @@ html[data-theme="dark"] {
   --border-board-color: 190, 219, 176; /* #BEDBB0 */
   --text-task-descr: 255, 255, 255, 0.5; /* #FFFFFF */
   --button-background-color: 157, 200, 136, 1; /* #9DC888*/
+  --calendar-background: 31, 31, 31; /* #1F1F1F */
+  --calendar-date: 31, 31, 31; /* #1F1F1F */
 }
 
-html[data-theme="violet"] {
+html[data-theme='violet'] {
   --logo: 82, 85, 188; /* #5255BC */
   --background-logo: 236, 237, 253; /* #ECEDFD */
   --background-sidebar: 82, 85, 188; /* #5255BC */
@@ -165,6 +169,8 @@ html[data-theme="violet"] {
   --border-board-color: 255, 255, 255; /* #FFFFFF */
   --text-task-descr: 22, 22, 22, 0.7; /* #161616 */
   --button-background-color: 123, 126, 222, 1; /* #7B7EDE*/
+  --calendar-background: 255, 255, 255; /* #FFFFFF */
+  --calendar-date: 252, 252, 252; /*#FCFCFC */
 }
 
 /*
