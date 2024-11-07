@@ -2,28 +2,27 @@ import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import EllipsisText from "react-ellipsis-text";
 import s from "./Card.module.css";
 
-const Card = () => {
+const Card = ({ title, description, priority, deadline, onEdit, onDelete }) => {
   return (
     <div className={s.taskContainer}>
-      <h4 className={s.title}>The Watch Spot Design</h4>
+      <h4 className={s.title}>{title}</h4>
       <p className={s.descr}>
-        <EllipsisText
-          text={
-            "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design."
-          }
-          length={90}
-        />
+        <EllipsisText text={description} length={90} />
       </p>
       <div className={s.line}></div>
       <div className={s.optionsContainer}>
         <div className={s.optionsWrapper}>
           <div className={s.option}>
             <span className={s.optionLabel}>Priority</span>
-            <p className={s.priorityValue}>Low</p>
+            <p className={s.priorityValue}>{priority}</p>
           </div>
           <div className={s.option}>
             <span className={s.optionLabel}>Deadline</span>
-            <p className={s.deadlineDate}>Date</p>
+            <p className={s.deadlineDate}>
+              {deadline instanceof Date
+                ? deadline.toLocaleDateString()
+                : deadline}
+            </p>
           </div>
         </div>
         <div className={s.btnsWrapper}>
@@ -35,7 +34,7 @@ const Card = () => {
               className={s.icon}
             />
           </button>
-          <button className={s.btnOptions} type="button">
+          <button className={s.btnOptions} type="button" onClick={onEdit}>
             <SvgIcon
               name="icon-pencil"
               width="16"
@@ -43,7 +42,7 @@ const Card = () => {
               className={s.icon}
             />
           </button>
-          <button className={s.btnOptions} type="button">
+          <button className={s.btnOptions} type="button" onClick={onDelete}>
             <SvgIcon
               name="icon-trash"
               width="16"

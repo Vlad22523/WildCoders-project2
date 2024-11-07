@@ -6,13 +6,29 @@ import { useState } from "react";
 
 const Column = () => {
   const [isCardModalOpen, setCardModalOpen] = useState(false);
+  const [editingCard, setEditingCard] = useState(null);
   const [cards, setCards] = useState([]);
 
-  const openCardModal = () => setCardModalOpen(true);
+  const openCardModal = (card = null) => {
+    setEditingCard(card);
+    setCardModalOpen(true);
+  };
   const closeCardModal = () => setCardModalOpen(false);
 
   const addCard = (newCard) => {
     setCards((prevCards) => [...prevCards, newCard]);
+  };
+
+  const updateCard = (updatedCard) => {
+    setCards((prevCards) =>
+      prevCards.map((card) =>
+        card.title === updatedCard.title ? updatedCard : card
+      )
+    );
+  };
+
+  const deleteCard = (cardToDelete) => {
+    setCards((prevCards) => prevCards.filter((card) => card !== cardToDelete));
   };
 
   return (
@@ -43,12 +59,14 @@ const Column = () => {
               description={card.description}
               priority={card.priority}
               deadline={card.deadline}
+              onEdit={() => openCardModal(card)}
+              onDelete={() => deleteCard(card)}
             />
           ))}
         </div>
       </div>
       <button
-        onClick={openCardModal}
+        onClick={() => openCardModal()}
         className={`${s.button} ${s.buttonColumnAdd}`}
         type="button"
       >
@@ -65,9 +83,13 @@ const Column = () => {
       {isCardModalOpen && (
         <ModalCard
           onClose={closeCardModal}
-          title="Add card"
-          btnName="Add"
-          addCard={addCard}
+          title={editingCard ? "Edit card" : "Add card"}
+          btnName={editingCard ? "Edit" : "Add"}
+          addCard={editingCard ? updateCard : addCard}
+          cardTitle={editingCard?.title}
+          cardDescription={editingCard?.description}
+          currentPriority={editingCard?.priority}
+          deadline={editingCard?.deadline}
         />
       )}
     </div>
