@@ -3,6 +3,7 @@ import EllipsisText from "react-ellipsis-text";
 import s from "./Card.module.css";
 
 const Card = ({ title, description, priority, deadline, onEdit, onDelete }) => {
+  const priorityClass = `priority-${priority.toLowerCase()}`;
   return (
     <div className={s.taskContainer}>
       <h4 className={s.title}>{title}</h4>
@@ -14,7 +15,9 @@ const Card = ({ title, description, priority, deadline, onEdit, onDelete }) => {
         <div className={s.optionsWrapper}>
           <div className={s.option}>
             <span className={s.optionLabel}>Priority</span>
-            <p className={s.priorityValue}>{priority}</p>
+            <p className={`${s.priorityValue} ${s[priorityClass]}`}>
+              {priority}
+            </p>
           </div>
           <div className={s.option}>
             <span className={s.optionLabel}>Deadline</span>
