@@ -9,7 +9,7 @@ export const registerThunk = createAsyncThunk(
       const { data } = await mongoApi.post("auth/register", credentials, {
         withCredentials: true,
       });
-      setToken(data.data.user.accessToken);
+      setToken(data.data.token.accessToken);
       toast.success("Registration successful!");
       return data.data;
     } catch (error) {
