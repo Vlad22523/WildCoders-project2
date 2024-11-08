@@ -11,7 +11,7 @@
   min-height: 355px;
   max-width: 90%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px;
+  border: 1px solid rgb(var(--svglogout), 0.5);
 }
 
 .header {
@@ -44,11 +44,11 @@
   font-family: Poppins, regular;
   letter-spacing: -0.28px;
   background-color: rgb(var(--background-mainboard));
-  border: 1px solid rgb(190, 219, 176);
+  border: 1px solid rgb(var(--button-color-modal));
   box-shadow: rgba(22, 22, 22, 0.08) 0px 4px 16px;
   outline: none;
   border-radius: 8px;
-  color: rgba(192, 192, 192, 0.597);
+  color: rgb(var(--text-color-mainboard));
   transition: 250ms;
   opacity: 0.4;
   margin-top: 24px;
@@ -61,16 +61,28 @@
   font-family: Poppins, regular;
   letter-spacing: -0.28px;
   background-color: rgb(var(--background-mainboard));
-  border: 1px solid rgb(190, 219, 176);
+  border: 1px solid rgb(var(--button-color-modal));
   box-shadow: rgba(22, 22, 22, 0.08) 0px 4px 16px;
   outline: none;
   border-radius: 8px;
-  color: rgba(192, 192, 192, 0.597);
-  transition: 250ms;
+  color: rgb(var(--text-color-mainboard));
+  transition: all 250ms ease-in-out;
   opacity: 0.4;
   margin-top: 24px;
-  resize: vertical;
-  min-height: 100px;
+  resize: none;
+  min-height: 120px;
+}
+
+.field:hover,
+.field:active,
+.field:focus {
+  opacity: 1;
+}
+
+.textarea:hover,
+.textarea:focus,
+.textarea:active {
+  opacity: 1;
 }
 
 .btn {
@@ -78,13 +90,20 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: #c8e6c9;
-  color: black;
+  background: rgb(var(--button-color-modal));
+  color: rgb(var(--button-add-column-text));
   border: none;
   border-radius: 8px;
   padding: 12px 0;
   font-size: 16px;
   margin-top: 24px;
+  transition: all 200ms ease-in-out;
+}
+
+.btn:hover {
+  background: rgb(var(--button-background-color));
+  transform: scale(1.04);
+  letter-spacing: 0.6px;
 }
 
 .error {

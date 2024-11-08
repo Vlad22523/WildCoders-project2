@@ -7,8 +7,6 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import Loader from "./components/Loader/Loader.jsx";
 import PublicRoute from "./routes/PublicRoute.jsx";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
-import HelpModal from "./components/HelpModal/HelpModal.jsx";
-import { selectIsOpenHelpModal } from "./redux/needHelp/selectors.js";
 const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage.jsx"));
 const Auth = lazy(() => import("./components/Auth/Auth.jsx"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
@@ -18,7 +16,6 @@ const ScreensPage = lazy(() =>
 
 function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isHelpModalOpen = useSelector(selectIsOpenHelpModal);
 
   return (
     <>
@@ -68,7 +65,6 @@ function App() {
 
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {isHelpModalOpen && <HelpModal />}
       </Suspense>
     </>
   );

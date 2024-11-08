@@ -194,13 +194,9 @@ const Sidebar = () => {
                 support resources or reach out to our customer support team.
               </p>
             </div>
-            <div className={s.side_help_text}>
+            <div onClick={handleOpenModal} className={s.side_help_text}>
               <SvgIcon name="icon-help-circle" width="20" height="20" />
-              <button
-                className={s.side_helpBtn}
-                type="button"
-                onClick={handleOpenModal}
-              >
+              <button className={s.side_helpBtn} type="button">
                 Need help?
               </button>
             </div>

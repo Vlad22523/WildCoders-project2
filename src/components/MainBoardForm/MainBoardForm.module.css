@@ -5,6 +5,7 @@
   background: rgb(var(--background-hover-board));
   padding: 24px;
   margin: auto;
+  border: 1px solid rgb(var(--svglogout), 0.5);
 }
 
 .containerTitle {
