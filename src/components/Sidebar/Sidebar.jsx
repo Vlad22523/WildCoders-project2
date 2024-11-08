@@ -13,6 +13,7 @@ import { DeleteBoardForm } from "../DeleteBoardForm/DeleteBoardForm.jsx";
 import arr from "./BoardsArr.js";
 import clsx from "clsx";
 import Backdrop from "../Backdrop/Backdrop.jsx";
+import { openHelpModal } from "../../redux/needHelp/slice.js";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
@@ -69,6 +70,10 @@ const Sidebar = () => {
 
   const buildLinkClass = ({ isActive }) => {
     return clsx(s.link, isActive && s.active);
+  };
+
+  const handleOpenModal = () => {
+    dispatch(openHelpModal());
   };
 
   return (
@@ -191,7 +196,13 @@ const Sidebar = () => {
             </div>
             <div className={s.side_help_text}>
               <SvgIcon name="icon-help-circle" width="20" height="20" />
-              Need help?
+              <button
+                className={s.side_helpBtn}
+                type="button"
+                onClick={handleOpenModal}
+              >
+                Need help?
+              </button>
             </div>
           </div>
 
