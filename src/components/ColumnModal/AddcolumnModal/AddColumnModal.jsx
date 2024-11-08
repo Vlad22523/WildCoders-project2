@@ -42,25 +42,25 @@ const handleBackdropClick = (e) => {
         <div className={s.header}>
           <h2 className={s.text}>Add column</h2>
         </div>
-        <button className={s.buttonClose} onClick={onClose}><IoClose className={s.svg}/></button>
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className={s.field}
-        />
-        <button className={s.button} onClick={handleAdd}>
-          <div className={s.svgWrapper}>
-            <SvgIcon
-              name="icon-plus"
-              width="14"
-              height="14"
-              className={s.icon}
+          <button className={s.buttonClose} onClick={onClose}><IoClose/></button>
+            <input
+              type="text"
+              placeholder="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className={s.field}
             />
-          </div>
-          Add
-        </button>
+          <button className={s.button} onClick={handleAdd}>
+            <div className={s.svgWrapper}>
+              <SvgIcon
+                name="icon-plus"
+                width="14"
+                height="14"
+                className={s.icon}
+              />
+            </div>
+              Add
+          </button>
       </div>
     </div>
   );
