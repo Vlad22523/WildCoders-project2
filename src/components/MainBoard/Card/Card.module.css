@@ -35,9 +35,10 @@
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: -0.02em;
+}
+.descr span {
   color: rgba(var(--text-task-descr));
 }
-
 .optionsContainer {
   width: 100%;
   display: flex;
@@ -79,6 +80,21 @@
   height: 12px;
   border-radius: 50%;
   background-color: #8fa1d0;
+}
+.priority-low::before {
+  background-color: #8fa1d0;
+}
+
+.priority-medium::before {
+  background-color: #e09cb5;
+}
+
+.priority-high::before {
+  background-color: #bedbb0;
+}
+
+.priority-without::before {
+  background-color: rgb(var(--text-color-mainboard), 0.3);
 }
 
 .deadlineDate {
