@@ -51,6 +51,7 @@
   background: transparent;
   opacity: 0.4;
   outline: none;
+  transition: all 200ms ease-in-out;
 }
 
 .input:active,

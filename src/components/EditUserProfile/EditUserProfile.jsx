@@ -1,12 +1,12 @@
-import Backdrop from "../Backdrop/Backdrop";
-import s from "./EditUserProfile.module.css";
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import * as Yup from "yup";
-import { IoClose } from "react-icons/io5";
-import { useState } from "react";
-import { updateUserThunk } from "../../redux/auth/operations";
-import { useDispatch } from "react-redux";
-import SvgIcon from "../../hooks/SvgIcon";
+import Backdrop from '../Backdrop/Backdrop';
+import s from './EditUserProfile.module.css';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import * as Yup from 'yup';
+import { IoClose } from 'react-icons/io5';
+import { useState } from 'react';
+import { updateUserThunk } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import SvgIcon from '../../hooks/SvgIcon';
 
 const EditUserProfile = ({ user, onClose }) => {
   const dispatch = useDispatch();
@@ -30,41 +30,41 @@ const EditUserProfile = ({ user, onClose }) => {
   const handleSubmit = async (values) => {
     try {
       const formData = new FormData();
-      formData.append("name", values.name);
-      formData.append("email", values.email);
-      formData.append("theme", user.theme);
+      formData.append('name', values.name);
+      formData.append('email', values.email);
+      formData.append('theme', user.theme);
       if (values.password) {
-        formData.append("password", values.password);
+        formData.append('password', values.password);
       }
       if (selectedPhoto) {
-        formData.append("photo", selectedPhoto);
+        formData.append('photo', selectedPhoto);
       }
 
       await dispatch(updateUserThunk(formData));
       onClose();
     } catch (err) {
-      console.error("Error during form submission:", err);
+      console.error('Error during form submission:', err);
     }
   };
 
   const initialValues = {
-    name: user.name || "",
-    email: user.email || "",
-    password: "",
+    name: user.name || '',
+    email: user.email || '',
+    password: '',
   };
 
   const validationSchema = Yup.object({
     name: Yup.string()
-      .min(3, "Name must be at least 3 characters")
-      .max(15, "Name must be less 15 characters"),
-    email: Yup.string().email("Invalid email format"),
+      .min(3, 'Name must be at least 3 characters')
+      .max(15, 'Name must be less 15 characters'),
+    email: Yup.string().email('Invalid email format'),
     password: Yup.string()
-      .min(8, "Too Short!")
-      .max(64, "Too Long!")
-      .matches(/[A-Z]/, "At least one uppercase letter")
-      .matches(/[a-z]/, "At least one lowercase letter")
-      .matches(/\d/, "At least one number")
-      .matches(/[!@#$%^&*(),.?":{}|<>]/, "At least one special character"),
+      .min(8, 'Too Short!')
+      .max(64, 'Too Long!')
+      .matches(/[A-Z]/, 'At least one uppercase letter')
+      .matches(/[a-z]/, 'At least one lowercase letter')
+      .matches(/\d/, 'At least one number')
+      .matches(/[!@#$%^&*(),.?":{}|<>]/, 'At least one special character'),
   });
   return (
     <>
@@ -93,7 +93,7 @@ const EditUserProfile = ({ user, onClose }) => {
                 +
               </label>
               <input
-                style={{ display: "none" }}
+                style={{ display: 'none' }}
                 type="file"
                 id="photo"
                 name="photo"
@@ -128,8 +128,8 @@ const EditUserProfile = ({ user, onClose }) => {
                   <Field
                     className={s.input}
                     name="password"
-                    placeholder="Enter your password"
-                    type={isPasswordVisible ? "text" : "password"}
+                    placeholder="Enter your new password"
+                    type={isPasswordVisible ? 'text' : 'password'}
                   />
                   <button
                     type="button"
