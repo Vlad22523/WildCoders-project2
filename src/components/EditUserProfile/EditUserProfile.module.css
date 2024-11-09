@@ -1,6 +1,7 @@
 .relativeWrap {
   position: relative;
 }
+
 .modal {
   position: fixed;
   top: 50%;
@@ -13,7 +14,7 @@
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
 }
 
-.form {
+.formContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,6 +30,22 @@
   margin-bottom: 24px;
 }
 
+.buttonClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  stroke: rgb(var(--text-color-mainboard));
+  transform: rotate(45deg);
+  transition: all 200ms ease-in-out;
+  &:hover,
+  &:focus {
+    transform: scale(1.1) rotate(45deg);
+  }
+}
+
 .photoWrapper {
   display: flex;
   flex-direction: column;
@@ -41,6 +58,7 @@
   overflow: hidden;
   width: 68px;
   height: 68px;
+  cursor: pointer;
 }
 
 .userPhoto {
@@ -54,23 +72,58 @@
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background-color: #bedbb0;
-  width: 24px;
+  background-color: rgb(var(--button-add-photo));
   height: 24px;
+  width: 24px;
   border-radius: 4px;
   cursor: pointer;
-  color: rgba(22, 22, 22, 1);
+  stroke: rgba(22, 22, 22, 1);
+  transition: all 200ms ease-in-out;
+
+  & .svgPlus {
+    transition: all 200ms ease-in-out;
+  }
+  &:hover .svgPlus,
+  &:focus .svgPlus {
+    transform: scale(1.4);
+  }
 }
 
 .inputWrap {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  width: 100%;
+}
+
+.input {
+  background-color: transparent;
+  color: rgba(var(--text-color-mainboard), 0.4);
+  font-size: 14px;
+  letter-spacing: -0.28px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(var(--button-color-modal), 0.4);
+  width: 100%;
+  transition: all 200ms ease-in-out;
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+  &:hover,
+  &:focus {
+    outline: none;
+    color: rgba(var(--text-color-mainboard), 1);
+    border: 1px solid rgba(var(--button-color-modal), 1);
+  }
+}
+
+.error {
+  position: absolute;
+  bottom: -14px;
+  left: 18px;
+  color: red;
+  font-size: 10px;
 }
 
 .passwordWrap {
@@ -88,6 +141,7 @@
   border: none;
   cursor: pointer;
   fill: none;
+  transition: all 200ms ease-in-out;
   &::after {
     position: absolute;
     content: "";
@@ -97,7 +151,7 @@
     height: 1px;
     background: rgba(var(--text-color-mainboard), 0.4);
     transform: rotate(45deg);
-    transition: 0.3s all ease;
+    transition: all 200ms ease-in-out;
     opacity: 1;
   }
 }
@@ -112,6 +166,7 @@
 
 .svgEye {
   stroke: rgba(var(--text-color-mainboard), 0.4);
+  transition: all 200ms ease-in-out;
   &:hover,
   &:focus {
     stroke: rgba(var(--text-color-mainboard), 1);
@@ -122,30 +177,49 @@
   }
 }
 
-
 .submitBtn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 287px;
+  width: 100%;
   padding: 14px;
-  color: #161616;
+  color: rgb(var(--button-add-column-text));
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.28px;
   background-color: rgb(var(--button-color-modal));
   border: none;
   border-radius: 8px;
+  outline: none;
+  transition: all 200ms ease-in-out;
   &:active,
   &:hover,
   &:focus {
-    background: #9dc888;
-    transition: opacity 0.3s ease, max-height 0.3s ease;
+    background: rgb(var(--button-background-color));
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .modal {
+    width: 100%;
+  }
+
+  .input,
+  .submitBtn {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .input,
+  .submitBtn {
+    width: 287px;
   }
 }
 
 @media screen and (min-width: 768px) {
-}
-
-@media screen and (min-width: 1440px) {
+  .input,
+  .submitBtn {
+    width: 352px;
+  }
 }

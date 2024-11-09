@@ -2,7 +2,6 @@ import Backdrop from "../Backdrop/Backdrop";
 import s from "./EditUserProfile.module.css";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-import { IoClose } from "react-icons/io5";
 import { useRef, useState } from "react";
 import { updateUserThunk } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
@@ -81,7 +80,7 @@ const EditUserProfile = ({ user, onClose }) => {
       <div className={s.modal}>
         <h2 className={s.title}>Edit profile</h2>
         <button onClick={onClose} className={s.buttonClose}>
-          <IoClose color="black" size="24px" />
+          <SvgIcon name="icon-plus" width="18" height="18" />
         </button>
 
         <Formik
@@ -89,7 +88,7 @@ const EditUserProfile = ({ user, onClose }) => {
           onSubmit={handleSubmit}
           validationSchema={validationSchema}
         >
-          <Form className={s.form}>
+          <Form className={s.formContainer}>
             <div className={s.photoWrapper}>
               <div className={s.photoPreview}>
                 <img
@@ -100,7 +99,12 @@ const EditUserProfile = ({ user, onClose }) => {
                 />
               </div>
               <label htmlFor="photo" className={s.photoChooseBtn}>
-                +
+                <SvgIcon
+                  className={s.svgPlus}
+                  name="icon-plus"
+                  width="10"
+                  height="10"
+                />
               </label>
               <input
                 ref={fileInputRef}
