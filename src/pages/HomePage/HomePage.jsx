@@ -11,13 +11,16 @@ import HelpModal from "../../components/HelpModal/HelpModal.jsx";
 import { selectIsOpenHelpModal } from "../../redux/needHelp/selectors.js";
 
 const HomePage = () => {
+  // useTokenRefresh();
   const loader = useSelector(selectLoader);
+  // const loaderHelp = useSelector(selectIsLoading);
   const isHelpModalOpen = useSelector(selectIsOpenHelpModal);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchUserThunk());
+    // dispatch(getBoardsThunk());
   }, [dispatch]);
 
   return loader ? (

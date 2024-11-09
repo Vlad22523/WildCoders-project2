@@ -103,3 +103,21 @@ export const updateUserThunk = createAsyncThunk(
     }
   }
 );
+
+export const refreshUserThunk = createAsyncThunk(
+  "refresh",
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await mongoApi.post("auth/refresh");
+      // setToken(data.data.accessToken);
+      toast.success("ff");
+      console.log(data.data);
+
+      return data.data.accessToken;
+    } catch (error) {
+      const errorMessage = error.response?.data?.data.message || error.message;
+      toast.error(errorMessage);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
