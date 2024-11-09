@@ -1,13 +1,19 @@
 import { MainBoardForm } from "../MainBoardForm/MainBoardForm.jsx";
 import * as Yup from "yup";
 import s from "../MainBoardForm/MainBoardForm.module.css";
+import { useDispatch } from "react-redux";
+import { createBoardThunk } from "../../redux/boards/operations.js";
 
 export const CreateBoardForm = ({ setFormOpen }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const onSubmit = (data, actions) => {
-    // dispatch(createBoardThunk(data));
-    actions.resetForm();
+  const onSubmit = (data) => {
+    const newBoardData = {
+      title: data.title,
+      icon: data.icon,
+      background: data.background,
+    };
+    dispatch(createBoardThunk(newBoardData));
     setFormOpen(false);
   };
 
@@ -20,7 +26,7 @@ export const CreateBoardForm = ({ setFormOpen }) => {
 
   return (
     <MainBoardForm
-      initialValues={{ title: "", icon: "square", background: "0" }}
+      initialValues={{ title: "", icon: "icon-1", background: "bg-1" }}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
       title="New board"

@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getBoardsThunk } from "../boards/operations.js"; // Імпортуйте вашу санку
+import {
+  createBoardThunk,
+  deleteBoardThunk,
+  getBoardsThunk,
+  updateBoardThunk,
+} from "../boards/operations.js";
 
 const boardsSlice = createSlice({
   name: "boards",
@@ -27,19 +32,47 @@ const boardsSlice = createSlice({
       })
       .addCase(getBoardsThunk.pending, (state) => {
         state.loading = true;
+      })
+      .addCase(createBoardThunk.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(createBoardThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.boards.push(action.payload);
+      })
+      .addCase(createBoardThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(deleteBoardThunk.fulfilled, (state, action) => {
+        state.boards = state.boards.filter(
+          (board) => board._id !== action.payload
+        );
+      })
+      .addCase(deleteBoardThunk.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(deleteBoardThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(updateBoardThunk.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateBoardThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.boards = state.boards.map((board) =>
+          board.id === action.payload.id ? action.payload : board
+        );
+      })
+
+      .addCase(updateBoardThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
-    // .addCase(createBoardThunk.pending, (state) => {
-    //   state.loading = true;
-    //   state.error = null;
-    // })
-    // .addCase(createBoardThunk.fulfilled, (state, action) => {
-    //   state.loading = false;
-    //   state.boards.push(action.payload);
-    // })
-    // .addCase(createBoardThunk.rejected, (state, action) => {
-    //   state.loading = false;
-    //   state.error = action.payload;
-    // });
   },
 });
 
