@@ -30,15 +30,13 @@ const Sidebar = () => {
     setSelectedBoard(null);
   };
 
-  const openEditForm = (board, e) => {
-    e.preventDefault(); // Зупиняємо стандартну поведінку (оновлення сторінки)
+  const openEditForm = (board) => {
     setFormOpen(true);
     setEditMode(true);
     setSelectedBoard(board);
   };
 
-  const openDeleteForm = (board, e) => {
-    e.preventDefault(); // Зупиняємо стандартну поведінку (оновлення сторінки)
+  const openDeleteForm = (board) => {
     setDeleteFormOpen(true);
     setSelectedBoard(board);
   };
@@ -47,7 +45,6 @@ const Sidebar = () => {
     setDeleteFormOpen(false);
     setSelectedBoard(null);
   };
-
   const closeForms = () => {
     setFormOpen(false);
     setDeleteFormOpen(false);
@@ -94,7 +91,10 @@ const Sidebar = () => {
           </a>
           <h3 className={s.under_logo}>My boards</h3>
           <div className={s.create_top_container}>
-            <div className={s.create_container} onClick={openCreateForm}>
+            <div
+              className={s.create_container}
+              onClick={() => openCreateForm()}
+            >
               <h2 className={s.create_title}>Create a new board</h2>
               <button className={s.create_button}>
                 <SvgIcon
@@ -144,7 +144,7 @@ const Sidebar = () => {
                     <div className={s.board_svg_container}>
                       <button
                         className={s.iconButton}
-                        onClick={(e) => openEditForm(board, e)} // передаємо подію e
+                        onClick={() => openEditForm(board)}
                       >
                         <SvgIcon
                           name="icon-pencil"
@@ -155,7 +155,7 @@ const Sidebar = () => {
                       </button>
                       <button
                         className={s.iconButton}
-                        onClick={(e) => openDeleteForm(board, e)} // передаємо подію e
+                        onClick={() => openDeleteForm(board)}
                       >
                         <SvgIcon
                           name="icon-trash"

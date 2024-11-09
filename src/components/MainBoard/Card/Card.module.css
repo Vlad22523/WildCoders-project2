@@ -26,6 +26,7 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: rgb(var(--text-color-mainboard));
+  margin-bottom: 8px;
 }
 
 .descr {
@@ -35,9 +36,10 @@
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: -0.02em;
+}
+.descr span {
   color: rgba(var(--text-task-descr));
 }
-
 .optionsContainer {
   width: 100%;
   display: flex;
@@ -80,6 +82,21 @@
   border-radius: 50%;
   background-color: #8fa1d0;
 }
+.priority-low::before {
+  background-color: #8fa1d0;
+}
+
+.priority-medium::before {
+  background-color: #e09cb5;
+}
+
+.priority-high::before {
+  background-color: #bedbb0;
+}
+
+.priority-without::before {
+  background-color: rgb(var(--text-color-mainboard), 0.3);
+}
 
 .deadlineDate {
   font-weight: 400;
@@ -89,19 +106,27 @@
 }
 
 .btnsWrapper {
-  display: flex;
   gap: 8px;
+  display: flex;
 }
 
 .btnOptions {
   cursor: pointer;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-self: center;
   background-color: transparent;
 }
 
 .icon {
+  transition: all 200ms ease-in-out;
   fill: none;
   stroke: rgba(var(--text-color-mainboard), 0.5);
+}
+
+.icon:hover {
+  stroke: rgba(var(--text-color-mainboard));
 }
 
 .line {

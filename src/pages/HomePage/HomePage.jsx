@@ -7,9 +7,12 @@ import Loader from "../../components/Loader/Loader.jsx";
 import { useEffect } from "react";
 import { fetchUserThunk } from "../../redux/auth/operations.js";
 import ScreensPage from "../../components/MainBoard/ScreensPage/ScreensPage.jsx";
+import HelpModal from "../../components/HelpModal/HelpModal.jsx";
+import { selectIsOpenHelpModal } from "../../redux/needHelp/selectors.js";
 
 const HomePage = () => {
   const loader = useSelector(selectLoader);
+  const isHelpModalOpen = useSelector(selectIsOpenHelpModal);
 
   const dispatch = useDispatch();
 
@@ -21,6 +24,7 @@ const HomePage = () => {
     <Loader />
   ) : (
     <div className={s.wrapper}>
+      {isHelpModalOpen && <HelpModal />}
       <Sidebar />
       <div className={s.content}>
         <Header />
