@@ -26,6 +26,7 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: rgb(var(--text-color-mainboard));
+  margin-bottom: 8px;
 }
 
 .descr {
@@ -105,19 +106,27 @@
 }
 
 .btnsWrapper {
-  display: flex;
   gap: 8px;
+  display: flex;
 }
 
 .btnOptions {
   cursor: pointer;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-self: center;
   background-color: transparent;
 }
 
 .icon {
+  transition: all 200ms ease-in-out;
   fill: none;
   stroke: rgba(var(--text-color-mainboard), 0.5);
+}
+
+.icon:hover {
+  stroke: rgba(var(--text-color-mainboard));
 }
 
 .line {

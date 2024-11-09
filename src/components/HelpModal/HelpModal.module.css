@@ -93,6 +93,7 @@
   background: rgb(var(--button-color-modal));
   color: rgb(var(--button-add-column-text));
   border: none;
+  font-weight: 500;
   border-radius: 8px;
   padding: 12px 0;
   font-size: 16px;
