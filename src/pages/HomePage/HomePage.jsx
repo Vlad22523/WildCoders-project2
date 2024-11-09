@@ -5,43 +5,22 @@ import s from "./HomePage.module.css";
 import { selectLoader } from "../../redux/auth/selectors.js";
 import Loader from "../../components/Loader/Loader.jsx";
 import { useEffect } from "react";
-import {
-  fetchUserThunk,
-  refreshUserThunk,
-} from "../../redux/auth/operations.js";
+import { fetchUserThunk } from "../../redux/auth/operations.js";
 import ScreensPage from "../../components/MainBoard/ScreensPage/ScreensPage.jsx";
 import HelpModal from "../../components/HelpModal/HelpModal.jsx";
-import {
-  selectIsLoading,
-  selectIsOpenHelpModal,
-} from "../../redux/needHelp/selectors.js";
-import { getBoardsThunk } from "../../redux/boards/operations.js";
-import {
-  selectLoadingBoard,
-  selectRefresh,
-} from "../../redux/boards/selectors.js";
+import { selectIsOpenHelpModal } from "../../redux/needHelp/selectors.js";
 
 const HomePage = () => {
   const loader = useSelector(selectLoader);
-  const loaderHelp = useSelector(selectIsLoading);
   const isHelpModalOpen = useSelector(selectIsOpenHelpModal);
-  const refresh = useSelector(selectRefresh);
-  const loaderBoard = useSelector(selectLoadingBoard);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    {
-      refresh && dispatch(refreshUserThunk());
-    }
-  }, [refresh]);
-
-  useEffect(() => {
     dispatch(fetchUserThunk());
-    dispatch(getBoardsThunk());
-  }, [dispatch, refresh]);
+  }, [dispatch]);
 
-  return loader || loaderHelp || loaderBoard ? (
+  return loader ? (
     <Loader />
   ) : (
     <div className={s.wrapper}>

@@ -1,10 +1,11 @@
 import { MainBoardForm } from "../MainBoardForm/MainBoardForm.jsx";
 import * as Yup from "yup";
 import s from "../MainBoardForm/MainBoardForm.module.css";
+import { useDispatch } from "react-redux";
+import { createBoardThunk } from "../../redux/boards/operations.js";
 
 export const CreateBoardForm = ({ setFormOpen }) => {
-  // const dispatch = useDispatch();
-
+  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
     const newBoardData = {

@@ -7,10 +7,12 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import Loader from "./components/Loader/Loader.jsx";
 import PublicRoute from "./routes/PublicRoute.jsx";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
-import ScreensPage from "./components/MainBoard/ScreensPage/ScreensPage.jsx";
 const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage.jsx"));
 const Auth = lazy(() => import("./components/Auth/Auth.jsx"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
+const ScreensPage = lazy(() =>
+  import("./components/MainBoard/ScreensPage/ScreensPage.jsx")
+);
 
 function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);

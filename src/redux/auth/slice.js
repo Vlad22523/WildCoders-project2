@@ -3,7 +3,6 @@ import {
   fetchUserThunk,
   loginThunk,
   logoutThunk,
-  refreshUserThunk,
   registerThunk,
   saveThemeThunk,
   updateUserThunk,
@@ -81,16 +80,6 @@ const slice = createSlice({
       })
       .addCase(updateUserThunk.rejected, (state) => {
         state.loader = false;
-      })
-      .addCase(refreshUserThunk.fulfilled, (state, action) => {
-        state.loader = false;
-        state.token = action.payload;
-      })
-      .addCase(refreshUserThunk.rejected, (state) => {
-        state.loader = false;
-      })
-      .addCase(refreshUserThunk.pending, (state) => {
-        state.loader = true;
       });
   },
 });

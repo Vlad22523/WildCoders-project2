@@ -11,18 +11,13 @@ import { CreateBoardForm } from "../CreateBoardForm/CreateBoardForm.jsx";
 import { DeleteBoardForm } from "../DeleteBoardForm/DeleteBoardForm.jsx";
 import clsx from "clsx";
 import Backdrop from "../Backdrop/Backdrop.jsx";
-
-import { openHelpModal } from "../../redux/needHelp/slice.js";
 import { selectAllBoards } from "../../redux/boards/selectors.js";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
-  const boards = useSelector(selectAllBoards);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
   const boards = useSelector(selectAllBoards);
-
-  console.log(boards);
 
   const [isFormOpen, setFormOpen] = useState(false);
   const [isEditMode, setEditMode] = useState(false);
