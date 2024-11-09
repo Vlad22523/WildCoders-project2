@@ -1,3 +1,14 @@
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
 .relativeWrap {
   position: relative;
 }
@@ -12,6 +23,7 @@
   border-radius: 8px;
   background: rgb(var(--background-modal-filters));
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
+  animation: modalSlideIn 300ms ease-out forwards;
 }
 
 .formContainer {
