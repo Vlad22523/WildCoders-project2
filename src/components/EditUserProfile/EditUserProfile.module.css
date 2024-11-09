@@ -214,6 +214,7 @@
 @media screen and (max-width: 374px) {
   .modal {
     width: 100%;
+    max-width: 90%;
   }
 
   .input,
@@ -223,15 +224,13 @@
 }
 
 @media screen and (min-width: 375px) {
-  .input,
-  .submitBtn {
-    width: 287px;
+  .modal {
+    width: 335px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .input,
-  .submitBtn {
-    width: 352px;
+  .modal {
+    width: 400px;
   }
 }
