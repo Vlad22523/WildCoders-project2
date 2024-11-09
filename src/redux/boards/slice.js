@@ -49,6 +49,7 @@ const boardsSlice = createSlice({
         state.boards = state.boards.filter(
           (board) => board._id !== action.payload
         );
+        state.loading = false;
       })
       .addCase(deleteBoardThunk.pending, (state) => {
         state.loading = true;
