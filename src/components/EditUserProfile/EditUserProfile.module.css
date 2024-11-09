@@ -75,6 +75,9 @@
 
 .passwordWrap {
   position: relative;
+  & .input {
+    padding-right: 40px;
+  }
 }
 
 .btnShowPassword {
@@ -128,6 +131,7 @@
   border-radius: 8px;
   border: 1px solid #bedbb0;
   width: 287px;
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   &:hover,
   &:focus {
     outline: none;
@@ -169,9 +173,7 @@
   &:hover,
   &:focus {
     background: #9dc888;
-    transition:
-      opacity 0.3s ease,
-      max-height 0.3s ease;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
   }
 }
 
