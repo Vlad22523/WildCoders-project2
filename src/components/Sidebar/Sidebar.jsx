@@ -10,15 +10,18 @@ import { logoutThunk } from "../../redux/auth/operations.js";
 import { EditBoardForm } from "../EditBoardForm/EditBoardForm.jsx";
 import { CreateBoardForm } from "../CreateBoardForm/CreateBoardForm.jsx";
 import { DeleteBoardForm } from "../DeleteBoardForm/DeleteBoardForm.jsx";
-import arr from "./BoardsArr.js";
 import clsx from "clsx";
 import Backdrop from "../Backdrop/Backdrop.jsx";
 import { openHelpModal } from "../../redux/needHelp/slice.js";
+import { selectAllBoards } from "../../redux/boards/selectors.js";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
+  const boards = useSelector(selectAllBoards);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
+
+  console.log(boards);
 
   const [isFormOpen, setFormOpen] = useState(false);
   const [isEditMode, setEditMode] = useState(false);
@@ -132,12 +135,9 @@ const Sidebar = () => {
           )}
 
           <ul className={s.board_list}>
-            {arr.map((board) => (
-              <li key={board.boardId} className={s.board_item}>
-                <NavLink
-                  to={`/home/${board.boardId}`}
-                  className={buildLinkClass}
-                >
+            {boards.map((board) => (
+              <li key={board._id} className={s.board_item}>
+                <NavLink to={`/home/${board._id}`} className={buildLinkClass}>
                   <div className={s.board_list_container}>
                     <div className={s.board_title_container}>
                       <SvgIcon
