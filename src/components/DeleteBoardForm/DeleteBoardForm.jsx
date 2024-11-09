@@ -1,6 +1,14 @@
+import { useDispatch } from "react-redux";
 import s from "../DeleteBoardForm/DeleteBoardForm.module.css";
+import { deleteBoardThunk } from "../../redux/boards/operations";
 
-export const DeleteBoardForm = ({ onClose }) => {
+export const DeleteBoardForm = ({ onClose, boardId }) => {
+  const dispatch = useDispatch();
+  const handleDelete = async () => {
+    await dispatch(deleteBoardThunk(boardId));
+    onClose();
+  };
+
   return (
     <div className={s.container} onClick={(e) => e.stopPropagation()}>
       <button type="button" onClick={onClose} className={s.closeButton}>
@@ -13,7 +21,9 @@ export const DeleteBoardForm = ({ onClose }) => {
         <button className={s.button} onClick={onClose}>
           No
         </button>
-        <button className={s.button}>Yes</button>
+        <button className={s.button} onClick={handleDelete}>
+          Yes
+        </button>
       </div>
     </div>
   );

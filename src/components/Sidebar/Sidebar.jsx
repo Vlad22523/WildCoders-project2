@@ -5,19 +5,19 @@ import { useEffect, useRef, useState } from "react";
 import SvgIcon from "../../hooks/SvgIcon.jsx";
 import { closeSidebar } from "../../redux/sidebar/slice.js";
 import { NavLink } from "react-router-dom";
-
 import { logoutThunk } from "../../redux/auth/operations.js";
 import { EditBoardForm } from "../EditBoardForm/EditBoardForm.jsx";
 import { CreateBoardForm } from "../CreateBoardForm/CreateBoardForm.jsx";
 import { DeleteBoardForm } from "../DeleteBoardForm/DeleteBoardForm.jsx";
-import arr from "./BoardsArr.js";
 import clsx from "clsx";
 import Backdrop from "../Backdrop/Backdrop.jsx";
+import { selectAllBoards } from "../../redux/boards/selectors.js";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
+  const boards = useSelector(selectAllBoards);
 
   const [isFormOpen, setFormOpen] = useState(false);
   const [isEditMode, setEditMode] = useState(false);
@@ -30,13 +30,15 @@ const Sidebar = () => {
     setSelectedBoard(null);
   };
 
-  const openEditForm = (board) => {
+  const openEditForm = (board, e) => {
+    e.preventDefault(); // Зупиняємо стандартну поведінку (оновлення сторінки)
     setFormOpen(true);
     setEditMode(true);
     setSelectedBoard(board);
   };
 
-  const openDeleteForm = (board) => {
+  const openDeleteForm = (board, e) => {
+    e.preventDefault(); // Зупиняємо стандартну поведінку (оновлення сторінки)
     setDeleteFormOpen(true);
     setSelectedBoard(board);
   };
@@ -45,6 +47,7 @@ const Sidebar = () => {
     setDeleteFormOpen(false);
     setSelectedBoard(null);
   };
+
   const closeForms = () => {
     setFormOpen(false);
     setDeleteFormOpen(false);
@@ -91,10 +94,7 @@ const Sidebar = () => {
           </a>
           <h3 className={s.under_logo}>My boards</h3>
           <div className={s.create_top_container}>
-            <div
-              className={s.create_container}
-              onClick={() => openCreateForm()}
-            >
+            <div className={s.create_container} onClick={openCreateForm}>
               <h2 className={s.create_title}>Create a new board</h2>
               <button className={s.create_button}>
                 <SvgIcon
@@ -114,9 +114,10 @@ const Sidebar = () => {
               {isEditMode ? (
                 <EditBoardForm
                   initialValues={{
-                    title: selectedBoard?.title || "",
-                    icon: selectedBoard?.icon || "square",
-                    background: selectedBoard?.background || "0",
+                    _id: selectedBoard?._id,
+                    title: selectedBoard?.title,
+                    icon: selectedBoard?.icon,
+                    background: selectedBoard?.background,
                   }}
                   setFormOpen={setFormOpen}
                 />
@@ -127,12 +128,9 @@ const Sidebar = () => {
           )}
 
           <ul className={s.board_list}>
-            {arr.map((board) => (
-              <li key={board.boardId} className={s.board_item}>
-                <NavLink
-                  to={`/home/${board.boardId}`}
-                  className={buildLinkClass}
-                >
+            {boards.map((board) => (
+              <li key={board._id} className={s.board_item}>
+                <NavLink to={`/home/${board._id}`} className={buildLinkClass}>
                   <div className={s.board_list_container}>
                     <div className={s.board_title_container}>
                       <SvgIcon
@@ -146,7 +144,7 @@ const Sidebar = () => {
                     <div className={s.board_svg_container}>
                       <button
                         className={s.iconButton}
-                        onClick={() => openEditForm(board)}
+                        onClick={(e) => openEditForm(board, e)} // передаємо подію e
                       >
                         <SvgIcon
                           name="icon-pencil"
@@ -157,7 +155,7 @@ const Sidebar = () => {
                       </button>
                       <button
                         className={s.iconButton}
-                        onClick={() => openDeleteForm(board)}
+                        onClick={(e) => openDeleteForm(board, e)} // передаємо подію e
                       >
                         <SvgIcon
                           name="icon-trash"
@@ -176,7 +174,10 @@ const Sidebar = () => {
 
         {isDeleteFormOpen && (
           <div className={s.modal} onClick={(e) => e.stopPropagation()}>
-            <DeleteBoardForm onClose={closeDeleteForm} />
+            <DeleteBoardForm
+              boardId={selectedBoard?._id}
+              onClose={closeDeleteForm}
+            />
           </div>
         )}
 

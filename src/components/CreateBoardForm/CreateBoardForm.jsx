@@ -8,7 +8,13 @@ export const CreateBoardForm = ({ setFormOpen }) => {
   const dispatch = useDispatch();
 
   const onSubmit = (data, actions) => {
-    dispatch(createBoardThunk(data));
+    const newBoardData = {
+      title: data.title,
+      icon: data.icon,
+      background: data.background,
+    };
+    dispatch(createBoardThunk(newBoardData));
+
     actions.resetForm();
     setFormOpen(false);
   };
@@ -22,7 +28,7 @@ export const CreateBoardForm = ({ setFormOpen }) => {
 
   return (
     <MainBoardForm
-      initialValues={{ title: "", icon: "square", background: "0" }}
+      initialValues={{ title: "", icon: "icon-1", background: "bg-1" }}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
       title="New board"

@@ -1,19 +1,34 @@
 import clsx from "clsx";
 import s from "../BackgroundRadioButton/BackgroundRadioButton.module.css";
+import { useEffect, useState } from "react";
 
 const getResponsiveImageSrc = (src) => {
+  if (!src) return "";
+
   const width = window.innerWidth;
   if (width >= 1024) {
-    return src.desktop;
+    return src.desktop || "";
   } else if (width >= 768) {
-    return src.tablet;
+    return src.tablet || "";
   } else {
-    return src.mobile;
+    return src.mobile || "";
   }
 };
 
 export const BackgroundRadioButton = ({ background, field }) => {
-  const imageSrc = getResponsiveImageSrc(background.src);
+  const [imageSrc, setImageSrc] = useState(
+    getResponsiveImageSrc(background.src)
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setImageSrc(getResponsiveImageSrc(background.src));
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [background.src]);
+
   return (
     <label className={s.input}>
       <input
