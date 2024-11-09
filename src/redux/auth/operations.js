@@ -108,11 +108,15 @@ export const refreshUserThunk = createAsyncThunk(
   "refresh",
   async (_, thunkAPI) => {
     try {
-      const { data } = await mongoApi.post("auth/refresh");
-      // setToken(data.data.accessToken);
+      const { data } = await mongoApi.post(
+        "auth/refresh",
+        {},
+        {
+          withCredentials: true,
+        }
+      );
       toast.success("ff");
-      console.log(data.data);
-
+      setToken(data.data.accessToken);
       return data.data.accessToken;
     } catch (error) {
       const errorMessage = error.response?.data?.data.message || error.message;

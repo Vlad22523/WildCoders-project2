@@ -21,6 +21,8 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
 
+  console.log(boards);
+
   const [isFormOpen, setFormOpen] = useState(false);
   const [isEditMode, setEditMode] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState(null);
@@ -135,10 +137,7 @@ const Sidebar = () => {
           <ul className={s.board_list}>
             {boards.map((board) => (
               <li key={board._id} className={s.board_item}>
-                <NavLink
-                  to={`/home/${board.boardId}`}
-                  className={buildLinkClass}
-                >
+                <NavLink to={`/home/${board._id}`} className={buildLinkClass}>
                   <div className={s.board_list_container}>
                     <div className={s.board_title_container}>
                       <SvgIcon
