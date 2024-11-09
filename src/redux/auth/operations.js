@@ -115,7 +115,6 @@ export const refreshUserThunk = createAsyncThunk(
           withCredentials: true,
         }
       );
-      toast.success("ff");
       setToken(data.data.accessToken);
       return data.data.accessToken;
     } catch (error) {

@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { mongoApi, setToken } from "../../config/mongo.js";
-import toast from "react-hot-toast";
 
 // export const createBoardThunk = createAsyncThunk(
 //   "boards/createBoard",
@@ -29,8 +28,8 @@ export const getBoardsThunk = createAsyncThunk(
       const { data } = await mongoApi.get("boards", savedToken);
       return data.data;
     } catch (error) {
-      const errorMessage = error.response?.data?.data.message || error.message;
-      toast.error(errorMessage);
+      // const errorMessage = error.response?.data?.data.message || error.message;
+      // toast.error(errorMessage);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

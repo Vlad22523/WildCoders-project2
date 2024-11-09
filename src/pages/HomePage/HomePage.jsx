@@ -20,6 +20,7 @@ import {
   selectLoadingBoard,
   selectRefresh,
 } from "../../redux/boards/selectors.js";
+import { resetRefresh } from "../../redux/boards/slice.js";
 
 const HomePage = () => {
   const loader = useSelector(selectLoader);
@@ -31,14 +32,19 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    {
-      refresh && dispatch(refreshUserThunk());
-    }
-  }, [refresh]);
-
-  useEffect(() => {
+    // Виконати основні запити
     dispatch(fetchUserThunk());
     dispatch(getBoardsThunk());
+  }, [dispatch]);
+
+  useEffect(() => {
+    // Виконати логіку для refresh, якщо це необхідно
+    if (refresh) {
+      dispatch(refreshUserThunk()).then(() => {
+        dispatch(resetRefresh());
+        dispatch(getBoardsThunk()); // Скидаємо refresh після виконання
+      });
+    }
   }, [dispatch, refresh]);
 
   return loader || loaderHelp || loaderBoard ? (

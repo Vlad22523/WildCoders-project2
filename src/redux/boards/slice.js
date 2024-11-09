@@ -9,7 +9,11 @@ const boardsSlice = createSlice({
     refresh: false,
     loading: false,
   },
-  reducers: {},
+  reducers: {
+    resetRefresh: (state) => {
+      state.refresh = false;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getBoardsThunk.fulfilled, (state, action) => {
@@ -39,4 +43,5 @@ const boardsSlice = createSlice({
   },
 });
 
+export const { resetRefresh } = boardsSlice.actions;
 export const boardsReducer = boardsSlice.reducer;
