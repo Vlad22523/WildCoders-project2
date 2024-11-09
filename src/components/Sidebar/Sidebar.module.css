@@ -206,6 +206,15 @@
   fill: transparent;
 }
 
+.side_helpBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
 .side_help {
   margin-left: 24px;
   margin-right: 24px;
@@ -266,6 +275,15 @@
     stroke: rgb(var(--text-color-sidebar-and-header));
     fill: transparent;
   }
+}
+
+.side_helpBtn {
+  transition: all 200ms ease-in-out;
+}
+
+.side_help_text:hover .side_helpBtn {
+  letter-spacing: 0.6px;
+  transform: scale(1.02);
 }
 
 @media screen and (max-width: 768px) {

@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import { registerLocale } from 'react-datepicker';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import uk from 'date-fns/locale/uk';
-import RadioColored from '../../shared/RadioColored';
-import SvgIcon from '../../hooks/SvgIcon.jsx';
-import { IoClose } from 'react-icons/io5';
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import { registerLocale } from "react-datepicker";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import uk from "date-fns/locale/uk";
+import RadioColored from "../../shared/RadioColored";
+import SvgIcon from "../../hooks/SvgIcon.jsx";
+import { IoClose } from "react-icons/io5";
 
-import 'react-datepicker/dist/react-datepicker.css';
-import styles from './ModalCard.module.css';
+import "react-datepicker/dist/react-datepicker.css";
+import styles from "./ModalCard.module.css";
 
 const TitleSchema = Yup.object().shape({
-  cardTitle: Yup.string().required('Title is required'),
+  cardTitle: Yup.string().required("Title is required"),
   cardDescr: Yup.string(),
 });
 
@@ -21,28 +21,31 @@ const ModalCard = ({
   title: modalTitle,
   btnName,
   addCard,
-  cardTitle = '',
+  editingCard,
+  updateCard,
+  cardTitle = "",
   cardDescription,
-  currentPriority = 'Without',
+  currentPriority = "Without",
   deadline = false,
   column,
 }) => {
-  registerLocale('en', uk);
+  registerLocale("en", uk);
 
   const [startDate, setStartDate] = useState(
-    deadline ? new Date(deadline) : new Date(),
+    deadline ? new Date(deadline) : new Date()
   );
   const [priority, setPriority] = useState(currentPriority);
 
   const compareDate = () => {
-    const curDate = startDate.toISOString().split('T')[0];
-    const dateNow = new Date().toISOString().split('T')[0];
+    const curDate = startDate.toISOString().split("T")[0];
+    const dateNow = new Date().toISOString().split("T")[0];
     return curDate === dateNow;
   };
 
   const handleFormSubmit = (values, { resetForm }) => {
     const { cardTitle: title, cardDescr: description } = values;
     const newCard = {
+      id: editingCard ? editingCard.id : Date.now(),
       title,
       description,
       priority,
@@ -50,9 +53,13 @@ const ModalCard = ({
       column,
     };
 
-    console.log('Form Submitted: ', newCard);
+    console.log("Form Submitted: ", newCard);
+    if (editingCard) {
+      updateCard(newCard);
+    } else {
+      addCard(newCard);
+    }
 
-    addCard(newCard);
     resetForm();
     onClose();
   };
@@ -69,8 +76,8 @@ const ModalCard = ({
 
         <Formik
           initialValues={{
-            cardTitle: cardTitle || '',
-            cardDescr: cardDescription || '',
+            cardTitle: cardTitle || "",
+            cardDescr: cardDescription || "",
           }}
           validationSchema={TitleSchema}
           onSubmit={handleFormSubmit}

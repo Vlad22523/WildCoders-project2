@@ -20,6 +20,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   border: 1px;
+  border: 1px solid rgb(var(--button-color-modal), 0.5);
 }
 
 .header {
@@ -150,7 +151,7 @@ span {
   border: 2px solid rgb(var(--button-color-modal));
   border-radius: 6px;
   background-color: rgb(var(--calendar-background));
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   height: 300px;
 }
 
@@ -165,7 +166,7 @@ span {
 .datePickerWrapper :global(.react-datepicker__current-month) {
   letter-spacing: -0.32px;
   color: rgb(var(--text-color-mainboard));
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -176,7 +177,7 @@ span {
 
 .datePickerWrapper :global(.react-datepicker__day-name) {
   color: rgb(var(--text-color-mainboard), 0.5);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 500;
 }
@@ -186,7 +187,7 @@ span {
   color: rgb(var(--text-color-mainboard));
   border-radius: 50%;
   background-color: transparent;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 400;
 }
@@ -218,7 +219,7 @@ span {
 .spanStyled {
   letter-spacing: -0.28px;
   color: rgb(var(--button-background-color));
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
