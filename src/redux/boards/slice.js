@@ -1,30 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+   getBoardsThunk ,
   createBoardThunk,
   deleteBoardThunk,
   updateBoardThunk,
 } from "../boards/operations.js";
 
+
 const boardsSlice = createSlice({
   name: "boards",
   initialState: {
     boards: [],
-    loading: false,
     error: null,
+    refresh: false,
+    loading: false,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(createBoardThunk.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(createBoardThunk.fulfilled, (state, action) => {
+      .addCase(getBoardsThunk.fulfilled, (state, action) => {
+        state.boards = action.payload;
+        state.refresh = false;
         state.loading = false;
-        state.boards.push(action.payload);
       })
-      .addCase(createBoardThunk.rejected, (state, action) => {
+      .addCase(getBoardsThunk.rejected, (state) => {
+        state.refresh = true;
         state.loading = false;
+
         state.error = action.payload;
       })
       .addCase(deleteBoardThunk.fulfilled, (state, action) => {
@@ -50,11 +52,25 @@ const boardsSlice = createSlice({
           board.id === action.payload.id ? action.payload : board
         );
       })
-
       .addCase(updateBoardThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(getBoardsThunk.pending, (state) => {
+        state.loading = true;
       });
+    // .addCase(createBoardThunk.pending, (state) => {
+    //   state.loading = true;
+    //   state.error = null;
+    // })
+    // .addCase(createBoardThunk.fulfilled, (state, action) => {
+    //   state.loading = false;
+    //   state.boards.push(action.payload);
+    // })
+    // .addCase(createBoardThunk.rejected, (state, action) => {
+    //   state.loading = false;
+    //   state.error = action.payload;
+    // });
   },
 });
 

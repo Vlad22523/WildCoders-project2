@@ -1,5 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { mongoApi } from "../../config/mongo.js";
+import { mongoApi, setToken } from "../../config/mongo.js";
+import toast from "react-hot-toast";
+
 
 export const createBoardThunk = createAsyncThunk(
   "boards/createBoard",
@@ -36,7 +38,22 @@ export const deleteBoardThunk = createAsyncThunk(
     try {
       await mongoApi.delete(`boards/${id}`);
       return id;
+
+
+export const getBoardsThunk = createAsyncThunk(
+  "getBoards",
+  async (_, thunkAPI) => {
+    const savedToken = thunkAPI.getState().auth.token;
+    if (savedToken === null) {
+      return thunkAPI.rejectWithValue("Token is not exist!");
+    }
+    try {
+      setToken(savedToken);
+      const { data } = await mongoApi.get("boards", savedToken);
+      return data.data;
     } catch (error) {
+      const errorMessage = error.response?.data?.data.message || error.message;
+      toast.error(errorMessage);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
