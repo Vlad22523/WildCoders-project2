@@ -122,39 +122,6 @@
   }
 }
 
-.input {
-  background-color: transparent;
-  color: rgba(var(--text-color-mainboard), 0.4);
-  font-size: 14px;
-  letter-spacing: -0.28px;
-  padding: 14px 18px;
-  border-radius: 8px;
-  border: 1px solid #bedbb0;
-  width: 287px;
-  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-  &:hover,
-  &:focus {
-    outline: none;
-    color: rgba(var(--text-color-mainboard), 1);
-  }
-}
-
-.error {
-  position: absolute;
-  bottom: -14px;
-  left: 18px;
-  color: red;
-  font-size: 10px;
-}
-
-.buttonClose {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
 
 .submitBtn {
   display: flex;
