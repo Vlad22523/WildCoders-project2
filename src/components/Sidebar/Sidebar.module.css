@@ -132,7 +132,8 @@
 }
 
 .active .board_item_svg {
-  fill: rgb(var(--text-color-sidebar-and-header));
+  fill: transparent;
+  stroke: rgb(var(--text-color-mainboard));
 }
 
 .board_item_title {
@@ -153,7 +154,8 @@
     font-weight: 500;
   }
   svg {
-    fill: rgb(var(--text-color-sidebar-and-header), 0.5);
+    fill: transparent;
+    stroke: rgb(var(--text-color-mainboard), 0.5);
   }
 }
 

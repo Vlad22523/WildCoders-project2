@@ -5,7 +5,8 @@ import Filters from "../Filters/Filters.jsx";
 const HeaderDashboard = ({ title }) => {
   const { boardId } = useParams();
   if (!title) {
-    return <div>Заголовок не знайдений</div>;
+    console.log("Заголовок не знайдений");
+    return;
   }
   // console.log(boardId);
 

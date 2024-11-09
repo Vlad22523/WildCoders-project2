@@ -46,26 +46,9 @@ const boardsSlice = createSlice({
       })
       .addCase(updateBoardThunk.fulfilled, (state, action) => {
         state.loading = false;
-        const updatedBoard = action.payload;
-        console.log("Payload from update:", action.payload);
-
-        const index = state.boards.findIndex(
-          (board) => board._id === updatedBoard._id
+        state.boards = state.boards.map((board) =>
+          board.id === action.payload.id ? action.payload : board
         );
-
-        if (index !== -1) {
-          // Оновлення стану, не змінюючи існуючі елементи безпосередньо
-          state.boards = [
-            ...state.boards.slice(0, index), // Залишити всі попередні елементи до цього індексу
-            updatedBoard, // Додати оновлену дошку
-            ...state.boards.slice(index + 1), // Залишити всі елементи після цього індексу
-          ];
-
-          console.log(
-            "Updated boards in state:",
-            JSON.parse(JSON.stringify(state.boards))
-          );
-        }
       })
 
       .addCase(updateBoardThunk.rejected, (state, action) => {

@@ -30,7 +30,7 @@ export const EditBoardForm = ({ setFormOpen, initialValues }) => {
     }
 
     try {
-      await dispatch(updateBoardThunk({ id: _id, updatedData }));
+      await dispatch(updateBoardThunk({ _id, updatedData }));
       setFormValues({
         ...formValues,
         title: values.title,

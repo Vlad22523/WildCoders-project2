@@ -7,15 +7,13 @@ import { createBoardThunk } from "../../redux/boards/operations.js";
 export const CreateBoardForm = ({ setFormOpen }) => {
   const dispatch = useDispatch();
 
-  const onSubmit = (data, actions) => {
+  const onSubmit = (data) => {
     const newBoardData = {
       title: data.title,
       icon: data.icon,
       background: data.background,
     };
     dispatch(createBoardThunk(newBoardData));
-
-    actions.resetForm();
     setFormOpen(false);
   };
 

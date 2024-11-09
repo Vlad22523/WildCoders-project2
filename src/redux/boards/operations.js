@@ -10,11 +10,7 @@ export const createBoardThunk = createAsyncThunk(
       //   if (!token) {
       //     return thunkAPI.rejectWithValue("Authorization token is missing");
       //   }
-      console.log(body);
-      console.log("URL:", mongoApi.defaults.baseURL + "boards");
-
       const response = await mongoApi.post("boards", body);
-      console.log("Created board data:", response.data);
       return response.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -24,10 +20,9 @@ export const createBoardThunk = createAsyncThunk(
 
 export const updateBoardThunk = createAsyncThunk(
   "boards/updateBoard",
-  async ({ id, body }, thunkAPI) => {
+  async ({ _id, updatedData }, thunkAPI) => {
     try {
-      const response = await mongoApi.patch(`boards/${id}`, body);
-      console.log("Created board data:", response.data);
+      const response = await mongoApi.patch(`boards/${_id}`, updatedData);
       return response.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
