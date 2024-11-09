@@ -21,8 +21,6 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
 
-  console.log(boards);
-
   const [isFormOpen, setFormOpen] = useState(false);
   const [isEditMode, setEditMode] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState(null);
@@ -122,9 +120,10 @@ const Sidebar = () => {
               {isEditMode ? (
                 <EditBoardForm
                   initialValues={{
-                    title: selectedBoard?.title || "",
-                    icon: selectedBoard?.icon || "square",
-                    background: selectedBoard?.background || "0",
+                    _id: selectedBoard?._id,
+                    title: selectedBoard?.title,
+                    icon: selectedBoard?.icon,
+                    background: selectedBoard?.background,
                   }}
                   setFormOpen={setFormOpen}
                 />
@@ -181,7 +180,10 @@ const Sidebar = () => {
 
         {isDeleteFormOpen && (
           <div className={s.modal} onClick={(e) => e.stopPropagation()}>
-            <DeleteBoardForm onClose={closeDeleteForm} />
+            <DeleteBoardForm
+              boardId={selectedBoard?._id}
+              onClose={closeDeleteForm}
+            />
           </div>
         )}
 

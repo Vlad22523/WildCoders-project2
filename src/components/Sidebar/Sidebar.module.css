@@ -132,14 +132,10 @@
 }
 
 .active .board_item_svg {
-  fill: rgb(var(--text-color-sidebar-and-header));
+  stroke: rgb(var(--text-color-sidebar-and-header));
 }
 
 .board_item_title {
-  transition: all 250ms ease-in-out;
-}
-
-.board_item_svg {
   transition: all 250ms ease-in-out;
 }
 
@@ -153,7 +149,9 @@
     font-weight: 500;
   }
   svg {
-    fill: rgb(var(--text-color-sidebar-and-header), 0.5);
+    fill: transparent;
+    stroke: rgb(var(--text-color-sidebar-and-header), 0.5);
+    transition: all 250ms ease-in-out;
   }
 }
 
@@ -165,6 +163,11 @@
 .board_svg {
   stroke: rgb(var(--text-color-sidebar-and-header), 0.5);
   fill: transparent;
+  transition: all 200ms ease-in-out;
+}
+
+.board_svg:hover {
+  stroke: rgb(var(--text-color-sidebar-and-header));
 }
 
 .board_list_container {

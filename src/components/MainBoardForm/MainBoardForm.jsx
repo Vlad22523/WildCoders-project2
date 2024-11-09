@@ -17,6 +17,7 @@ export const MainBoardForm = ({
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
+      enableReinitialize={true}
     >
       <Form>
         <div className={s.containerTitle}>
@@ -40,46 +41,14 @@ export const MainBoardForm = ({
           <Field name="icon">
             {({ field }) => (
               <>
-                <IconRadioButton
-                  iconId="icon-icon-1-square"
-                  field={field}
-                  value="square"
-                />
-                <IconRadioButton
-                  iconId="icon-icon-2-star"
-                  field={field}
-                  value="star"
-                />
-                <IconRadioButton
-                  iconId="icon-icon-3-circle"
-                  field={field}
-                  value="circle"
-                />
-                <IconRadioButton
-                  iconId="icon-icon-4-pazzle"
-                  field={field}
-                  value="puzzle"
-                />
-                <IconRadioButton
-                  iconId="icon-icon-5-cube"
-                  field={field}
-                  value="cube"
-                />
-                <IconRadioButton
-                  iconId="icon-icon-6-lightning"
-                  field={field}
-                  value="lightning"
-                />
-                <IconRadioButton
-                  iconId="icon-icon-7-colors"
-                  field={field}
-                  value="colors"
-                />
-                <IconRadioButton
-                  iconId="icon-icon-8-hexagon"
-                  field={field}
-                  value="hexagon"
-                />
+                <IconRadioButton iconId="icon-1" field={field} value="icon-1" />
+                <IconRadioButton iconId="icon-2" field={field} value="icon-2" />
+                <IconRadioButton iconId="icon-3" field={field} value="icon-3" />
+                <IconRadioButton iconId="icon-4" field={field} value="icon-4" />
+                <IconRadioButton iconId="icon-5" field={field} value="icon-5" />
+                <IconRadioButton iconId="icon-6" field={field} value="icon-6" />
+                <IconRadioButton iconId="icon-7" field={field} value="icon-7" />
+                <IconRadioButton iconId="icon-8" field={field} value="icon-8" />
               </>
             )}
           </Field>
@@ -89,10 +58,10 @@ export const MainBoardForm = ({
           <Field name="background">
             {({ field }) => (
               <>
-                {backgroundImages.map((bg) => (
+                {backgroundImages.map((background) => (
                   <BackgroundRadioButton
-                    key={bg.id}
-                    background={bg}
+                    key={background.id}
+                    background={background}
                     field={field}
                   />
                 ))}
