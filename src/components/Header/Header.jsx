@@ -86,7 +86,13 @@ const Header = () => {
       </div>
       <div className={s.select_user} onClick={handleEditProfileOpen}>
         <p className={s.header_user}>{user.name}</p>
-        <img width="32" height="32" src={user.photo} alt="avatar" />
+        <img
+          className={s.photo_user}
+          width="32"
+          height="32"
+          src={user.photo}
+          alt="avatar"
+        />
       </div>
       {isEditProfileOpen && (
         <EditUserProfile user={user} onClose={handleEditProfileClose} />

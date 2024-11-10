@@ -68,6 +68,10 @@
     object-fit: cover;
   }
 }
+.photo_user {
+  width: 32px;
+  height: 32px;
+}
 
 .modalOverlay {
   position: fixed;
