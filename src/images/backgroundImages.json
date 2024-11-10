@@ -111,8 +111,8 @@
     "alt": "Orange Balloon",
     "src": {
       "desktop": "/src/images/backgrounds-desk/bg1-des-orangballoon.jpg",
-      "tablet": "/src/images/backgrounds-tab/bg1-tab-orangballoon.jpg",
-      "mobile": "/src/images/backgrounds-mobile/bg1-mob-orangballoon.jpg"
+      "tablet": "/src/images/backgrounds-tab/bg1-tab-orangeballon.jpg",
+      "mobile": "/src/images/backgrounds-mobile/bg1-mob-orangeballon.jpg"
     },
     "isSvg": false
   },

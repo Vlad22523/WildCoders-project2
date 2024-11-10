@@ -65,6 +65,10 @@
   transform: scale(1.04);
   letter-spacing: 0.6px;
 }
+span {
+  color: brown;
+  font-size: 18px;
+}
 
 .button:focus,
 .closeButton:focus {

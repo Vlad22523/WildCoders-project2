@@ -1,6 +1,5 @@
 .container {
   width: 335px;
-
   border-radius: 8px;
   background: rgb(var(--background-hover-board));
   padding: 24px;

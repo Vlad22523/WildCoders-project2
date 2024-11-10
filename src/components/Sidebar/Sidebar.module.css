@@ -1,3 +1,13 @@
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
 .side {
   width: 260px;
   background-color: rgb(var(--background-sidebar));
@@ -20,10 +30,22 @@
   margin-left: 24px;
   display: flex;
   gap: 8px;
-  font-size: 16px;
   align-items: center;
   color: rgb(var(--text-color-sidebar-and-header));
-  font-weight: 600;
+  --fill-color: rgb(var(--text-color-sidebar-and-header));
+  position: relative;
+  font: 500 1.5rem Poppins, sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-text-stroke: 2px var(--fill-color);
+  background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
+  color: transparent;
+  background-clip: text;
+  transition: 0.5s linear;
+
+  &:hover {
+    background-size: 100%;
+  }
 }
 
 .logo_container {
@@ -369,10 +391,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 102;
-  background-color: #fcfcfc;
+  z-index: 103;
+  background-color: rgb(var(--background-modal-filters));
   border-radius: 8px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+  animation: modalSlideIn 400ms ease-out forwards;
 }
 
 .iconButton {

@@ -30,6 +30,10 @@ const WelcomePage = () => {
         </p>
         <Link to="/auth/register" className={s.welcomeRegBtn}>
           Registration
+          <span className="top"></span>
+          <span className={s.right}></span>
+          <span className={s.bottom}></span>
+          <span className={s.left}></span>
         </Link>
         <Link to="/auth/login" className={s.welcomeLogBtn}>
           Log In
