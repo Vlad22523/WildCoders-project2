@@ -1,17 +1,15 @@
 import { useEffect } from 'react'; 
 import { Formik, Form, Field } from 'formik'; 
-import * as Yup from 'yup'; // For validation schema 
-import s from '../AddColumnModal/ColModal.module.css'; 
-import SvgIcon from '../../../hooks/SvgIcon.jsx'; 
+import * as Yup from 'yup'; // Для валідації 
+import s from '../EditColumnModal/EditModal.module.css'; 
 import { IoClose } from 'react-icons/io5'; 
  
-// Validation schema for Formik 
+// Схема валідації для Formik 
 const validationSchema = Yup.object({ 
   title: Yup.string().trim().required('Title is required'), 
 }); 
  
-const AddColumnModal = ({ isOpen, onClose, onAddColumn }) => { 
-  // Close modal on Escape key press 
+const EditColumnModal = ({ isOpen, onClose }) => { 
   useEffect(() => { 
     const handleKeyDown = (e) => { 
       if (e.key === 'Escape') { 
@@ -25,7 +23,6 @@ const AddColumnModal = ({ isOpen, onClose, onAddColumn }) => {
     }; 
   }, [onClose]); 
  
-  // Close modal on backdrop click 
   const handleBackdropClick = (e) => { 
     if (e.target === e.currentTarget) { 
       onClose(); 
@@ -38,18 +35,18 @@ const AddColumnModal = ({ isOpen, onClose, onAddColumn }) => {
     <div className={s.overlay} onClick={handleBackdropClick}> 
       <div className={s.content}> 
         <div className={s.header}> 
-          <h2 className={s.text}>Add column</h2> 
+          <h2 className={s.text}>Edit column</h2> 
         </div> 
         <button className={s.buttonClose} onClick={onClose}> 
-          <IoClose /> 
+          <IoClose className={s.svg} /> 
         </button> 
         <Formik 
           initialValues={{ title: '' }} 
           validationSchema={validationSchema} 
           onSubmit={(values, { resetForm }) => { 
-            onAddColumn(values.title); // Add the new column 
-            resetForm(); // Clear the form 
-            onClose(); // Close the modal 
+            console.log('Saved title:', values.title); // Наприклад, замість збереження 
+            resetForm(); // Очищення форми 
+            onClose(); // Закриття модального вікна 
           }} 
         > 
           {({ errors, touched, isSubmitting }) => ( 
@@ -69,15 +66,7 @@ const AddColumnModal = ({ isOpen, onClose, onAddColumn }) => {
                 className={s.button} 
                 disabled={isSubmitting} 
               > 
-                <div className={s.svgWrapper}> 
-                  <SvgIcon 
-                    name="icon-plus" 
-                    width="14" 
-                    height="14" 
-                    className={s.icon} 
-                  /> 
-                </div> 
-                Add 
+                Save 
               </button> 
             </Form> 
           )} 
@@ -87,4 +76,4 @@ const AddColumnModal = ({ isOpen, onClose, onAddColumn }) => {
   ); 
 }; 
  
-export default AddColumnModal;
+export default EditColumnModal;
