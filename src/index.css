@@ -108,6 +108,13 @@ html[data-theme="light"] {
   --calendar-background: 255, 255, 255; /* #FFFFFF */
   --calendar-date: 22, 22, 22; /* #161616 */
   --button-add-photo: 190, 219, 176; /* #BEDBB0; */
+  /* modal column*/
+  --background-modal_input: 252, 252, 252; /* #FCFCFC */
+  --text-color-modal_input: 22, 22, 22; /* #161616 */
+  --button-close-svg: 22, 22, 22; /* #161616 */
+  --field-border-modal: 190, 219, 176; /* #BEDBB0 */
+  --field-focus-modal: 50, 50, 50; /* #323232 */
+  --field-focus-modal-border: 157, 200, 136; /* #9DC888 */
 }
 
 html[data-theme="dark"] {
@@ -141,6 +148,13 @@ html[data-theme="dark"] {
   --calendar-background: 31, 31, 31; /* #1F1F1F */
   --calendar-date: 31, 31, 31; /* #1F1F1F */
   --button-add-photo: 190, 219, 176; /* #BEDBB0; */
+  /* modal column*/
+  --background-modal_input: 21, 21, 21; /* 161616 */
+  --text-color-modal_input: 255, 255, 255; /* #FFFFFF */
+  --button-close-svg: 255, 255, 255; /* #FFFFFF */
+  --field-focus-modal: 255, 255, 255; /* #FFFFFF */
+  --field-border-modal: 190, 219, 176; /* #BEDBB0 */
+  --field-focus-modal-border: 157, 200, 136; /* #9DC888 */
 }
 
 html[data-theme="violet"] {
@@ -174,6 +188,13 @@ html[data-theme="violet"] {
   --calendar-background: 255, 255, 255; /* #FFFFFF */
   --calendar-date: 252, 252, 252; /*#FCFCFC */
   --button-add-photo: 236, 237, 253; /* #ECEDFD; */
+  /* modal column*/
+  --background-modal_input: 252, 252, 252; /* #FCFCFC */
+  --text-color-modal_input: 22, 22, 22; /* #161616 */
+  --button-close-svg: 22, 22, 22; /* #161616 */
+  --field-border-modal: 82, 85, 188; /* #5255BC */
+  --field-focus-modal: 74, 77, 171; /* #4A4DAB */
+  --field-focus-modal-border: 74, 77, 171; /* #4A4DAB */
 }
 
 /*
