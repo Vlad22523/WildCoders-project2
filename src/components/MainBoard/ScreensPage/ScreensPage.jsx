@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Column from "../Column/Column.jsx";
 import HeaderDashboard from "../HeaderDashboard/HeaderDashboard.jsx";
 import SvgIcon from "../../../hooks/SvgIcon.jsx";
+import EditColumnModal from "../../ColumnModal/EditColumnModal/EditColumModal.jsx";
 
 const ScreensPage = () => {
   const { boardId } = useParams();
@@ -58,6 +59,10 @@ const ScreensPage = () => {
             </p>
           )}
           <AddColumnModal isOpen={isModalOpen} onClose={closeModal} />
+          <EditColumnModal
+            isOpen={isModalOpen}
+            onClose={closeModal}
+          />
         </div>
       </div>
     </main>

@@ -1,6 +1,5 @@
 .overlay {
   position: fixed;
-  z-index: 100;
   top: 0;
   left: 0;
   right: 0;
@@ -12,7 +11,7 @@
 }
 
 .content {
-  background-color: rgb(var(--background-mainboard));
+  background-color: rgb(var(--background-modal_input));
   padding: 24px;
   border-radius: 8px;
   width: 335px;
@@ -20,7 +19,7 @@
   max-width: 90%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
-  border: 1px;
+  border: 1px, ;
 }
 
 .header {
@@ -31,7 +30,7 @@
 }
 
 .text {
-  color: rgb(var(--text-color-mainboard));
+  color: rgb(var(--text-color-modal_input));
   font-family: Poppins, medium;
   font-size: 18px;
   margin: 0;
@@ -41,15 +40,11 @@
   background-color: transparent;
   right: 18px;
   top: 18px;
+  font-size: 18px;
   position: absolute;
-  color: rgb(var(--text-color-mainboard));
+  color: rgb(var(--button-close-svg));
   border: none;
   padding: 0;
-}
-
-.svg {
-  font-size: 18px;
-  stroke: rgb(var(--button-color-mainboard));
 }
 
 .field {
@@ -60,14 +55,22 @@
   font-family: Poppins, regular;
   letter-spacing: -0.28px;
   background-color: rgb(var(--background-mainboard));
-  border: 1px solid rgb(190, 219, 176);
+  border: 1px solid rgb(var(--field-border-modal));
   box-shadow: rgba(22, 22, 22, 0.08) 0px 4px 16px;
   outline: none;
   border-radius: 8px;
-  color: rgba(192, 192, 192, 0.597);
+  color: rgb(var(--text-color-modal_input));
   transition: 250ms;
   opacity: 0.4;
   margin-top: 24px;
+}
+.field::placeholder {
+  color: rgb(var(--text-color-modal_input));
+}
+.field:focus {
+  color: rgb(var(--field-focus-modal)); /* Darker text color */
+  opacity: 1; /* Make the field fully opaque on focus */
+  border-color: rgb(var(--field-focus-modal-border)); /* Optional: change border color on focus */
 }
 
 .button {
@@ -75,26 +78,32 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: #c8e6c9;
+  background-color: rgb(var(--button-color-modal));
   color: black;
   border: none;
   border-radius: 8px;
   padding: 12px 0;
   font-size: 16px;
   margin-top: 24px;
+  transition: background-color 200ms ease;
 }
 
-.svgWrapper {
+.button:hover {
+  background-color: rgb(var(--field-focus-modal-border));
+  transition-delay: 150ms;
+}
+
+.svgWrapper{
   width: 28px;
-  height: 28px;
-  background-color: rgb(var(--text-color-mainboard));
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 8px;
-}
+   height: 28px;
+   background-color: rgb(var(--text-color-mainboard));
+   border-radius: 6px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-right: 8px;
+ }
 
-.icon {
+.icon{
   stroke: rgb(var(--button-color-mainboard));
 }
