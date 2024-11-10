@@ -2,8 +2,13 @@ import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import EllipsisText from "react-ellipsis-text";
 import s from "./Card.module.css";
 
-const Card = ({ title, description, priority, deadline, onEdit, onDelete }) => {
-  const priorityClass = `priority-${priority.toLowerCase()}`;
+const Card = ({ data }) => {
+  const { title, description, priority, deadline } = data;
+  console.log("cards", deadline);
+
+  const priorityClass =
+    priority.charAt(0).toUpperCase() + priority.slice(1).toLowerCase();
+
   return (
     <div className={s.taskContainer}>
       <h4 className={s.title}>{title}</h4>
@@ -15,8 +20,8 @@ const Card = ({ title, description, priority, deadline, onEdit, onDelete }) => {
         <div className={s.optionsWrapper}>
           <div className={s.option}>
             <span className={s.optionLabel}>Priority</span>
-            <p className={`${s.priorityValue} ${s[priorityClass]}`}>
-              {priority}
+            <p className={`${s.priorityValue} ${s[priority]}`}>
+              {priorityClass}
             </p>
           </div>
           <div className={s.option}>
@@ -37,7 +42,7 @@ const Card = ({ title, description, priority, deadline, onEdit, onDelete }) => {
               className={s.icon}
             />
           </button>
-          <button className={s.btnOptions} type="button" onClick={onEdit}>
+          <button className={s.btnOptions} type="button">
             <SvgIcon
               name="icon-pencil"
               width="16"
@@ -45,7 +50,7 @@ const Card = ({ title, description, priority, deadline, onEdit, onDelete }) => {
               className={s.icon}
             />
           </button>
-          <button className={s.btnOptions} type="button" onClick={onDelete}>
+          <button className={s.btnOptions} type="button">
             <SvgIcon
               name="icon-trash"
               width="16"
