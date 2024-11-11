@@ -2,11 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import s from "./Filters.module.css";
 import { Formik, Form, Field } from "formik";
 import SvgIcon from "../../../hooks/SvgIcon.jsx";
+import { useDispatch } from "react-redux";
+import { changePriorityFilter } from "../../../redux/filters/slice.js";
 
 const Filters = () => {
+  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalStyle, setModalStyle] = useState(false);
   const modalRef = useRef(null);
+
+  const handleFilterChange = (filterOption) => {
+    dispatch(changePriorityFilter(filterOption));
+  };
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -40,6 +47,7 @@ const Filters = () => {
 
   const handleReset = (setFieldValue) => {
     setFieldValue("filterOption", "");
+    handleFilterChange("");
   };
 
   return (
@@ -76,12 +84,7 @@ const Filters = () => {
             />
           </button>
           <div className={s.line}></div>
-          <Formik
-            initialValues={initialValues}
-            onSubmit={(values) => {
-              console.log("Выбран фильтр:", values.filterOption);
-            }}
-          >
+          <Formik initialValues={initialValues}>
             {({ setFieldValue, values }) => (
               <Form>
                 <div role="group" aria-labelledby="radio-group">
@@ -96,52 +99,70 @@ const Filters = () => {
                     </button>
                   </div>
                   <label
-                    className={`${s.formOptions} ${s.optionWithoutPriority} ${values.filterOption === "without-priority" ? s.selected : ""}`}
+                    className={`${s.formOptions} ${s.optionWithoutPriority} ${
+                      values.filterOption === "without" ? s.selected : ""
+                    }`}
                   >
                     <Field
                       type="radio"
                       name="filterOption"
-                      value="without-priority"
-                      onClick={() =>
-                        setFieldValue("filterOption", "without-priority")
-                      }
+                      value="without"
                       className={s.radioBtn}
+                      onChange={() => {
+                        setFieldValue("filterOption", "without"); // Изменяем значение фильтра
+                        handleFilterChange("without"); // Сразу применяем фильтр в Redux
+                      }}
                     />
                     Without priority
                   </label>
                   <label
-                    className={`${s.formOptions} ${s.optionLow} ${values.filterOption === "low" ? s.selected : ""}`}
+                    className={`${s.formOptions} ${s.optionLow} ${
+                      values.filterOption === "low" ? s.selected : ""
+                    }`}
                   >
                     <Field
                       type="radio"
                       name="filterOption"
                       value="low"
-                      onClick={() => setFieldValue("filterOption", "low")}
                       className={s.radioBtn}
+                      onChange={() => {
+                        setFieldValue("filterOption", "low"); // Изменяем значение фильтра
+                        handleFilterChange("low"); // Сразу применяем фильтр в Redux
+                      }}
                     />
                     Low
                   </label>
                   <label
-                    className={`${s.formOptions} ${s.optionMedium} ${values.filterOption === "medium" ? s.selected : ""}`}
+                    className={`${s.formOptions} ${s.optionMedium} ${
+                      values.filterOption === "medium" ? s.selected : ""
+                    }`}
                   >
                     <Field
                       type="radio"
                       name="filterOption"
                       value="medium"
-                      onClick={() => setFieldValue("filterOption", "medium")}
                       className={s.radioBtn}
+                      onChange={() => {
+                        setFieldValue("filterOption", "medium"); // Изменяем значение фильтра
+                        handleFilterChange("medium"); // Сразу применяем фильтр в Redux
+                      }}
                     />
                     Medium
                   </label>
                   <label
-                    className={`${s.formOptions} ${s.optionHigh} ${values.filterOption === "high" ? s.selected : ""}`}
+                    className={`${s.formOptions} ${s.optionHigh} ${
+                      values.filterOption === "high" ? s.selected : ""
+                    }`}
                   >
                     <Field
                       type="radio"
                       name="filterOption"
                       value="high"
-                      onClick={() => setFieldValue("filterOption", "high")}
                       className={s.radioBtn}
+                      onChange={() => {
+                        setFieldValue("filterOption", "high"); // Изменяем значение фильтра
+                        handleFilterChange("high"); // Сразу применяем фильтр в Redux
+                      }}
                     />
                     High
                   </label>

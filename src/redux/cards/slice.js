@@ -1,5 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { fetchCardsThunk } from "./operations.js";
+import { selectAllCards } from "./selectors.js";
+import { selectPriorityFilter } from "../filters/selectors.js";
 
 const cardsSlice = createSlice({
   name: "cards",
@@ -30,6 +32,18 @@ const cardsSlice = createSlice({
       });
   },
 });
+
+export const selectFilteredCards = createSelector(
+  [selectAllCards, selectPriorityFilter],
+  (cards, priority) => {
+    if (!priority) {
+      return cards;
+    }
+    return cards.filter(
+      (card) => card.priority.toLowerCase() === priority.toLowerCase()
+    );
+  }
+);
 
 export const { resetRefresh } = cardsSlice.actions;
 export const cardsReducer = cardsSlice.reducer;

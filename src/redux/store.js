@@ -17,6 +17,7 @@ import { boardsReducer } from "./boards/slice.js";
 import { helpModalReducer } from "./needHelp/slice.js";
 import { columnsReducer } from "./columns/slice.js";
 import { cardsReducer } from "./cards/slice.js";
+import { filtersReducer } from "./filters/slice.js";
 
 const persistConfig = {
   key: "root",
@@ -30,6 +31,7 @@ export const store = configureStore({
     sidebar: sidebarReducer,
     boards: boardsReducer,
     columns: columnsReducer,
+    filters: filtersReducer,
     cards: cardsReducer,
     helpModal: helpModalReducer,
   },

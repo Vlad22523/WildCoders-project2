@@ -2,21 +2,25 @@ import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import Card from "../Card/Card.jsx";
 import s from "./Column.module.css";
 // import ModalCard from "../../ModalCard/ModalCard.jsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectAllCards,
+  selectCardsByColumn,
   selectLoadingCards,
 } from "../../../redux/cards/selectors.js";
 import { fetchCardsThunk } from "../../../redux/cards/operations.js";
 import { LineWave } from "react-loader-spinner";
+import { selectFilteredCards } from "../../../redux/cards/slice.js";
 
 const Column = ({ data: { title, _id } }) => {
-  // const [isCardModalOpen, setCardModalOpen] = useState(false);
-  // const [editingCard, setEditingCard] = useState(null);
-  const cards = useSelector(selectAllCards);
   const loading = useSelector(selectLoadingCards);
   const dispatch = useDispatch();
+  const filteredCards = useSelector(selectFilteredCards);
+  const cards = useSelector(selectAllCards);
+  console.log(cards);
+
+  const [columnCards, setColumnCards] = useState([]);
 
   useEffect(() => {
     if (_id) {
@@ -78,11 +82,12 @@ const Column = ({ data: { title, _id } }) => {
           width="100"
           color="#4fa94d"
           ariaLabel="line-wave-loading"
+          wrapperClass={s.lineWaveLoader}
         />
       ) : (
         <div className={s.scrollBarTasks}>
           <div className={s.tasksWrapper}>
-            {cards.map((card) => (
+            {filteredCards.map((card) => (
               <Card key={card._id} data={card} />
             ))}
           </div>

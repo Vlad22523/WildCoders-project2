@@ -9,59 +9,84 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchColumnsThunk } from "../../../redux/columns/operations.js";
 import {
   selectAllColumns,
-  selectLoadedColumns,
   selectLoadingColumns,
 } from "../../../redux/columns/selectors.js";
 import { ColorRing } from "react-loader-spinner";
-import { selectAllBoards } from "../../../redux/boards/selectors.js";
+import {
+  selectAllBoards,
+  selectLoadingBoard,
+} from "../../../redux/boards/selectors.js";
 import backgroundsData from "../../../images/backgroundImages.json";
 
 const ScreensPage = () => {
   const { boardId } = useParams();
   const boards = useSelector(selectAllBoards);
-  const loading = useSelector(selectLoadingColumns);
+  const loadingBoards = useSelector(selectLoadingBoard);
+  const loadingColumns = useSelector(selectLoadingColumns);
   const dispatch = useDispatch();
   const columns = useSelector(selectAllColumns);
-  const loadedColumns = useSelector(selectLoadedColumns);
 
   const [title, setTitle] = useState("");
   const [background, setBackground] = useState("");
   const [isDataLoaded, setDataLoaded] = useState(false);
-  const [style, setStyle] = useState({});
 
+  // Функция для получения пути к фоновому изображению в зависимости от ширины экрана
+  const getBackgroundImagePath = (backgroundId) => {
+    const screenWidth = window.innerWidth; // Получаем ширину экрана
+
+    const backgroundData = backgroundsData.find(
+      (item) => item.id === backgroundId
+    );
+
+    if (backgroundData) {
+      if (screenWidth >= 1440) {
+        return backgroundData.src.desktop;
+      } else if (screenWidth >= 768) {
+        return backgroundData.src.tablet;
+      } else {
+        return backgroundData.src.mobile;
+      }
+    }
+
+    return "";
+  };
   useEffect(() => {
-    if (boardId) {
-      dispatch(fetchColumnsThunk(boardId)).then(() => {
+    const handleResize = () => {
+      if (boardId && !loadingBoards) {
         const currentBoard = boards.find((board) => board._id === boardId);
 
         if (currentBoard) {
-          setTitle(currentBoard.title);
-
-          const backgroundData = backgroundsData.find(
-            (item) => item.id === currentBoard.background
-          );
-          if (backgroundData && backgroundData.id !== "bg-1") {
-            setBackground(backgroundData.src.desktop);
-            setBackground("");
-          }
-        } else {
-          console.warn(`Board with ID ${boardId} not found`);
+          const bgPath = getBackgroundImagePath(currentBoard.background);
+          setBackground(bgPath);
         }
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [boardId, loadingBoards, boards]);
 
-        setDataLoaded(true);
-      });
+  useEffect(() => {
+    if (boardId && !loadingBoards) {
+      const currentBoard = boards.find((board) => board._id === boardId);
+
+      if (currentBoard) {
+        setTitle(currentBoard.title);
+        const bgPath = getBackgroundImagePath(currentBoard.background);
+        setBackground(bgPath);
+        dispatch(fetchColumnsThunk(boardId)).finally(() => {
+          setDataLoaded(true);
+        });
+      }
     }
-  }, [boardId, dispatch, boards]);
-  console.log(background);
+  }, [boardId, dispatch, boards, loadingBoards]);
 
-  // if (loadedColumns) {
-  //   setStyle({
-  //     backgroundImage: background ? `url(${background})` : "none",
-  //     backgroundSize: "cover",
-  //     backgroundPosition: "center center",
-  //     height: "100vh",
-  //   });
-  // }
+  const style = {
+    backgroundImage: background ? `url(${background})` : "none",
+    backgroundSize: "cover",
+    backgroundPosition: "center center",
+  };
 
   const [isModalOpen, setModalOpen] = useState(false);
 
@@ -70,24 +95,26 @@ const ScreensPage = () => {
 
   return (
     <main className={s.main}>
-      <div className={s.mainContainer}>
+      <div className={s.mainContainer} style={style}>
         <div className={s.header}>
           <HeaderDashboard title={title} />
         </div>
         <div
           className={`${s.mainWrapper} ${
-            boardId && !loading ? s.boardCreated : s.noBoard
+            boardId && !loadingColumns && isDataLoaded
+              ? s.boardCreated
+              : s.noBoard
           }`}
         >
           {boardId ? (
-            loading ? (
+            loadingColumns || !isDataLoaded ? (
               <ColorRing
                 visible={true}
                 height="120"
                 width="120"
                 ariaLabel="color-ring-loading"
                 wrapperStyle={{}}
-                wrapperClass="color-ring-wrapper"
+                wrapperClass={s.colorRingWrapper}
                 colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
               />
             ) : (
