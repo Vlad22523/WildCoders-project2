@@ -3,8 +3,8 @@ import EllipsisText from "react-ellipsis-text";
 import s from "./Card.module.css";
 import { format, isBefore, isSameDay } from "date-fns";
 
-const Card = ({ data }) => {
-  const { title, description, priority, dateDeadline } = data;
+const Card = ({ data, openModal, onDelete }) => {
+  const { title, description, priority, dateDeadline, _id } = data;
 
   const isToday = (date) => {
     return isSameDay(new Date(date), new Date());
@@ -94,7 +94,11 @@ const Card = ({ data }) => {
               className={s.icon}
             />
           </button>
-          <button className={s.btnOptions} type="button">
+          <button
+            className={s.btnOptions}
+            type="button"
+            onClick={() => openModal(_id)}
+          >
             <SvgIcon
               name="icon-pencil"
               width="16"
@@ -102,7 +106,11 @@ const Card = ({ data }) => {
               className={s.icon}
             />
           </button>
-          <button className={s.btnOptions} type="button">
+          <button
+            className={s.btnOptions}
+            type="button"
+            onClick={() => onDelete(_id)}
+          >
             <SvgIcon
               name="icon-trash"
               width="16"

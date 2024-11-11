@@ -3,28 +3,28 @@ import { Box, FormControlLabel, Radio, RadioGroup } from "@mui/material";
 const RadioColored = ({ onRadioChange, currentPriority }) => {
   const radioButtons = [
     {
-      value: "High",
+      value: "high",
       radioColor: {
         static: "#bedbb0",
         checked: "#bedbb0",
       },
     },
     {
-      value: "Medium",
+      value: "medium",
       radioColor: {
         static: "#e09cb5",
         checked: "#e09cb5",
       },
     },
     {
-      value: "Low",
+      value: "low",
       radioColor: {
         static: "#8fa1d0",
         checked: "#8fa1d0",
       },
     },
     {
-      value: "Without",
+      value: "without",
       radioColor: {
         static: "rgb(var(--text-color-mainboard),0.3)",
         checked: "rgb(var(--text-color-mainboard),0.3)",

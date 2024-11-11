@@ -99,6 +99,14 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: rgb(var(--text-color-mainboard));
+  transition: all 200ms ease-in-out;
+}
+
+.button:active,
+.button:hover,
+.button:focus {
+  background-color: rgb(var(--button-color-modal));
+  letter-spacing: 0.6px;
 }
 
 .svgWrapper {
