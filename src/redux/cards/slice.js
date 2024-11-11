@@ -1,7 +1,7 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { fetchCardsThunk } from "./operations.js";
-import { selectAllCards } from "./selectors.js";
 import { selectPriorityFilter } from "../filters/selectors.js";
+import { selectAllCards } from "./selectors.js";
 
 const cardsSlice = createSlice({
   name: "cards",
@@ -24,7 +24,11 @@ const cardsSlice = createSlice({
       })
       .addCase(fetchCardsThunk.fulfilled, (state, action) => {
         state.loading = false;
-        state.cards = action.payload;
+        // Добавляем только новые карточки, если они не существуют
+        const newCards = action.payload.filter(
+          (newCard) => !state.cards.some((card) => card._id === newCard._id)
+        );
+        state.cards = [...state.cards, ...newCards];
       })
       .addCase(fetchCardsThunk.rejected, (state, action) => {
         state.loading = false;

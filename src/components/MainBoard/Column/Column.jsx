@@ -2,13 +2,9 @@ import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import Card from "../Card/Card.jsx";
 import s from "./Column.module.css";
 // import ModalCard from "../../ModalCard/ModalCard.jsx";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectAllCards,
-  selectCardsByColumn,
-  selectLoadingCards,
-} from "../../../redux/cards/selectors.js";
+import { selectLoadingCards } from "../../../redux/cards/selectors.js";
 import { fetchCardsThunk } from "../../../redux/cards/operations.js";
 import { LineWave } from "react-loader-spinner";
 import { selectFilteredCards } from "../../../redux/cards/slice.js";
@@ -17,16 +13,13 @@ const Column = ({ data: { title, _id } }) => {
   const loading = useSelector(selectLoadingCards);
   const dispatch = useDispatch();
   const filteredCards = useSelector(selectFilteredCards);
-  const cards = useSelector(selectAllCards);
-  console.log(cards);
-
-  const [columnCards, setColumnCards] = useState([]);
-
   useEffect(() => {
     if (_id) {
       dispatch(fetchCardsThunk(_id));
     }
   }, [_id, dispatch]);
+
+  const cardsForColumn = filteredCards.filter((card) => card.columnId === _id);
 
   // const openCardModal = (card = null) => {
   //   setEditingCard(card);
@@ -87,7 +80,7 @@ const Column = ({ data: { title, _id } }) => {
       ) : (
         <div className={s.scrollBarTasks}>
           <div className={s.tasksWrapper}>
-            {filteredCards.map((card) => (
+            {cardsForColumn.map((card) => (
               <Card key={card._id} data={card} />
             ))}
           </div>
