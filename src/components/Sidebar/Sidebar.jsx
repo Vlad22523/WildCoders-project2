@@ -181,6 +181,7 @@ const Sidebar = () => {
         {isDeleteFormOpen && (
           <div className={s.modal} onClick={(e) => e.stopPropagation()}>
             <DeleteBoardForm
+              title={selectedBoard?.title}
               boardId={selectedBoard?._id}
               onClose={closeDeleteForm}
             />
