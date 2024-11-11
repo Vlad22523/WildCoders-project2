@@ -15,7 +15,7 @@ const columnsSlice = createSlice({
     loadedColumns: false,
   },
   reducers: {
-    resetRefresh: (state) => {
+    resetRefreshColumn: (state) => {
       state.refresh = false;
     },
   },
@@ -35,6 +35,7 @@ const columnsSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
         state.loadedColumns = false;
+        state.refresh = true;
       })
       .addCase(fetchAddColumn.fulfilled, (state) => {
         state.loading = false;
@@ -57,5 +58,5 @@ const columnsSlice = createSlice({
   },
 });
 
-export const { resetRefresh } = columnsSlice.actions;
+export const { resetRefreshColumn } = columnsSlice.actions;
 export const columnsReducer = columnsSlice.reducer;

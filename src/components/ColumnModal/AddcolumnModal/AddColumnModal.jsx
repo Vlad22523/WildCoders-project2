@@ -12,7 +12,11 @@ import {
 
 // Validation schema for Formik
 const validationSchema = Yup.object({
-  title: Yup.string().trim().required("Title is required").max(20, "Too long"),
+  title: Yup.string()
+    .trim()
+    .required("Title is required")
+    .max(20, "Too long")
+    .min(3, "Too short"),
 });
 
 const AddColumnModal = ({ isOpen, onClose, boardId }) => {
