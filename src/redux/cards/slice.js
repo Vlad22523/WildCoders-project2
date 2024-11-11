@@ -25,10 +25,12 @@ const cardsSlice = createSlice({
       .addCase(fetchCardsThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.cards = action.payload;
+        state.refresh = false;
       })
       .addCase(fetchCardsThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
+        state.refresh = true;
       });
   },
 });

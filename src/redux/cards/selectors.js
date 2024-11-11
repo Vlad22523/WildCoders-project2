@@ -1,5 +1,5 @@
 export const selectAllCards = (state) => state.cards.cards;
-export const selectRefresh = (state) => state.cards.refresh;
+export const selectRefreshCards = (state) => state.cards.refresh;
 export const selectLoadingCards = (state) => state.cards.loading;
 
 export const selectCardsByColumn = (state, columnId) => {
