@@ -1,4 +1,18 @@
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
 .container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 335px;
 
   border-radius: 8px;
@@ -6,6 +20,7 @@
   padding: 24px;
   margin: auto;
   border: 1px solid rgb(var(--svglogout), 0.5);
+  animation: modalSlideIn 300ms ease-out forwards;
 }
 
 .containerTitle {
