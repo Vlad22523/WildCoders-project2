@@ -3,9 +3,11 @@ import * as Yup from "yup";
 import s from "../MainBoardForm/MainBoardForm.module.css";
 import { useDispatch } from "react-redux";
 import { createBoardThunk } from "../../redux/boards/operations.js";
+import { useNavigate } from "react-router-dom";
 
 export const CreateBoardForm = ({ setFormOpen }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     const newBoardData = {
@@ -13,7 +15,9 @@ export const CreateBoardForm = ({ setFormOpen }) => {
       icon: data.icon,
       background: data.background,
     };
-    dispatch(createBoardThunk(newBoardData));
+    dispatch(createBoardThunk(newBoardData)).then((item) => {
+      navigate(`/home/${item?.payload?._id}`);
+    });
     setFormOpen(false);
   };
 

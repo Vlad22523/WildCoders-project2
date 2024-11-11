@@ -28,14 +28,21 @@
   flex: 1;
   display: flex;
   padding: 10px;
-  position: relative;
+}
+
+.boardCreated {
+  justify-content: start;
+  align-items: baseline;
+}
+
+.noBoard {
+  justify-content: center;
+  align-items: center;
 }
 
 .colorRingWrapper {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50% -50%);
+  display: block;
+  margin: auto auto;
 }
 
 .scrollbarColumn {
@@ -123,19 +130,10 @@
   stroke: rgb(var(--button-color-mainboard));
 }
 
-.boardCreated {
-  justify-content: start;
-  align-items: baseline;
-}
-
 .text {
   max-width: 335px;
   padding: 0 10px;
   width: 100%;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%);
   font-family: "Poppins", sans-serif;
   font-size: 12px;
   line-height: 1.33;

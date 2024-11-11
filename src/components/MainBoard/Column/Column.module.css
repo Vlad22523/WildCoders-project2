@@ -11,6 +11,7 @@
 .lineWaveLoader {
   position: relative;
   left: 40%;
+  color: red;
 }
 
 .button {
