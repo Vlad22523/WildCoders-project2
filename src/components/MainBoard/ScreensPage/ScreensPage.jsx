@@ -121,7 +121,7 @@ const ScreensPage = () => {
               <div className={s.scrollbarColumn}>
                 <div className={s.columnContainer}>
                   {columns.map((column) => (
-                    <Column key={column._id} data={column} />
+                    <Column key={column._id} data={column} boardId={boardId} />
                   ))}
                   <button
                     onClick={openModal}
@@ -150,7 +150,11 @@ const ScreensPage = () => {
               ensure effective collaboration among team members.
             </p>
           )}
-          <AddColumnModal isOpen={isModalOpen} onClose={closeModal} />
+          <AddColumnModal
+            isOpen={isModalOpen}
+            onClose={closeModal}
+            boardId={boardId}
+          />
         </div>
       </div>
     </main>

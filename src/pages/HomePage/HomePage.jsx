@@ -16,10 +16,7 @@ import {
   selectIsOpenHelpModal,
 } from "../../redux/needHelp/selectors.js";
 import { getBoardsThunk } from "../../redux/boards/operations.js";
-import {
-  selectLoadingBoard,
-  selectRefresh,
-} from "../../redux/boards/selectors.js";
+import { selectRefresh } from "../../redux/boards/selectors.js";
 import { resetRefresh } from "../../redux/boards/slice.js";
 
 const HomePage = () => {
@@ -27,7 +24,6 @@ const HomePage = () => {
   const loaderHelp = useSelector(selectIsLoading);
   const isHelpModalOpen = useSelector(selectIsOpenHelpModal);
   const refresh = useSelector(selectRefresh);
-  const loaderBoard = useSelector(selectLoadingBoard);
 
   const dispatch = useDispatch();
 
@@ -47,7 +43,17 @@ const HomePage = () => {
     }
   }, [dispatch, refresh]);
 
-  return loader || loaderHelp || loaderBoard ? (
+  useEffect(() => {
+    const interval = setInterval(() => {
+      dispatch(refreshUserThunk()).then(() => {
+        dispatch(getBoardsThunk());
+      });
+    }, 14 * 60 * 1000); // 14 хвилин у мілісекундах
+
+    return () => clearInterval(interval); // Очистити інтервал при демонтажі компонента
+  }, [dispatch]);
+
+  return loader || loaderHelp ? (
     <Loader />
   ) : (
     <div className={s.wrapper}>

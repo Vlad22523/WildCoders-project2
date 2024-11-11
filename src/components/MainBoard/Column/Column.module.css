@@ -39,6 +39,11 @@
   justify-content: center;
 }
 
+.btn_column {
+  background: transparent;
+  border: none;
+}
+
 .scrollBarTasks {
   max-height: 100%;
   overflow-y: scroll;
@@ -109,6 +114,11 @@
 .iconColumn {
   stroke: rgba(var(--text-color-mainboard), 0.5);
   fill: transparent;
+  transition: all 200ms ease-in-out;
+}
+
+.iconColumn:hover {
+  stroke: rgb(var(--text-color-mainboard));
 }
 
 .iconAddCard {

@@ -4,23 +4,25 @@ import s from "./Column.module.css";
 // import ModalCard from "../../ModalCard/ModalCard.jsx";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectAllCards,
-  selectCardsByColumn,
-  selectLoadingCards,
-} from "../../../redux/cards/selectors.js";
+import { selectLoadingCards } from "../../../redux/cards/selectors.js";
 import { fetchCardsThunk } from "../../../redux/cards/operations.js";
 import { LineWave } from "react-loader-spinner";
 import { selectFilteredCards } from "../../../redux/cards/slice.js";
+import EditColumnModal from "../../ColumnModal/EditColumnModal/EditColumModal.jsx";
+import { DeleteColumn } from "../../ColumnModal/DeleteColumn/DeleteColumn.jsx";
 
-const Column = ({ data: { title, _id } }) => {
+const Column = ({ data: { title, _id }, boardId }) => {
   const loading = useSelector(selectLoadingCards);
   const dispatch = useDispatch();
   const filteredCards = useSelector(selectFilteredCards);
-  const cards = useSelector(selectAllCards);
-  console.log(cards);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
 
-  const [columnCards, setColumnCards] = useState([]);
+  const openModalEdit = () => setModalOpen(true);
+  const closeModalEdit = () => setModalOpen(false);
+
+  const openModalDelete = () => setIsModalDeleteOpen(true);
+  const closeModalDelete = () => setIsModalDeleteOpen(false);
 
   useEffect(() => {
     if (_id) {
@@ -28,53 +30,44 @@ const Column = ({ data: { title, _id } }) => {
     }
   }, [_id, dispatch]);
 
-  // const openCardModal = (card = null) => {
-  //   setEditingCard(card);
-  //   setCardModalOpen(true);
-  // };
-  // const closeCardModal = () => {
-  //   setEditingCard(null);
-  //   setCardModalOpen(false);
-  // };
-
-  // const addCard = (newCard) => {
-  //   setCards((prevCards) => [...prevCards, { id: Date.now(), ...newCard }]);
-  // };
-
-  // const updateCard = (updatedCard) => {
-  //   setCards((prevCards) => {
-  //     const updatedCards = prevCards.map((card) =>
-  //       card.id === updatedCard.id ? updatedCard : card
-  //     );
-  //     return updatedCards;
-  //   });
-  // };
-
-  // const deleteCard = (cardToDelete) => {
-  //   setCards((prevCards) =>
-  //     prevCards.filter((card) => card.id !== cardToDelete.id)
-  //   );
-  // };
-
   return (
     <div className={s.columnWrapper}>
-      <button className={`${s.button} ${s.buttonColumn}`} type="button">
+      <div className={`${s.button} ${s.buttonColumn}`} type="button">
         {title}
+
         <div className={s.svgWrapperColumn}>
-          <SvgIcon
-            name="icon-pencil"
-            width="16"
-            height="16"
-            className={s.iconColumn}
-          />
-          <SvgIcon
-            name="icon-trash"
-            width="16"
-            height="16"
-            className={s.iconColumn}
-          />
+          <button onClick={openModalEdit} className={s.btn_column}>
+            <SvgIcon
+              name="icon-pencil"
+              width="16"
+              height="16"
+              className={s.iconColumn}
+            />
+          </button>
+          <button className={s.btn_column} onClick={openModalDelete}>
+            <SvgIcon
+              name="icon-trash"
+              width="16"
+              height="16"
+              className={s.iconColumn}
+            />
+          </button>
         </div>
-      </button>
+        <EditColumnModal
+          onClose={closeModalEdit}
+          isOpen={isModalOpen}
+          title={title}
+          id={_id}
+          boardId={boardId}
+        />
+        <DeleteColumn
+          onClose={closeModalDelete}
+          isOpen={isModalDeleteOpen}
+          title={title}
+          id={_id}
+          boardId={boardId}
+        />
+      </div>
       {loading ? (
         <LineWave
           visible={true}

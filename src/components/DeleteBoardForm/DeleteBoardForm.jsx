@@ -4,8 +4,8 @@ import { deleteBoardThunk } from "../../redux/boards/operations";
 
 export const DeleteBoardForm = ({ onClose, boardId, title }) => {
   const dispatch = useDispatch();
-  const handleDelete = async () => {
-    await dispatch(deleteBoardThunk(boardId));
+  const handleDelete = () => {
+    dispatch(deleteBoardThunk(boardId));
     onClose();
   };
 
