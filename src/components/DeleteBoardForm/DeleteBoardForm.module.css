@@ -33,6 +33,9 @@
   font-weight: 500;
   letter-spacing: -0.36px;
   text-align: center;
+  span {
+    color: rgb(var(--text-color-mainboard));
+  }
 }
 
 .containerButton {

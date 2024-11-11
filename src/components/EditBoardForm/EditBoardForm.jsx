@@ -2,7 +2,10 @@ import { MainBoardForm } from "../MainBoardForm/MainBoardForm.jsx";
 import * as Yup from "yup";
 import s from "../MainBoardForm/MainBoardForm.module.css";
 import { useDispatch } from "react-redux";
-import { updateBoardThunk } from "../../redux/boards/operations.js";
+import {
+  getBoardsThunk,
+  updateBoardThunk,
+} from "../../redux/boards/operations.js";
 import { useState } from "react";
 
 export const EditBoardForm = ({ setFormOpen, initialValues }) => {
@@ -38,6 +41,7 @@ export const EditBoardForm = ({ setFormOpen, initialValues }) => {
         background: values.background,
       });
       setFormOpen(false);
+      dispatch(getBoardsThunk());
     } catch (error) {
       console.error("Error updating board:", error);
     }
