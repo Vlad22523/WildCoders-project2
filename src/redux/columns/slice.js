@@ -30,6 +30,7 @@ const columnsSlice = createSlice({
         state.loading = false;
         state.columns = action.payload;
         state.loadedColumns = true;
+        state.refresh = false;
       })
       .addCase(fetchColumnsThunk.rejected, (state, action) => {
         state.loading = false;
