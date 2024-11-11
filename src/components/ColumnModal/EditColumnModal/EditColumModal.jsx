@@ -1,8 +1,8 @@
-import { useEffect } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup"; // Для валідації
 import s from "../EditColumnModal/EditModal.module.css";
 import { IoClose } from "react-icons/io5";
+import Backdrop from "../../Backdrop/Backdrop";
 
 // Схема валідації для Formik
 const validationSchema = Yup.object({
