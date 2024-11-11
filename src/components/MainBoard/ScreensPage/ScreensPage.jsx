@@ -10,6 +10,7 @@ import { fetchColumnsThunk } from "../../../redux/columns/operations.js";
 import {
   selectAllColumns,
   selectLoadingColumns,
+  selectRefreshColumns,
 } from "../../../redux/columns/selectors.js";
 import { ColorRing } from "react-loader-spinner";
 import {
@@ -17,6 +18,8 @@ import {
   selectLoadingBoard,
 } from "../../../redux/boards/selectors.js";
 import backgroundsData from "../../../images/backgroundImages.json";
+import { refreshUserThunk } from "../../../redux/auth/operations.js";
+import { resetRefreshColumn } from "../../../redux/columns/slice.js";
 
 const ScreensPage = () => {
   const { boardId } = useParams();
@@ -25,6 +28,7 @@ const ScreensPage = () => {
   const loadingColumns = useSelector(selectLoadingColumns);
   const dispatch = useDispatch();
   const columns = useSelector(selectAllColumns);
+  const refresh = useSelector(selectRefreshColumns);
 
   const [title, setTitle] = useState("");
   const [background, setBackground] = useState("");
@@ -82,6 +86,16 @@ const ScreensPage = () => {
     }
   }, [boardId, dispatch, boards, loadingBoards]);
 
+  useEffect(() => {
+    // Виконати логіку для refresh, якщо це необхідно
+    if (refresh) {
+      dispatch(refreshUserThunk()).then(() => {
+        dispatch(resetRefreshColumn());
+        dispatch(fetchColumnsThunk(boardId)); // Скидаємо refresh після виконання
+      });
+    }
+  }, [dispatch, refresh, boardId]);
+
   const style = {
     backgroundImage: background ? `url(${background})` : "none",
     backgroundSize: "cover",
@@ -121,7 +135,7 @@ const ScreensPage = () => {
               <div className={s.scrollbarColumn}>
                 <div className={s.columnContainer}>
                   {columns.map((column) => (
-                    <Column key={column._id} data={column} />
+                    <Column key={column._id} data={column} boardId={boardId} />
                   ))}
                   <button
                     onClick={openModal}
@@ -150,7 +164,11 @@ const ScreensPage = () => {
               ensure effective collaboration among team members.
             </p>
           )}
-          <AddColumnModal isOpen={isModalOpen} onClose={closeModal} />
+          <AddColumnModal
+            isOpen={isModalOpen}
+            onClose={closeModal}
+            boardId={boardId}
+          />
         </div>
       </div>
     </main>

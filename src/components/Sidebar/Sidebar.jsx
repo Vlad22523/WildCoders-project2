@@ -13,13 +13,18 @@ import { DeleteBoardForm } from "../DeleteBoardForm/DeleteBoardForm.jsx";
 import clsx from "clsx";
 import Backdrop from "../Backdrop/Backdrop.jsx";
 import { openHelpModal } from "../../redux/needHelp/slice.js";
-import { selectAllBoards } from "../../redux/boards/selectors.js";
+import {
+  selectAllBoards,
+  selectLoadingBoard,
+} from "../../redux/boards/selectors.js";
+import { ColorRing } from "react-loader-spinner";
 
 const Sidebar = () => {
   const isOpen = useSelector(selectIsOpenSidebar);
   const boards = useSelector(selectAllBoards);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
+  const loaderBoard = useSelector(selectLoadingBoard);
 
   const [isFormOpen, setFormOpen] = useState(false);
   const [isEditMode, setEditMode] = useState(false);
@@ -133,49 +138,63 @@ const Sidebar = () => {
             </div>
           )}
 
-          <ul className={s.board_list}>
-            {boards.map((board) => (
-              <li key={board._id} className={s.board_item}>
-                <NavLink to={`/home/${board._id}`} className={buildLinkClass}>
-                  <div className={s.board_list_container}>
-                    <div className={s.board_title_container}>
-                      <SvgIcon
-                        name={board.icon}
-                        width="18"
-                        height="18"
-                        className={s.board_item_svg}
-                      />
-                      <span className={s.board_item_title}>{board.title}</span>
-                    </div>
-                    <div className={s.board_svg_container}>
-                      <button
-                        className={s.iconButton}
-                        onClick={() => openEditForm(board)}
-                      >
+          {loaderBoard ? (
+            <ColorRing
+              visible={true}
+              height="120"
+              width="120"
+              ariaLabel="color-ring-loading"
+              wrapperStyle={{}}
+              wrapperClass={s.colorRingWrapper}
+              colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+            />
+          ) : (
+            <ul className={s.board_list}>
+              {boards.map((board) => (
+                <li key={board._id} className={s.board_item}>
+                  <NavLink to={`/home/${board._id}`} className={buildLinkClass}>
+                    <div className={s.board_list_container}>
+                      <div className={s.board_title_container}>
                         <SvgIcon
-                          name="icon-pencil"
-                          width="16"
-                          height="16"
-                          className={s.board_svg}
+                          name={board.icon}
+                          width="18"
+                          height="18"
+                          className={s.board_item_svg}
                         />
-                      </button>
-                      <button
-                        className={s.iconButton}
-                        onClick={() => openDeleteForm(board)}
-                      >
-                        <SvgIcon
-                          name="icon-trash"
-                          width="16"
-                          height="16"
-                          className={s.board_svg}
-                        />
-                      </button>
+                        <span className={s.board_item_title}>
+                          {board.title}
+                        </span>
+                      </div>
+                      <div className={s.board_svg_container}>
+                        <button
+                          className={s.iconButton}
+                          onClick={() => openEditForm(board)}
+                        >
+                          <SvgIcon
+                            name="icon-pencil"
+                            width="16"
+                            height="16"
+                            className={s.board_svg}
+                          />
+                        </button>
+                        <button
+                          className={s.iconButton}
+                          onClick={() => openDeleteForm(board)}
+                        >
+                          <SvgIcon
+                            name="icon-trash"
+                            width="16"
+                            height="16"
+                            className={s.board_svg}
+                          />
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         {isDeleteFormOpen && (

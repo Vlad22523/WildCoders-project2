@@ -112,7 +112,7 @@
 .svgWrapper {
   width: 28px;
   height: 28px;
-  background-color: rgb(var(--text-color-mainboard));
+  background-color: rgb(var(--button-add-column));
   border-radius: 6px;
   display: flex;
   align-items: center;

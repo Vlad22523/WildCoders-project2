@@ -16,7 +16,7 @@
   padding: 24px;
   border-radius: 8px;
   width: 335px;
-  height: 221px;
+  max-height: 100%;
   max-width: 90%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -60,7 +60,7 @@
   box-shadow: rgba(22, 22, 22, 0.08) 0px 4px 16px;
   outline: none;
   border-radius: 8px;
-  color: rgb(var(--field-focus-modal));
+  color: rgb(var(--text-color-mainboard));
   transition: all 250ms ease-in-out;
   opacity: 0.4;
   margin-top: 24px;
@@ -69,6 +69,12 @@
 .field:focus,
 .field:hover {
   opacity: 1;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .button {

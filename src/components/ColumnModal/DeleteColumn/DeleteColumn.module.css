@@ -1,0 +1,111 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  justify-content: center;
+  cursor: default;
+}
+
+.container {
+  max-width: 350px;
+  width: 100%;
+  height: auto;
+  z-index: 101;
+  border-radius: 8px;
+  background-color: rgb(var(--background-modal_input));
+  border: 1px solid rgb(var(--button-color-modal), 0.5);
+  padding: 40px 20px;
+  position: relative;
+}
+
+.closeButton {
+  background: transparent;
+  width: 18px;
+  height: 18px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  border: none;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  fill: transparent;
+  transform: rotate(45deg);
+  stroke: rgb(var(--text-color-mainboard));
+}
+
+.title {
+  color: rgb(var(--text-color-mainboard));
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+  text-align: center;
+
+  span {
+    color: rgb(var(--text-color-mainboard));
+  }
+}
+
+.containerButton {
+  display: flex;
+  justify-content: center;
+
+  gap: 30px;
+  align-items: center;
+}
+
+.container_form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.button {
+  width: 100%;
+  padding: 10px 0px 11px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: rgb(var(--button-color-modal));
+  color: rgb(var(--button-add-column-text));
+  font-weight: 500;
+  letter-spacing: -0.28px;
+  outline: none;
+  border: none;
+  transition: all 200ms ease-in-out;
+}
+
+.button:active,
+.button:hover,
+.button:focus {
+  background: rgb(var(--button-background-color));
+  transform: scale(1.04);
+  letter-spacing: 0.6px;
+}
+
+.button:focus,
+.closeButton:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.svg_close {
+  stroke: rgb(var(--text-color-mainboard));
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    max-width: 290px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+}

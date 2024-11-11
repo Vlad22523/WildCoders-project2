@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchColumnsThunk } from "./operations.js";
+import {
+  fetchAddColumn,
+  fetchColumnsThunk,
+  fetchDeleteColumn,
+} from "./operations.js";
 
 const columnsSlice = createSlice({
   name: "columns",
@@ -11,7 +15,7 @@ const columnsSlice = createSlice({
     loadedColumns: false,
   },
   reducers: {
-    resetRefresh: (state) => {
+    resetRefreshColumn: (state) => {
       state.refresh = false;
     },
   },
@@ -31,9 +35,28 @@ const columnsSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
         state.loadedColumns = false;
+        state.refresh = true;
+      })
+      .addCase(fetchAddColumn.fulfilled, (state) => {
+        state.loading = false;
+      })
+      .addCase(fetchAddColumn.rejected, (state) => {
+        state.loading = false;
+      })
+      .addCase(fetchAddColumn.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchDeleteColumn.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchDeleteColumn.fulfilled, (state) => {
+        state.loading = false;
+      })
+      .addCase(fetchDeleteColumn.rejected, (state) => {
+        state.loading = false;
       });
   },
 });
 
-export const { resetRefresh } = columnsSlice.actions;
+export const { resetRefreshColumn } = columnsSlice.actions;
 export const columnsReducer = columnsSlice.reducer;

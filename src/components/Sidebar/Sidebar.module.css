@@ -382,3 +382,14 @@
   background: transparent;
   border: none;
 }
+
+.colorRingWrapper {
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1600px) {
+  .board_list {
+    height: 400px;
+  }
+}

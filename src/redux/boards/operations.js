@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { mongoApi, setToken } from "../../config/mongo.js";
+import toast from "react-hot-toast";
 
 export const createBoardThunk = createAsyncThunk(
   "boards/createBoard",
@@ -11,6 +12,7 @@ export const createBoardThunk = createAsyncThunk(
       //     return thunkAPI.rejectWithValue("Authorization token is missing");
       //   }
       const response = await mongoApi.post("boards", body);
+      toast.success("Successfully created board");
       return response.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -35,8 +37,11 @@ export const deleteBoardThunk = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       await mongoApi.delete(`boards/${id}`);
+      toast.success("Successfully deleted board");
       return id;
     } catch (error) {
+      const errorMessage = error.response?.data?.data.message || error.message;
+      toast.error(errorMessage);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
