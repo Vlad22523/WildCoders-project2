@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 const HeaderDashboard = ({ title }) => {
   const { boardId } = useParams();
+
   return (
     <div className={`${s.wrapper} ${boardId ? s.visible : ""}`}>
       {boardId && <p className={s.title}>{title}</p>}
