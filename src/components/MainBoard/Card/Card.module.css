@@ -17,7 +17,7 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background-color: #8fa1d0;
+  background-color: var(--default-color);
   border-radius: 4px 0 0 4px;
 }
 
@@ -80,9 +80,9 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #8fa1d0;
+  background-color: var(--default-color);
 }
-.priority-low::before {
+/* .priority-low::before {
   background-color: #8fa1d0;
 }
 
@@ -96,7 +96,7 @@
 
 .priority-without::before {
   background-color: rgb(var(--text-color-mainboard), 0.3);
-}
+} */
 
 .deadlineDate {
   font-weight: 400;
@@ -125,6 +125,16 @@
   stroke: rgba(var(--text-color-mainboard), 0.5);
 }
 
+.iconBell {
+  stroke: rgba(var(--button-color-modal));
+  filter: drop-shadow(0 0 6px rgba(var(--button-color-modal)));
+}
+
+.iconBellLose {
+  stroke: red;
+  filter: drop-shadow(0 0 6px red);
+}
+
 .icon:hover {
   stroke: rgba(var(--text-color-mainboard));
 }
@@ -133,4 +143,31 @@
   width: 100%;
   border-top: 1px solid rgba(var(--text-color-mainboard), 0.1);
   margin: 14px 0;
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 12px;
+  bottom: 125%; /* Позиция тултипа, немного выше иконки */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.iconWrapper:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
 }

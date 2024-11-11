@@ -5,6 +5,12 @@
   flex-direction: column;
   gap: 14px;
   flex-shrink: 0;
+  position: relative;
+}
+
+.lineWaveLoader {
+  position: relative;
+  left: 40%;
 }
 
 .button {
