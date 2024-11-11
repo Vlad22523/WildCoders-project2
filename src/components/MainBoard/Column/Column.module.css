@@ -11,7 +11,6 @@
 .lineWaveLoader {
   position: relative;
   left: 40%;
-  color: red;
 }
 
 .button {
@@ -178,7 +177,7 @@
   width: 335px;
   height: auto;
   border-radius: 8px;
-  background: rgb(var(--background-hover-board));
+  background: rgb(var(--background-modal_input));
   padding: 24px;
   border: 1px solid rgb(var(--button-color-modal), 0.5);
   padding: 40px 20px;

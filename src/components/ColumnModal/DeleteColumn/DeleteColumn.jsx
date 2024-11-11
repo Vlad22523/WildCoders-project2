@@ -29,9 +29,7 @@ export const DeleteColumn = ({ isOpen, onClose, title, id, boardId }) => {
   };
 
   const onSubmit = () => {
-    dispatch(fetchDeleteColumn(id)).then(() =>
-      dispatch(fetchColumnsThunk(boardId))
-    );
+    dispatch(fetchDeleteColumn(id));
   };
 
   if (!isOpen) return null;

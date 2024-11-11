@@ -36,6 +36,7 @@ export const fetchDeleteColumn = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       await mongoApi.delete(`columns/v1/${id}`);
+      return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

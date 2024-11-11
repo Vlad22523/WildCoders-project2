@@ -16,8 +16,8 @@ const cardsSlice = createSlice({
     loading: false,
   },
   reducers: {
-    setCards: (state, action) => {
-      state.cards = action.payload;
+    resetRefreshColumn: (state) => {
+      state.refresh = false;
     },
   },
   extraReducers: (builder) => {
@@ -28,6 +28,7 @@ const cardsSlice = createSlice({
           (newCard) => !state.cards.some((card) => card._id === newCard._id)
         );
         state.cards = [...state.cards, ...newCards];
+        state.refresh = false;
       })
       .addCase(addCardThunk.fulfilled, (state, action) => {
         state.cards.push(action.payload.data);
@@ -76,6 +77,7 @@ const cardsSlice = createSlice({
           editCardThunk.rejected
         ),
         (state, action) => {
+          state.refresh = true;
           state.loading = true;
           state.error = action.error.message;
         }
@@ -83,5 +85,5 @@ const cardsSlice = createSlice({
   },
 });
 
-export const { setCards } = cardsSlice.actions;
+export const { resetRefreshColumn } = cardsSlice.actions;
 export const cardsReducer = cardsSlice.reducer;

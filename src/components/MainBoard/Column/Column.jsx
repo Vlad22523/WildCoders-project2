@@ -72,10 +72,7 @@ const Column = ({ data: { title, _id }, boardId }) => {
   };
 
   const updateCard = (updatedCard) => {
-    console.log("updateCard called");
     setEditingCard(true);
-    console.log(updatedCard);
-
     dispatch(
       editCardThunk({ cardId: editingCardData[0]._id, body: updatedCard })
     );
@@ -85,15 +82,6 @@ const Column = ({ data: { title, _id }, boardId }) => {
     toast.custom(() => (
       <div className={s.modalOverlay} onClick={(e) => e.stopPropagation()}>
         <div className={s.modalContainer}>
-          <button
-            type="button"
-            onClick={cancelDelete}
-            className={s.closeButton}
-          >
-            <svg width="18" height="18">
-              <use href={`/src/images/icons.svg?t=1730829317287#icon-plus`} />
-            </svg>
-          </button>
           <h2 className={s.modalText}>Are you sure you want to delete card?</h2>
           <div className={s.containerButton}>
             <button className={s.modalButton} onClick={cancelDelete}>
@@ -158,6 +146,7 @@ const Column = ({ data: { title, _id }, boardId }) => {
           visible={true}
           height="100"
           width="100"
+          color="rgb(var(--button-color-mainboard))"
           ariaLabel="line-wave-loading"
           wrapperClass={s.lineWaveLoader}
         />

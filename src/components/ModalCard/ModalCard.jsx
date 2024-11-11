@@ -55,7 +55,6 @@ const ModalCard = ({
     if (editingCard) {
       updateCard(newCard);
     } else {
-      console.log(editingCard);
       addCard(newCard);
     }
 

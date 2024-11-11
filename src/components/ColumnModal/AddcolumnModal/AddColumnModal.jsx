@@ -48,9 +48,7 @@ const AddColumnModal = ({ isOpen, onClose, boardId }) => {
     const body = {
       title: values.title,
     };
-    dispatch(fetchAddColumn({ body, boardId })).then(() => {
-      dispatch(fetchColumnsThunk(boardId));
-    });
+    dispatch(fetchAddColumn({ body, boardId }));
 
     resetForm(); // Clear the form
     onClose(); // Close the modal

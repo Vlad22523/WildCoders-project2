@@ -107,10 +107,6 @@ const ScreensPage = () => {
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
-  console.log(boardId);
-  console.log(loadingColumns);
-  console.log(isDataLoaded);
-
   return (
     <main className={s.main}>
       <div className={s.mainContainer} style={style}>
@@ -138,7 +134,7 @@ const ScreensPage = () => {
             ) : (
               <div className={s.scrollbarColumn}>
                 <div className={s.columnContainer}>
-                  {columns.map((column) => (
+                  {columns?.map((column) => (
                     <Column key={column._id} data={column} boardId={boardId} />
                   ))}
                   <button
