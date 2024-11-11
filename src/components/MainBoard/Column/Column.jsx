@@ -1,15 +1,23 @@
 import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import Card from "../Card/Card.jsx";
 import s from "./Column.module.css";
-// import ModalCard from "../../ModalCard/ModalCard.jsx";
+import ModalCard from "../../ModalCard/ModalCard.jsx";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoadingCards } from "../../../redux/cards/selectors.js";
-import { fetchCardsThunk } from "../../../redux/cards/operations.js";
+import {
+  selectFilteredCards,
+  selectLoadingCards,
+} from "../../../redux/cards/selectors.js";
+import {
+  addCardThunk,
+  deleteCardThunk,
+  editCardThunk,
+  fetchCardsThunk,
+} from "../../../redux/cards/operations.js";
 import { LineWave } from "react-loader-spinner";
-import { selectFilteredCards } from "../../../redux/cards/slice.js";
 import EditColumnModal from "../../ColumnModal/EditColumnModal/EditColumModal.jsx";
 import { DeleteColumn } from "../../ColumnModal/DeleteColumn/DeleteColumn.jsx";
+import toast from "react-hot-toast";
 
 const Column = ({ data: { title, _id }, boardId }) => {
   const loading = useSelector(selectLoadingCards);
@@ -24,15 +32,80 @@ const Column = ({ data: { title, _id }, boardId }) => {
   const openModalDelete = () => setIsModalDeleteOpen(true);
   const closeModalDelete = () => setIsModalDeleteOpen(false);
 
+  const [isCardModal, setCardModal] = useState(false);
+  const [valueModal, setValueModal] = useState(false);
+  const [editingCardData, setEditingCardData] = useState({});
+  const [editingCard, setEditingCard] = useState(false);
   useEffect(() => {
     if (_id) {
       dispatch(fetchCardsThunk(_id));
     }
   }, [_id, dispatch]);
 
+  const cardsForColumn = filteredCards.filter((card) => card.columnId === _id);
+
+  const openCardModal = (id) => {
+    if (id) {
+      setValueModal(true);
+      setEditingCard(true);
+      const findCardById = filteredCards.filter((card) => card._id === id);
+      setEditingCardData(findCardById);
+      console.log(findCardById);
+    }
+    if (id === undefined) {
+      setEditingCard(false);
+      setValueModal(false);
+      setEditingCardData({});
+    }
+    setCardModal(true);
+  };
+
+  const closeCardModal = () => {
+    setValueModal(false);
+    setCardModal(false);
+  };
+
+  const addCard = (newCard) => {
+    const { columnId, ...filteredCard } = newCard;
+    setEditingCard(false);
+    dispatch(addCardThunk({ columnId: columnId, body: filteredCard }));
+  };
+
+  const updateCard = (updatedCard) => {
+    setEditingCard(true);
+    dispatch(
+      editCardThunk({ cardId: editingCardData[0]._id, body: updatedCard })
+    );
+  };
+
+  const deleteCard = (cardId) => {
+    toast.custom(() => (
+      <div className={s.modalOverlay} onClick={(e) => e.stopPropagation()}>
+        <div className={s.modalContainer}>
+          <h2 className={s.modalText}>Are you sure you want to delete card?</h2>
+          <div className={s.containerButton}>
+            <button className={s.modalButton} onClick={cancelDelete}>
+              No
+            </button>
+            <button className={s.modalButton} onClick={confirmDelete}>
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    ));
+    const confirmDelete = () => {
+      toast.dismiss();
+      dispatch(deleteCardThunk(cardId));
+    };
+    const cancelDelete = () => {
+      toast.dismiss();
+    };
+  };
+
   return (
     <div className={s.columnWrapper}>
-      <div className={`${s.button} ${s.buttonColumn}`} type="button">
+      <div className={`${s.button} ${s.buttonColumn}`}>
         {title}
 
         <div className={s.svgWrapperColumn}>
@@ -73,21 +146,26 @@ const Column = ({ data: { title, _id }, boardId }) => {
           visible={true}
           height="100"
           width="100"
-          color="#4fa94d"
+          color="rgb(var(--button-color-mainboard))"
           ariaLabel="line-wave-loading"
           wrapperClass={s.lineWaveLoader}
         />
       ) : (
         <div className={s.scrollBarTasks}>
           <div className={s.tasksWrapper}>
-            {filteredCards.map((card) => (
-              <Card key={card._id} data={card} />
+            {cardsForColumn.map((card) => (
+              <Card
+                key={card._id}
+                data={card}
+                openModal={openCardModal}
+                onDelete={deleteCard}
+              />
             ))}
           </div>
         </div>
       )}
       <button
-        // onClick={() => openCardModal()}
+        onClick={() => openCardModal()}
         className={`${s.button} ${s.buttonColumnAdd}`}
         type="button"
       >
@@ -101,20 +179,21 @@ const Column = ({ data: { title, _id }, boardId }) => {
         </div>
         Add another card
       </button>
-      {/* {isCardModalOpen && (
-        // <ModalCard
-        //   // onClose={closeCardModal}
-        //   title={editingCard ? "Edit card" : "Add card"}
-        //   btnName={editingCard ? "Edit" : "Add"}
-        //   // addCard={addCard}
-        //   // updateCard={updateCard}
-        //   editingCard={editingCard}
-        //   cardTitle={editingCard?.title}
-        //   cardDescription={editingCard?.description}
-        //   currentPriority={editingCard?.priority}
-        //   deadline={editingCard?.deadline}
-        // />
-      )} */}
+      {isCardModal && (
+        <ModalCard
+          onClose={closeCardModal}
+          title={valueModal ? "Edit card" : "Add card"}
+          btnName={valueModal ? "Edit" : "Add"}
+          columnId={_id}
+          addCard={addCard}
+          updateCard={updateCard}
+          editingCard={editingCard}
+          cardTitle={editingCardData[0]?.title}
+          cardDescription={editingCardData[0]?.description}
+          currentPriority={editingCardData[0]?.priority}
+          deadline={editingCardData[0]?.deadline}
+        />
+      )}
     </div>
   );
 };

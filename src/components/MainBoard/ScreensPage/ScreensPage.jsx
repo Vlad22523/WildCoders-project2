@@ -134,7 +134,7 @@ const ScreensPage = () => {
             ) : (
               <div className={s.scrollbarColumn}>
                 <div className={s.columnContainer}>
-                  {columns.map((column) => (
+                  {columns?.map((column) => (
                     <Column key={column._id} data={column} boardId={boardId} />
                   ))}
                   <button
@@ -158,7 +158,7 @@ const ScreensPage = () => {
           ) : (
             <p className={s.text}>
               Before starting your project, it is essential{" "}
-              <button className={s.linkCreate}>to create a board</button> to
+              <span className={s.linkCreate}>to create a board</span> to
               visualize and track all the necessary tasks and milestones. This
               board serves as a powerful tool to organize the workflow and
               ensure effective collaboration among team members.

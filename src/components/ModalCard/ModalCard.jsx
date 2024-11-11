@@ -25,14 +25,14 @@ const ModalCard = ({
   updateCard,
   cardTitle = "",
   cardDescription,
-  currentPriority = "Without",
-  deadline = false,
-  column,
+  currentPriority = "without",
+  dateDeadline = false,
+  columnId,
 }) => {
   registerLocale("en", uk);
 
   const [startDate, setStartDate] = useState(
-    deadline ? new Date(deadline) : new Date()
+    dateDeadline ? new Date(dateDeadline) : new Date()
   );
   const [priority, setPriority] = useState(currentPriority);
 
@@ -45,15 +45,13 @@ const ModalCard = ({
   const handleFormSubmit = (values, { resetForm }) => {
     const { cardTitle: title, cardDescr: description } = values;
     const newCard = {
-      id: editingCard ? editingCard.id : Date.now(),
       title,
       description,
       priority,
-      deadline: startDate,
-      column,
+      dateDeadline: startDate,
+      columnId,
     };
 
-    console.log("Form Submitted: ", newCard);
     if (editingCard) {
       updateCard(newCard);
     } else {

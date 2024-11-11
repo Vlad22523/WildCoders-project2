@@ -1,11 +1,16 @@
 import { useDispatch } from "react-redux";
 import s from "../DeleteBoardForm/DeleteBoardForm.module.css";
 import { deleteBoardThunk } from "../../redux/boards/operations";
+import { useNavigate } from "react-router-dom";
 
 export const DeleteBoardForm = ({ onClose, boardId, title }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleDelete = () => {
-    dispatch(deleteBoardThunk(boardId));
+    dispatch(deleteBoardThunk(boardId)).then(() => {
+      navigate("/home");
+    });
     onClose();
   };
 

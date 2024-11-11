@@ -38,7 +38,8 @@ const columnsSlice = createSlice({
         state.loadedColumns = false;
         state.refresh = true;
       })
-      .addCase(fetchAddColumn.fulfilled, (state) => {
+      .addCase(fetchAddColumn.fulfilled, (state, action) => {
+        state.columns.push(action.payload);
         state.loading = false;
       })
       .addCase(fetchAddColumn.rejected, (state) => {
@@ -50,7 +51,10 @@ const columnsSlice = createSlice({
       .addCase(fetchDeleteColumn.pending, (state) => {
         state.loading = true;
       })
-      .addCase(fetchDeleteColumn.fulfilled, (state) => {
+      .addCase(fetchDeleteColumn.fulfilled, (state, action) => {
+        state.columns = state.columns.filter(
+          (item) => item._id !== action.payload
+        );
         state.loading = false;
       })
       .addCase(fetchDeleteColumn.rejected, (state) => {
