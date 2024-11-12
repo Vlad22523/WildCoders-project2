@@ -30,6 +30,9 @@ const cardsSlice = createSlice({
         state.cards = [...state.cards, ...newCards];
         state.refresh = false;
       })
+      .addCase(fetchCardsThunk.rejected, (state) => {
+        state.refresh = true;
+      })
       .addCase(addCardThunk.fulfilled, (state, action) => {
         state.cards.push(action.payload.data);
         state.refresh = false;
@@ -80,7 +83,6 @@ const cardsSlice = createSlice({
           editCardThunk.rejected
         ),
         (state, action) => {
-          state.refresh = true;
           state.loading = true;
           state.error = action.error.message;
         }

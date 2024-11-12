@@ -46,7 +46,6 @@ const columnsSlice = createSlice({
       })
       .addCase(fetchAddColumn.rejected, (state) => {
         state.loading = false;
-        state.refresh = true;
       })
       .addCase(fetchAddColumn.pending, (state) => {
         state.loading = true;
@@ -63,7 +62,6 @@ const columnsSlice = createSlice({
       })
       .addCase(fetchDeleteColumn.rejected, (state) => {
         state.loading = false;
-        state.refresh = true;
       })
       .addCase(fetchPatchColumn.fulfilled, (state, action) => {
         const index = state.columns.findIndex(
@@ -78,7 +76,6 @@ const columnsSlice = createSlice({
       })
       .addCase(fetchPatchColumn.rejected, (state) => {
         state.loading = false;
-        state.refresh = true;
       })
       .addCase(fetchPatchColumn.pending, (state) => {
         state.loading = true;
