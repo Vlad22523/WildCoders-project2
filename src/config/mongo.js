@@ -1,8 +1,7 @@
 import axios from "axios";
 
 export const mongoApi = axios.create({
-  // baseURL: "https://backend-taskpro.onrender.com/",
-  baseURL: "http://localhost:3000/",
+  baseURL: "https://backend-taskpro.onrender.com/",
 });
 
 export const setToken = (token) => {
