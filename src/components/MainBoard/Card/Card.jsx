@@ -2,7 +2,6 @@ import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import EllipsisText from "react-ellipsis-text";
 import s from "./Card.module.css";
 import { format, isBefore, isSameDay } from "date-fns";
-import InProgress from "../InPrigress/inProgress.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectIsVisibleInPro,
@@ -14,6 +13,7 @@ import {
 } from "../../../redux/cards/slice.js";
 import DeleteCard from "../DeleteCard/DeleteCard.jsx";
 import { useState } from "react";
+import InProgress from "../InProgress/InProgress.jsx";
 
 const Card = ({ data, openModal, columnId }) => {
   const { title, description, priority, dateDeadline, _id } = data;

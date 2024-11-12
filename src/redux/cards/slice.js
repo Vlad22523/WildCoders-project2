@@ -27,12 +27,6 @@ const cardsSlice = createSlice({
     toggleIsVisibleInPro: (state) => {
       state.isVisibleInPro = !state.isVisibleInPro;
     },
-    getCurrentCardId: (state, action) => {
-      state.cardId = action.payload;
-    },
-    getCurrentColumnId: (state, action) => {
-      state.cardId = action.payload;
-    },
   },
   extraReducers: (builder) => {
     builder
@@ -104,11 +98,6 @@ const cardsSlice = createSlice({
   },
 });
 
-export const {
-  resetRefreshColumn,
-  toggleVisibleCardId,
-  toggleIsVisibleInPro,
-  getCurrentCardId,
-  getCurrentColumnmId,
-} = cardsSlice.actions;
+export const { resetRefreshCards, toggleVisibleCardId, toggleIsVisibleInPro } =
+  cardsSlice.actions;
 export const cardsReducer = cardsSlice.reducer;

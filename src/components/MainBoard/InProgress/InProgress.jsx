@@ -1,16 +1,11 @@
 import SvgIcon from "../../../hooks/SvgIcon.jsx";
-import EllipsisText from "react-ellipsis-text";
 import s from "./InProgress.module.css";
-import { format, isBefore, isSameDay } from "date-fns";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllColumns } from "../../../redux/columns/selectors.js";
 import { editCardThunk } from "../../../redux/cards/operations.js";
-import {
-  toggleIsVisibleInPro,
-  toggleVisibleCardId,
-} from "../../../redux/cards/slice.js";
+import { toggleIsVisibleInPro } from "../../../redux/cards/slice.js";
 
-const InProgress = ({ card, columnsId }) => {
+const InProgress = ({ card }) => {
   const dispatch = useDispatch();
   const columns = useSelector(selectAllColumns);
 

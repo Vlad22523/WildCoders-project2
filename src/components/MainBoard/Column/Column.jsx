@@ -18,7 +18,7 @@ import { LineWave } from "react-loader-spinner";
 import EditColumnModal from "../../ColumnModal/EditColumnModal/EditColumModal.jsx";
 import { DeleteColumn } from "../../ColumnModal/DeleteColumn/DeleteColumn.jsx";
 import { refreshUserThunk } from "../../../redux/auth/operations.js";
-import { resetRefreshColumn } from "../../../redux/columns/slice.js";
+import { resetRefreshCards } from "../../../redux/cards/slice.js";
 
 const Column = ({ data: { title, _id }, boardId }) => {
   const loading = useSelector(selectLoadingCards);
@@ -108,7 +108,7 @@ const Column = ({ data: { title, _id }, boardId }) => {
     // Виконати логіку для refresh, якщо це необхідно
     if (refresh) {
       dispatch(refreshUserThunk()).then(() => {
-        dispatch(resetRefreshColumn());
+        dispatch(resetRefreshCards());
         dispatch(fetchCardsThunk(_id)); // Скидаємо refresh після виконання
       });
     }
