@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import s from "./DeleteColumn.module.css";
-import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import { useDispatch } from "react-redux";
-import { fetchDeleteColumn } from "../../../redux/columns/operations.js";
+import s from "./DeleteCard.module.css";
 
-export const DeleteColumn = ({ isOpen, onClose, title, id }) => {
+import { deleteCardThunk } from "../../../redux/cards/operations";
+import SvgIcon from "../../../hooks/SvgIcon.jsx";
+
+const DeleteCard = ({ onClose, isOpen, idCard, title }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -26,7 +27,7 @@ export const DeleteColumn = ({ isOpen, onClose, title, id }) => {
   };
 
   const onSubmit = () => {
-    dispatch(fetchDeleteColumn(id));
+    dispatch(deleteCardThunk(idCard));
   };
 
   if (!isOpen) return null;
@@ -44,7 +45,8 @@ export const DeleteColumn = ({ isOpen, onClose, title, id }) => {
         </button>
         <div className={s.container_form}>
           <h2 className={s.title}>
-            Are you sure you want to delete <br /> column &quot;{title}&quot;?
+            Are you sure you want to delete <br /> card{" "}
+            <span>&quot;{title}&quot;</span>?
           </h2>
           <div className={s.containerButton}>
             <button className={s.button} onClick={onClose}>
@@ -59,3 +61,5 @@ export const DeleteColumn = ({ isOpen, onClose, title, id }) => {
     </div>
   );
 };
+
+export default DeleteCard;

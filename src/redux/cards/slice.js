@@ -16,7 +16,7 @@ const cardsSlice = createSlice({
     loading: false,
   },
   reducers: {
-    resetRefreshColumn: (state) => {
+    resetRefreshCards: (state) => {
       state.refresh = false;
     },
   },
@@ -32,6 +32,7 @@ const cardsSlice = createSlice({
       })
       .addCase(addCardThunk.fulfilled, (state, action) => {
         state.cards.push(action.payload.data);
+        state.refresh = false;
         state.loading = false;
         toast("Card added to your list.", {
           icon: "✔️",
@@ -46,6 +47,7 @@ const cardsSlice = createSlice({
           state.cards[index] = action.payload.data;
         }
         state.loading = false;
+        state.refresh = false;
         toast("Card edited.", {
           icon: "✔️",
         });
@@ -53,6 +55,7 @@ const cardsSlice = createSlice({
       .addCase(deleteCardThunk.fulfilled, (state, action) => {
         state.cards = state.cards.filter((card) => card._id !== action.payload);
         state.loading = false;
+        state.refresh = false;
         toast("Card removed from your list.", {
           icon: "🗑️",
         });

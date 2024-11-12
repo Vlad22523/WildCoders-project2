@@ -22,7 +22,7 @@ export const DeleteBoardForm = ({ onClose, boardId, title }) => {
         </svg>
       </button>
       <h2 className={s.title}>
-        Are you sure you want to delete board <span>{title}</span>?
+        Are you sure you want to delete board <span>&quot;{title}&quot;</span>?
       </h2>
       <div className={s.containerButton}>
         <button className={s.button} onClick={onClose}>

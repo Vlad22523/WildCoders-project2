@@ -2,8 +2,15 @@ import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import EllipsisText from "react-ellipsis-text";
 import s from "./Card.module.css";
 import { format, isBefore, isSameDay } from "date-fns";
+import DeleteCard from "../Delete.jsx/DeleteCard.jsx";
+import { useState } from "react";
 
-const Card = ({ data, openModal, onDelete }) => {
+const Card = ({ data, openModal }) => {
+  const [isModalCardOpen, setIsModalCardOpen] = useState(false);
+
+  const openCardDelete = () => setIsModalCardOpen(true);
+  const closeCardDelete = () => setIsModalCardOpen(false);
+
   const { title, description, priority, dateDeadline, _id } = data;
 
   const isToday = (date) => {
@@ -40,6 +47,12 @@ const Card = ({ data, openModal, onDelete }) => {
       className={s.taskContainer}
       style={{ "--default-color": priorityColor }}
     >
+      <DeleteCard
+        onClose={closeCardDelete}
+        isOpen={isModalCardOpen}
+        idCard={_id}
+        title={title}
+      />
       <h4 className={s.title}>{title}</h4>
       <p className={s.descr}>
         <EllipsisText text={description} length={90} />
@@ -107,9 +120,10 @@ const Card = ({ data, openModal, onDelete }) => {
             />
           </button>
           <button
+            onClick={openCardDelete}
             className={s.btnOptions}
             type="button"
-            onClick={() => onDelete(_id)}
+            // onClick={() => onDelete(_id)}
           >
             <SvgIcon
               name="icon-trash"

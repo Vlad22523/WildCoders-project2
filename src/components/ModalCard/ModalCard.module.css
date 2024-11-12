@@ -67,6 +67,26 @@ span {
 
 .field {
   width: 100%;
+  overflow: auto;
+  resize: none;
+  height: 154px;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-family: Poppins, regular;
+  letter-spacing: -0.28px;
+  background-color: rgb(var(--background-mainboard));
+  border: 1px solid rgb(190, 219, 176);
+  box-shadow: rgba(22, 22, 22, 0.08) 0px 4px 16px;
+  outline: none;
+  border-radius: 8px;
+  color: rgb(var(--text-color-mainboard));
+  transition: 250ms;
+  opacity: 0.4;
+  margin-top: 18px;
+}
+
+.field_input {
+  width: 100%;
   height: 49px;
   padding: 14px 18px;
   font-size: 14px;
@@ -86,6 +106,12 @@ span {
 .field:hover,
 .field:focus,
 .field:active {
+  opacity: 1;
+}
+
+.field_input:hover,
+.field_input:focus,
+.field_input:active {
   opacity: 1;
 }
 

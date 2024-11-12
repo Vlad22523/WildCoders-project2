@@ -7,17 +7,18 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectFilteredCards,
   selectLoadingCards,
+  selectRefreshCards,
 } from "../../../redux/cards/selectors.js";
 import {
   addCardThunk,
-  deleteCardThunk,
   editCardThunk,
   fetchCardsThunk,
 } from "../../../redux/cards/operations.js";
 import { LineWave } from "react-loader-spinner";
 import EditColumnModal from "../../ColumnModal/EditColumnModal/EditColumModal.jsx";
 import { DeleteColumn } from "../../ColumnModal/DeleteColumn/DeleteColumn.jsx";
-import toast from "react-hot-toast";
+import { refreshUserThunk } from "../../../redux/auth/operations.js";
+import { resetRefreshColumn } from "../../../redux/columns/slice.js";
 
 const Column = ({ data: { title, _id }, boardId }) => {
   const loading = useSelector(selectLoadingCards);
@@ -36,6 +37,7 @@ const Column = ({ data: { title, _id }, boardId }) => {
   const [valueModal, setValueModal] = useState(false);
   const [editingCardData, setEditingCardData] = useState({});
   const [editingCard, setEditingCard] = useState(false);
+  const refresh = useSelector(selectRefreshCards);
   useEffect(() => {
     if (_id) {
       dispatch(fetchCardsThunk(_id));
@@ -50,7 +52,6 @@ const Column = ({ data: { title, _id }, boardId }) => {
       setEditingCard(true);
       const findCardById = filteredCards.filter((card) => card._id === id);
       setEditingCardData(findCardById);
-      console.log(findCardById);
     }
     if (id === undefined) {
       setEditingCard(false);
@@ -78,36 +79,45 @@ const Column = ({ data: { title, _id }, boardId }) => {
     );
   };
 
-  const deleteCard = (cardId) => {
-    toast.custom(() => (
-      <div className={s.modalOverlay} onClick={(e) => e.stopPropagation()}>
-        <div className={s.modalContainer}>
-          <h2 className={s.modalText}>Are you sure you want to delete card?</h2>
-          <div className={s.containerButton}>
-            <button className={s.modalButton} onClick={cancelDelete}>
-              No
-            </button>
-            <button className={s.modalButton} onClick={confirmDelete}>
-              Yes
-            </button>
-          </div>
-        </div>
-      </div>
-    ));
-    const confirmDelete = () => {
-      toast.dismiss();
-      dispatch(deleteCardThunk(cardId));
-    };
-    const cancelDelete = () => {
-      toast.dismiss();
-    };
-  };
+  // const deleteCard = (cardId) => {
+  //   toast.custom(() => (
+  //     <div className={s.modalOverlay} onClick={(e) => e.stopPropagation()}>
+  //       <div className={s.modalContainer}>
+  //         <h2 className={s.modalText}>Are you sure you want to delete card?</h2>
+  //         <div className={s.containerButton}>
+  //           <button className={s.modalButton} onClick={cancelDelete}>
+  //             No
+  //           </button>
+  //           <button className={s.modalButton} onClick={confirmDelete}>
+  //             Yes
+  //           </button>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   ));
+  //   const confirmDelete = () => {
+  //     toast.dismiss();
+  //     dispatch(deleteCardThunk(cardId));
+  //   };
+  //   const cancelDelete = () => {
+  //     toast.dismiss();
+  //   };
+  // };
+
+  useEffect(() => {
+    // Виконати логіку для refresh, якщо це необхідно
+    if (refresh) {
+      dispatch(refreshUserThunk()).then(() => {
+        dispatch(resetRefreshColumn());
+        dispatch(fetchCardsThunk(_id)); // Скидаємо refresh після виконання
+      });
+    }
+  }, [dispatch, refresh, _id]);
 
   return (
     <div className={s.columnWrapper}>
       <div className={`${s.button} ${s.buttonColumn}`}>
         {title}
-
         <div className={s.svgWrapperColumn}>
           <button onClick={openModalEdit} className={s.btn_column}>
             <SvgIcon
@@ -154,12 +164,7 @@ const Column = ({ data: { title, _id }, boardId }) => {
         <div className={s.scrollBarTasks}>
           <div className={s.tasksWrapper}>
             {cardsForColumn.map((card) => (
-              <Card
-                key={card._id}
-                data={card}
-                openModal={openCardModal}
-                onDelete={deleteCard}
-              />
+              <Card key={card._id} data={card} openModal={openCardModal} />
             ))}
           </div>
         </div>

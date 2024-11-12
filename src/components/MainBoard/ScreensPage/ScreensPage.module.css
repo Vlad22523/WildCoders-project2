@@ -112,8 +112,9 @@
 .button:active,
 .button:hover,
 .button:focus {
-  background-color: rgb(var(--button-color-modal));
-  letter-spacing: 0.6px;
+  background-color: rgb(var(--add-column));
+  letter-spacing: 0.2px;
+  transform: scale(1.02);
 }
 
 .svgWrapper {

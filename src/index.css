@@ -115,6 +115,7 @@ html[data-theme="light"] {
   --field-border-modal: 190, 219, 176; /* #BEDBB0 */
   --field-focus-modal: 50, 50, 50; /* #323232 */
   --field-focus-modal-border: 157, 200, 136; /* #9DC888 */
+  --add-column: 246, 246, 247; /* #F6F6F7 */
 }
 
 html[data-theme="dark"] {
@@ -155,6 +156,7 @@ html[data-theme="dark"] {
   --field-focus-modal: 255, 255, 255; /* #FFFFFF */
   --field-border-modal: 190, 219, 176; /* #BEDBB0 */
   --field-focus-modal-border: 157, 200, 136; /* #9DC888 */
+  --add-column: 31, 31, 31; /* #1F1F1F */
 }
 
 html[data-theme="violet"] {
@@ -195,6 +197,7 @@ html[data-theme="violet"] {
   --field-border-modal: 82, 85, 188; /* #5255BC */
   --field-focus-modal: 74, 77, 171; /* #4A4DAB */
   --field-focus-modal-border: 74, 77, 171; /* #4A4DAB */
+  --add-column: 184, 188, 253, 1; /*#B8BCFD */
 }
 
 /*

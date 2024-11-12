@@ -39,10 +39,12 @@ const boardsSlice = createSlice({
       })
       .addCase(createBoardThunk.fulfilled, (state, action) => {
         state.loading = false;
+        state.refresh = false;
         state.boards.push(action.payload);
       })
       .addCase(createBoardThunk.rejected, (state, action) => {
         state.loading = false;
+        state.refresh = true;
         state.error = action.payload;
       })
       .addCase(deleteBoardThunk.fulfilled, (state, action) => {
@@ -50,6 +52,7 @@ const boardsSlice = createSlice({
           (board) => board._id !== action.payload
         );
         state.loading = false;
+        state.refresh = false;
       })
       .addCase(deleteBoardThunk.pending, (state) => {
         state.loading = true;
@@ -58,6 +61,7 @@ const boardsSlice = createSlice({
       .addCase(deleteBoardThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+        state.refresh = true;
       })
       .addCase(updateBoardThunk.pending, (state) => {
         state.loading = true;
@@ -65,6 +69,7 @@ const boardsSlice = createSlice({
       })
       .addCase(updateBoardThunk.fulfilled, (state, action) => {
         state.loading = false;
+        state.refresh = false;
         state.boards = state.boards.map((board) =>
           board.id === action.payload.id ? action.payload : board
         );
@@ -73,6 +78,7 @@ const boardsSlice = createSlice({
       .addCase(updateBoardThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+        state.refresh = true;
       });
   },
 });

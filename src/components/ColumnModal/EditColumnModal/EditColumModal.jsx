@@ -4,10 +4,7 @@ import * as Yup from "yup"; // Для валідації
 import s from "../EditColumnModal/EditModal.module.css";
 import { IoClose } from "react-icons/io5";
 import { useDispatch } from "react-redux";
-import {
-  fetchColumnsThunk,
-  fetchPatchColumn,
-} from "../../../redux/columns/operations.js";
+import { fetchPatchColumn } from "../../../redux/columns/operations.js";
 
 // Схема валідації для Formik
 const validationSchema = Yup.object({
@@ -18,7 +15,7 @@ const validationSchema = Yup.object({
     .min(3, "Too short"),
 });
 
-const EditColumnModal = ({ isOpen, onClose, title, id, boardId }) => {
+const EditColumnModal = ({ isOpen, onClose, title, id }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -44,9 +41,7 @@ const EditColumnModal = ({ isOpen, onClose, title, id, boardId }) => {
     const body = {
       title: values.title,
     };
-    dispatch(fetchPatchColumn({ body, id })).then(() => {
-      dispatch(fetchColumnsThunk(boardId));
-    });
+    dispatch(fetchPatchColumn({ body, id }));
     resetForm();
     onClose();
   };
