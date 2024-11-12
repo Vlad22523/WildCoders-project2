@@ -1,7 +1,7 @@
 [
   {
     "id": "bg-1",
-    "src": "/src/images/icons.svg#icon-no-bg",
+    "src": "./src/images/icons.svg#icon-no-bg",
     "alt": "No Background",
     "isSvg": true
   },
@@ -9,9 +9,9 @@
     "id": "bg-2",
     "alt": "Flowers",
     "src": {
-      "desktop": "/src/images/backgrounds-desk/bg1-des-flowers.jpg",
-      "tablet": "/src/images/backgrounds-tab/bg1-tab-flowers.jpg",
-      "mobile": "/src/images/backgrounds-mobile/bg1-mob-flowers.jpg"
+      "desktop": "../src/images/backgrounds-desk/bg1-des-flowers.jpg",
+      "tablet": "./src/images/backgrounds-tab/bg1-tab-flowers.jpg",
+      "mobile": "./src/images/backgrounds-mobile/bg1-mob-flowers.jpg"
     },
     "isSvg": false
   },
@@ -19,9 +19,9 @@
     "id": "bg-3",
     "alt": "Mountain",
     "src": {
-      "desktop": "/src/images/backgrounds-desk/bg1-des-mountain.jpg",
-      "tablet": "/src/images/backgrounds-tab/bg1-tab-mountain.jpg",
-      "mobile": "/src/images/backgrounds-mobile/bg1-mob-mountain.jpg"
+      "desktop": "./src/images/backgrounds-desk/bg1-des-mountain.jpg",
+      "tablet": "./src/images/backgrounds-tab/bg1-tab-mountain.jpg",
+      "mobile": "./src/images/backgrounds-mobile/bg1-mob-mountain.jpg"
     },
     "isSvg": false
   },
@@ -111,8 +111,8 @@
     "alt": "Orange Balloon",
     "src": {
       "desktop": "/src/images/backgrounds-desk/bg1-des-orangballoon.jpg",
-      "tablet": "/src/images/backgrounds-tab/bg1-tab-orangballoon.jpg",
-      "mobile": "/src/images/backgrounds-mobile/bg1-mob-orangballoon.jpg"
+      "tablet": "/src/images/backgrounds-tab/bg1-tab-orangeballon.jpg",
+      "mobile": "/src/images/backgrounds-mobile/bg1-mob-orangeballon.jpg"
     },
     "isSvg": false
   },

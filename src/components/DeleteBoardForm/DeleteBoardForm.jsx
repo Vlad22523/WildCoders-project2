@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import s from "../DeleteBoardForm/DeleteBoardForm.module.css";
 import { deleteBoardThunk } from "../../redux/boards/operations.js";
 import { useNavigate } from "react-router-dom";
+import SvgIcon from "../../hooks/SvgIcon.jsx";
 
 export const DeleteBoardForm = ({ onClose, boardId, title }) => {
   const dispatch = useDispatch();
@@ -17,9 +18,7 @@ export const DeleteBoardForm = ({ onClose, boardId, title }) => {
   return (
     <div className={s.container} onClick={(e) => e.stopPropagation()}>
       <button type="button" onClick={onClose} className={s.closeButton}>
-        <svg width="18" height="18">
-          <use href={`/src/images/icons.svg?t=1730829317287#icon-plus`} />
-        </svg>
+        <SvgIcon name="icon-plus" width="18" height="18" />
       </button>
       <h2 className={s.title}>
         Are you sure you want to delete board <span>&quot;{title}&quot;</span>?

@@ -4,6 +4,7 @@ import s from "../MainBoardForm/MainBoardForm.module.css";
 import { useDispatch } from "react-redux";
 import { createBoardThunk } from "../../redux/boards/operations.js";
 import { useNavigate } from "react-router-dom";
+import SvgIcon from "../../hooks/SvgIcon.jsx";
 
 export const CreateBoardForm = ({ setFormOpen }) => {
   const dispatch = useDispatch();
@@ -37,9 +38,12 @@ export const CreateBoardForm = ({ setFormOpen }) => {
       setFormOpen={setFormOpen}
       submitButton={
         <button className={s.button} type="submit">
-          <svg className={s.iconButton} width="28" height="28">
-            <use href={`/src/images/icons.svg#icon-plus`} />
-          </svg>
+          <SvgIcon
+            name="icon-plus"
+            width="28"
+            height="28"
+            className={s.iconButton}
+          />
           Create
         </button>
       }
