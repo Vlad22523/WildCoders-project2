@@ -78,7 +78,7 @@ const Card = ({ data, openModal, onDelete, columnId }) => {
           </div>
         </div>
 
-        <div className={s.btnsWrapper}>
+        <div className={s.btnWrapper}>
           {visibleCardId === _id && isVisibleInPro && (
             <InProgress card={data} columnId={columnId} />
           )}
