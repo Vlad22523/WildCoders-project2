@@ -96,11 +96,15 @@ const ScreensPage = () => {
     }
   }, [dispatch, refresh, boardId]);
 
-  const style = {
+  let style = {
     backgroundImage: background ? `url(${background})` : "none",
     backgroundSize: "cover",
     backgroundPosition: "center center",
   };
+
+  if (!boardId) {
+    style = {};
+  }
 
   const [isModalOpen, setModalOpen] = useState(false);
 
