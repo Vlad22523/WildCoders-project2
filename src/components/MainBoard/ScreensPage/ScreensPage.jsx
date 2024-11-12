@@ -17,7 +17,7 @@ import {
   selectAllBoards,
   selectLoadingBoard,
 } from "../../../redux/boards/selectors.js";
-import backgroundsData from "../../../images/backgroundImages.json";
+import backgroundsData from "../../../constants/backgroundImages.json";
 import { refreshUserThunk } from "../../../redux/auth/operations.js";
 import { resetRefreshColumn } from "../../../redux/columns/slice.js";
 

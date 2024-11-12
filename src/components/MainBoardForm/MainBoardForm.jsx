@@ -1,8 +1,9 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import s from "../MainBoardForm/MainBoardForm.module.css";
-import backgroundImages from "../../images/backgroundImages.json";
+import backgroundImages from "../../constants/backgroundImages.json";
 import { IconRadioButton } from "../ IconRadioButton/ IconRadioButton.jsx";
 import { BackgroundRadioButton } from "../BackgroundRadioButton/BackgroundRadioButton.jsx";
+import SvgIcon from "../../hooks/SvgIcon.jsx";
 
 export const MainBoardForm = ({
   initialValues,
@@ -27,9 +28,7 @@ export const MainBoardForm = ({
             onClick={() => setFormOpen(false)}
             className={s.closeButton}
           >
-            <svg width="18" height="18">
-              <use href={`/src/images/icons.svg?t=1730829317287#icon-plus`} />
-            </svg>
+            <SvgIcon name="icon-plus" width="18" height="18" />
           </button>
         </div>
         <div className={s.containerError}>

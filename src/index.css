@@ -173,7 +173,7 @@ html[data-theme="violet"] {
   --button-color-modal: 82, 85, 188; /* #5255BC */
   --background-modal-filters: 252, 252, 252; /*#FCFCFC */
   --svg-plus: 255, 255, 255; /* #FFFFFF */
-  --background-hover-board: 255, 255, 255, 0.5; /* #FFFFFF */
+  --background-hover-board: 255, 255, 255; /* #FFFFFF */
   --svglogout: 255, 255, 255, 0.5; /* #FFFFFF */
   --needhelpplatform: 175, 176, 227; /* #ECEDFD */
   --logonameplatform: 82, 85, 188; /* #5255BC */

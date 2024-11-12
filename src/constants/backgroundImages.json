@@ -1,0 +1,159 @@
+[
+  {
+    "id": "bg-1",
+    "src": "/images/icons.svg#icon-no-bg",
+    "alt": "No Background",
+    "isSvg": true
+  },
+  {
+    "id": "bg-2",
+    "alt": "Flowers",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-flowers.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-flowers.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-flowers.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-3",
+    "alt": "Mountain",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-mountain.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-mountain.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-mountain.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-4",
+    "alt": "Tree",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-tree.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-tree.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-tree.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": 4,
+    "name": "bg-5",
+    "alt": "White Moon",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-moon.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-moon.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-moon.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-6",
+    "alt": "Leaves",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-leaves.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-leaves.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-leaves.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-7",
+    "alt": "Clouds",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-clouds.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-clouds.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-clouds.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-8",
+    "alt": "Rocks",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-rocks.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-rocks.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-rocks.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-9",
+    "alt": "Drop",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-drop.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-drop.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-drop.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-10",
+    "alt": "Orange Moon",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-redMoon.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-redMoon.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-redMoon.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-11",
+    "alt": "Boat",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-boat.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-boat.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-boat.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-12",
+    "alt": "Orange Balloon",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-orangeballon.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-orangeballon.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-orangeballon.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-13",
+    "alt": "Burn",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-burn.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-burn.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-burn.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-14",
+    "alt": "Lagoon",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-lagoon.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-lagoon.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-lagoon.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-15",
+    "alt": "White Balloon",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-whiteballon.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-whiteballon.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-whiteballon.jpg"
+    },
+    "isSvg": false
+  },
+  {
+    "id": "bg-16",
+    "alt": "Sky",
+    "src": {
+      "desktop": "/images/backgrounds-desk/bg1-des-sky.jpg",
+      "tablet": "/images/backgrounds-tab/bg1-tab-sky.jpg",
+      "mobile": "/images/backgrounds-mobile/bg1-mob-sky.jpg"
+    },
+    "isSvg": false
+  }
+]

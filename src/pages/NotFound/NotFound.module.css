@@ -1,0 +1,45 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #f8f9fa;
+  color: rgb(var(--button-add-column-text));
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgb(var(--button-create-board));
+  margin: 0;
+}
+
+.message {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.description {
+  font-size: 1rem;
+  color: rgb(var(--button-add-column-text));
+}
+
+.homeButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: rgb(var(--button-create-board));
+  color: rgb(var(--button-add-column-text));
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.homeButton:active,
+.homeButton:hover,
+.homeButton:focus {
+  background: rgb(var(--button-background-color));
+  letter-spacing: 0.3px;
+}
