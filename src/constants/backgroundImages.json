@@ -36,8 +36,7 @@
     "isSvg": false
   },
   {
-    "id": 4,
-    "name": "bg-5",
+    "id": "bg-5",
     "alt": "White Moon",
     "src": {
       "desktop": "/images/backgrounds-desk/bg1-des-moon.jpg",
