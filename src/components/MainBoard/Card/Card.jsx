@@ -54,6 +54,9 @@ const Card = ({ data, openModal, onDelete, columnId }) => {
       className={s.taskContainer}
       style={{ "--default-color": priorityColor }}
     >
+      {visibleCardId === _id && isVisibleInPro && (
+        <InProgress card={data} columnId={columnId} />
+      )}
       <h4 className={s.title}>{title}</h4>
       <p className={s.descr}>
         <EllipsisText text={description} length={90} />
@@ -78,10 +81,7 @@ const Card = ({ data, openModal, onDelete, columnId }) => {
           </div>
         </div>
 
-        <div className={s.btnWrapper}>
-          {visibleCardId === _id && isVisibleInPro && (
-            <InProgress card={data} columnId={columnId} />
-          )}
+        <div className={s.btnsWrapper}>
           {(isDeadlineToday || isDeadlinePast) && (
             <div className={s.iconWrapper}>
               <SvgIcon
