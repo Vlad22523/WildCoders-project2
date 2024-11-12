@@ -1,13 +1,3 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "src/main.jsx",
-      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
-    }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
