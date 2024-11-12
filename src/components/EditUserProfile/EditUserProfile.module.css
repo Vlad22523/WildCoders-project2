@@ -209,6 +209,8 @@
   &:hover,
   &:focus {
     background: rgb(var(--button-background-color));
+    transform: scale(1.02);
+    letter-spacing: 0.6px;
   }
 }
 
