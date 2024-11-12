@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import s from "../BackgroundRadioButton/BackgroundRadioButton.module.css";
 import { useEffect, useState } from "react";
+import SvgIcon from "../../hooks/SvgIcon.jsx";
 
 const getResponsiveImageSrc = (src) => {
   if (!src) return "";
@@ -40,16 +41,15 @@ export const BackgroundRadioButton = ({ background, field }) => {
       />
       {background.isSvg ? (
         <div className={s.div_background}>
-          <svg
+          <SvgIcon
+            name="icon-no-bg"
             width="28"
             height="28"
             className={clsx(
               s.iconBackground,
               field.value === String(background.id) && s.activeBackground
             )}
-          >
-            <use href="/src/images/icons.svg#icon-no-bg" />
-          </svg>
+          />
         </div>
       ) : (
         <img

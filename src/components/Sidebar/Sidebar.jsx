@@ -210,7 +210,7 @@ const Sidebar = () => {
         <div>
           <div className={s.side_help}>
             <div className={s.side_help_span}>
-              <img src="/src/images/plant.png" width="57" height="78" alt="" />
+              <img src="/images/plant.png" width="57" height="78" alt="" />
               <p>
                 If you need help with <span>TaskPro</span>, check out our
                 support resources or reach out to our customer support team.

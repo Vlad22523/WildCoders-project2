@@ -7,6 +7,7 @@ import {
   updateBoardThunk,
 } from "../../redux/boards/operations.js";
 import { useState } from "react";
+import SvgIcon from "../../hooks/SvgIcon.jsx";
 
 export const EditBoardForm = ({ setFormOpen, initialValues }) => {
   const dispatch = useDispatch();
@@ -56,9 +57,12 @@ export const EditBoardForm = ({ setFormOpen, initialValues }) => {
       setFormOpen={setFormOpen}
       submitButton={
         <button className={s.button} type="submit">
-          <svg className={s.iconButton} width="28" height="28">
-            <use href="/src/images/icons.svg#icon-plus" />
-          </svg>
+          <SvgIcon
+            name="icon-plus"
+            width="28"
+            height="28"
+            className={s.iconButton}
+          />
           Update
         </button>
       }

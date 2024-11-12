@@ -69,7 +69,7 @@
 
 .create_container:hover {
   border-radius: 8px;
-  background-color: rgb(var(--background-hover-board));
+  background-color: rgba(var(--background-hover-board), 0.5);
 }
 
 .create_container:hover .icon {
@@ -109,11 +109,11 @@
 }
 
 .board_item:hover {
-  background-color: rgb(var(--background-hover-board));
+  background-color: rgba(var(--background-hover-board), 0.5);
 }
 
 .active {
-  background-color: rgb(var(--background-hover-board));
+  background-color: rgba(var(--background-hover-board), 0.5);
   display: block;
 }
 
@@ -233,7 +233,7 @@
   max-width: 212px;
   width: 100%;
   font-size: 14px;
-  background-color: rgb(var(--needhelpplatform));
+  background-color: rgba(var(--needhelpplatform));
   padding: 10px 20px 20px 20px;
   border-radius: 8px 8px 0 0;
   top: -211px;

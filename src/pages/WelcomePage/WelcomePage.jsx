@@ -7,7 +7,7 @@ const WelcomePage = () => {
     <div className={s.welcomePage}>
       <div className={s.welcomeContent}>
         <img
-          src="/src/images/boy.png"
+          src="/images/boy.png"
           width="124"
           height="124"
           alt=""
