@@ -46,7 +46,7 @@
 
 .scrollBarTasks {
   max-height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-right: 4px;
   width: calc(100% + 12px);
   margin-right: -4px;
@@ -107,7 +107,7 @@
 .buttonColumnAdd:hover,
 .buttonColumnAdd:focus {
   background: rgb(var(--button-background-color));
-  letter-spacing: 0.6px;
+  letter-spacing: 0.3px;
 }
 
 .svgWrapperAddCard {
@@ -177,7 +177,7 @@
   width: 335px;
   height: auto;
   border-radius: 8px;
-  background: rgb(var(--background-modal_input));
+  background: rgb(var(--background-mainboard));
   padding: 24px;
   border: 1px solid rgb(var(--button-color-modal), 0.5);
   padding: 40px 20px;

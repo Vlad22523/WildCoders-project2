@@ -1,14 +1,11 @@
 import { useEffect } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup"; // For validation schema
-import s from "../AddColumnModal/ColModal.module.css";
+import s from "./AddColumnModal.module.css";
 import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import { IoClose } from "react-icons/io5";
 import { useDispatch } from "react-redux";
-import {
-  fetchAddColumn,
-  fetchColumnsThunk,
-} from "../../../redux/columns/operations.js";
+import { fetchAddColumn } from "../../../redux/columns/operations.js";
 
 // Validation schema for Formik
 const validationSchema = Yup.object({
@@ -43,8 +40,6 @@ const AddColumnModal = ({ isOpen, onClose, boardId }) => {
   };
 
   const onSubmit = (values, { resetForm }) => {
-    console.log(values);
-
     const body = {
       title: values.title,
     };

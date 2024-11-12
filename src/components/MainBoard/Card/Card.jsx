@@ -152,3 +152,4 @@ const Card = ({ data, openModal, onDelete, columnId }) => {
 };
 
 export default Card;
+

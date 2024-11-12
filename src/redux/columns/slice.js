@@ -3,6 +3,7 @@ import {
   fetchAddColumn,
   fetchColumnsThunk,
   fetchDeleteColumn,
+  fetchPatchColumn,
 } from "./operations.js";
 
 const columnsSlice = createSlice({
@@ -41,6 +42,7 @@ const columnsSlice = createSlice({
       .addCase(fetchAddColumn.fulfilled, (state, action) => {
         state.columns.push(action.payload);
         state.loading = false;
+        state.refresh = false;
       })
       .addCase(fetchAddColumn.rejected, (state) => {
         state.loading = false;
@@ -56,9 +58,27 @@ const columnsSlice = createSlice({
           (item) => item._id !== action.payload
         );
         state.loading = false;
+        state.refresh = false;
       })
       .addCase(fetchDeleteColumn.rejected, (state) => {
         state.loading = false;
+      })
+      .addCase(fetchPatchColumn.fulfilled, (state, action) => {
+        const index = state.columns.findIndex(
+          (card) => card._id === action.payload._id
+        );
+
+        if (index !== -1) {
+          state.columns[index] = action.payload;
+        }
+        state.loading = false;
+        state.refresh = false;
+      })
+      .addCase(fetchPatchColumn.rejected, (state) => {
+        state.loading = false;
+      })
+      .addCase(fetchPatchColumn.pending, (state) => {
+        state.loading = true;
       });
   },
 });

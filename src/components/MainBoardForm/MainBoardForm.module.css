@@ -1,11 +1,22 @@
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .container {
   width: 335px;
-
   border-radius: 8px;
   background: rgb(var(--background-hover-board));
   padding: 24px;
   margin: auto;
   border: 1px solid rgb(var(--svglogout), 0.5);
+  animation: modalSlideIn 200ms ease-out forwards;
 }
 
 .containerTitle {

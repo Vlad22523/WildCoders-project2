@@ -13,7 +13,7 @@ import styles from "./ModalCard.module.css";
 
 const TitleSchema = Yup.object().shape({
   cardTitle: Yup.string().required("Title is required"),
-  cardDescr: Yup.string(),
+  cardDescr: Yup.string().required("Description is required"),
 });
 
 const ModalCard = ({
@@ -89,7 +89,7 @@ const ModalCard = ({
                 placeholder="Title"
                 onChange={handleChange}
                 value={values.cardTitle}
-                className={styles.field}
+                className={styles.field_input}
               />
               <ErrorMessage
                 name="cardTitle"
@@ -99,12 +99,18 @@ const ModalCard = ({
 
               <label htmlFor="cardDescr"></label>
               <Field
+                as="textarea"
                 placeholder="Description"
                 id="cardDescr"
                 name="cardDescr"
                 onChange={handleChange}
                 value={values.cardDescr}
                 className={styles.field}
+              />
+              <ErrorMessage
+                name="cardDescr"
+                component="p"
+                className={styles.err}
               />
 
               <p className={styles.subtitle}>Label color</p>

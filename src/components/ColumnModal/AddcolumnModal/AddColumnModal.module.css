@@ -1,14 +1,34 @@
+@keyframes modalOpacity {
+  0% {
+    background-color: none;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+}
+
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.75);
   display: flex;
   align-items: center;
   z-index: 100;
   justify-content: center;
+  animation: modalOpacity 200ms ease-out forwards;
+}
+
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .content {
@@ -21,6 +41,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   border: 1px solid rgb(var(--svglogout), 0.5);
+  animation: modalSlideIn 200ms ease-out forwards;
 }
 
 .header {

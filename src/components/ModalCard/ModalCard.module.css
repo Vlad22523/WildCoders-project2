@@ -1,3 +1,12 @@
+@keyframes modalOpacity {
+  0% {
+    background-color: none;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+}
+
 .overlay {
   position: fixed;
   z-index: 100;
@@ -5,10 +14,21 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.75);
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: modalOpacity 200ms ease-out forwards;
+}
+
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .content {
@@ -21,6 +41,7 @@
   position: relative;
   border: 1px;
   border: 1px solid rgb(var(--button-color-modal), 0.5);
+  animation: modalSlideIn 200ms ease-out forwards;
 }
 
 .header {
@@ -67,6 +88,26 @@ span {
 
 .field {
   width: 100%;
+  overflow: auto;
+  resize: none;
+  height: 154px;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-family: Poppins, regular;
+  letter-spacing: -0.28px;
+  background-color: rgb(var(--background-mainboard));
+  border: 1px solid rgb(190, 219, 176);
+  box-shadow: rgba(22, 22, 22, 0.08) 0px 4px 16px;
+  outline: none;
+  border-radius: 8px;
+  color: rgb(var(--text-color-mainboard));
+  transition: 250ms;
+  opacity: 0.4;
+  margin-top: 18px;
+}
+
+.field_input {
+  width: 100%;
   height: 49px;
   padding: 14px 18px;
   font-size: 14px;
@@ -86,6 +127,12 @@ span {
 .field:hover,
 .field:focus,
 .field:active {
+  opacity: 1;
+}
+
+.field_input:hover,
+.field_input:focus,
+.field_input:active {
   opacity: 1;
 }
 
