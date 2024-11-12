@@ -108,6 +108,7 @@
 .btnsWrapper {
   gap: 8px;
   display: flex;
+  position: relative;
 }
 
 .btnOptions {

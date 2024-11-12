@@ -3,12 +3,23 @@ import EllipsisText from "react-ellipsis-text";
 import s from "./Card.module.css";
 import { format, isBefore, isSameDay } from "date-fns";
 import InProgress from "../InPrigress/inProgress.jsx";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectIsVisibleInPro,
+  selectVisibleCardId,
+} from "../../../redux/cards/selectors.js";
+import {
+  toggleIsVisibleInPro,
+  toggleVisibleCardId,
+} from "../../../redux/cards/slice.js";
 
 const Card = ({ data, openModal, onDelete, columnId }) => {
   const { title, description, priority, dateDeadline, _id } = data;
 
-  const [isVisiblePro, setIsVisiblePro] = useState(true);
+  const visibleCardId = useSelector(selectVisibleCardId);
+  const isVisibleInPro = useSelector(selectIsVisibleInPro);
+  const dispatch = useDispatch();
+
   const isToday = (date) => {
     return isSameDay(new Date(date), new Date());
   };
@@ -66,7 +77,11 @@ const Card = ({ data, openModal, onDelete, columnId }) => {
             <p className={s.deadlineDate}>{formattedDeadline}</p>
           </div>
         </div>
+
         <div className={s.btnsWrapper}>
+          {visibleCardId === _id && isVisibleInPro && (
+            <InProgress card={data} columnId={columnId} />
+          )}
           {(isDeadlineToday || isDeadlinePast) && (
             <div className={s.iconWrapper}>
               <SvgIcon
@@ -92,10 +107,11 @@ const Card = ({ data, openModal, onDelete, columnId }) => {
           <button
             className={s.btnOptions}
             type="button"
-            onClick={() => {
-              console.log("openInProsess");
-              console.log("isVisiblePro", isVisiblePro);
-              setIsVisiblePro(!isVisiblePro);
+            id={_id}
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(toggleVisibleCardId(e.currentTarget.id));
+              dispatch(toggleIsVisibleInPro());
             }}
           >
             <SvgIcon
@@ -104,13 +120,6 @@ const Card = ({ data, openModal, onDelete, columnId }) => {
               height="16"
               className={s.icon}
             />
-            {isVisiblePro && (
-              <InProgress
-                cardId={_id}
-                columnId={columnId}
-                setIsVisiblePro={setIsVisiblePro}
-              />
-            )}
           </button>
           <button
             className={s.btnOptions}

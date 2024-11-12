@@ -14,10 +14,24 @@ const cardsSlice = createSlice({
     error: null,
     refresh: false,
     loading: false,
+    visibleCardId: "",
+    isVisibleInPro: false,
   },
   reducers: {
     resetRefreshColumn: (state) => {
       state.refresh = false;
+    },
+    toggleVisibleCardId: (state, action) => {
+      state.visibleCardId = action.payload;
+    },
+    toggleIsVisibleInPro: (state, action) => {
+      state.isVisibleInPro = !state.isVisibleInPro;
+    },
+    getCurrentCardId: (state, action) => {
+      state.cardId = action.payload;
+    },
+    getCurrentColumnId: (state, action) => {
+      state.cardId = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -85,5 +99,11 @@ const cardsSlice = createSlice({
   },
 });
 
-export const { resetRefreshColumn } = cardsSlice.actions;
+export const {
+  resetRefreshColumn,
+  toggleVisibleCardId,
+  toggleIsVisibleInPro,
+  getCurrentCardId,
+  getCurrentColumnmId,
+} = cardsSlice.actions;
 export const cardsReducer = cardsSlice.reducer;
