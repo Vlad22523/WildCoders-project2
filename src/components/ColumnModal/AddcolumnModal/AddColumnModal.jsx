@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup"; // For validation schema
-import s from "../AddColumnModal/ColModal.module.css";
+import s from "./AddColumnModal.module.css";
 import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import { IoClose } from "react-icons/io5";
 import { useDispatch } from "react-redux";
