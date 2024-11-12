@@ -159,6 +159,7 @@ const Column = ({ data: { title, _id }, boardId }) => {
                 data={card}
                 openModal={openCardModal}
                 onDelete={deleteCard}
+                columnId={_id}
               />
             ))}
           </div>

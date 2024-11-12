@@ -117,8 +117,10 @@
   justify-content: center;
   align-self: center;
   background-color: transparent;
+  position: relative;
+  border: none;
+  align-items: flex-start;
 }
-
 .icon {
   transition: all 200ms ease-in-out;
   fill: none;

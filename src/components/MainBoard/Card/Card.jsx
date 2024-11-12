@@ -2,10 +2,13 @@ import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import EllipsisText from "react-ellipsis-text";
 import s from "./Card.module.css";
 import { format, isBefore, isSameDay } from "date-fns";
+import InProgress from "../InPrigress/inProgress.jsx";
+import { useState } from "react";
 
-const Card = ({ data, openModal, onDelete }) => {
+const Card = ({ data, openModal, onDelete, columnId }) => {
   const { title, description, priority, dateDeadline, _id } = data;
 
+  const [isVisiblePro, setIsVisiblePro] = useState(true);
   const isToday = (date) => {
     return isSameDay(new Date(date), new Date());
   };
@@ -86,13 +89,28 @@ const Card = ({ data, openModal, onDelete }) => {
             </div>
           )}
 
-          <button className={s.btnOptions} type="button">
+          <button
+            className={s.btnOptions}
+            type="button"
+            onClick={() => {
+              console.log("openInProsess");
+              console.log("isVisiblePro", isVisiblePro);
+              setIsVisiblePro(!isVisiblePro);
+            }}
+          >
             <SvgIcon
               name="icon-arrow-circle-broken-right"
               width="16"
               height="16"
               className={s.icon}
             />
+            {isVisiblePro && (
+              <InProgress
+                cardId={_id}
+                columnId={columnId}
+                setIsVisiblePro={setIsVisiblePro}
+              />
+            )}
           </button>
           <button
             className={s.btnOptions}
