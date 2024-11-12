@@ -1,15 +1,35 @@
+@keyframes modalOpacity {
+  0% {
+    background-color: none;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+}
+
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.75);
   display: flex;
   align-items: center;
   z-index: 100;
   justify-content: center;
   cursor: default;
+  animation: modalOpacity 200ms ease-out forwards;
+}
+
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .container {
@@ -22,6 +42,7 @@
   border: 1px solid rgb(var(--button-color-modal), 0.5);
   padding: 40px 20px;
   position: relative;
+  animation: modalSlideIn 200ms ease-out forwards;
 }
 
 .closeButton {

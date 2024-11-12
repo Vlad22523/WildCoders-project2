@@ -1,3 +1,14 @@
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .container {
   width: 350px;
   height: auto;
@@ -6,6 +17,7 @@
   padding: 24px;
   border: 1px solid rgb(var(--button-color-modal), 0.5);
   padding: 40px 20px;
+  animation: modalSlideIn 200ms ease-out forwards;
 }
 
 .closeButton {

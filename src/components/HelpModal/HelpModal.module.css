@@ -1,3 +1,14 @@
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
 .content {
   position: fixed;
   top: 50%;
@@ -12,6 +23,7 @@
   max-width: 90%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid rgb(var(--svglogout), 0.5);
+  animation: modalSlideIn 200ms ease-out forwards;
 }
 
 .header {
