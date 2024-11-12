@@ -6,6 +6,9 @@ export const selectRefreshCards = (state) => state.cards.refresh;
 export const selectLoadingCards = (state) => state.cards.loading;
 export const selectDeletedCard = (state) => state.cards.deleted;
 
+export const selectVisibleCardId = (state) => state.cards.visibleCardId;
+export const selectIsVisibleInPro = (state) => state.cards.isVisibleInPro;
+
 export const selectFilteredCards = createSelector(
   [selectAllCards, selectPriorityFilter],
   (cards, priority) => {

@@ -164,7 +164,13 @@ const Column = ({ data: { title, _id }, boardId }) => {
         <div className={s.scrollBarTasks}>
           <div className={s.tasksWrapper}>
             {cardsForColumn.map((card) => (
-              <Card key={card._id} data={card} openModal={openCardModal} />
+              <Card
+                key={card._id}
+                data={card}
+                openModal={openCardModal}
+                onDelete={deleteCard}
+                columnId={_id}
+              />
             ))}
           </div>
         </div>

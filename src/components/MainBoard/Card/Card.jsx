@@ -2,16 +2,23 @@ import SvgIcon from "../../../hooks/SvgIcon.jsx";
 import EllipsisText from "react-ellipsis-text";
 import s from "./Card.module.css";
 import { format, isBefore, isSameDay } from "date-fns";
-import DeleteCard from "../Delete.jsx/DeleteCard.jsx";
-import { useState } from "react";
+import InProgress from "../InPrigress/inProgress.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectIsVisibleInPro,
+  selectVisibleCardId,
+} from "../../../redux/cards/selectors.js";
+import {
+  toggleIsVisibleInPro,
+  toggleVisibleCardId,
+} from "../../../redux/cards/slice.js";
 
-const Card = ({ data, openModal }) => {
-  const [isModalCardOpen, setIsModalCardOpen] = useState(false);
-
-  const openCardDelete = () => setIsModalCardOpen(true);
-  const closeCardDelete = () => setIsModalCardOpen(false);
-
+const Card = ({ data, openModal, onDelete, columnId }) => {
   const { title, description, priority, dateDeadline, _id } = data;
+
+  const visibleCardId = useSelector(selectVisibleCardId);
+  const isVisibleInPro = useSelector(selectIsVisibleInPro);
+  const dispatch = useDispatch();
 
   const isToday = (date) => {
     return isSameDay(new Date(date), new Date());
@@ -47,12 +54,9 @@ const Card = ({ data, openModal }) => {
       className={s.taskContainer}
       style={{ "--default-color": priorityColor }}
     >
-      <DeleteCard
-        onClose={closeCardDelete}
-        isOpen={isModalCardOpen}
-        idCard={_id}
-        title={title}
-      />
+      {visibleCardId === _id && isVisibleInPro && (
+        <InProgress card={data} columnId={columnId} />
+      )}
       <h4 className={s.title}>{title}</h4>
       <p className={s.descr}>
         <EllipsisText text={description} length={90} />
@@ -76,6 +80,7 @@ const Card = ({ data, openModal }) => {
             <p className={s.deadlineDate}>{formattedDeadline}</p>
           </div>
         </div>
+
         <div className={s.btnsWrapper}>
           {(isDeadlineToday || isDeadlinePast) && (
             <div className={s.iconWrapper}>
@@ -99,7 +104,16 @@ const Card = ({ data, openModal }) => {
             </div>
           )}
 
-          <button className={s.btnOptions} type="button">
+          <button
+            className={s.btnOptions}
+            type="button"
+            id={_id}
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(toggleVisibleCardId(e.currentTarget.id));
+              dispatch(toggleIsVisibleInPro());
+            }}
+          >
             <SvgIcon
               name="icon-arrow-circle-broken-right"
               width="16"
@@ -120,10 +134,9 @@ const Card = ({ data, openModal }) => {
             />
           </button>
           <button
-            onClick={openCardDelete}
             className={s.btnOptions}
             type="button"
-            // onClick={() => onDelete(_id)}
+            onClick={() => onDelete(_id)}
           >
             <SvgIcon
               name="icon-trash"
@@ -139,3 +152,4 @@ const Card = ({ data, openModal }) => {
 };
 
 export default Card;
+

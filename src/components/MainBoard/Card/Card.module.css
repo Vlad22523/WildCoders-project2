@@ -113,6 +113,7 @@
 .btnsWrapper {
   gap: 8px;
   display: flex;
+  position: relative;
 }
 
 .btnOptions {
@@ -122,8 +123,10 @@
   justify-content: center;
   align-self: center;
   background-color: transparent;
+  position: relative;
+  border: none;
+  align-items: flex-start;
 }
-
 .icon {
   transition: all 200ms ease-in-out;
   fill: none;

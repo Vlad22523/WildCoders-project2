@@ -1,0 +1,82 @@
+.btnOptions {
+  cursor: pointer;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  background-color: transparent;
+  position: relative;
+  border: none;
+}
+
+.icon {
+  transition: all 200ms ease-in-out;
+  fill: none;
+  stroke: rgba(var(--text-color-mainboard), 0.5);
+}
+
+.iconBell {
+  stroke: rgba(var(--button-color-modal));
+  filter: drop-shadow(0 0 6px rgba(var(--button-color-modal)));
+}
+
+.iconBellLose {
+  stroke: red;
+  filter: drop-shadow(0 0 6px red);
+}
+
+.icon:hover {
+  stroke: rgba(var(--text-color-mainboard));
+}
+
+.modalOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(var(--background-modal-filters));
+  max-width: 100%;
+  z-index: 1000;
+  border: 1px solid rgb(var(--button-color-modal));
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+  padding: 18px;
+}
+
+.column_btnChoice {
+  border: none;
+  width: 100%;
+  font-weight: 400;
+  display: block;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: rgb(var(--radio-button));
+  cursor: pointer;
+  transition: transform 100ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+  background-color: transparent;
+  white-space: nowrap;
+}
+
+.column_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+}
+.column_text {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
