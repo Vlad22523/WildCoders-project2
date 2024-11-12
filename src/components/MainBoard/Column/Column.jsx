@@ -168,7 +168,6 @@ const Column = ({ data: { title, _id }, boardId }) => {
                 key={card._id}
                 data={card}
                 openModal={openCardModal}
-                onDelete={deleteCard}
                 columnId={_id}
               />
             ))}

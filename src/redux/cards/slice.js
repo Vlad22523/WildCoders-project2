@@ -24,7 +24,7 @@ const cardsSlice = createSlice({
     toggleVisibleCardId: (state, action) => {
       state.visibleCardId = action.payload;
     },
-    toggleIsVisibleInPro: (state, action) => {
+    toggleIsVisibleInPro: (state) => {
       state.isVisibleInPro = !state.isVisibleInPro;
     },
     getCurrentCardId: (state, action) => {

@@ -12,13 +12,20 @@ import {
   toggleIsVisibleInPro,
   toggleVisibleCardId,
 } from "../../../redux/cards/slice.js";
+import DeleteCard from "../DeleteCard/DeleteCard.jsx";
+import { useState } from "react";
 
-const Card = ({ data, openModal, onDelete, columnId }) => {
+const Card = ({ data, openModal, columnId }) => {
   const { title, description, priority, dateDeadline, _id } = data;
+  const [isModalCardOpen, setIsModalCardOpen] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const openCardDelete = () => setIsModalCardOpen(true);
+  const closeCardDelete = () => setIsModalCardOpen(false);
 
   const visibleCardId = useSelector(selectVisibleCardId);
   const isVisibleInPro = useSelector(selectIsVisibleInPro);
-  const dispatch = useDispatch();
 
   const isToday = (date) => {
     return isSameDay(new Date(date), new Date());
@@ -57,6 +64,12 @@ const Card = ({ data, openModal, onDelete, columnId }) => {
       {visibleCardId === _id && isVisibleInPro && (
         <InProgress card={data} columnId={columnId} />
       )}
+      <DeleteCard
+        onClose={closeCardDelete}
+        isOpen={isModalCardOpen}
+        idCard={_id}
+        title={title}
+      />
       <h4 className={s.title}>{title}</h4>
       <p className={s.descr}>
         <EllipsisText text={description} length={90} />
@@ -135,8 +148,8 @@ const Card = ({ data, openModal, onDelete, columnId }) => {
           </button>
           <button
             className={s.btnOptions}
+            onClick={openCardDelete}
             type="button"
-            onClick={() => onDelete(_id)}
           >
             <SvgIcon
               name="icon-trash"
@@ -152,4 +165,3 @@ const Card = ({ data, openModal, onDelete, columnId }) => {
 };
 
 export default Card;
-

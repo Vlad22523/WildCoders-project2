@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import s from "./DeleteCard.module.css";
 
-import { deleteCardThunk } from "../../../redux/cards/operations";
+import { deleteCardThunk } from "../../../redux/cards/operations.js";
 import SvgIcon from "../../../hooks/SvgIcon.jsx";
 
 const DeleteCard = ({ onClose, isOpen, idCard, title }) => {
