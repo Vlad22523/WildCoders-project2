@@ -12,8 +12,6 @@ const InProgress = ({ card }) => {
 
   const handleClickColumn = (e) => {
     e.preventDefault();
-    console.log("columnId=", e.currentTarget.id);
-    console.log("cardId=", card);
     dispatch(toggleIsVisibleInPro());
     const updateCard = {
       title: card.title,

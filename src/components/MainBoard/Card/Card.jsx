@@ -64,7 +64,7 @@ const Card = ({ data, openModal, columnId }) => {
     >
       {visibleCardId === _id && isVisibleInPro && (
         <>
-          <Backdrop onClose={() => dispatch(toggleIsVisibleInPro())} />
+          {/* <Backdrop onClose={() => dispatch(toggleIsVisibleInPro())} /> */}
           <InProgress card={data} />
         </>
       )}
