@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAllColumns } from "../../../redux/columns/selectors.js";
 import { editCardThunk } from "../../../redux/cards/operations.js";
 import { toggleIsVisibleInPro } from "../../../redux/cards/slice.js";
+import clsx from "clsx";
 
 const InProgress = ({ card }) => {
   const dispatch = useDispatch();
@@ -11,8 +12,6 @@ const InProgress = ({ card }) => {
 
   const handleClickColumn = (e) => {
     e.preventDefault();
-    console.log("columnId=", e.currentTarget.id);
-    console.log("cardId=", card);
     dispatch(toggleIsVisibleInPro());
     const updateCard = {
       title: card.title,
@@ -21,26 +20,25 @@ const InProgress = ({ card }) => {
       dateDeadline: card.dateDeadline,
       columnId: e.currentTarget.id,
     };
-    console.log(updateCard);
+
     dispatch(editCardThunk({ cardId: card._id, body: updateCard }));
   };
 
   return (
     <div className={s.modalOverlay}>
-      <div
-        className={s.modalContent}
-        // ref={modalRef}
-      >
+      <ul className={s.inProgress_wrap}>
         {columns.map((column) => {
           return (
-            <div key={column._id}>
+            <li key={column._id} className={s.inProgress_inner}>
               <button
-                className={s.column_btnChoice}
+                className={clsx(s.inProgress_btn, {
+                  [s.activeButton]: column._id === card.columnId,
+                })}
                 id={column._id}
                 onClick={handleClickColumn}
               >
-                <div className={s.column_box}>
-                  <p className={s.column_text}>{column.title}</p>
+                <div className={s.inProgress_box}>
+                  <p className={s.inProgress_text}>{column.title}</p>
                   <SvgIcon
                     name="icon-arrow-circle-broken-right"
                     width="16"
@@ -49,81 +47,12 @@ const InProgress = ({ card }) => {
                   />
                 </div>
               </button>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 };
 
 export default InProgress;
-
-//        <button>
-//             <p className={s.column_text}>{item.tilte}</p>
-//             <SvgIcon
-//               name="icon-arrow-circle-broken-right"
-//               width="16"
-//               height="16"
-//               className={s.icon}
-//             />
-//           </button>
-//           <label className={s.column_choice}>
-//             <input
-//               type="radio"
-//               name="column"
-//               value="Light"
-//               // checked={columnId === column.title}
-//               // onChange={() => handleThemeSelect("light")}
-//             />
-//             <p className={s.column_text}>Light</p>
-//             <SvgIcon
-//               name="icon-arrow-circle-broken-right"
-//               width="16"
-//               height="16"
-//               className={s.icon}
-//             />
-//           </label>
-//         </li>
-//         <li>
-//           <label className={s.column_choice}>
-//             <input
-//               type="radio"
-//               name="column"
-//               value="Light"
-//               // checked={columnId === column.title}
-//               // onChange={() => handleThemeSelect("light")}
-//             />
-//             <p className={s.column_text}>Light</p>
-//             <SvgIcon
-//               name="icon-arrow-circle-broken-right"
-//               width="16"
-//               height="16"
-//               className={s.icon}
-//             />
-//           </label>
-//         </li>
-// // <h4>List of columns</h4>
-// // <ul>
-// //   <li key={"ssseesesse"}>
-// //     <button>
-// //       <p>{material}</p>
-// //       <SvgIcon
-// //         name="icon-arrow-circle-broken-right"
-// //         width="16"
-// //         height="16"
-// //         className={s.icon}
-// //       />
-// //     </button>
-// //   </li>
-// //   {/* {colimns.map((item) => {
-// //     return (
-// //       <li key={item._id}>
-// //         <button>
-// //           <p>{item.title}</p>
-// //           <span>))))</span>
-// //         </button>
-// //       </li>
-// //     );
-// //   })} */}
-// // </ul>
