@@ -5,14 +5,12 @@ import { selectAllColumns } from "../../../redux/columns/selectors.js";
 import { editCardThunk } from "../../../redux/cards/operations.js";
 import { toggleIsVisibleInPro } from "../../../redux/cards/slice.js";
 
-const InProgress = ({ card }) => {
+const InProgress = ({ card, columnId }) => {
   const dispatch = useDispatch();
   const columns = useSelector(selectAllColumns);
 
   const handleClickColumn = (e) => {
     e.preventDefault();
-    console.log("columnId=", e.currentTarget.id);
-    console.log("cardId=", card);
     dispatch(toggleIsVisibleInPro());
     const updateCard = {
       title: card.title,
@@ -21,7 +19,6 @@ const InProgress = ({ card }) => {
       dateDeadline: card.dateDeadline,
       columnId: e.currentTarget.id,
     };
-    console.log(updateCard);
     dispatch(editCardThunk({ cardId: card._id, body: updateCard }));
   };
 
@@ -35,14 +32,23 @@ const InProgress = ({ card }) => {
                 className={s.column_btnChoice}
                 id={column._id}
                 onClick={handleClickColumn}
+                disabled={column._id === columnId}
               >
                 <div className={s.column_box}>
-                  <p className={s.column_text}>{column.title}</p>
+                  <p
+                    className={`${s.column_text} 
+                    ${column._id === columnId ? s.active : ""}
+                    `}
+                  >
+                    {column.title}
+                  </p>
                   <SvgIcon
                     name="icon-arrow-circle-broken-right"
                     width="16"
                     height="16"
-                    className={s.icon}
+                    className={`${s.icon} 
+                    ${column._id === columnId ? s.active : ""}
+                    `}
                   />
                 </div>
               </button>
