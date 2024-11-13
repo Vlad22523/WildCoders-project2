@@ -27,10 +27,7 @@ const InProgress = ({ card }) => {
 
   return (
     <div className={s.modalOverlay}>
-      <div
-        className={s.modalContent}
-        // ref={modalRef}
-      >
+      <div className={s.modalContent}>
         {columns.map((column) => {
           return (
             <div key={column._id}>
@@ -58,72 +55,3 @@ const InProgress = ({ card }) => {
 };
 
 export default InProgress;
-
-//        <button>
-//             <p className={s.column_text}>{item.tilte}</p>
-//             <SvgIcon
-//               name="icon-arrow-circle-broken-right"
-//               width="16"
-//               height="16"
-//               className={s.icon}
-//             />
-//           </button>
-//           <label className={s.column_choice}>
-//             <input
-//               type="radio"
-//               name="column"
-//               value="Light"
-//               // checked={columnId === column.title}
-//               // onChange={() => handleThemeSelect("light")}
-//             />
-//             <p className={s.column_text}>Light</p>
-//             <SvgIcon
-//               name="icon-arrow-circle-broken-right"
-//               width="16"
-//               height="16"
-//               className={s.icon}
-//             />
-//           </label>
-//         </li>
-//         <li>
-//           <label className={s.column_choice}>
-//             <input
-//               type="radio"
-//               name="column"
-//               value="Light"
-//               // checked={columnId === column.title}
-//               // onChange={() => handleThemeSelect("light")}
-//             />
-//             <p className={s.column_text}>Light</p>
-//             <SvgIcon
-//               name="icon-arrow-circle-broken-right"
-//               width="16"
-//               height="16"
-//               className={s.icon}
-//             />
-//           </label>
-//         </li>
-// // <h4>List of columns</h4>
-// // <ul>
-// //   <li key={"ssseesesse"}>
-// //     <button>
-// //       <p>{material}</p>
-// //       <SvgIcon
-// //         name="icon-arrow-circle-broken-right"
-// //         width="16"
-// //         height="16"
-// //         className={s.icon}
-// //       />
-// //     </button>
-// //   </li>
-// //   {/* {colimns.map((item) => {
-// //     return (
-// //       <li key={item._id}>
-// //         <button>
-// //           <p>{item.title}</p>
-// //           <span>))))</span>
-// //         </button>
-// //       </li>
-// //     );
-// //   })} */}
-// // </ul>

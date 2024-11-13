@@ -109,8 +109,8 @@ const Filters = () => {
                       value="without"
                       className={s.radioBtn}
                       onChange={() => {
-                        setFieldValue("filterOption", "without"); // Изменяем значение фильтра
-                        handleFilterChange("without"); // Сразу применяем фильтр в Redux
+                        setFieldValue("filterOption", "without");
+                        handleFilterChange("without");
                       }}
                     />
                     Without priority
@@ -126,8 +126,8 @@ const Filters = () => {
                       value="low"
                       className={s.radioBtn}
                       onChange={() => {
-                        setFieldValue("filterOption", "low"); // Изменяем значение фильтра
-                        handleFilterChange("low"); // Сразу применяем фильтр в Redux
+                        setFieldValue("filterOption", "low");
+                        handleFilterChange("low");
                       }}
                     />
                     Low
@@ -143,8 +143,8 @@ const Filters = () => {
                       value="medium"
                       className={s.radioBtn}
                       onChange={() => {
-                        setFieldValue("filterOption", "medium"); // Изменяем значение фильтра
-                        handleFilterChange("medium"); // Сразу применяем фильтр в Redux
+                        setFieldValue("filterOption", "medium");
+                        handleFilterChange("medium");
                       }}
                     />
                     Medium
@@ -160,8 +160,8 @@ const Filters = () => {
                       value="high"
                       className={s.radioBtn}
                       onChange={() => {
-                        setFieldValue("filterOption", "high"); // Изменяем значение фильтра
-                        handleFilterChange("high"); // Сразу применяем фильтр в Redux
+                        setFieldValue("filterOption", "high");
+                        handleFilterChange("high");
                       }}
                     />
                     High

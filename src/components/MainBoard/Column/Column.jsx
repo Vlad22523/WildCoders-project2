@@ -79,31 +79,6 @@ const Column = ({ data: { title, _id }, boardId }) => {
     );
   };
 
-  // const deleteCard = (cardId) => {
-  //   toast.custom(() => (
-  //     <div className={s.modalOverlay} onClick={(e) => e.stopPropagation()}>
-  //       <div className={s.modalContainer}>
-  //         <h2 className={s.modalText}>Are you sure you want to delete card?</h2>
-  //         <div className={s.containerButton}>
-  //           <button className={s.modalButton} onClick={cancelDelete}>
-  //             No
-  //           </button>
-  //           <button className={s.modalButton} onClick={confirmDelete}>
-  //             Yes
-  //           </button>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   ));
-  //   const confirmDelete = () => {
-  //     toast.dismiss();
-  //     dispatch(deleteCardThunk(cardId));
-  //   };
-  //   const cancelDelete = () => {
-  //     toast.dismiss();
-  //   };
-  // };
-
   useEffect(() => {
     // Виконати логіку для refresh, якщо це необхідно
     if (refresh) {
@@ -113,6 +88,13 @@ const Column = ({ data: { title, _id }, boardId }) => {
       });
     }
   }, [dispatch, refresh, _id]);
+
+  const handleWheel = (event) => {
+    if (event.deltaX === 0) {
+      event.stopPropagation();
+      return;
+    }
+  };
 
   return (
     <div className={s.columnWrapper}>
@@ -161,7 +143,7 @@ const Column = ({ data: { title, _id }, boardId }) => {
           wrapperClass={s.lineWaveLoader}
         />
       ) : (
-        <div className={s.scrollBarTasks}>
+        <div className={s.scrollBarTasks} onWheel={handleWheel}>
           <div className={s.tasksWrapper}>
             {cardsForColumn.map((card) => (
               <Card

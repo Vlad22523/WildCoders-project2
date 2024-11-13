@@ -1,6 +1,6 @@
 import s from "./ScreensPage.module.css";
 import AddColumnModal from "../../ColumnModal/AddcolumnModal/AddColumnModal.jsx";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import Column from "../Column/Column.jsx";
 import HeaderDashboard from "../HeaderDashboard/HeaderDashboard.jsx";
@@ -30,13 +30,21 @@ const ScreensPage = () => {
   const columns = useSelector(selectAllColumns);
   const refresh = useSelector(selectRefreshColumns);
 
+  const containerRef = useRef(null);
+
+  const handleWheel = (event) => {
+    if (event.deltaY === 0) return;
+    if (containerRef.current) {
+      containerRef.current.scrollLeft += event.deltaY;
+    }
+  };
+
   const [title, setTitle] = useState("");
   const [background, setBackground] = useState("");
   const [isDataLoaded, setDataLoaded] = useState(false);
 
-  // Функция для получения пути к фоновому изображению в зависимости от ширины экрана
   const getBackgroundImagePath = (backgroundId) => {
-    const screenWidth = window.innerWidth; // Получаем ширину экрана
+    const screenWidth = window.innerWidth;
 
     const backgroundData = backgroundsData.find(
       (item) => item.id === backgroundId
@@ -87,11 +95,10 @@ const ScreensPage = () => {
   }, [boardId, dispatch, boards, loadingBoards]);
 
   useEffect(() => {
-    // Виконати логіку для refresh, якщо це необхідно
     if (refresh) {
       dispatch(refreshUserThunk()).then(() => {
         dispatch(resetRefreshColumn());
-        dispatch(fetchColumnsThunk(boardId)); // Скидаємо refresh після виконання
+        dispatch(fetchColumnsThunk(boardId));
       });
     }
   }, [dispatch, refresh, boardId]);
@@ -136,7 +143,11 @@ const ScreensPage = () => {
                 colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
               />
             ) : (
-              <div className={s.scrollbarColumn}>
+              <div
+                className={s.scrollbarColumn}
+                ref={containerRef}
+                onWheel={handleWheel}
+              >
                 <div className={s.columnContainer}>
                   {columns?.map((column) => (
                     <Column key={column._id} data={column} boardId={boardId} />

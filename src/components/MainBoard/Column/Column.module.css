@@ -65,24 +65,18 @@
   height: 8px;
 }
 
-/* Фон полосы прокрутки */
 .scrollBarTasks::-webkit-scrollbar-track {
   background-color: rgba(var(--mainboard-scrollbar-track-y));
   border-radius: 8px;
 }
 
-/* Ползунок (Thumb) */
 .scrollBarTasks::-webkit-scrollbar-thumb {
   background-color: rgba(var(--mainboard-scrollbar-thumb-y));
-  /* Основной цвет ползунка */
   border-radius: 8px;
-  /* Радиус ползунка */
 }
 
-/* Ползунок при наведении */
 .scrollBarTasks::-webkit-scrollbar-thumb:hover {
-  background-color: #555555;
-  /* Цвет ползунка при наведении */
+  background-color: rgba(var(--button-add-column), 0.7);
 }
 
 .buttonColumn {
