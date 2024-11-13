@@ -14,6 +14,7 @@ import {
 import DeleteCard from "../DeleteCard/DeleteCard.jsx";
 import { useState } from "react";
 import InProgress from "../InProgress/InProgress.jsx";
+import Backdrop from "../../Backdrop/Backdrop.jsx";
 
 const Card = ({ data, openModal, columnId }) => {
   const { title, description, priority, dateDeadline, _id } = data;
@@ -62,7 +63,10 @@ const Card = ({ data, openModal, columnId }) => {
       style={{ "--default-color": priorityColor }}
     >
       {visibleCardId === _id && isVisibleInPro && (
-        <InProgress card={data} columnId={columnId} />
+        <>
+          <Backdrop onClose={() => dispatch(toggleIsVisibleInPro())} />
+          <InProgress card={data} />
+        </>
       )}
       <DeleteCard
         onClose={closeCardDelete}
