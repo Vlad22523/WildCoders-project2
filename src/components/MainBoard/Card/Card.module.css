@@ -10,7 +10,7 @@
   background-color: rgb(var(--button-color-mainboard));
   border-radius: 8px;
   overflow: hidden;
-  max-width: 334px;
+  max-width: 300px;
 }
 
 .taskContainer::before {
@@ -178,4 +178,10 @@
 .iconWrapper:hover .tooltip {
   visibility: visible;
   opacity: 1;
+}
+
+@media screen and (min-width: 375px) {
+  .taskContainer {
+    max-width: 334px;
+  }
 }
