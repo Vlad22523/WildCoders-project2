@@ -14,9 +14,9 @@ import {
 import DeleteCard from "../DeleteCard/DeleteCard.jsx";
 import { useState } from "react";
 import InProgress from "../InProgress/InProgress.jsx";
-import Backdrop from "../../Backdrop/Backdrop.jsx";
+import BackCardDrop from "../BackCardDrop/BackCardDrop.jsx";
 
-const Card = ({ data, openModal, columnId }) => {
+const Card = ({ data, openModal }) => {
   const { title, description, priority, dateDeadline, _id } = data;
   const [isModalCardOpen, setIsModalCardOpen] = useState(false);
 
@@ -64,7 +64,7 @@ const Card = ({ data, openModal, columnId }) => {
     >
       {visibleCardId === _id && isVisibleInPro && (
         <>
-          {/* <Backdrop onClose={() => dispatch(toggleIsVisibleInPro())} /> */}
+          <BackCardDrop onClose={() => dispatch(toggleIsVisibleInPro())} />
           <InProgress card={data} />
         </>
       )}
