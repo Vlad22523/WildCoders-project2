@@ -5,7 +5,11 @@ export const mongoApi = axios.create({
 });
 
 export const setToken = (token) => {
-  mongoApi.defaults.headers.common.Authorization = `Bearer ${token}`;
+  if (token) {
+    mongoApi.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  } else {
+    delete mongoApi.defaults.headers.common["Authorization"];
+  }
 };
 
 export const clearToken = () => {

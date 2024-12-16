@@ -6,11 +6,6 @@ export const createBoardThunk = createAsyncThunk(
   "boards/createBoard",
   async (body, thunkAPI) => {
     try {
-      //   const token = localStorage.getItem("authToken");
-      //   console.log("Token:", token);
-      //   if (!token) {
-      //     return thunkAPI.rejectWithValue("Authorization token is missing");
-      //   }
       const response = await mongoApi.post("boards", body);
       toast.success("Successfully created board");
       return response.data.data;
@@ -51,17 +46,20 @@ export const getBoardsThunk = createAsyncThunk(
   "getBoards",
   async (_, thunkAPI) => {
     const savedToken = thunkAPI.getState().auth.token;
-    if (savedToken === null) {
-      return thunkAPI.rejectWithValue("Token is not exist!");
+
+    if (!savedToken) {
+      toast.error("Authorization token is missing!");
+      return thunkAPI.rejectWithValue("Token is missing");
     }
+
     try {
       setToken(savedToken);
-      const { data } = await mongoApi.get("boards", savedToken);
+      const { data } = await mongoApi.get("boards");
       return data.data;
     } catch (error) {
-      // const errorMessage = error.response?.data?.data.message || error.message;
-      // toast.error(errorMessage);
-      return thunkAPI.rejectWithValue(error.message);
+      const errorMessage = error.response?.data?.message || error.message;
+      toast.error(errorMessage);
+      return thunkAPI.rejectWithValue(errorMessage);
     }
   }
 );
