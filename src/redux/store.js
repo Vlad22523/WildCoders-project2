@@ -19,15 +19,15 @@ import { columnsReducer } from "./columns/slice.js";
 import { cardsReducer } from "./cards/slice.js";
 import { filtersReducer } from "./filters/slice.js";
 
-const persistConfig = {
-  key: "root",
-  version: 1,
+const authPersistConfig = {
+  key: "auth",
   storage,
+  blacklist: ["loader"], // Виключаємо поле loader зі збереження
 };
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(persistConfig, authReducer),
+    auth: persistReducer(authPersistConfig, authReducer),
     sidebar: sidebarReducer,
     boards: boardsReducer,
     columns: columnsReducer,
