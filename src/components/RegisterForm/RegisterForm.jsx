@@ -20,21 +20,26 @@ const RegisterForm = () => {
   };
 
   const handleSubmit = (values, options) => {
-    console.log("Submitting values:", values);
     dispatch(registerThunk(values));
     options.resetForm();
   };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().min(2, "Too Short!").max(32, "Too Long!").required("*"),
-    email: Yup.string().email("Invalid email").required("*"),
+    name: Yup.string()
+      .min(3, "Name must be at least 3 characters")
+      .max(20, "Name must not exceed 20 characters")
+      .required("*"),
+    email: Yup.string().email("Invalid email format").required("*"),
     password: Yup.string()
-      .min(8, "Too Short!")
-      .max(64, "Too Long!")
-      .matches(/[A-Z]/, "At least one uppercase letter") // велика літера
-      .matches(/[a-z]/, "At least one lowercase letter") // мала літера
-      .matches(/\d/, "At least one number")
-      .matches(/[!@#$%^&*(),.?":{}|<>]/, "At least one special character")
+      .min(8, "Password must be at least 8 characters")
+      .max(20, "Password must not exceed 20 characters")
+      .matches(/[A-Z]/, "Password must include at least one uppercase letter")
+      .matches(/[a-z]/, "Password must include at least one lowercase letter")
+      .matches(/\d/, "Password must include at least one number")
+      .matches(
+        /[@$!%*?&]/,
+        "Password must include at least one special character"
+      )
       .required("*"),
   });
 
@@ -83,7 +88,9 @@ const RegisterForm = () => {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className={`${s.btnShowPassword} ${showPassword ? s.eyeOpen : s.eyeClosed}`}
+              className={`${s.btnShowPassword} ${
+                showPassword ? s.eyeOpen : s.eyeClosed
+              }`}
             >
               <SvgIcon
                 name="icon-eye"
