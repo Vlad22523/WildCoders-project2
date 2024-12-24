@@ -22,7 +22,7 @@ import { filtersReducer } from "./filters/slice.js";
 const authPersistConfig = {
   key: "auth",
   storage,
-  blacklist: ["loader"], // Виключаємо поле loader зі збереження
+  blacklist: ["loader"],
 };
 
 export const store = configureStore({
